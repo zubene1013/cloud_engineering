@@ -137,3 +137,39 @@ github: https://github.com/inky4832/cloud_engineering
 
   실행할 파일선택 > 오른쪽 클릭 > Run as.. > Java Application 선택 > 콘솔(console)에 결과 출력.
 
+-----------------------------------------------------------------------
+8. 다음 코드에서 정리할 내용
+
+public class Hello {
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		System.out.println("Hello World");
+		System.out.println("안녕하세요");
+		System.out.println(1+2);
+	}
+}
+
+ 1) 식별자(identifier)
+    - 소스코드의 각 단어 의미.
+    - 종류 2가지
+      (1) 시스템이 정의한 식별자 ( 예약어, 키워드 )
+          - 시스템이 필요에 의해서 미리 정의한 단어
+	  - 마음대로 바꾸면 에러가 발생됨.
+	   ex. 
+		public private protected
+		class void interface abstract
+		final static enum 
+
+      (2) 사용자가 정의한 식별자
+          - 예약어(키워드)와 같은 이름으로 사용불가
+	  - 대소문자 구별
+	  - 사용 가능한 3가지 요소
+	   가. 클래스명
+		- 반드시 첫글자는 대문자로 지정(관례)
+		- 의미있는 명사형 권장
+                - 반드시 저장할 파일명과 일치해야 됨.
+		- 첫글자이후의 글자는 영소문자, 숫자 , 특수문자( _, $ ) 가능
+		  ex. H12_World,  H$World
+	   나. 변수명
+	   다. 메서드명
+
