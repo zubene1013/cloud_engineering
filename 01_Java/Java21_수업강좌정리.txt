@@ -78,8 +78,11 @@ github: https://github.com/inky4832/cloud_engineering
  2) 컴파일 작업 ( 컴파일러 이용 )
       - 자바가 알 수 있는 기계어로 변경하는 작업
       -문법:  
-            javac Test.java ----------> Test.class 생성됨 (바이트코드:byte code )
- 
+            javac Test.java ----------> Test.class 생성됨 (바이트코드:byte code, JVM에서 실행, 플랫폼 독립적임(OS독립적)
+							 가능한 이유: JVM (Java Virtural Machine)지원,
+								 JDK 설치하면 자동으로 JVM 설치됨.
+							 )
+							
  3) 실행 ( 인터프리터 이용 )
        - *.class 를 실행해주는 명령어
        - 문법:
@@ -88,3 +91,17 @@ github: https://github.com/inky4832/cloud_engineering
     
     실제로 직접 명령어 입력하여 실행할 일이 없음. 개발도구(Eclipse, Intellij)가 자동으로 해줌
  ----------------------------------------------------------------------
+
+6. JDK와 JRE
+
+ 유틸리티(javac.exe, javadoc.exe, jar.exe ... )|    JDK (Java Development Kit): 개발자 환경
+ ---------                                  |
+  *.class (바이트코드)                  |
+ -----------------------           |
+ JVM(Java Virtual Machine)         |
+ ------------------                | JRE(Java Runtime Environment): 실제 어플리케이션을 실행만 가능한 클라이언트들 환경
+  OS(win,mac,linux)                | 
+  ---------                        |
+    H/w
+ 
+--------------------------------------------------------------------------
