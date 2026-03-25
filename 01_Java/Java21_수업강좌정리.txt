@@ -1,0 +1,90 @@
+강사명: 인경열
+이메일: inky4832@daum.net
+github: https://github.com/inky4832/cloud_engineering
+
+1. 회원가입
+   -구글
+   https://www.google.com/
+   -github
+   https://github.com/
+   -오라클
+   https://www.oracle.com/kr/
+
+2. JDK21 ( Java Development Kit ,LTS 버전 , 2031년까지 지원 ) 다운
+ 
+   1) 다운로드
+   https://www.oracle.com/java/technologies/
+
+   2) 설치하기
+     C:\Program Files\Java\jdk-21.0.10 (JDK 홈디렉터리) 생성됨.
+	bin 폴더: 실행 명령어가 저장.
+	   
+	   javac.exe ( 컴파일 명령어, 컴파일러(compiler)라고 부름 )
+	   java.exe  ( 실행 명령어,  인터프리터(interpreter)라고 부름)
+
+   3) 환경변수 설정
+      형식: key(name)=value
+    
+      가. JDK 홈디렉터리 설정
+	
+	JAVA_HOME=C:\Program Files\Java\jdk-21.0.10
+
+      나. 실행 명령어 경로 설정
+        - PATH 환경변수에 설정
+
+	PATH=C:\Program Files\Java\jdk-21.0.10\bin;원래있던PATH값
+
+     환경변수설정방법:
+      윈도우 10 기준:  윈도우 시작 > 오른쪽클릭 > 시스템 > 고급시스템 설정 > 환경 변수
+      윈도우 11 기준:  검색 > 시스템환경변수 > 환경 변수
+   ----------------------------------------------------------------------
+
+3. 자바로 개발할 수 있는 3가지 환경
+
+   1) 표준 환경 ( standard )
+	
+        -Java SE(Java Standard Edition)
+	-자바의 기본
+	-구축방법은 JDK 설치하면 됨.
+
+   2) 기업 환경 ( enterprise )
+     
+       -Java EE (Java Enterprise Edition)
+       -웹 개발 ( Servlet/JSP )	
+
+   3) 모바일 환경  ( micro )
+       Java ME (Java Micro Edition)
+
+  ----------------------------------------------------------------------
+4. java 기반의 압축 파일 형식 3가지
+
+  1)jar ( java archive)
+    - *.jar
+    - *.class 파일들을 압축
+  2)war ( web archive)
+    - *.war
+    - 웹 어플리케이션(서블리/jsp) 압축
+  3)ear ( enterprise archive)
+    - *.ear
+    - .jar +  *.war
+ ----------------------------------------------------------------------
+5. 자바프로그램 작성 및 실행 방법
+ 
+ 1) 소스코드
+     - Test.java
+     - 내부에는 영어로 구성 ( 사람을 위한 포맷 )
+	ex. public class Test{..}
+
+ 2) 컴파일 작업 ( 컴파일러 이용 )
+      - 자바가 알 수 있는 기계어로 변경하는 작업
+      -문법:  
+            javac Test.java ----------> Test.class 생성됨 (바이트코드:byte code )
+ 
+ 3) 실행 ( 인터프리터 이용 )
+       - *.class 를 실행해주는 명령어
+       - 문법:
+
+             java Test
+    
+    실제로 직접 명령어 입력하여 실행할 일이 없음. 개발도구(Eclipse, Intellij)가 자동으로 해줌
+ ----------------------------------------------------------------------
