@@ -105,3 +105,35 @@ github: https://github.com/inky4832/cloud_engineering
     H/w
  
 --------------------------------------------------------------------------
+6. 개발도구 ( Eclipse 개발도구 )
+   - 압축프로그램 설치 필요: 반디집,알집
+
+   1) 작업디렉터리 생성
+
+	C:\cloud_engineering\Java21_study\eclipse\workspace
+
+   2) 실행
+      eclipse.exe
+
+   3) 작업 디렉터리 설정
+     
+      C:\cloud_engineering\Java21_study\eclipse\workspace
+
+   4) 실행 후 확인
+    
+      (1)컴파일러 확인
+	
+	window > preferences > java > compiler 에서 21 확인
+
+       (2)JRE 확인  ( 최근 eclipse 는 자체적으로 OpenJDK가 설치됨 )
+
+       window > preferences > installed JREs > jdk21만 남기고 모두 삭제
+-----------------------------------------------------------------------------
+7. 자바 프로젝트 생성 및 실행
+ 
+  파일 > new > Java Project 선택 >  프로젝트명: 임의값 입력 >  Module 체크하지 말것(*************)
+
+  파일 > new > class > Name: 클래스명입력 > public static void main(String[] args) 체크 > finish
+
+  실행할 파일선택 > 오른쪽 클릭 > Run as.. > Java Application 선택 > 콘솔(console)에 결과 출력.
+
