@@ -453,7 +453,7 @@ Git
                              반드시 2번째 이후부터 지정.
         hint:  git add/rm  # git add 선택하면 hello.txt 유지
                              git rm 선택하면 hello.txt 제거
-     $ git add .
+     $ git add . # git add 선택하면 hello.txt 유지
      $ git revert --continue # vsc 열림. 커밋 메시지 작성하고 파일저장.
                               만약 vsc 안열리면  
 			      git config --global core.editor "code --wait" 다시 실행
@@ -461,8 +461,63 @@ Git
 
      $ git log --oneline
         
-      $ git revert --abort  # git revert 중단하기
+     $ git revert --abort  # git revert 중단하기
 
 ------------------------------------------------------------------------
+##############
+브랜치
+#############
+1. 기본 브랜치
 
-  
+  - main 브랜치가 자동으로 제공 ( git init 할 때 )
+  - 과거에는 master 브랜치가 기본이었음. 현재 사용 안함
+  - 독립적으로 관리됨 (*****************)
+
+2. 기본 명령어
+
+   $ git branch : 브랜치 목록 보기
+   $ git branch 브랜치명: 새로운 브랜치 생성
+   $ git branch -M 브랜치명:  브랜치 이름 변경, 변경할 브랜치에서 작업
+   $ git branch -D 브랜치명:  브랜치 강제 삭제, 다른 브랜치에서 작업
+   $ git switch 브랜치명:  브랜치 변경
+     git checkout 브랜치명: 브랜치 변경 (OLD )
+
+   $ git switch -c 브랜치명 : 브랜치 생성하고 변경됨
+   $ git log main..hotfix : main 기준으로 hotfix 차이점 출력
+   $ git merge 브랜치명 : main에서 작업. main에 브랜치변경작업을 병합
+   
+   실습:
+     $ mkdir git_branch
+     $ cd git_branch
+     $ git init
+     $ touch hello.txt
+     $ echo "hello" >> hello.txt
+     $ git add .
+     $ git commit -m "hello commit"
+
+     $ git branch hotfix   # hotfix 이름의 새로운 브랜치 생성
+	
+     # main 브랜치에서 작업
+     $ git branch -M master
+
+     # main 브랜치에서 작업
+     $ git branch -D hotfix
+
+     # main 브랜치에서 hotfix로 변경
+     $ git switch hotfix
+       git checkout hotfix
+
+     # feature 브랜치 만들면서 변경
+     $ git switch -c feature
+
+     # hotfix에 새로운 작업 추가 
+       $ git switch hotfix
+       $ echo "hello2" >> hello.txt
+       $ git commit -am "hello commit"  <== main 과 hotfix가 다름.
+
+     # main 기준으로 hotfix 차이점 출력
+     $ git log main..hotfix
+
+     # main에서 작업. main에 브랜치변경작업을 병합
+     $ git merge  hotfix
+       git branch -D hotfix  <== 병합후에는 hotfix 브랜치 삭제
