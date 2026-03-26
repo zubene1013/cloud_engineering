@@ -449,15 +449,20 @@ Git
      $ echo "hello2" >> hello.txt
      $ git commit -am "hello2 commit"
 
-     $ git revert d17308b 
-
+     $ git revert d17308b  # 기준이 필요한테 맨 처음 만든 커밋은 기준이 없기 때문에 안됨.
+                             반드시 2번째 이후부터 지정.
+        hint:  git add/rm  # git add 선택하면 hello.txt 유지
+                             git rm 선택하면 hello.txt 제거
      $ git add .
      $ git revert --continue # vsc 열림. 커밋 메시지 작성하고 파일저장.
-                              만약 vsc 안열리면  git config --global core.editor "code --wait" 다시 실행
+                              만약 vsc 안열리면  
+			      git config --global core.editor "code --wait" 다시 실행
+			      (필요시 커밋메시지를 입력할 때 사용할 에디터 등록하는 방법 )
 
      $ git log --oneline
         
-	final commit
-        hello2 commit
-        hello commit
+      $ git revert --abort  # git revert 중단하기
+
 ------------------------------------------------------------------------
+
+  
