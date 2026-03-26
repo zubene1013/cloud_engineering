@@ -1,0 +1,74 @@
+##############
+Git
+#############
+
+1. 환경설정
+ https://git-scm.com/
+
+ https://git-scm.com/docs
+
+  git -v  설치확인
+
+
+2. Git 개요
+
+   - 버전 관리 시스템임
+   - 리누스 토르발스가 만듬 ( 리눅스 창시자 )
+
+   - 특징:
+      로컬 저장소 및 원격 저장소 생성: git init 명령어
+      로컬 저장소에 버전관리할 파일 생성 및 추가 : git add 명령어 ( 아직까지는 버전 생성 안됨 )
+      버전관리할 파일의 버전 생성 :  git commit 명령어 + 커밋 메시지 반드시 설정( ex. "update 코드 추가" )
+      버전 히스토리 확인 : git log 명령어
+      버전간에 비교 : git diff 명령어
+      특정버전으로 되돌아기 : git reset 명령어 , git revert 명령어
+      새로운 브랜치 생성 ( 이전 브랜치에 영향을 미치지 않음 ) : git branch 브랜치명
+      브랜치 병합: git merge 명령어
+      로컬저장소에 브랜치를 원격 저장소에 보내기 가능: git push 명령어
+
+3. Git이 사용하는 기본 텍스트 편집기 설정
+
+  https://git-scm.com/book/en/v2/Appendix-C%3A-Git-Commands-Setup-and-Config 가이드
+
+  git config --global core.editor "code --wait" <== git commit 명령어만 사용하면 자동으로 VSC 오픈됨
+
+
+4. 전역 사용자 등록
+
+   -git bash 에서 작업
+   -------------------------
+    ls      # 디렉터리 목록보기
+    ls -al  # 자세하게 디렉터리 목록보기
+
+    clear   # 화면 지우기
+
+    pwd     # 현재 위치
+    
+    mkdir 디렉터리명  #디렉터리 생성
+
+    cd  디렉터리명   #디렉터리 변경 , 몇글자만 입력하고 tab 활용
+    cd  ..        #상위 디렉터리로 변경
+
+    rm -rf 디렉터리명  # 디렉터리 강제 삭제
+    rm 파일명 파일명2 ..        # 파일 삭제
+
+    touch 파일명     # 파일생성
+
+    echo 문자열      # 문자열이 콘솔에 출력
+    
+    echo 문자열 >> 파일명     # 콘솔에 출력되는 문자열을 파일에 추가(append, 새로운 줄에 추가됨), redirection 기능
+    echo -n 문자열 >> 파일명  # 콘솔에 출력되는 문자열을 파일에 추가(append, 같은 줄에 추가됨),
+    echo 문자열 >  파일명  # 콘솔에 출력되는 문자열을 파일에 덮어쓰기
+
+    cat 파일명   # 파일내용 보기
+   -------------------------
+
+   $ git config --global user.name "inky4832"
+   $ git config --global user.email "inky4832@daum.net"  # 반드시 github 계정과 일치
+
+   c:\사용자\계정명\ .gitconfig 파일에 저장됨.
+        [core]
+	   editor = code --wait
+	[user]
+		name = inky4832
+		email = inky4832@daum.net
