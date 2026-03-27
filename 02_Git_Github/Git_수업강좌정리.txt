@@ -638,6 +638,28 @@ Github 정리
                git remote add origin https://github.com/inky4832/github_test.git
 		git branch -M main
 		git push -u origin main
+
+   라. 원격브랜치 보기
+	
+       git branch  # 로컬 브랜치 보기
+ 
+       git branch -r # 원격 브랜치 보기
+
+       git branch -a # 로컬 + 원격 브랜치 보기
+
+  마. 원격브랜치 삭제
+
+     git push origin --delete  hotfix  
+     
+	만일 다음과 같이 오류가 발생했다면 다음과 같이 추가작업을 해야된다.
+	error: unable to delete 'hotfix': remote ref does not exist
+        error: failed to push some refs to 'https://github.com/inky4832/github_test.git'
+
+        # 원격의 정보를 다시 가져옴
+	git fetch -p origin
+	git push origin --delete  hotfix
+
+
 -------------------------------------------------------------------------------------
 ###########################################
 로컬저장소에 있는 커밋데이터를 원격 저장소로 보내기 
@@ -673,7 +695,7 @@ Github 정리
      라. push하기
 
          git branch -M main # 브랜치이름 변경
-         git push -u origin main  # -u: upstream, origin에 main브랜치가 생성됨
+         git push -u origin main  # -u: upstream 생략가능, origin에 main브랜치가 생성됨
 
    -------------------------------------------
    실습2 ( hotfix 브랜치를 push 하기 )
