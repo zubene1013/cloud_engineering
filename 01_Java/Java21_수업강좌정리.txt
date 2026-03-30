@@ -398,7 +398,7 @@ public class Hello {
 	      public void method(float x //로컬변수){
 	     //메서드 안	
 
-		int count;  // 로컬변수
+		int count=0;  // 로컬변수
 
 	      }
 
