@@ -16,14 +16,12 @@ public class Statement05_for문4_실습 {
 			   System.out.println(n);
 			}
 		}
-		
 		//문제3: 1~20까지 반복해서 총합을 출력하시오.
 		int sum=0;
 		for(int n=1; n <=20; n++) {
 			sum = sum + n; // sum+=n;
 		}
 		System.out.println("sum:" + sum);
-		
 		
 		//문제4: 1~20까지 반복해서 짝수값의 총합을 출력하시오.
 		int sum2=0;
