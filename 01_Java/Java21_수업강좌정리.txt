@@ -1602,3 +1602,17 @@ public class Hello {
 	 기본생성자 형태:   public 클래스명(){}
 	 
 	 만약에 개발자가 명시적으로 생성자를 만들면 기본생성자(default constructor)는 자동으로 제공안됨.
+
+       - 여러개의 생성자 설정 가능. ( 오버로딩 (overloading) 생성자라고 부름 )
+         단, 구별하기 위해서 argument list가 반드시 달라야 된다.
+	  
+	   
+	   ex.  public 클래스명(){}
+	        public 클래스명(int n){}
+	        public 클래스명(String n){}
+		public 클래스명(String n, int n2){}
+		public 클래스명(int n, String n2){}
+
+        - 생성자를 이용한 장점 2가지
+	  가. 인스턴스 변수에 값을 설정하기 전에 검증작업이 가능
+	  나. 직접 접근방법보다 훨씬 빠르게 초기화가 가능.
