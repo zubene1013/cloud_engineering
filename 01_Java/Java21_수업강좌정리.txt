@@ -1812,3 +1812,18 @@ public class Hello {
         사용: 
 	      Test t = new Test();
 	      int result=t.method(1,2);
+
+    4) 오버로딩 (Overloading)메서드 가능
+
+       - 하나의 클래스에 동일한 이름의 메서드를 여러개 사용가능.
+        단, 식별하기 위해서 argument list(갯수, 타입, 순서)는 달라야 된다.
+       - 목적: 재사용성	
+
+	ex.
+	     public void a(){}
+	     //public int a(){} //에러
+
+	     public void a(int n){}
+	     public void a(String s){}
+	     public void a(int n, String s){}
+	     public void a(String s, int n){}
