@@ -1722,6 +1722,7 @@ public class Hello {
 
       - 생성자와 공통점
          반드시 호출해야 됨 (************)
+	 호출해서 메서드 작업이 끝나면 반드시 호출한 곳으로 돌아온다.(리턴(return)한다고 부름)
 	   
 	   생성자호출방법: 능
 	     
@@ -1736,3 +1737,78 @@ public class Hello {
              
 	      내부 클래스에 호출: this.메서드([값,...]); // this 생략해서 주로 사용됨
 	                     메서드([값,...]);
+
+
+   3) 메서드의 파라미터와 리턴값의 존재 여부에 따른 4가지 형식
+
+      문법: public 리턴타입  메서드명( [변수,..] ){
+	       문장1;
+	       ...
+
+	     [return 값;]
+	 }
+
+      가. 파라미터 없고 리턴값 없는 경우
+
+	    public class Test{
+		public void method(){
+                     문장1;
+		}
+	    }
+
+        사용: 
+	    Test t = new Test();
+	    t.method();
+
+
+      나. 파라미터 있고 리턴값 없는 경우 ( setter 메서드라고 부름 )
+
+
+	    public class Test{
+		public void method(int n,String s){
+                     문장1;
+		}
+	    }
+
+	  사용: 
+	      Test t = new Test();
+	      t.method(10,"홍길동");
+
+
+
+      다. 파라미터 없고 리터값 있는 경우 (getter 메서드 라고 부름 )
+	byte > short > int > long > float > double
+
+             public class Test{
+		public int method(){
+                     문장1;
+		     return 10;  // 값은 기본형가능, 참조형 가능
+		}
+		public int[] method2(){
+                     문장1;
+		     return new int[]{1,2,3};  //  int [] num = new int[]{1,2,3};
+		}
+		public Cat method3(){
+                     문장1;
+		     return new Cat("야옹이",2,"암컷");  // Cat c = new Cat("야옹이",2,"암컷"); 
+		}
+	    }
+
+	사용:  Test t = new Test();
+	      int result = t.method();
+	      int[] num = t.method2();
+	      Cat c = t.method3();
+
+
+      라. 파라미터 있고 리턴값 있는 경우
+
+             public class Test{
+		public int method(int n, int n2){
+                     문장1;
+		    
+		    return n+n2;
+		}
+
+        사용: 
+	      Test t = new Test();
+	      int result=t.method(1,2);
