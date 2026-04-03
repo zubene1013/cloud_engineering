@@ -8,7 +8,6 @@ public class TestCat {
 		Cat c = new Cat("야옹이", 200, "암컷");
 	
 		c.setAge(300);
-	
 		String name = c.getName();
 		int age = c.getAge();
 		String gender = c.getGender();

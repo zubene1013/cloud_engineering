@@ -11,7 +11,7 @@ public class Cat {
 	public Cat(String name, int age, String gender) {
 		this.name = name;
 		//age 검증
-//		if(age >= 20) {
+//		if(age >= 30) {
 		if(ageValidCheck(age)) {
 			System.out.println("나이 입력 오류발생");
 		}else {
@@ -21,7 +21,7 @@ public class Cat {
 	}
 	public void setAge(int age) {
 		//age 검증
-//		if(age >= 20) {
+//		if(age >= 30) {
 		if(ageValidCheck(age)) {
 			System.out.println("나이 수정 오류발생");
 		}else {
@@ -30,13 +30,13 @@ public class Cat {
 	}
 	//필요시 메서드 추가
 		// age 검증하는 메서드
-		public boolean ageValidCheck(int age) {
+		private boolean ageValidCheck(int age) {
 			 boolean result = false;
 			 //조건체크
-			 if(age >= 20)result=true;
+			 if(age >= 30)result=true;
 			 return result;
 		}
-		public boolean ageValidCheck2(int age) {
+		private boolean ageValidCheck2(int age) {
 			 //조건체크
 			 if(age >= 20) {
 				 return true;
