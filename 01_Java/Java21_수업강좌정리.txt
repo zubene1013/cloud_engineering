@@ -2098,3 +2098,39 @@ public class Hello {
 	          Cat c = new Cat();
 		  System.out.println(c); // 참조변수 출력
 		  System.out.println(c.toString());
+    
+    
+   - 결론: 재사용 클래스를 만들 때 Object의 toString() 재정의해서 사용하자.
+         toString()메서드를 이용하면 재사용 클래스에서 추가 메서드가 필요 없어짐.
+
+
+3. 다형성 ( Polymorphims )
+
+   1) 상속이 전제되는 스킬
+     가. super 키워드
+     나. 오버라이딩(Overriding)메서드
+     다. 다형성( Polymorphims )
+
+   2) 개념
+     하나의 참조변수가 타입이 다른 여러 인스턴스를 참조하는 능력.
+     목적: 부모 타입의 변수 하나로 모두 관리하자. (재사용성)
+      ex.
+         반드시 A와 B, A와 C간에 상속관계 전제됨.
+
+             A a = new A();
+	       a = new B();
+	       a = new C();
+
+	     B b = new A();//역은 불가
+
+		A (부모, 큰타입)
+		|
+	      B    C (자식, 작은타입)
+
+	  /////////////////////////////
+            기본형 ( 큰타입 = 작은타입)
+	    byte b =10;
+	    int n = b;
+
+	    byte b2 = n; //역은 불가
+	  //////////////////////////////
