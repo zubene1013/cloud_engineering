@@ -6,12 +6,15 @@ public class Manager extends Employee{
 
 	String depart; // 관리부서
 	
-	public Manager() {}
+	public Manager() {
+		super();
+	}
 
 	public Manager(String name, int salary, String depart) {
+		super(name,salary);
 		System.out.println("Manager 생성자");
-		this.name = name;
-		this.salary = salary;
+//		this.name = name;
+//		this.salary = salary;
 		this.depart = depart;
 	}
 	

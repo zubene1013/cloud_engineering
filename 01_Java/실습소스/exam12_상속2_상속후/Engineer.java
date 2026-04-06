@@ -6,11 +6,14 @@ public class Engineer extends Employee{
 
 	String skill; // 엔지니어의 기술
 	
-	public Engineer() {}
+	public Engineer() {
+		super();
+	}
 	public Engineer(String name, int salary, String skill) {
+		super(name, salary); //명시적 호출
 		System.out.println("Enginner 생성자");
-		this.name = name;
-		this.salary = salary;
+//		this.name = name;
+//		this.salary = salary;
 		this.skill = skill;
 	}
 	

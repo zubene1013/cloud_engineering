@@ -1,4 +1,4 @@
-package exam12_상속2_상속후;
+package exam12_상속4_오버라이딩;
 
 public class Employee {  //  자동으로 extends Object 가 지정됨
 	
@@ -19,3 +19,4 @@ public class Employee {  //  자동으로 extends Object 가 지정됨
 		return name+"\t"+salary;
 	}
 }
+ 
