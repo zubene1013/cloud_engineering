@@ -2044,7 +2044,10 @@ public class Hello {
 	       자식  public void a(){ //구현내용 수정}
 
 	           public void b(){}
-
+ 
+    재정의 불가한 경우:  부모 메서드가 private.
+		  부모 메서드가 static.
+                  부모 메서드가 final.
 
     4) super 키워드
 
@@ -2073,3 +2076,25 @@ public class Hello {
 
 			    super.name  <=== 부모의 name 참조
 			    super.a();  <=== 부모의 a() 호출
+
+
+2. Object 클래스
+
+  1)개념: 최상위 클래스 ( 모든 클래스가 자동으로 상속받는 클래스이면서 가장 먼저 생성되는 클래스 )
+  2)주요메서드: ...
+          toString()
+
+	  Object의 실제구현:
+
+	     public String toString(){
+		return 패키지명.클래스명@16진수;  // 클래스의 주소값에 해당되는 문자열
+	     }
+            
+  2)toString()
+    - 역할: 값을 문자열로 변환해주는 기능임.
+    - 사용되는 경우: 참조변수를 콘솔에 출력하기 위해서 System.out.println(참조변수) 사용할 때 자동으로 호출되는 메서드임.
+		주소값(ex.100번지)을 콘솔에 출력하기 위해서는 문자열로 만들어줘야 하기 때문에 자동으로 toString() 호출됨.
+              ex. 
+	          Cat c = new Cat();
+		  System.out.println(c); // 참조변수 출력
+		  System.out.println(c.toString());
