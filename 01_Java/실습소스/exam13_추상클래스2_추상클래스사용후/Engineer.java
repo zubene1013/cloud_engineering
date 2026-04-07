@@ -1,4 +1,4 @@
-package exam13_추상클래스2_추상클래스사용전;
+package exam13_추상클래스2_추상클래스사용후;
 
 public class Engineer extends Employee{
 
@@ -9,7 +9,8 @@ public class Engineer extends Employee{
 		this.skill = skill;
 	}
 	// name과 salary, skill를 리턴하는 메서드가 필요하다고 order가 옴
-	public String getInfo() {
+	@Override
+	public String getEmployee() {
 		return skill+"\t"+name+"\t"+salary;
 	}
 //	public Engineer() {

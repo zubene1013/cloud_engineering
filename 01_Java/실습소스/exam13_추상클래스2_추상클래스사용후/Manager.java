@@ -1,4 +1,4 @@
-package exam13_추상클래스2_추상클래스사용전;
+package exam13_추상클래스2_추상클래스사용후;
 
 public class Manager extends Employee {
 
@@ -9,8 +9,12 @@ public class Manager extends Employee {
 		this.depart = depart;
 	}
 	// name과 salary, depart를 리턴하는 메서드가 필요하다고 order가 옴
-	public String getNameSalaryDepart() {
+//	public String getNameSalaryDepart() {
+//		return depart+"\t"+name+"\t"+salary;
+//	}
+	@Override
+	public String getEmployee() {
+		// TODO Auto-generated method stub
 		return depart+"\t"+name+"\t"+salary;
 	}
-
 }

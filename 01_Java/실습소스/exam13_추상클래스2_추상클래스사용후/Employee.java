@@ -1,7 +1,7 @@
-package exam13_추상클래스2_추상클래스사용전;
+package exam13_추상클래스2_추상클래스사용후;
 
 //부모
-public  class Employee {
+public abstract class Employee {
 	String name;
 	int salary;
 		public Employee(String name, int salary) {
@@ -9,7 +9,5 @@ public  class Employee {
 		this.salary = salary;
 	}
 	// name과 salary를 리턴하는 메서드가 필요하다고 order가 옴
-	public  String getEmployee() {
-		return name+"\t"+salary;
-	}
+	public abstract String getEmployee();
 }
