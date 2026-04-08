@@ -2476,3 +2476,80 @@ public class Hello {
 	     }
 
    라. 익명클래스 (*********************)
+
+2. 익명 클래스 ( Anonymous class )
+
+   1) 개념
+     - 이름이 없는 클래스 의미.
+     - 인터페이스(interface) 사용할 때 주로 사용됨.
+     - 나중에 람다표현식(lambda expression)과 연결됨.
+
+   
+   2) 문법:
+    
+       public interface Flyer{
+	   public abstract void fly();
+       }
+
+       //가. 이름있는 클래스
+	 public class Bird implments Flyer{
+
+	       ...
+	       @Override
+	       public void fly(){
+
+	       }
+	 }
+
+	 //main
+	 Bird b = new Bird();
+	 b.fly();
+         Flyer f = new Bird();
+	 f.fly();
+
+
+       //나. 익명 클래스 ( 인터페이스로만 표현됨 )
+
+       문법:
+          
+	  인터페이스명  변수명 = new 인터페이스(); //에러
+
+	  인터페이스명  변수명 = new 인터페이스(){
+		
+		//추상메서드 재정의
+		
+	  }; //익명클래스
+
+	 ex. 
+	     Flyer f = new Flyer(){
+		       @Override
+		       public void fly(){
+
+		       }
+	     };
+
+	     f.fly();
+------------------------------------------
+3. 람다 표현식 (lambda expression )
+
+  1)개념
+    익명클래스의 또 다른 표현 방법임.
+
+  2)등장배경
+    자바에서는 클래스가 최소단위임.
+    따라서 메서드만 필요해도 클래스를 무조건 만들어야 됨.
+    결국은 클래스 껍데기를 걷어내고 메서드에만 집중하자. ( 함수형 프로그래밍 방법론 )
+
+  3)특징
+    -반드시 단 하나의 추상메서드만 가진 경우에만 람다표현식이 가능함.
+    -단 하나의 추상메서드만 가질 수 있도록 인터페이스를 강제할 수 있음.
+     @FunctionalInterface 어노테이션을 사용.
+
+     ex. 
+
+         @FunctionalInterface <== 추상메서드는 반드시 하나만 가져야 됨.
+          public interface Flyer{
+	    public abstract void fly();
+	    //default 메서드 사용 가능
+	  }
+
