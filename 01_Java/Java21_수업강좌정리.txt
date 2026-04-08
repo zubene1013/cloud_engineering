@@ -2417,3 +2417,62 @@ public class Hello {
 ------------------------------------------------
 9일차 2026-04-08
 
+1. 중첩클래스
+
+  1)개념:
+   클래스내에 또 다른 클래스를 정의
+   static 사용 불가
+
+     ex
+          public class Outer{
+		
+		//-변수
+		//메서드
+		//생성자
+	    
+	      class Inner{ //중첩클래스(Inner 클래스)
+		 //변수
+		 //메서드
+	      }
+	  }
+
+ 2) 종류 4가지
+
+   가. member inner 클래스
+	- Outer클래스의 멤버(변수,메서드)처럼 정의됨.
+	ex.  
+	     public class Outer{
+		 
+		 //변수
+		 //메서드
+		 class Inner{
+		   //static int num = 10; 오류
+		 }
+	     }
+   나. local inner 클래스
+       - Outer클래스의 로컬변수 처럼 정의됨.
+        ex.
+	     public clas Outer{
+
+		public void a(){
+		   int n = 10; //로컬변수
+
+		   class Inner{
+                      //static int num = 10; 오류
+		   }
+		}
+	     }
+
+   다. static inner 클래스
+	- 일반적인 중첩클래스는 static 를 못가짐.
+	  대신 static inner클래스를 가질수 있음.
+	ex.  
+	     public class Outer{
+		 //변수
+		 //메서드
+		 static class Inner{
+		   static int num = 10; 
+		 }
+	     }
+
+   라. 익명클래스 (*********************)
