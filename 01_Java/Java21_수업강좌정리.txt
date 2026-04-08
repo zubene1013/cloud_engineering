@@ -2542,6 +2542,7 @@ public class Hello {
 
   3)특징
     -반드시 단 하나의 추상메서드만 가진 경우에만 람다표현식이 가능함.
+     ==> 단일책임원칙 방법론에 기반.
     -단 하나의 추상메서드만 가질 수 있도록 인터페이스를 강제할 수 있음.
      @FunctionalInterface 어노테이션을 사용.
 
@@ -2553,3 +2554,60 @@ public class Hello {
 	    //default 메서드 사용 가능
 	  }
 
+  4) 람다표현식 4가지 문법
+     - 인터페이스의 단 하나인 추상메서드가 파라미터 및 리턴타입 여부에 따른 문법
+
+    가. 파라미터 없고 리턴타입 없음
+
+      ex.
+             @FunctionalInterface
+	     public interface Flyer{
+		public abstract void fly();
+	     }
+         
+	   // 익명클래스
+	    Flyer f = new Flyer(){
+	       public void fly(){
+		  System.out.println("fly()");
+	       }
+	    };
+	    f.fly();
+
+
+
+	    //람다표현식 ( 메서드에 집중~~~ )
+	     Flyer f =  ()->{System.out.println("fly()");};
+	     Flyer f =  ()-> System.out.println("fly()");   // 하나의 실행문이면 {} 생략가능
+	     f.fly();
+
+
+    나. 파라미터 있고 리턴타입 없음
+
+        ex.
+             @FunctionalInterface
+	     public interface Flyer2{
+		public abstract void fly(int n);
+	     }
+
+	    //익명클래스
+	    Flyer2 f = new Flyer2(){
+	       @Override
+		public void fly(int n){
+		   System.out.println("fly()"+ n);
+		}
+	    };
+	   f.fly(10);
+
+
+	   //람다표현식
+            Flyer2 f =(int n)->{System.out.println("fly()"+ n);};
+
+	    Flyer2 f2 =(n)->{System.out.println("fly()"+ n);}; //파라미터 데이터타입 생략
+
+	    Flyer2 f3 = n->{System.out.println("fly()"+ n);}; // 파라미터 변수가 하나면 () 생략
+
+            Flyer2 f4 = n->System.out.println("fly()"+ n); // 실행문이 하나면 {} 생략
+
+
+    다. 파라미터 없고 리턴타입 있음
+    라. 파라미터 있고 리턴타입 있음
