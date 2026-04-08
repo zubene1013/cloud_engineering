@@ -2670,6 +2670,40 @@ public class Hello {
 	  Flyer5 f3 =(n,n2)->{return n+n2;};
 
 	  Flyer5 f4 =(n,n2)->n+n2;
+
 	  int num4 = f4.fly(10,20);
 	  System.out.println(num4);
 
+------------------------------------------------------
+4. 유틸리티 클래스
+
+  1)String 
+
+     가. java.lang.String	
+     나. 생성방법 2가지
+
+         a. 리터럴 이용 
+	   
+	   String s =  "hello";
+	   String s2 = "hello";
+
+	   동일한 문자열인 경우 한 번만 생성됨.
+	   (s == s2 )==> true
+
+	 b. new 이용
+
+	  String s = new String("hello");
+	  String s2 = new String("hello");
+	
+	  동일한 문자열일지라도 매번 생성됨.
+	  (s == s2 )==> false
+
+     다. 메서드
+
+  2)StringBuilder
+  3)Date,Calendar
+  4)LocalDate, LocalDateTime
+  5)StringTokenizer
+  6)Wrapper클래스
+  7)enum
+  8)Random
