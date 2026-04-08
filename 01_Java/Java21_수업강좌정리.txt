@@ -2607,7 +2607,69 @@ public class Hello {
 	    Flyer2 f3 = n->{System.out.println("fly()"+ n);}; // 파라미터 변수가 하나면 () 생략
 
             Flyer2 f4 = n->System.out.println("fly()"+ n); // 실행문이 하나면 {} 생략
+            f4.fly(10);
 
 
     다. 파라미터 없고 리턴타입 있음
+
+           ex.
+             @FunctionalInterface
+	     public interface Flyer4{
+		public abstract String fly();
+	     }
+
+	     //익명 클래스
+	     Flyer4 f = new Flyer4(){
+		public String fly(){
+		  return "Hello";
+		}
+	     };
+	     String s = f.fly();
+	     System.out.println(s);
+
+	
+	     //람다표현식
+	      //다음과 같이 실행문자이 여러개인 경우 {}와 return 생략 불가
+	      Flyer4 f = ()->{
+	         System.out.println();
+		 return "Hello";\
+	      };
+
+              Flyer4 f = ()->{return "Hello";};
+
+	      Flyer4 f = ()->"Hello";  // return문장 하나만 존재하면 {}와 return 생략가능
+
+              String s = f.fly();
+	      System.out.println(s);
+
+
     라. 파라미터 있고 리턴타입 있음
+
+
+           ex.
+             @FunctionalInterface
+	     public interface Flyer5{
+		public abstract int fly(int n, int n2);
+	     }
+
+	   //익명클래스
+	    
+	     Flyer5 f = new Flyer5(){
+
+		public int fly(int n, int n2){
+		    return n+n2;
+		}
+	     };
+	     int num = f.fly(10,20);
+	     System.out.println(num);
+
+
+	  //람다표현식
+	  Flyer5 f2 =(int n, int n2)->{return n+n2;};
+
+	  Flyer5 f3 =(n,n2)->{return n+n2;};
+
+	  Flyer5 f4 =(n,n2)->n+n2;
+	  int num4 = f4.fly(10,20);
+	  System.out.println(num4);
+
