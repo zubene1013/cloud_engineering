@@ -2821,4 +2821,29 @@ public class Hello {
 	int n3 = n2;     // 기본형 = 참조형 <== 오토언박싱(auto unboxing)
 
   7)enum
+
+     용도: 여러 개의 상수를 효율적으로 관리하기 위한 객체
+     문법:
+         //기존 상수
+	 public static final int SUNDAY=0;
+	 public static final int MONDAY=1;
+	 ..
+	 public static final int SATURDYA=6;
+
+	==> 사용: 클래스명.SUNDAY
+
+	//enum
+	public enum  enum명{
+	    상수명, 상수명2,......;
+	}
+	ex.  public enum Day{
+		 SUNDAY, MONDAY,....,SATURDYA;
+	      }
+
+       ==> 사용: Day.SUNDAY
+               Day.ADMIN; //에러발생
+
+
+
+
   8)Random
