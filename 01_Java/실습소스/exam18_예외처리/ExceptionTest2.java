@@ -9,7 +9,9 @@ public class ExceptionTest2 {
 		 int n=0;
 		 int result = 10/n;  
 		 System.out.println("결과:"+result);
-	    }catch(ArithmeticException e) {
+	    }catch(ArithmeticException e) {  // 정확안 예외클래스 사용을 권장함.
+//	    }catch(RuntimeException e) {
+//	    }catch(Exception e) {
 	    	//예외처리 코드
 	    	System.out.println("0으로 나누어서 예외발생");
 	    }
