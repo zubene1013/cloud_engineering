@@ -2895,6 +2895,18 @@ public class Hello {
 	   ...
 
 	 }// main메서드
+
+           
+           # catch 할때 다형성 적용 가능 ( 권장안함)
+           try {
+		 int n=0;
+		 int result = 10/n;  
+		 System.out.println("결과:"+result);
+	    }catch(ArithmeticException e) {  // RuntimeException, Exception 모두 가능 (다형성)
+	    	//예외처리 코드
+	    	System.out.println("0으로 나누어서 예외발생");
+	    }
+
        ---------------------------------------------------------------------
 
     나. 예외를 위임해서 처리
@@ -2909,5 +2921,49 @@ public class Hello {
 	  Throwable
          |          |
   Error           Exception	 
-(코드로 해결안됨
- 무시)
+(코드로 해결안됨                        |
+ 무시)             
+                RuntimeException            IOException,SQLException
+                 (런타임 계열)                      (비 런타임 계열)
+		 -실행중에 발생되는                  - 컴파일중에 발생되는
+		  예외처리클래스                       예외처리 클래스
+		    |                                   |
+	      ArithmeticException                      FileNotFoundException
+	      ( 0으로 나누었을 때)
+	      ArrayIndexOutofBoundsException           ..
+	      ( 배열 index 불일치)
+	      NullPointerException(객체생성없이 메서드호출)
+	      ClassCastExcetpion(형변환 잘못된 경우)
+	      ..
+
+  사용자 정의 예외클래스 가능.
+		  
+
+  5) 다중 catch 문
+
+  문법:
+     try{
+      문장1; <== ArithmeticException 발생가능
+      문장2; <== NullPointerException 발생가능        
+      ..
+    }catch(NullPointerException e){ 
+     
+    }catch(ArithmeticException e){ 
+     
+    }catch(Exception e){ //관례적으로 가장 마지막에는 Exception 지정함.
+     
+    }        
+
+ 다형성 적용하면 Exception 만으로도 catch가 가능함. 하지만 상세하게 catch하는 것을 권장함 (**************)
+
+ 주의할점: 반드시 catch문의 예외클래스는 계층구조에서 하위부터 지정해야 된다. (********)
+
+   6) 예외정보 얻기
+
+     가.  e.getMessage();
+
+        문법:  System.out.println( e.getMessage());
+ 
+     나.  e.printStackTrace();  // 디버깅용
+
+        문법: e.printStackTrace();
