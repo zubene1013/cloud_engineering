@@ -2780,6 +2780,15 @@ public class Hello {
   https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/time/format/DateTimeFormatter.html
 
   5)StringTokenizer
+
+    - String의 split 기능
+      즉 구분자를 가진 문자열에서 구분자를 이용해서 문자열을 분리할 때 사용 ( 분리된 값 하나씩을 토큰이라고 부름 )
+    - 구분자의 기본은 공백.
+    - java.util.StringTokenizer
+
+      ex. "홍길동/이순신/유관순"
+
+
   6)Wrapper클래스
   7)enum
   8)Random
