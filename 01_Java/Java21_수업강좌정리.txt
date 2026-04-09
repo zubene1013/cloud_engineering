@@ -2850,7 +2850,7 @@ public class Hello {
 
   1)예외(exception)
     - 일반적으로 에러(error)라고 부름.
-      프로그램 실행중에 발생되는 문제임.
+      프로그램 실행중에 발생되는 문제임.(***)
       프로그램 실행중에 예외가 발생되면 프로그램이 종료됨(*************, 비정상종료)
 
       ==> 사용자가 당황스럽게 됨.
@@ -2862,3 +2862,29 @@ public class Hello {
         사용자에게 이유를 알려주고 정상적으로 종료할 수 있도록 처리해야 됨.
         결국 main메서드 끝까지 실행될 수 있도록 처리하는 방법이다. ( 정상종료 ) 
 
+ 
+ 3) 에외처리 방법
+
+    가. 예외가 발생된 곳에서 처리
+
+      문법: 
+                                         2) 발생된 예외를 처리할 수 있는 예외클래스 찾아서 객체생성
+					    ArrayIndexOutofBoundsException e = 
+					           new ArrayIndexOutofBoundsException();
+                                         3) throw e; // try~catch문으로 전달
+           try{
+              문장;
+	      문장2; 1)예외발생          
+	      ..
+            
+	   }catch(ArrayIndexOutofBoundsException e){ 4)catch받음.
+	     //try블럭안의 문장이 실행중 예외가 발생되었을 때 실행되는 문장: 예외처리코드
+	     5) e 변수이용해서 예외 처리
+	   }
+	   문장. 6)실행. 이후에는 main메서드 끝까지 실행됨.
+	   ...
+
+	 }// main메서드
+
+
+    나. 예외를 위임해서 처리
