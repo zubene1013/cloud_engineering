@@ -2967,3 +2967,36 @@ public class Hello {
      나.  e.printStackTrace();  // 디버깅용
 
         문법: e.printStackTrace();
+
+
+   7) finally 문
+
+    용도: 자원반납 (cleanup)
+
+    문법1:
+            try{
+              문장;
+	      문장2;         
+	      ..
+            }catch(예외클래스 e){ 
+	    
+	    }finally{
+	       // 반드시 실행되는 문장 ( 예외발생과 무관 )
+
+	    }
+
+
+    문법2:
+         예외처리 목적이 아닌 반드시 실행되어야 하는 문장을 알려주는 용도임.
+
+            try{
+              문장;
+	      문장2;         
+	    }finally{
+	       // 반드시 실행되는 문장 
+	    }
+
+
+ 2. 예외처리를 위임하는 방법
+
+   
