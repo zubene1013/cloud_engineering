@@ -2911,7 +2911,7 @@ public class Hello {
 
     나. 예외를 위임해서 처리
 
-
+        throws 예외클래스, 예외클래스 {}
 
    
  4) 예외클래스 ( 계층구조 )
@@ -2920,7 +2920,7 @@ public class Hello {
 	    |
 	  Throwable
          |          |
-  Error           Exception	 
+  Error           Exception  ( 예외클래스의 최상위 클래스로 사용됨 )	 
 (코드로 해결안됨                        |
  무시)             
                 RuntimeException            IOException,SQLException
@@ -3060,3 +3060,52 @@ public class Hello {
          public void a()        <== 자식에서는 부모가 throws 한 예외클래스와 같거나
 	                            계층적으로 하위클래스만 지정 가능.
 				    즉 축소되는 방향으로 지정.
+
+
+ 6. 런타임계열 vs 비런타임계열
+
+   
+   1) 런타임계열
+      - RuntimeException
+             |
+	     ArithmeticException
+	     ArrayIndexOutofBoundsException
+	     NullPointerException
+     
+      - 실행시 예외가 발생됨(**************)
+      - try~catch 또는 throws 방법으로 예외처리를 안함.
+        조건체크로 예외 발생을 방지할 수 있음.
+
+   2) 비런타임계열
+      - IOException: 파일 읽기/쓰기 연동 작업등
+      - SQLException: DB 연동
+
+      - 반드시 try~catch 또는 throws 방법으로 예외처리를 해야됨.
+        안하면 컴파일시 예외가 발생됨 (*******************)
+        
+
+//////////////////////////////////////////////////////////////////////////
+10일 2026-04-10
+
+1.제네릭스 ( Generics )
+
+   1)개념
+     다양한 타입을 다루는 메서드 및 클래스에서
+     컴파일 시점(*)에 타입체크를 해서 예외를 미리 알수 있도록 지원.
+
+   2)장점 2가지
+     - 저장하는 데이터 타입 안정성 확보 ( 저장하는 데이터형을 제한 가능 )
+     - 형변환 불필요
+
+   3)제네릭스 표현 방법
+    <T> : Reference Type 의미
+         ex. <String>, <Integer>
+    <E> : Element 의미
+    <T,R> : Return Type 의미
+         ex. <String, Integer>
+
+   4)
+ 
+컬렉션
+스트림
+MySQL
