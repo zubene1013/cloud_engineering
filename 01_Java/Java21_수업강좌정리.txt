@@ -3204,7 +3204,9 @@ public class Hello {
 
                                )
 
-       라. 파라미터있고 리턴값 있는 경우 ( Function<T,R> : 파라미터 한개(T 타입), 리터타입 R
+       라. 파라미터있고 리턴값 있는 경우 ( 
+                               #범용적
+                               Function<T,R> : 파라미터 한개(T 타입), 리터타입 R
                                BiFunction<T,U,R>: 파라미터 두개(T,U) , 리터타입 R
 			       DoubleFunction<R>: 파라미터 한개(double), 리터타입 R
 			       DoubleToIntFunction:파라미터 한개(double), 리터타입 int
