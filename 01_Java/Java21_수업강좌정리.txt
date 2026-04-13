@@ -3239,6 +3239,22 @@ public class Hello {
   
   2) java.util.function 패키지
 
+     가. Consumer : 리턴없고 파라미터 있는 경우
+     나. Supplier : 리턴있고 파마리터 없는 경우
+     다. Function : 리턴있고 파라미터 있는 경우 ( 범용적 )
+     라. XXXOperator : Function 과 상속관계
+                      차이점은 Function은 파라미터타입과 리턴타입을 사용자가 임의로 지정이 가능. 
+		      그리고 파라미터타입과 리턴타입이 달라도 무관.
+		      하지만 XXXOperator는 파라미터타입과 리턴타입이 모두 동일함.
+     마. Predicate : 리턴있고 파라미터 있는 경우.
+                    리턴값은 반드시 boolean.
+		    Stream API의 필터링에서 사용됨.
+		    
+		    *논리연산자에 해당하는 메서드 사용 가능
+		    &&:  and()
+		    ||:  or()
+		    ! :  negate()
+
 
 5. Stream API
 
