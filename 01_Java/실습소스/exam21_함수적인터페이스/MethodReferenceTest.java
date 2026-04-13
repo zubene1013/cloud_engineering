@@ -1,7 +1,10 @@
 package exam21_함수적인터페이스;
 
 import java.util.function.BinaryOperator;
+import java.util.function.Consumer;
 import java.util.function.Function;
+import java.util.function.Supplier;
+import java.util.function.UnaryOperator;
 
 class Test{
 	public static int method(int x, int y) {
@@ -52,6 +55,83 @@ public class MethodReferenceTest {
 		Function<String, Integer> f3 = Integer::parseInt;
 		int result5 = f3.apply("100");
 		System.out.println(result5);
+		
+		
+		//2. 인스턴스 메서드-  참조변수::메서드
+		Test t = new Test();
+		UnaryOperator<Integer> op = new UnaryOperator<Integer>() {
+			@Override
+			public Integer apply(Integer n) {
+				return t.method2(n);
+			}
+		};
+		//람다표현식
+		UnaryOperator<Integer> op2 = n -> t.method2(n);
+		
+		//축약표현식
+		UnaryOperator<Integer> op3 = t::method2;
+		int result6 = op3.apply(100);
+		System.out.println(result6);
+		
+		// 문자열관련 메서드 - 대문자로 반환
+		UnaryOperator<String> op4 = new UnaryOperator<String>() {
+			@Override
+			public String apply(String s) {
+				return s.toUpperCase();
+			}
+		};
+		
+		//람다표현식
+		UnaryOperator<String> op5 = s->s.toUpperCase();
+		
+		//축약표현식- String::메서드명
+		UnaryOperator<String> op6 = String::toUpperCase;
+		String result7 = op6.apply("helLo");
+		System.out.println(result7);
+		
+		//3. 생성자 - 클래스명::new
+		Supplier<Test> sup = new Supplier<Test>() {
+			@Override
+			public Test get() {
+				return new Test();
+			}
+		};
+		
+		//람다표현식
+		Supplier<Test> sup2 = ()->new Test();
+		
+		//축약표현식
+		Supplier<Test> sup3 = Test::new;
+		Test t2 = sup3.get();
+		
+		
+		Function<Integer, Test> ff = new Function<Integer, Test>() {
+			@Override
+			public Test apply(Integer n) {
+				return new Test(n);
+			}
+		}; 
+		
+		//람다표현식
+		Function<Integer, Test> ff2 = n -> new Test(n);
+		
+		//축약표현식
+		Function<Integer, Test> ff3 = Test::new;
+		Test t3 = ff3.apply(100);
+		
+		//4. sysout - System.out::println
+		Consumer<String> c  = s-> System.out.println(s);
+		c.accept("hello");
+		
+		//축약표현식
+		Consumer<String> c2  = System.out::println;
+		c2.accept("world");
+		
+		
+		
+		
+		
+		
 		
 		
 	}
