@@ -2,6 +2,7 @@ package exam22_StreamAPI;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Comparator;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -105,7 +106,8 @@ public class StreamTest3_중간처리 {
 		System.out.println("============================");
 		
 		/////////////////////////////////////////
-		/// flatMap(Function<T, Stream>)
+		/////중간처리4 - 가공 flatMap(Function<T, Stream>)
+		/// 
 		List<String> list9 = Arrays.asList("10,20,30", "40,50,60");
 		
 		Stream<String> stream9 = list9.stream();
@@ -123,9 +125,6 @@ public class StreamTest3_중간처리 {
 		};
 		IntStream is = stream9.flatMapToInt(f9);
 		is.forEach(System.out::println);
-		
-		
-		
 		
 		
 		
