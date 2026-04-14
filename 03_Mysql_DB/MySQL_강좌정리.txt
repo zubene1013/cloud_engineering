@@ -134,3 +134,50 @@ MySQL 강좌정리
           key1:{
 	         }
            }}
+
+
+6. SQL ( Structured Query Language )
+
+ 1)개요
+  - RDB에서 사용하는 언어.
+  - 식별자로 구성 ( 예약어 및 사용자 지정 식별자(ex. 테이블명, 컬럼명) 가능 )
+  - 대소문자 구별 안함 ( SELECT와 select 동일 )
+  - MySQL에서는 데이터 대소문자 구별안함 ( 'A'와 'a' 동일 )
+    Oracle에서는 데이터 대소문자 구별함 ( 'A'와 'a' 다름 )
+
+  - 자바에서는 문자와 문자열을 구별했음. ( 'A', "ABC" )
+    SQL에서는 문자와 문자열을 구별 안함. ( 'A', 'ABC', '2026-12-13' )
+    ""는 별칭(alias)에서만 사용하자.
+
+  - 산술연산자 및 연산자
+  - 함수( 자바의 메서드 역할 )
+  - 조건문
+
+ 2)SQL문 종류1 ( RDB 종류에 따라서 )
+
+
+    가. 표준화된 SQL문 ( 독립적인 SQL문, ANSI SQL )
+      - 모든 RDBMS에서 사용 가능
+
+
+    나. 벤더(업체)에 의존적인 SQL문
+       -MySQL에서만 사용
+        Oracle에서만 사용
+       -함수에서 주로 차이가 있음
+
+ 2)SQL문 종류2 ( 기능에 따라서 )-외우기
+
+   가. DML ( Data Manipulation Language )
+       - insert
+       - update
+       - delete
+   나. DDL ( Date Definition Language )
+       - create
+       - alter
+       - drop
+       - truncate
+   다. DQL ( Data Query Language )
+       - select
+   라. TCL(DTL)( Transaction Control Language, Data Transaction Language)
+      - commit
+      - rollback
