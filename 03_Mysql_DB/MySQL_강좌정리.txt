@@ -93,8 +93,10 @@ MySQL 강좌정리
 	-TRUNCATE문 (테이블절삭)
 
       다. TCL ( 트랜잭션 관리 , Transaction Control Language )
+         DTL ( Data Transaction Language)
        -COMMIT ( 트랜잭션 확정)
        -ROLLBACK (트랜잭션 취소)
+       ==> DML과 연관있음
 
       라. DQL( Data Query Language)
        -SELECT문 ( 데이터 조회)
@@ -106,3 +108,29 @@ MySQL 강좌정리
 	 Update: 수정 ( update 작업 의미 )
 	 Delete: 삭제 ( delete 작업 의미 )
      //////////////////////
+
+
+   - DBMS가 DB를 관리하는 방법?
+     가. 관계형DB
+     나. 계층형DB
+     다. 망형DB
+     라. 객체지향DB
+     ...
+
+
+5. 관계형 데이터베이스 ( Relational DataBase: RDB )
+
+ 1)개념
+  - 행(레코드)/열(컬럼)로 구성된 2차원 테이블 형태를 가짐.
+  - 여러 테이블간에 특정 연결고리를 이용해서 관계를 맺어서 관리됨.
+
+ 2)종류
+   ex. MySQL, Oracle, MS-SQL, DB2,
+
+ 3)현업에서 RDB 대립되는 데이터 구조를 가진 형태: NoSQL ( Not only SQL, 비정형 데이터, {key:value} 구조 )
+   ex. MongoDB, Casandra
+
+    {key:{
+          key1:{
+	         }
+           }}
