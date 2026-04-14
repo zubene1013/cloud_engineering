@@ -438,3 +438,41 @@ MySQL 강좌정리
 	      where NOT sal between 1000 and 2000;
 	      where NOT sal IN (1000,2000,800);
 	      where NOT ename like '_ _ _A%';
+
+
+11. 정렬
+
+   1)방법
+     오름차순(기본): asc ( ascending )
+     내림차순    : desc (descenging )
+
+   2)문법;
+
+      select 절  :
+      from 절    :
+      [where 절] :
+      order by 절:  컬럼명, 별칭, select절에서 지정된 순서(1부터)
+
+      ex.  select *
+           from
+	   order by 컬럼명;  //오름차순
+
+	   order by 컬럼명 asc;  //오름차순
+
+	   order by 컬럼명 desc;  //내림차순
+
+
+	   select *
+	   from em
+	   order by sal;
+
+	    order by sal asc;
+	    order by sal desc;
+
+	    order by hiredate desc;
+ 
+  3) 다중정렬
+       
+        order by sal asc, deptno;   // sal 로 먼저 오름차순으로 정렬하고 sal이 같은 레코드는 deptno로 다시 오름차순으로 정렬
+
+	order by sal desc, deptno;
