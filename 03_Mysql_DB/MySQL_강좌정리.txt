@@ -161,7 +161,7 @@ MySQL 강좌정리
 
 
     나. 벤더(업체)에 의존적인 SQL문
-       -MySQL에서만 사용
+       -MySQL에서만 기
         Oracle에서만 사용
        -함수에서 주로 차이가 있음
 
@@ -181,3 +181,24 @@ MySQL 강좌정리
    라. TCL(DTL)( Transaction Control Language, Data Transaction Language)
       - commit
       - rollback
+
+ -------------------------------------------------------------------
+ 7. select 문
+
+   1) 기능
+      - 테이블 조회
+      - 하나의 테이블 또는 여러 테이블 가능
+
+   2) 기능 3가지
+
+       -projection: 컬럼(열) 선택
+       -selection : 레코드(행)선택
+       -join      : 2개 이상의 테이블을 연결(조인)해서 원하는 컬럼(project)과 레코드(selection) 조회.
+   
+   3) 문법:
+
+       select 절 // 컬럼명, 컬럼명2,...
+		   * <== 모든컬럼
+
+
+       from럼절;  // 테이블명
