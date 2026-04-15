@@ -929,8 +929,8 @@ https://docs.oracle.com/cd/E17952_01/mysql-8.0-en/aggregate-functions-and-modifi
     avg([DISTINCT] expr) : 평균
     max([DISTINCT] expr) : 최대값
     min([DISTINCT] expr) : 최소값
-    count([DISTINCT] expr):레코드 갯수
-    COUNT(*)
+    count([DISTINCT] expr):레코드 갯수, 기본적으로 null 제외하고 카운트됨
+    COUNT(*) : 전체레코드 갯수
 
   2) 그룹함수 적용되는 대상? 
     - 그룹별로 적용됨
@@ -969,4 +969,12 @@ https://docs.oracle.com/cd/E17952_01/mysql-8.0-en/aggregate-functions-and-modifi
 
     나. 묵시적
 
+      - group by로 지정하지 않으면 자동으로 전체 레코드를 가진 하나의 그룹으로 묶음
+      
 
+      select 절
+      from 절;
+
+
+            select sum(sal), avg(sal), max(sal), min(sal), count(sal)
+	    from emp;
