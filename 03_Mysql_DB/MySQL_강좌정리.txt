@@ -896,3 +896,27 @@ https://docs.oracle.com/cd/E17952_01/mysql-8.0-en/numeric-functions.html
 	                      CLERK   4000  이사급
 	                     SALESMAN 2800  과장급
 			              800   사원급 
+
+
+	   select empno, ename,job, sal,  case WHEN  sal > 3000 THEN '이사급'
+	                                       WHEN  sal > 2500 THEN '과장급'
+	                                       ELSE '사원급'
+	                                  end as 직급
+	   from emp;
+	
+6. 형변환 함수
+https://docs.oracle.com/cd/E17952_01/mysql-8.0-en/cast-functions.html
+
+  CAST(expr AS type)
+
+  ex. 10-->'10'
+      '10'->10
+      '2010-02-23' -------> 2010-02-23
+
+      select cast(10 as char ) ;  # 10-->"10"
+      select cast(10 as FLOAT ) ;  
+
+      select cast('10' as UNSIGNED  ) ; "10"-->10
+      select cast('2010-02-23' as Date );
+
+======================================================================
