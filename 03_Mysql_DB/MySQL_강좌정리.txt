@@ -782,9 +782,83 @@ https://docs.oracle.com/cd/E17952_01/mysql-8.0-en/numeric-functions.html
 
 
       TIMESTAMPDIFF(unit,datetime_expr1,datetime_expr2) # unit 단위: YEAR|MONTH|DAY|HOUR|MINUTE
+
       SELECT TIMESTAMPDIFF(MONTH,'2003-02-01','2003-05-01');
         -> 3
       SELECT TIMESTAMPDIFF(YEAR,'2002-05-01','2001-01-01');
         -> -1
       SELECT TIMESTAMPDIFF(MINUTE,'2003-02-01','2003-05-01 12:05:55');
         -> 128885
+
+
+    7) 월의 마지막 날
+
+       LAST_DAY(date)
+
+       SELECT LAST_DAY('2003-02-05');
+        -> '2003-02-28'
+
+ 
+    8) 지정된날짜에서 년/월/일/시/분/초 따로 추출 (************)
+
+        EXTRACT(unit FROM date) #  unit 단위: YEAR|MONTH|DAY|HOUR|MINUTE|SECOND
+
+
+    9) 날짜---> 문자열 (************)
+
+	ex. 2019-12-23 --------> '2019-12-23'
+	                         '2019년2월23일'
+				 '2019/12/23'
+				 '2019,12,23'
+	
+        DATE_FORMAT(date,format) # format:  %Y-%m-%d  %H:%i:%S
+	                                    %Y년%m월%d일
+
+    10) 문자열---->날짜 (************)
+
+         '2019-12-23'
+	 '2019년2월23일'  -----------> 2019-12-23
+	 '2019/12/23'
+	 '2019,12,23'
+
+       STR_TO_DATE(str,format)  #  str과 format이 반드시 일치해야됨
+
+       STR_TO_DATE('2019년2월23일','%Y년%m월%d일')
+       STR_TO_DATE('2019년2월23일','%Y-%m-%d') // 오류
+
+       STR_TO_DATE('20190223', '%Y%m%d')
+       STR_TO_DATE('02232009', '%m%d%Y')
+       STR_TO_DATE('02/23/2009', '%m/%d/%Y')
+
+ -------------------------------------------
+
+ 5. 조건 함수
+ https://docs.oracle.com/cd/E17952_01/mysql-8.0-en/flow-control-functions.html
+
+   1) if
+
+     IF(expr1,expr2,expr3): expr1 참이면 expr2
+                                  거짓이면 expr3
+
+      SELECT IF(1<2,'yes','no');
+        -> 'yes'
+
+
+   2) case ( 자바의 switch값(동등비교) 또는 다중 if(부등) 문과 비슷 )-ANSI
+
+       가. 동등비교
+
+          
+              CASE value WHEN compare_value THEN result 
+	                [WHEN compare_value THEN result ...] 
+			[ELSE result] 
+	      END
+
+
+
+       나. 부등비교 
+
+               CASE WHEN condition THEN result 
+	           [WHEN condition THEN result ...] 
+		   [ELSE result] 
+	       END
