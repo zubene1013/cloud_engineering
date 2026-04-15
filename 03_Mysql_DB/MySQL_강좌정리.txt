@@ -854,6 +854,23 @@ https://docs.oracle.com/cd/E17952_01/mysql-8.0-en/numeric-functions.html
 			[ELSE result] 
 	      END
 
+	 ex.  job에 따른 실수령 출력
+
+	      CLERK      <== sal * 1.1
+	      SALESMAN   <== sal * 1.2
+	      MANAGER    <==  sal * 1.3
+	      ANALYST     <==  sal * 1.4
+	      이외          <== sal
+	     
+	    출력:
+	        empno, ename, job,   sal , 실수령
+		--------------------- -------
+	                      CLERK   1000  1000*1.1
+	                     SALESMAN 1000  1000*1.2
+
+		
+		select empno, ename, job, sal , case ~ end as 실수령
+		from emp;
 
 
        나. 부등비교 
@@ -862,3 +879,4 @@ https://docs.oracle.com/cd/E17952_01/mysql-8.0-en/numeric-functions.html
 	           [WHEN condition THEN result ...] 
 		   [ELSE result] 
 	       END
+	       
