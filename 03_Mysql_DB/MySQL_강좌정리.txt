@@ -696,3 +696,95 @@ https://docs.oracle.com/cd/E17952_01/mysql-8.0-en/numeric-functions.html
      floor: 지정된 값과 같거나 작은 정수 리턴
       SELECT FLOOR(1.23), FLOOR(-1.23);
         -> 1, -2
+
+   6) 나머지
+
+      MOD(N,M) 함수 이용
+      % 연산자 이용       ( Oracle 사용불가 )
+
+       SELECT MOD(234, 10);
+        -> 4
+       SELECT 253 % 7;
+        -> 1
+
+
+4. 날짜 함수 ( 비 ANSI 문법 )
+ 
+   1) 현재날짜와 시간
+     
+       NOW() : 기본포맷은 'YYYY-MM-DD hh:mm:ss'
+               시간을 구하는 시점이 SQL문이 실행시 시간을 구함.
+
+	       current_timestamp(), current_timestamp
+
+
+       SYSDATE(): 기본포맷은 'YYYY-MM-DD hh:mm:ss'
+               시간을 구하는 시점이 함수호출시 시간을 구함.
+
+   2) 현재날짜 
+       
+       curdate(), current_date(), current_date
+       
+       SELECT CURDATE(), current_date(), current_date;
+        -> '2008-06-13'
+
+   3) 현재시간
+
+       CURTIME(), CURRENT_TIME(), CURRENT_TIME
+
+       SELECT CURTIME() , CURRENT_TIME(), CURRENT_TIME;
+	+-----------+
+	| CURTIME() |
+	+-----------+
+	| 19:25:37  |
+
+
+    4) 날짜 더하기 
+     
+         ADDDATE(date,days) <== 지정된 날짜에 day 더하기 , DATE_ADD() 는 동의어
+         
+	 SELECT ADDDATE('2008-01-02', 31);
+        -> '2008-02-02'
+
+         ADDDATE(date,INTERVAL expr unit) # unit 단위: YEAR|MONTH|DAY|HOUR|MINUTE
+         
+	 SELECT DATE_ADD('2008-01-02', INTERVAL 31 DAY);
+         -> '2008-02-02'
+         
+	 SELECT DATE_ADD('2008-01-02', INTERVAL 31 YEAR);
+         SELECT DATE_ADD('2008-01-02', INTERVAL 31 MONTH);
+ 
+
+     5) 날짜 빼기
+
+          SUBDATE(expr,days) <== 지정된 날짜에 day 빼기, DATE_SUB() 동의어
+
+	  SELECT SUBDATE('2008-01-02 12:00:00', 31);
+        -> '2007-12-02 12:00:00'
+
+	 
+	  SUBDATE(date,INTERVAL expr unit) # unit 단위: YEAR|MONTH|DAY|HOUR|MINUTE
+
+	  SELECT DATE_SUB('2008-01-02', INTERVAL 31 DAY);
+        -> '2007-12-02'
+
+	  
+	  SELECT DATE_SUB('2008-01-02', INTERVAL 31 YEAR);
+
+	  SELECT DATE_SUB('2008-01-02', INTERVAL 31 MONTH);
+
+	 
+    6) 날짜 차이
+      
+      DATEDIFF(expr1,expr2) #  expr1 - expr2
+      SELECT DATEDIFF('2007-12-31 23:59:59','2007-12-30');
+        -> 1
+
+
+      TIMESTAMPDIFF(unit,datetime_expr1,datetime_expr2) # unit 단위: YEAR|MONTH|DAY|HOUR|MINUTE
+      SELECT TIMESTAMPDIFF(MONTH,'2003-02-01','2003-05-01');
+        -> 3
+      SELECT TIMESTAMPDIFF(YEAR,'2002-05-01','2001-01-01');
+        -> -1
+      SELECT TIMESTAMPDIFF(MINUTE,'2003-02-01','2003-05-01 12:05:55');
+        -> 128885
