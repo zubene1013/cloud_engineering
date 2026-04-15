@@ -638,3 +638,61 @@ MySQL 강좌정리
 
 	SELECT FORMAT(12332.123456, 4, 'ko_kr');  # 기본 locale: en_us
         -> '12,332.1235'
+
+
+3. 숫자함수
+https://docs.oracle.com/cd/E17952_01/mysql-8.0-en/numeric-functions.html
+
+  1)절대값
+
+     ABS(X)
+     SELECT ABS(2);
+        -> 2
+     SELECT ABS(-32);
+        -> 32
+ 
+  2) 부호
+   
+     SIGN(X)
+
+     양수: 1
+     0:  0
+     음수: -1
+
+     SELECT SIGN(-32);
+        -> -1  
+	
+     SELECT SIGN(0);
+        -> 0
+     SELECT SIGN(234);
+        -> 1
+     
+  3) 반올림
+
+     ROUND( 값, [자릿수])
+
+     SELECT ROUND(150.000,2), ROUND(150,2);
+
+
+  4) 절삭 (버림)
+
+      TRUNCATE(값, 자릿수)
+
+      SELECT TRUNCATE(1.223,1);
+       -> 1.2
+
+      SELECT TRUNCATE(1.999,0);
+        -> 1
+    
+  5) ceil, floor
+
+     ==> 소수점을 가진 값을 정수로 변경
+
+     ceil: 지정된 값과 같거나 큰 정수 리턴
+      
+      SELECT CEILING(1.23);
+        -> 2
+    
+     floor: 지정된 값과 같거나 작은 정수 리턴
+      SELECT FLOOR(1.23), FLOOR(-1.23);
+        -> 1, -2
