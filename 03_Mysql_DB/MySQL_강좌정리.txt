@@ -1021,3 +1021,64 @@ https://docs.oracle.com/cd/E17952_01/mysql-8.0-en/aggregate-functions-and-modifi
     나. non-equi조인
       - 값이 정확하게 일치하지는 않는 방식으로 조인
       - 연산자로 사용하면 between A and B 사용 ( 부등연산자)
+
+2. ANSI 조인
+
+  1) cross 조인
+     
+     문법:
+         select
+	 from 테이블명1  cross join  테이블명2;
+
+
+     동작:
+         테이블명1의 하나의 레코드(행)와  테이블명2의 모든 레코드가 연결된다.
+	 조인된 결과는 데이터로서 사용불가
+	 최종 레코드는 테이블명1갯수 * 테이블명2갯수 만큼 결과가 출력됨.
+
+  
+  2) natural 조인
+    
+     문법1:
+         select
+	 from 테이블명1  natural join  테이블명2;
+
+     문법2:
+         select 별칭1.컬럼,  .., 별칭2.컬럼,...
+	 from 테이블명1 별칭1 natural join  테이블명2 별칭2;
+
+
+    동작: 테이블명1과 테이블명2에 공통컬럼을 찾아서 조인한다.
+        만약 공통컬럼이 없으면 조인 불가.
+	만약 공통컬럼이 2개라면 쌍으로 비교해서 조인.
+
+	단점은 어떤 컬럼으로 조인되었는지를 추가로 확인하는 작업이 필요하다. ( 가독성이 떨어짐 )
+
+
+    현재 조인조건:  natural join
+    검색조건: where 절
+
+     문법3:
+         select 별칭1.컬럼,  .., 별칭2.컬럼,...
+	 from 테이블명1 별칭1 natural join  테이블명2 별칭2
+	 where 절;
+       
+   
+  3) using 절
+
+     문법1:
+         select
+	 from 테이블명1 [inner] join  테이블명2 using(공통컬럼명);
+  
+      문법2:
+         select 별칭.컬럼,......
+	 from 테이블명1 별칭  join  테이블명2 별칭 using(공통컬럼명); // using에서는 별칭사용 불가
+
+       문법3:
+         select 별칭.컬럼,......
+	식
+	 where 조건식
+	
+     동작:
+         테이블명1 과 테이블명2에서 using에 설정된 공통컬럼으로 조인한다.
+        
