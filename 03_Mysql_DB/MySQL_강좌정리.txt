@@ -1452,3 +1452,52 @@ https://docs.oracle.com/cd/E17952_01/mysql-8.0-en/aggregate-functions-and-modifi
 	                         2850
                                 2975
 			        );
+
+
+    4) exists 연산자
+
+      문법:
+          select *
+	  from 
+	  where exists (서브쿼리);
+
+      동작: 서브쿼리 실행결과가 있으면 main query가 실행되고
+          서브쿼리 실행결과가 없으면 main query가 실행안됨.
+
+	
+	ex.
+	    select *
+	    from emp
+	    where exists (select ename
+	                  from emp
+			  where sal = 8000);
+		
+
+6. 인라인뷰 ( inline-view)
+
+  개념:
+      select
+      from (서브쿼리) <== 인라인뷰
+
+  목적: 성능 향상
+
+
+  질문: emp 와 dept 테이블에서 부서별 sal총합 과 평균을 출력?
+
+  일반:
+          select e.deptno, sum(sal), round(avg(sal)), count(*)
+	  from emp e join dept d ON e.deptno = d.deptno
+	  group by deptno;
+
+	   emp: 15개     dept: 4개
+
+
+  인라인뷰:
+
+        SELECT e.deptno, total_sum, total_avg, cnt
+	FROM ( SELECT deptno, SUM(sal) total_sum, ROUND(AVG(sal)) total_avg, COUNT(*) cnt
+	       FROM emp
+	       GROUP BY deptno ) e JOIN dept d ON e.deptno = d.deptno;
+	
+	 인라이뷰: 4개    dept: 4개
+===============================================================
