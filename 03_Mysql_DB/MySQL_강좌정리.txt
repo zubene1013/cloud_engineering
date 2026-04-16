@@ -1308,3 +1308,75 @@ https://docs.oracle.com/cd/E17952_01/mysql-8.0-en/aggregate-functions-and-modifi
 	  having min(sal) >  ( select min(sal)
 	                       from emp
 	                      where deptno=20);
+
+
+    3) 연산자
+      
+      가. 단일행 연산자
+         
+	 - 서브쿼리가 실행된 후 하나의 행이(단일행) 리턴하는 경우에 사용가능한 연산자임
+	 - 비교연산자 ( =, >, >=, <, <= )
+
+
+      나. 복수행 연산자
+
+         - 서브쿼리가 실행된 후 여러 행(복수행) 리턴하는 경우에 사용가능한 연산자임
+	 - IN, ANY, ALL EXISTS
+
+
+	 ex1. emp테이블에서 업무별로 최소급여를 받는 사원정보 출력(사원번호,이름,job,hiredate,sal)?
+	
+              -- 업무별최소급여
+	      select min(sal)
+	      from emp
+	      group by job;    <====  800
+	                              700
+				      2450
+				      3000
+				      5000
+
+
+	      select empno, ename,job,hiredate,sal
+	      from emp
+	      where sal IN (select min(sal)
+	                   from emp
+	                   group by job);
+
+	 ex2. emp테이블에서 job이 MANAGER 인 사원의 최소급여보다 적은 급여를 받는 사원 정보(사원번호,이름,job,hiredate,sal)?
+
+             select min(sal)
+	     from emp
+	     where job ='MANAGER';
+
+
+	     select empno, ename,job,hiredate,sal
+	      from emp
+	      where sal < (select min(sal)
+	                  from emp
+	                   where job ='MANAGER');
+
+
+	 ex3. emp테이블에서 job이 MANAGER 인 사원의 최소급여보다 많은 급여를 받는 사원 정보(사원번호,이름,job,hiredate,sal)?
+
+                select empno, ename,job,hiredate,sal
+	      from emp
+	      where sal > (select min(sal)
+	                  from emp
+	                   where job ='MANAGER');
+
+	 ex4. emp테이블에서 job이 MANAGER 인 사원의 최대급여보다 적은 급여를 받는 사원 정보(사원번호,이름,job,hiredate,sal)?
+
+                select empno, ename,job,hiredate,sal
+	      from emp
+	      where sal < (select max(sal)
+	                  from emp
+	                   where job ='MANAGER');
+
+
+	 ex5. emp테이블에서 job이 MANAGER 인 사원의 최대급여보다 많은 급여를 받는 사원 정보(사원번호,이름,job,hiredate,sal)?
+
+	       select empno, ename,job,hiredate,sal
+	      from emp
+	      where sal > (select max(sal)
+	                  from emp
+	                   where job ='MANAGER');
