@@ -1662,6 +1662,27 @@ https://docs.oracle.com/cd/E17952_01/mysql-8.0-en/aggregate-functions-and-modifi
 	    select 컬럼명,...
 	    from 테이블명;
 
+	/////////////////////////
+	 #CTAS
+	 create table 테이블명
+	 as
+	 select 컬럼명,..
+	 from 테이블명
+	 where 1=2;
+	
+	ex.
+	    create table my_emp
+	    as
+	    select empno,ename,sal
+	    from emp
+	    where 1=2;
+
+	    insert into my_emp ( empno,ename,sal )
+	    select empno,ename,sal
+	    from emp;
+
+	//////////////////////////
+
 
      나. value list 이용
 
@@ -1670,6 +1691,37 @@ https://docs.oracle.com/cd/E17952_01/mysql-8.0-en/aggregate-functions-and-modifi
 	    values ( 값, 값2, ..  ),
 	           ( 값, 값2, ..  ),
 		   ( 값, 값2, ..  );
+
+	ex.
+         insert into my_emp ( empno,ename,sal )
+	 values ( 10,'홍길동1',500),( 20,'홍길동2',500),( 30,'홍길동3',500);
+
+  
+
+-------------------------------------------------------------
+4. update 문
+
+  1) 용도
+    - 레코드의 컬럼수정
+
+  2) 종류
+
+    가. 조건없은 update문
+      - 모든 레코드의 컬럼이 변경됨
+
+       문법:
+            update 테이블명
+	    set 컬럼명=새로운값, 컬럼명=새로운값, ,,,;  
+
+
+    나. 조건있는 update문 ( 일반적으로 사용됨 )
+      - 조건에 맞는 레코드의 컬럼만 변경됨
+
+       문법:
+            update 테이블명
+	    set 컬럼명=새로운값, 컬럼명=새로운값, ,, 
+	    where 조건식;
+
 
 
 
