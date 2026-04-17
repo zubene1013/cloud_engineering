@@ -23,7 +23,7 @@ MySQL 강좌정리
 
    2) 프로그램언어 ( 자바 )
     
-     -JDBC(Java DataBase Connectivity)
+     -JDBC(Java DataBase Connectivity)  >  MyBatis  > JPA
       ==> 자바와 DB 연동하는 기술
       ==> DB 종류와 무관하게 연동가능 ( DB에 독립적 )
       ==> SQLException 예외가 발생됨.
@@ -1489,7 +1489,8 @@ https://docs.oracle.com/cd/E17952_01/mysql-8.0-en/aggregate-functions-and-modifi
 	  from emp e join dept d ON e.deptno = d.deptno
 	  group by deptno;
 
-	   emp: 15개     dept: 4개
+	   emp: 15개 (실제 emp레코드 갯수)
+	   dept: 4개
 
 
   인라인뷰:
@@ -1499,5 +1500,97 @@ https://docs.oracle.com/cd/E17952_01/mysql-8.0-en/aggregate-functions-and-modifi
 	       FROM emp
 	       GROUP BY deptno ) e JOIN dept d ON e.deptno = d.deptno;
 	
-	 인라이뷰: 4개    dept: 4개
+	 인라이뷰: 4개 
+	        SELECT deptno, SUM(sal) total_sum, ROUND(AVG(sal)) total_avg, COUNT(*) cnt
+	       FROM emp
+	       GROUP BY deptno <== 이 sql문 실행된 결과 갯수
+	 dept: 4개
 ===============================================================
+4일차 2026-04-17
+
+1. DML ( Data Manipulation Language )
+
+   1) 종류
+
+      insert 문: 레코드 추가
+      update 문: 레코드 수정 ( 컬럼단위 수정 )
+      delete 문: 레코드 삭제
+
+   2) 특징
+      - 트랜잭션(transaction)으로 처리됨 (**************************)\
+
+
+2. 트랜잭션(transaction)
+
+  1)개념:
+   1개 이상의 DML 작업들을 논리적으로 하나의 작업으로 묶어서 처리하는 개념으로서, 묶음을 의미함.
+
+   ex.  
+       계좌이체 ( A--> B, 500 이체 )
+               
+	      A계좌에서는 update ( 1000-->500)
+	      B계좌에서는 insert ( null-->500)
+
+           
+       #현재상황
+       A 계좌                 B 계좌
+       1000           
+
+      
+       #성공
+        A 계좌                 B 계좌
+       500                   500
+
+
+       #실패
+       A 계좌                 B 계좌
+       1000           
+
+
+  ex.  제주도 여행
+
+       비행기예약
+       숙소예약
+       렌트카예약
+       식당예약
+       ..
+
+  ex.
+       회원가입 - member 테이블저장
+       qna게시판- board 테이블저장
+
+
+          회원탈퇴
+	    member테이블에서 delete
+	    board테이블에서 delete
+
+
+ 
+   2) 트랜잭션 명령어 ( TCL, DTL )
+
+      가. commit
+       
+         - 트랜잭션이 모두 성공했을 때 실제로 반영하는 명령어.
+
+
+      나. rollback
+
+        - 트랜잭션이 하나라도 실패했을 때 실제로 모든 작업을 취소하는 명령어.
+         
+ 
+    3)특징
+      - 시작~끝(종료)
+        시작은 DML을 사용하면 자동으로 시작됨.
+        종료는 TCL(commit, rollback)으로 지정.
+
+	ex.
+
+                     <-- 트랜잭션 시작  
+	     insert 문 
+	             <-- 트랜잭션 종료(commit,rollback)
+
+	              <-- 트랜잭션 시작  
+	     insert 문 
+	     delete 문
+	     ...
+	             <-- 트랜잭션 종료(commit,rollback)
