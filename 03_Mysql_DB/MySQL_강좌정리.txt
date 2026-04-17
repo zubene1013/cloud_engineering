@@ -1797,6 +1797,7 @@ https://docs.oracle.com/cd/E17952_01/mysql-8.0-en/create-table.html
 
      create table  [IF NOT EXISTS] 테이명명
      ( 컬럼명 데이터타입,
+       컬럼명 데이터타입 AUTO_INCREMENT, <== 값을 설정하지 않아도 자동으로 증가된 값이 저장됨
        컬럼명 데이터타입 DEFAULT 값,  <== INSERT할때 컬럼명을 지정하지 않으면 null 대신에 기본값이 설정됨.
 				  ex.  writeday  date DEFAULT now()
        컬럼명 데이터타입 제약조건설정 <==  NOT NULL|UNIQUE|PRIMARY KEY|
@@ -1843,13 +1844,132 @@ https://docs.oracle.com/cd/E17952_01/mysql-8.0-en/create-table.html
 
   다. 날짜형
     
-       date: 날짜만 저장, insert할때 curdate()
+       date: 날짜만 저장, insert할때 curdate(), current_date
 
-       time: 시간만 저장, insert할때 curtime()
+       time: 시간만 저장, insert할때 curtime(), CURRENT_TIME
 
        datetime: 날짜+시간 저장 , insert할때 now()
 
 
+ * 게시판 테이블 샘플
+
+   create table IF NOT EXISTS board
+   (
+       num int PRIMARY KEY AUTO_INCREMENT,
+       title varchar(100) NOT NULL,
+       author varchar(10) NOT NULL,
+       content varchar(500) NOT NULL,
+       writeday datetime DEFAULT now(),
+       gender char(4) CONSTRAINT CHECK ( gender in ('M','F') ) ,
+       readcnt int DEFAULT 0
+    ); 
+
+
+6. 테이블에 제약조건 설정방법
+
+   1) 테이블 작성하면서 제약조건 설정
+     
+      - create 문만 필요
+
+       가. 컬럼레벨
+          - 테이블의 컬럼을 설정하면서 제약조건을 같이 설정
+	
+	   문법:
+	       create table NOT EXISTS 테이블명
+	       ( 컬럼명 데이터타입 제약조건,
+	         ..
+		);
+
+	 - 5가지 제약조건(Primary key, unique, not null, check, foreign key)
+
+	     ex.
+	          create table IF NOT EXISTS board
+		   (
+		       num int PRIMARY KEY AUTO_INCREMENT,
+		       title varchar(100) NOT NULL,
+		       author varchar(10) UNIQUE,
+		       content varchar(500) NOT NULL,
+		       writeday datetime DEFAULT now(),
+		       gender char(4) CONSTRAINT CHECK ( gender in ('M','F') ) ,
+		       readcnt int DEFAULT 0
+		    ); 
+
+       나. 테이블레벨
+         - 테이블의 컬럼들을 모두 설정하고 나중에 제약조건을 설정
+
+             문법:
+	       create table NOT EXISTS 테이블명
+	       ( 컬럼명 데이터타입,
+                 컬럼명 데이터타입,
+		 ...,
+
+	         제약조건1
+		 제약조건2
+		);
+
+        - 5가지 제약조건중에서 not null 사용 불가
+
+	  ex. 
+	     create table IF NOT EXISTS board3
+		   (
+		       num int AUTO_INCREMENT,
+		       title varchar(100)   NOT NULL,
+		       author varchar(10),
+		       content varchar(500) NOT NULL,
+		       writeday datetime DEFAULT now(),
+		       gender char(4),
+		       readcnt int DEFAULT 0,
+		
+		       CONSTRAINT PRIMARY KEY(num),
+		       CONSTRAINT UNIQUE(author),
+		       CONSTRAINT CHECK (gender in ('M','F'))
+
+		    );
 
 
 
+
+   2) 테이블 만든후에 나중에 제약조건 설정
+
+      - create문 + alter 문 필요
+
+         ex.
+          create table IF NOT EXISTS board4
+		   (
+		       num int AUTO_INCREMENT,
+		       title varchar(100),
+		       author varchar(10),
+		       content varchar(500),
+		       writeday datetime DEFAULT now(),
+		       gender char(4),
+		       readcnt int DEFAULT 0
+		    );
+
+
+     - alter 문 이용한 제약조건 추가
+
+        가. not null 제약조건 변경(modify) 방법
+
+	   alter table 테이블명
+	   modify  컬럼명 데이터타입  not null;
+
+	   ex. alter table board4
+	       modify  title varchar(100) not null;
+
+               alter table board4
+	       modify   content varchar(500) not null;
+
+	나.  not null 제외한 나머지 4개 제약조건 추가(add) 방법
+
+	    alter table 테이블명
+	    add CONSTRAINT 제약조건(컬럼명);  // 테이블 레벨문법과 동일
+
+	   ex.
+	        alter table board4
+		add CONSTRAINT PRIMARY KEY(num);
+
+		alter table board4
+		add CONSTRAINT UNIQUE(author);
+
+		alter table board4
+		add CONSTRAINT CHECK (gender in ('M','F'));
