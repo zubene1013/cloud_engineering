@@ -2100,5 +2100,14 @@ https://docs.oracle.com/cd/E17952_01/mysql-8.0-en/create-table.html
        alter table my_dept
        modify address varchar(10);
 
+       -- 컬럼 이름 변경
+      alter table my_dept
+      RENAME COLUMN address TO addr;  
+
+     
+       -- 컬럼 삭제
+      alter table my_dept
+      drop name;     
+      
 
 
