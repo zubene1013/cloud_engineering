@@ -28,7 +28,15 @@ JDBC ( Java DataBase Connectivity )
           public class MySQL implments Connection{
 	       pubilc  void connect(){}
 	  }
- 
+    
+    4) 각 벤더마다 클래스파일들이 만들어지고, 이 클래스파일들(*.jar)과
+       자바프로그램과 연동함.
+       *.jar 파일을 드라이버(driver)라고 부름.
+
+    5) 벤더에서 제공해준 드라이버(driver,jar파일)를
+       자바프로그램에서 사용할 수 있도록 설정이 필요함.
+        
+
     자바 프로그램                          DBMS
  ------------------------------------------------
     java.sql.Connection                MySQL
