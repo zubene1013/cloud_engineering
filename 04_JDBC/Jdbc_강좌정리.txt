@@ -1,0 +1,42 @@
+Jdbc_강좌정리
+
+JDBC ( Java DataBase Connectivity )
+
+1. 개념
+
+   - 자바프로그램언어와 DBMS 연동하는 기술로서 DMBS에 독립적임.
+
+                    JDBC
+    자바프로그램 <---------------------> DBMS(MySQL, Oralce, MS-SQL, DB2,... )
+
+2. 특징
+  - DBMS종류와 무관하게 일관된 방법으로 접근이 가능(DMBS에 독립적임)
+    어떤 DBMS건 동일한 메서드로 접근한다.
+  - JDBC는 비런타임 계열의 예외(SQLException)가 발생됨. 따라서 try~catch 또는 throws로 반드시 예외처리해야 됨.
+  - JDBC는 기본적으로 auto commit임. ( 필요시 비활성 가능 ) 
+
+
+3. 일관된 방법 구현?
+
+   1)자바쪽에서 인터페이스 만듬
+     내부에 추상메서드(ex. pubilc abstract void connect();
+   2) 인터페이스를 DBMS 벤터에 제공
+   3) 벤더에서 클래스를 만들때 인터페이스를 구현
+      ex. public class Oracle implments Connection{
+		pubilc  void connect(){}
+           }
+          public class MySQL implments Connection{
+	       pubilc  void connect(){}
+	  }
+ 
+    자바 프로그램                          DBMS
+ ------------------------------------------------
+    java.sql.Connection                MySQL
+    java.sql.PreparedStatement
+
+				       Oracle
+
+
+				       MS-SQL
+
+				       ...
