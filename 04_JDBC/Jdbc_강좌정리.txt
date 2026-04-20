@@ -93,7 +93,6 @@ JDBC ( Java DataBase Connectivity )
 
 	Connection con = DriverManager.getConnection(url, userid, passwd);
 
-
         SQLException 예외가 발생되고, try~catch 필수로 처리해야됨.
 
         java프로그램 -------------------------------------MySQL
@@ -116,17 +115,32 @@ JDBC ( Java DataBase Connectivity )
   
 	PreparedStatment pstmt = con.prepareStatement(sql);
 
-	
 	SQLException 예외가 발생되고, try~catch 필수로 처리해야됨.
 
   
   6) sql문 전송
      
      가. DML ( insert, delete, update )
+
 	int n = pstmt.executeUpdate(); // n에 레코드 변경 개수값이 저장
 
      나. Select 문
-         = pstmt.executeQuery();
+
+       ex.
+          select deptno,dname,loc from dept;
+	
+	 실행결과:
+	          deptno   dname       loc   <== 컬럼헤더
+		  ---------------------
+                   10      ACCOUNTING  NEW YORK
+                    20     RESEARCH    DALLAS
+
+
+
+       java.sql.ResultSet;  // select 했을때, 
+
+
+       ResultSet rs = pstmt.executeQuery();
 
 
 
