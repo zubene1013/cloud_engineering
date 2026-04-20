@@ -6,11 +6,11 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-public class SelectTest2 {
+public class InsertTest {
 
 	public static void main(String[] args) {
 
-		// Dept 테이블 조회
+		// Dept 테이블 저장
 		//1. 4가지 정보 
 	     String driver = "com.mysql.cj.jdbc.Driver"; // 핵심이 되는 클래스명
 	     String url = "jdbc:mysql://localhost:3306/testdb";
@@ -27,24 +27,19 @@ public class SelectTest2 {
 	    //3. Connection 맺기
 	     Connection con = null;
 	     PreparedStatement pstmt = null;
-	     ResultSet rs = null;
 	     try {
 			 con = DriverManager.getConnection(url, userid, passwd);
-			 String sql = "select deptno as no, dname, loc from dept";
+			 
+			 String sql = "insert into dept (deptno,dname,loc) values (50,'개발','서울')";
 			 pstmt = con.prepareStatement(sql);
-			 rs = pstmt.executeQuery();
-				while(rs.next()) { // 행선택
-					//열선택
-					int deptno = rs.getInt("no");   // 컬럼헤더값
-					String dname = rs.getString(2); // rs.getString("dname");
-					String loc = rs.getString(3);  // rs.getString("loc")
-					System.out.printf("%d, %s , %s \n", deptno, dname,loc);
-				}
+			
+			 int n = pstmt.executeUpdate();
+			 if(n>=1) System.out.println("저장성공");
+			 
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}finally {
 			try {
-				 if(rs!=null) rs.close();
 				 if(pstmt !=null) pstmt.close();
 				 if(con !=null) con.close();
 			} catch (SQLException e) {
