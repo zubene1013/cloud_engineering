@@ -48,3 +48,11 @@ JDBC ( Java DataBase Connectivity )
 				       MS-SQL
 
 				       ...
+
+4. mysql 드라이버 다운로드 및 eclipse 에서 설정
+
+   1) mysql 드라이버
+     
+     https://dev.mysql.com/downloads/connector/j
+
+     드라이버명: mysql-connector-j-8.0.33.jar
