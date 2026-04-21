@@ -9,6 +9,7 @@ import java.sql.SQLException;
 public class DeptDAO {
 
 	public int delete(Connection con, int deptno)
+	throws RecordNotFoundException
 	{
 		int n = 0;
 		PreparedStatement pstmt = null;
@@ -18,6 +19,9 @@ public class DeptDAO {
 		  pstmt.setInt(1, deptno );
 
 		  n = pstmt.executeUpdate();
+		  //명시적으로 예외 발생
+		  if(n==0) throw new RecordNotFoundException(deptno+" 존재하지 않습니다. 다시 확인하세요");
+		  
 		}catch(SQLException e) {
 			e.printStackTrace();
 		}finally {

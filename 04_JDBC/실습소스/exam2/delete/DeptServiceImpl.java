@@ -29,7 +29,7 @@ public class DeptServiceImpl implements DeptService {
 		}
 	}//end 생성자
     @Override 
-	public int delete(int deptno){
+	public int delete(int deptno) throws RecordNotFoundException{
     	int n = 0;
 		Connection con = null;
 	     try {
