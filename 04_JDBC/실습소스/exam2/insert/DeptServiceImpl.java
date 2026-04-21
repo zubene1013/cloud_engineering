@@ -29,7 +29,8 @@ public class DeptServiceImpl implements DeptService {
 		}
 	}//end 생성자
     @Override 
-	public int insert(DeptDTO dto) {
+	public int insert(DeptDTO dto)
+     throws DuplicatedDeptnoException{
     	int n = 0;
 		Connection con = null;
 	     try {

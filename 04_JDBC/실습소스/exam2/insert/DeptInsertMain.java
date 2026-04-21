@@ -19,7 +19,13 @@ public class DeptInsertMain {
 		String loc = scan.next();
 		
 		DeptDTO dto = new DeptDTO(deptno, dname, loc);
-		int n = service.insert(dto);
+		int n=0;
+		try {
+			n = service.insert(dto);
+		} catch (DuplicatedDeptnoException e) {
+//			e.printStackTrace();
+			System.out.println(e.getMessage());
+		}
 		if(n>=1)System.out.println("저장성공");
 		
 	}

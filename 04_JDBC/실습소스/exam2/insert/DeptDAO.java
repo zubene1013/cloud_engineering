@@ -9,7 +9,8 @@ import java.sql.SQLException;
 public class DeptDAO {
 
 	public int insert(Connection con, DeptDTO dto)
-	   throws DuplicatedDeptnoException{
+	   throws DuplicatedDeptnoException
+	{
 		int n = 0;
 		PreparedStatement pstmt = null;
 		try {
