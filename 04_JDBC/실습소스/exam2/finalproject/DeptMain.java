@@ -56,6 +56,18 @@ public class DeptMain {
 				if(n>=1)System.out.println("저장성공");
 			}else if("3".equals(num)) {
 				
+				System.out.println("삭제할 부서번호를 입력하시오");
+				int deptno = scan.nextInt();
+				
+				DeptService service  = new DeptServiceImpl();
+				service.setDao(new DeptDAO());
+				int n;
+				try {
+					n = service.delete(deptno);
+					if(n>=1)System.out.println("삭제 성공");
+				} catch (RecordNotFoundException e) {
+					System.out.println(e.getMessage());
+				}
 			}else if("4".equals(num)) {
 				
 				System.out.println("수정할 부서번호를 입력하시오");

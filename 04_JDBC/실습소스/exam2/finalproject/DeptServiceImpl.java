@@ -5,7 +5,6 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.util.List;
 
-
 // 로직처리 + 트랜잭션처리( con.commit() )
 // Connection 얻어서 DeptDAO와 연동
 public class DeptServiceImpl implements DeptService {
@@ -91,4 +90,25 @@ public class DeptServiceImpl implements DeptService {
 		}// try~catch~finally
 	     return n;
 	}//end update
+    
+    @Override 
+   	public int delete(int deptno) throws RecordNotFoundException{
+       	int n = 0;
+   		Connection con = null;
+   	     try {
+   			 con = DriverManager.getConnection(url, userid, passwd);
+   			 n = dao.delete(con, deptno);
+   		} catch (SQLException e) {
+   			e.printStackTrace();
+   		}finally {
+   			try {
+   				 if(con !=null) con.close();
+   			} catch (SQLException e) {
+   				// TODO Auto-generated catch block
+   				e.printStackTrace();
+   			}
+   		}// try~catch~finally
+   	     return n;
+   	}//end delete
+    
 }//end class
