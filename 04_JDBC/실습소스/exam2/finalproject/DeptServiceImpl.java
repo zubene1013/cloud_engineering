@@ -72,5 +72,23 @@ public class DeptServiceImpl implements DeptService {
 		}// try~catch~finally
 	     return n;
 	}//end insert
-
+    @Override 
+	public int update(DeptDTO dto){
+    	int n = 0;
+		Connection con = null;
+	     try {
+			 con = DriverManager.getConnection(url, userid, passwd);
+			 n = dao.update(con, dto);
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}finally {
+			try {
+				 if(con !=null) con.close();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}// try~catch~finally
+	     return n;
+	}//end update
 }//end class

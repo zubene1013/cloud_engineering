@@ -58,6 +58,18 @@ public class DeptMain {
 				
 			}else if("4".equals(num)) {
 				
+				System.out.println("수정할 부서번호를 입력하시오");
+				int deptno = scan.nextInt();
+				System.out.println("수정할 부서명 입력하시오");
+				String dname = scan.next();
+				System.out.println("수정할 부서위치 입력하시오");
+				String loc = scan.next();
+				
+				DeptService service  = new DeptServiceImpl();
+				service.setDao(new DeptDAO());
+				DeptDTO dto = new DeptDTO(deptno, dname, loc);
+				int n= service.update(dto);
+				if(n>=1)System.out.println("수정 성공");
 			}else {
 				// "0"
 				scan.close();
