@@ -208,11 +208,19 @@ MyBatis 프레임워크(framework)
 		                               #{변수} 대신에 진짜 데이터로 치환됨.
 					       JDBC의 ? 역할.
 	      </select>
-			 deptno   dname  loc                   DeptDTO
-			 ------------------		      int deptno;
-	                  10     RESEARCH  NEWYORK            String dname;
-			                                      String loc;
 
+
+	   자바코드에서 호출하는 방법:
+			
+		  SqlSession session = MySqlSessionFactory.getSession();
+		  T t = session.selectOne(String id); # String값은 태그의 id값
+                  T t = session.selectOne(String id, Object);  # Object는 #{변수} 값
+                  # T는 resultType임.                                     
+		
+		 ex.
+		  SqlSession session = MySqlSessionFactory.getSession();	
+                  DeptDTO dto = session.selectOne("findByDeptno", 10 );
+-------------------------------------------------------------------------------------
 	     <select id="findByDeptno" resultType="com.dto.DeptDTO"> 
 		   select deptno,dname,loc
 		   from dept  
@@ -251,3 +259,16 @@ MyBatis 프레임워크(framework)
 		 delete from dept
 		 where deptno=#{deptno}
 	    </delete>
+
+   4) configuration.xml 파일 정보를 자바코드에서 사용할 수 있도록 설정.
+
+        String resource = "com/config/configuration.xml";
+	InputStream inputStream = Resources.getResourceAsStream(resource);
+	SqlSessionFactory sqlSessionFactory =
+	  new SqlSessionFactoryBuilder().build(inputStream);
+
+	 
+     ==> SqlSessionFactory 에서 SqlSession 타입을 얻어야 됨.
+         SqlSession의 메서드를 이용해서 DB 연동됨. ( JDBC의 Connection+PreparedStatement 역할 )
+
+     ==> com.config.MySqlSessionFactory.java 작성
