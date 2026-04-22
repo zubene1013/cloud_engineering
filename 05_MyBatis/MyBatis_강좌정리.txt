@@ -147,3 +147,19 @@ MyBatis 프레임워크(framework)
 
       ////////////////////////////////
 
+    2개의 xml 파일
+
+    가. 설정파일
+       - DB연동하기 위한 정보들을 포함한 파일.
+       -  src
+	    com
+	      config
+	          configuration.xml
+
+    나. mapper파일
+       - SQL문이 저장된 파일.
+       - 테이블당 하나씩 생성
+         - src
+	    com
+	      config
+	          DeptMapper.xml
