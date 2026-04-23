@@ -12,4 +12,14 @@
            ( #{dto.empno}, #{dto.ename}, #{dto.sal} )
         </foreach>
     </insert>
+    <!-- 멀티 delete-->
+     <delete id="deleteMulti" parameterType="arraylist">
+		     delete from emp
+          <where>  
+		        <foreach item="num"  separator="," collection="list" 
+			         open="empno IN (" close=")">
+			    #{num}	
+			</foreach>
+		  </where>
+     </delete>
 </mapper>

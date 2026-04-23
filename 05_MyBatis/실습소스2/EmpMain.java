@@ -18,9 +18,17 @@ public class EmpMain {
 				new EmpDTO(9003, "홍길동3", "SALESMAN", 7698, "2026-04-23", 750, 0, 30)
 				             );
 		
-		int n = session.insert("com.config.EmpMapper.insertMulti", list);
-		System.out.println(n+" 개가 저장됨.");
+		//int n = session.insert("com.config.EmpMapper.insertMulti", list);
+		//System.out.println(n+" 개가 저장됨.");
+		//session.commit();
+		
+		//삭제할 데이터 생성
+		List<Integer> list2 = Arrays.asList(9001,9002);
+		int n2 = session.delete("com.config.EmpMapper.deleteMulti", list2);
+		System.out.println(n2+" 개가 삭제됨.");
 		session.commit();
+				
+		
 		
 		session.close();
 	}
