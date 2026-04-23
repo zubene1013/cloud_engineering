@@ -625,6 +625,8 @@ JDBC                                                          MyBatis프레임워크
 		 dto3.setEmpno(9000);
 	
 		 int n = session.update("com.config.EmpMapper.updateIf", dto3);
+                  session.commit();
+
 
        - mybatis문:
 
@@ -642,7 +644,46 @@ JDBC                                                          MyBatis프레임워크
 			    <if test="sal != 0">
 				sal = #{sal}
 			    </if>
-		    <set>
+		    </set>
 		    where empno=#{empno}
 
 		</update>
+
+
+   4) case 문 기능. 
+
+
+    
+       -sql문:
+		 job이 "SALESMAN'   sal > 1500
+                      "CLERK'   sal > 2500
+		      나머지       sal > 3000
+
+
+       -java코드:
+
+		  EmpDTO dto4 = new EmpDTO();
+		  dto4.setJob("SALESMAN");
+		 List<EmpDTO> list7 = session.selectList("com.config.EmpMapper.selectChoose", dto4 );
+
+
+       - mybatis문:
+
+		<select id="selectChoose" parameterType="EmpDTO" resultType="EmpDTO">
+			
+		   select empno, ename, sal,job
+			from emp
+			<where>
+			   <choose>
+				<when test="job == 'SALESMAN'">
+				     sal &gt; 1500
+				</when>
+				<when test="job == 'CLERK' ">
+                                     sal &gt; 2500
+				</when>
+				<otherwise>
+                                     sal &gt; 3000
+				</otherwise>
+			   </choose>
+			</where>
+		</select>
