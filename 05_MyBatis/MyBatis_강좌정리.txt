@@ -485,13 +485,12 @@ JDBC                                                          MyBatis프레임워크
 
       -java코드:
 
-                List<String> list = Arrays.asList( 'TURNER', 'SMITH','JONES');
-		
-		List<EmpDTO> list2 = session.selectList("com.config.EmpMapper.selectMulti", list );
+                List<String> list3 = Arrays.asList( "TURNER", "SMITH","JONES");
+		List<EmpDTO> list4 = session.selectList("com.config.EmpMapper.selectMulti", list3 );
 
       - mybatis문:
 
-           <select id="selectMulti" parameterType="arraylist">
+           <select id="selectMulti" parameterType="arraylist" resultType="EmpDTO">
 
 	       select empno,ename,sal
 	       from emp
@@ -502,3 +501,148 @@ JDBC                                                          MyBatis프레임워크
 		    </foreach>
 	       </where>
 	   </select>
+
+
+  4. 조건문 ( 단일 if문만 제공 ) - if~else 및 다중 if문 지원 안됨
+
+    1) 조건이 하나인 경우
+
+      -sql문:
+		 select *
+		 from emp;
+
+		 또는
+
+		 select *
+		 from emp
+		 where job = 값;
+
+
+      -java코드:
+		 EmpDTO dto = new EmpDTO();
+		 dto.setJob("SALESMAN");
+		
+		 List<EmpDTO> list = session.selectList("com.config.EmpMapper.selectif", dto );
+
+       - mybatis문:
+
+		 <select id="selectif"  parameterType="EmpDTO"  resultType="EmpDTO">
+
+			select empno, ename, sal,job
+			from emp
+			<where>
+			    <if test="job != null">
+				job = #{job}
+			    </if>
+			</where>
+		 </select>
+
+
+
+
+
+
+
+
+   4. 조건문 ( 단일 if문만 제공 ) - if~else 및 다중 if문 지원 안됨
+
+      2) 조건이 여러개인 경우
+
+      -sql문:
+
+                 select *
+		 from emp;
+
+		 또는
+
+		 select *
+		 from emp
+		 where job = 값;
+
+
+		  select *
+		 from emp
+		 where sal = 값;
+
+		
+		  select *
+		 from emp
+		 where job = 값 and(or) sal = 값;
+
+
+      -java코드:
+
+                EmpDTO dto = new EmpDTO();
+		 //dto.setJob("SALESMAN");
+		 //dto.setSal(800);
+		
+		 List<EmpDTO> list = session.selectList("com.config.EmpMapper.selectif2", dto );
+
+       - mybatis문:
+
+                <select id="selectif"  parameterType="EmpDTO"  resultType="EmpDTO">
+
+			select empno, ename, sal,job
+			from emp
+			<where>
+			    <if test="job != null">
+				job = #{job}
+			    </if>
+			    <if test="sal != null">
+				or sal = #{sal}
+			    </if>
+			</where>
+		 </select>
+
+
+    3) 조건이 여러개인 경우 + update 문
+
+      -sql문:	
+	           update emp
+		   set mgr=값, sal=값, ename=값
+		   where empno=값;
+
+		   update emp
+		   set mgr=값, sal=값
+		   where empno=값;
+
+		   update emp
+		   set mgr=값, ename=값
+		   where empno=값;
+
+		   update emp
+		   set mgr=값
+		   where empno=값;
+
+
+       -java코드:
+	         EmpDTO dto3 = new EmpDTO();
+		 dto3.setMgr(7902)
+
+		 //dto3.setEname("이순신");
+		 //dto3.setSal(800);
+
+		 dto3.setEmpno(9000);
+	
+		 int n = session.update("com.config.EmpMapper.updateIf", dto3);
+
+       - mybatis문:
+
+		<update id="updateIf" parameterType="EmpDTO">
+		  
+		    update emp
+		    <set>
+			    <if test="mgr != 0">
+				 mgr=#{mgr},
+			    </if>
+
+			    <if test="ename != null">
+				ename  = #{ename},
+			    </if>
+			    <if test="sal != 0">
+				sal = #{sal}
+			    </if>
+		    <set>
+		    where empno=#{empno}
+
+		</update>
