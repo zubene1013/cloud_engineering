@@ -97,4 +97,10 @@
 			</where>
 		</select>		
 		
+  <!--단일 컬럼-->
+  <select id="singleColumn" resultType="int">
+      select count(*)
+	       from emp
+  </select>		
+		
 </mapper>
