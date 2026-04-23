@@ -2,44 +2,45 @@
 <!DOCTYPE mapper
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="org.mybatis.example.BlogMapper">
+<mapper namespace="com.config.DeptMapper">
  
+  <!-- DeptMapper.xml-->
    <select id="findByDeptno" 
-   resultType="com.dto.DeptDTO" parameterType="int" > 
+   resultType="DeptDTO" parameterType="int" > 
 		   select deptno,dname,loc
 		   from dept      
            where deptno = #{deptno}
 	</select>
     
     <select id="findByDeptnoAndDname" 
-   resultType="com.dto.DeptDTO" parameterType="com.dto.DeptDTO" > 
+   resultType="DeptDTO" parameterType="DeptDTO" > 
 		   select deptno,dname,loc
 		   from dept      
            where deptno = #{deptno} and dname= #{dname}
 	</select>
 	
 	<select id="findByDeptnoAndDnameMap" 
-   resultType="com.dto.DeptDTO" parameterType="hashmap" > 
+   resultType="DeptDTO" parameterType="hashmap" > 
 		   select deptno,dname,loc
 		   from dept      
            where deptno = #{x} and dname= #{y}
 	</select>
 	
 	<select id="findAll" 
-   resultType="com.dto.DeptDTO" > 
+   resultType="DeptDTO" > 
 		   select deptno,dname,loc
 		   from dept   
 	</select>
 	
 	<select id="findByDnameOrDeptno" 
-   resultType="com.dto.DeptDTO" parameterType="com.dto.DeptDTO"> 
+   resultType="DeptDTO" parameterType="DeptDTO"> 
 		   select deptno,dname,loc
 		   from dept   
 		    where deptno = #{deptno} or dname= #{dname}
 	</select>
 	
 	
-	<insert id="insert" parameterType="com.dto.DeptDTO">
+	<insert id="insert" parameterType="DeptDTO">
 	   insert into dept (deptno, dname, loc)
 	   values ( #{deptno}, #{dname}, #{loc})
 	</insert>
@@ -58,6 +59,14 @@
 	</delete>
 	
 	
+	<select id="findByDeptnoLessThan" 
+   resultType="DeptDTO" parameterType="int" > 
+     <![CDATA[ 
+		   select deptno,dname,loc
+		   from dept      
+           where deptno < #{deptno}
+	   ]]>
+	</select>
 </mapper>
 
 
