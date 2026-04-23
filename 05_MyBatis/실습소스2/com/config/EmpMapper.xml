@@ -60,4 +60,22 @@
 			    </if>
 			</where>
 		 </select>
+		 
+		 
+  <update id="updateIf" parameterType="EmpDTO">
+	 update emp
+		    <set>
+			    <if test="mgr != 0">
+				 mgr=#{mgr},
+			    </if>
+
+			    <if test="ename != null">
+				ename  = #{ename},
+			    </if>
+			    <if test="sal != 0">
+				 sal = #{sal}
+			    </if>
+		    </set>
+		    where empno=#{empno}
+		</update>		 
 </mapper>

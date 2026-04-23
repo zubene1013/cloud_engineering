@@ -49,6 +49,17 @@ public class EmpMain {
 	 System.out.println(list6);
 	 System.out.println(list6.size());
 		 
+	 
+	 // update + 조건
+	     EmpDTO dto3 = new EmpDTO();
+			 dto3.setMgr(7902);
+			 dto3.setEname("이순신");
+			 dto3.setSal(800);
+			 dto3.setEmpno(9000);
+			 int n = session.update("com.config.EmpMapper.updateIf", dto3);
+			 System.out.println(n+"개가 수정됨");
+			 session.commit();
+			 
 		session.close();
 	}
 
