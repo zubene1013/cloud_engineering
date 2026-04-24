@@ -45,4 +45,18 @@ implements DeptService{
 		}
 		return n;
 	}
+
+	@Override
+	public int delete(int deptno) {
+		SqlSession session = 
+				MySqlSessionFactory.getSession();
+		int n=0;
+		try {
+			n = dao.delete(session, deptno);
+			session.commit();
+		}finally {
+			session.close();
+		}
+		return n;
+	}
 }//end class

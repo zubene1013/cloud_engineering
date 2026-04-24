@@ -15,7 +15,10 @@
 	   values ( #{deptno}, #{dname}, #{loc})
 	</insert>
  
- 
+    <delete id="delete" parameterType="int">
+	    delete from dept
+	    where deptno=#{deptno}
+	</delete>
  
  
  
@@ -63,10 +66,7 @@
 		where deptno=#{deptno}
 	</update>
 	
-	<delete id="delete" parameterType="int">
-	    delete from dept
-	    where deptno=#{deptno}
-	</delete>
+	
 	
 	
 	<select id="findByDeptnoLessThan" 

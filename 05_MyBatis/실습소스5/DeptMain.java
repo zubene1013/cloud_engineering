@@ -53,6 +53,15 @@ public class DeptMain {
 				
 			}else if("3".equals(num)) {
 				
+				System.out.println("삭제할 부서번호를 입력하시오");
+				int deptno = scan.nextInt();
+				
+				DeptService service  = new DeptServiceImpl();
+				service.setDao(new DeptDAO());
+				int n = service.delete(deptno);
+				if(n>=1)System.out.println("삭제 성공");
+				
+				
 			}else if("4".equals(num)) {
 				
 			}else {

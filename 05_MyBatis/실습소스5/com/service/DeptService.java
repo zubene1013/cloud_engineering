@@ -12,4 +12,5 @@ public interface DeptService {
 	public abstract List<DeptDTO> findAll();
 	
 	public abstract int insert(DeptDTO dto);
+	public abstract int delete(int deptno);
 }

@@ -19,4 +19,9 @@ public class DeptDAO {
 		int n = session.insert("com.config.DeptMapper.insert", dto);
 		return n;
 	}
+	//삭제
+	public int delete(SqlSession session, int deptno) {
+		int n = session.delete("com.config.DeptMapper.delete", deptno);
+		return n;
+	}
 }
