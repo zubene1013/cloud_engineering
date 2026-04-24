@@ -784,3 +784,59 @@ JDBC                                                          MyBatis프레임워크
 
     나. 조인할 때
 
+       a. 1:1 관계 ( emp입장에서 dept 관계가 1:1 )
+	
+	 * 자바코드 표현
+
+	 EmpDTO                      DeptDTO
+
+	 int empno;		      int deptno;
+	 String ename;                String dname;
+	 ...                          String loc;
+         //int deptno;
+         DeptDTO dto;
+
+
+	 * MyBatis 설정
+	     <association property="author" javaType="Author">
+    <id property="id" column="author_id"/>
+    <result property="username" column="author_username"/>
+    <result property="password" column="author_password"/>
+    <result property="email" column="author_email"/>
+    <result property="bio" column="author_bio"/>
+    <result property="favouriteSection" column="author_favourite_section"/>
+  </association>
+
+
+	    <resultMap id="userResultMap" type="EmpDTO">
+	     <id property="empno" column="empno"/>
+	     <result property="username" column="ename"/>
+	     <result property="job" column="job"/>
+	     <result property="mgr" column="mgr"/>
+	     <result property="hiredate" column="hiredate"/>
+	     <result property="salary" column="sal"/>
+	     <result property="commission" column="comm"/>
+	     <!-- Dept레코드 설정 -->
+		<association property="dto" javaType="DeptDTO">   
+			<id property="deptno" column="xxx"/>
+			 <result property="dname" column="yyy"/>
+			<result property="loc" column="zzz"/>
+                </association>
+
+	   </resultMap>
+	   <!-- emp와 dept 조인 -->
+	   <select id="" resultMap="userResultMap">
+		 select empno,
+  		        ename ,
+  		        job,
+  		        mgr,
+  		        hiredate,
+  		        sal, 
+  		        comm ,
+			dept.deptno as xxx,
+			dept.dname as yyy,
+			dept.loc as zzz
+                 from emp join dept on emp.deptno = dept.deptno
+		 order by empno desc
+           </select> 
+       b. 1:N 관계 ( dept입장에서는 emp 관계가 1:N )
