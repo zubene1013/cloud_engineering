@@ -8,7 +8,7 @@ import com.dto.DeptDTO;
 
 public class DeptDAO {
 
-	//전체 Emp 목록 반환
+	//전체 Dept 목록 반환
 	public List<DeptDTO> findAll(SqlSession session){
 		List<DeptDTO> list = 
 				session.selectList("com.config.DeptMapper.findAll");

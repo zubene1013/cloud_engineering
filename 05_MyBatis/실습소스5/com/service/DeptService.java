@@ -1,5 +1,11 @@
 package com.service;
 
-public interface DeptService {
+import java.util.List;
 
+import com.dao.DeptDAO;
+import com.dto.DeptDTO;
+
+public interface DeptService {
+	public abstract void setDao(DeptDAO dao);
+	public abstract List<DeptDTO> findAll();
 }

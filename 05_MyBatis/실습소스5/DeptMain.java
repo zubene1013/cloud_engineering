@@ -4,14 +4,40 @@ import java.util.List;
 import org.apache.ibatis.session.SqlSession;
 
 import com.config.MySqlSessionFactory;
+import com.dao.DeptDAO;
 import com.dto.DeptDTO;
+import com.service.DeptService;
+import com.service.DeptServiceImpl;
 
 public class DeptMain {
 
 	public static void main(String[] args) {
 
+		DeptService service = 
+				new DeptServiceImpl();
+		service.setDao(new DeptDAO());
+		
+		List<DeptDTO> list = service.findAll();
+		for(DeptDTO dto: list) {
+			System.out.println(dto);
+		}
+		
+		
+		
+		
+		
+		/*
 		SqlSession session = 
 				MySqlSessionFactory.getSession();
+		//다중행
+		List<DeptDTO> list = 
+				session.selectList("com.config.DeptMapper.findAll");
+		System.out.println(list);
+		
+		
+		
+		
+		
 	    //단일행
 		DeptDTO dto = session.selectOne("com.config.DeptMapper.findByDeptno", 20);
 		System.out.println(dto);
@@ -30,10 +56,7 @@ public class DeptMain {
 		DeptDTO dto3 = session.selectOne("com.config.DeptMapper.findByDeptnoAndDnameMap", map);
 		System.out.println(dto3);
 		
-		//다중행
-		List<DeptDTO> list = 
-				session.selectList("com.config.DeptMapper.findAll");
-		System.out.println(list);
+		
 		
 		DeptDTO data2 = new DeptDTO();
 		data2.setDeptno(40);
@@ -77,6 +100,8 @@ public class DeptMain {
 		
 		//자원반납
 		session.close();
+		
+		*/
 	}
 
 }

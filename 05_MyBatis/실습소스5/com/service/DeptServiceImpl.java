@@ -12,15 +12,23 @@ public class DeptServiceImpl
 implements DeptService{
 
 	DeptDAO dao;
-	
+	@Override
 	public void setDao(DeptDAO dao) {
 		this.dao = dao;
 	}
+
+	@Override
 	public List<DeptDTO> findAll(){
-		SqlSession session = 
+	SqlSession session = 
 				MySqlSessionFactory.getSession();
-		List<DeptDTO> list = dao.findAll(session);
+	 List<DeptDTO> list =null;
+	  try {
+		list = dao.findAll(session);
+//	  }catch(Exception e) {
+//		  e.printStackTrace();
+	  }finally {
 		session.close();
+	  }
 		return list;
 	}//end finAll
 }//end class
