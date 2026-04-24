@@ -1,5 +1,6 @@
 import java.util.HashMap;
 import java.util.List;
+import java.util.Scanner;
 
 import org.apache.ibatis.session.SqlSession;
 
@@ -13,14 +14,56 @@ public class DeptMain {
 
 	public static void main(String[] args) {
 
-		DeptService service = 
-				new DeptServiceImpl();
-		service.setDao(new DeptDAO());
+		// 메뉴보여주기
+		Scanner scan = new Scanner(System.in);
+		while(true) {
+			System.out.println("1. 부서 목록보기");
+			System.out.println("2. 부서 추가");
+			System.out.println("3. 부서 삭제");
+			System.out.println("4. 부서 수정");
+			System.out.println("0. 종료");
+			System.out.println("-------------------------");
+			
+			//번호 읽기
+			String num = scan.next();
+			if("1".equals(num)) {
+				DeptService service = 
+						new DeptServiceImpl();
+				service.setDao(new DeptDAO());
+				
+				List<DeptDTO> list = service.findAll();
+				for(DeptDTO dto: list) {
+					System.out.println(dto);
+				}
+			}else if("2".equals(num)) {
+				
+				System.out.println("부서번호를 입력하시오");
+				int deptno = scan.nextInt();
+				System.out.println("부서명 입력하시오");
+				String dname = scan.next();
+				System.out.println("부서위치 입력하시오");
+				String loc = scan.next();
+				
+				DeptService service = 
+						new DeptServiceImpl();
+				service.setDao(new DeptDAO());
+				DeptDTO dto = new DeptDTO(deptno, dname, loc);
+				int n = service.insert(dto);
+				if(n>=1)System.out.println("저장성공");
+				
+			}else if("3".equals(num)) {
+				
+			}else if("4".equals(num)) {
+				
+			}else {
+				// "0"
+				scan.close();
+				System.out.println("프로그램 종료");
+				System.exit(0);
+			}
+		}//end while
 		
-		List<DeptDTO> list = service.findAll();
-		for(DeptDTO dto: list) {
-			System.out.println(dto);
-		}
+		
 		
 		
 		

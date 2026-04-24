@@ -31,4 +31,18 @@ implements DeptService{
 	  }
 		return list;
 	}//end finAll
+
+	@Override
+	public int insert(DeptDTO dto) {
+		SqlSession session = 
+				MySqlSessionFactory.getSession();
+		int n = 0;
+		try {
+			n = dao.insert(session, dto);
+			session.commit();
+		}finally {
+			session.close();
+		}
+		return n;
+	}
 }//end class

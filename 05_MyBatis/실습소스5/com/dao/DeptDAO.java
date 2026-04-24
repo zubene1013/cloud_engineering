@@ -14,4 +14,9 @@ public class DeptDAO {
 				session.selectList("com.config.DeptMapper.findAll");
 		return list;
 	}
+	//저장
+	public int insert(SqlSession session, DeptDTO dto) {
+		int n = session.insert("com.config.DeptMapper.insert", dto);
+		return n;
+	}
 }

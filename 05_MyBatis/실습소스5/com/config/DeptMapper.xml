@@ -10,6 +10,13 @@
 		   from dept   
 	</select>
 	
+    <insert id="insert" parameterType="DeptDTO">
+	   insert into dept (deptno, dname, loc)
+	   values ( #{deptno}, #{dname}, #{loc})
+	</insert>
+ 
+ 
+ 
  
  
  
@@ -46,10 +53,7 @@
 	</select>
 	
 	
-	<insert id="insert" parameterType="DeptDTO">
-	   insert into dept (deptno, dname, loc)
-	   values ( #{deptno}, #{dname}, #{loc})
-	</insert>
+	
 	
 	
 	<update id="update" 
