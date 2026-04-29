@@ -55,3 +55,24 @@ ECMAScrpt6 강좌정리
 	    NaN || 100   =>   100
 
 
+5. 객체 종류 3가지
+
+
+  1) 데이터 관련 객체
+     -문자관련: String 
+     -수치관련: Number
+     -날짜관련: Date
+     -배열: Array
+     ..
+
+  2) 브라우저 관련 객체 ( Browser Object Model: BOM )
+    
+     -Window객체: 웹브라우저 창 관련 객체
+     -Screen객체: 웹브라우저 화면 관련 객체
+     -History객체: 웹브라우저 뒤로/앞으로 관련 객체
+     -Location객체: 웹브라우저 URL 관련 객체
+     -Navigator객체: 웹브라우저 자신 관련 객체
+
+   3) html 문서 관련 객체 ( Document Object Model : DOM )
+    
+     - Document 객체
