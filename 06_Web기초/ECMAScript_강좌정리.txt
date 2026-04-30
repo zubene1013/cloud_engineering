@@ -475,3 +475,33 @@ ECMAScrpt6 강좌정리
 	 <p>
 	 <p>       <======= documnent.querySelectorAll("p"), 배열로 반환,
 	 <p>                P태그 객체반환되고  이 객체안의 속성/메서드를 찾아서 활용하자.     
+
+
+
+11. 객체분해할당 ( destructuring )
+
+   1) 개념
+      - 배열 또는 객체(JSON)를 매우 쉽게 요소를 접근하는 방법.
+
+     ex1. 배열
+
+        var arr=[10,20];
+
+        var x1 = arr[0];
+	var x2 = arr[1];
+
+	#객체분해할당
+	var [x1, x2] =[10,20];
+
+
+   ex2. json
+
+       var json = {name:"홍길동", age:20};
+
+       var name = json.name; // json["name"]
+       var age = json.age;   // json["age"]
+
+
+       #객체분해할당
+       var { name, age  } = {name:"홍길동", age:20};
+       var { name:username, age:userage  } = {name:"홍길동", age:20};
