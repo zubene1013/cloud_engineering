@@ -431,15 +431,47 @@ ECMAScrpt6 강좌정리
 								해결:
 							         방법1:button밑에 <script> 작성
 							         방법2: onload 이용
-		    btn.onclick="fun()";
+		    btn.onclick=fun();  <==2) 직접호출하는 코드임
+		                              해결: 함수명만 지정
+                                              btn.onclick=fun;
 
 	       </script>
 
 
-	       <button id="x">ok</button>
+	       <button id="x">ok임/button>
 	       <button id="x2">ok2</button>
 
 
 
    나. DOL Level 2
 
+          function fun(){}
+         var btn = document.querySelector("#x");
+         //btn.onclick=fun;
+	//btn.addEventListener("이벤트타입",콜백함수);
+	btn.addEventListener("click",fun);
+
+
+          <button id="x">ok임/button>
+
+
+10. DOM 처리
+
+ 1)개념
+   JS에서 html tag 접근해서 수정,삭제,조회,추가 등 이러한 작업처리 의미.
+
+
+ 2) 접근방법
+  
+     //var 변수 = document.getElementById("아이디값");
+
+     var 변수 = documnent.querySelector("css선택자");    // 값하나 반환( 태그에 해당하는 객체)
+     var 변수 = documnent.querySelectorAll("css선택자"); // 배열로 반환( 태그에 해당하는 객체)
+
+
+     ex. <button id="x"> <======= documnent.querySelector("#x"), Button 객체반환되고
+                                  이 객체안의 속성/메서드를 찾아서 활용하자.
+        
+	 <p>
+	 <p>       <======= documnent.querySelectorAll("p"), 배열로 반환,
+	 <p>                P태그 객체반환되고  이 객체안의 속성/메서드를 찾아서 활용하자.     
