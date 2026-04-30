@@ -390,7 +390,7 @@ ECMAScrpt6 강좌정리
 
   2) 용어
 
-    이벤트: 사용자 및 시스템의 동작 의미
+    이벤트: 사용자 및 시스템(load)의 동작 의미
 
     이벤트 소스: 이벤트가 발생된 위젯 의미
              ex. 버튼
@@ -402,7 +402,7 @@ ECMAScrpt6 강좌정리
 	ex.
 	    <button>ok</button>
                   |
-		  | 연결하는 방법: 이벤트처리라고 부름
+		  | 연결하는 방법: 이벤트 처리라고 부름
 		  |
 
 	    function fun(){}
@@ -412,6 +412,30 @@ ECMAScrpt6 강좌정리
    가. DOM Level 0
        
          - 인라인 방식 : 태그안에서 처리
-	 - 고전 방식 :  태그밖에서 처리
+		ex.
+		    <button  속성명="fun()">ok</button>
+			 속성명: onclick
+		    <button  onclick="fun()">ok</button>
+
+	 - 고전 방식 :  태그밖에서 처리 ( 태그와 이벤트 분리)
+
+	       <script>
+
+                    function fun(){}
+		    
+		    //이벤트 연결 ( DOM 방식 )
+		    //document.querySelector("css선택자");
+
+		   var btn = document.querySelector("#x");
+		    btn.onclick="fun()";
+
+	       </script>
+
+
+	       <button id="x">ok</button>
+	       <button id="x2">ok2</button>
+
+
 
    나. DOL Level 2
+
