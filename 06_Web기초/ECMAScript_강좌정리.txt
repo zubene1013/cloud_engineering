@@ -132,3 +132,21 @@ ECMAScrpt6 강좌정리
 			   age,   //age: age,
 			   phone  // phone: phone
 			   }'
+
+	# value가 함수인 경우에는 자바의 메서드처럼 축약가능
+
+	  var person = { name:"홍길동",
+	   
+	       //getName:function(){ return this.name;}, // this 필수
+		getName(){ return this.name;}
+	       //setName:function(n){ this.name=n;}
+	        setName(n){this.name=n;}
+	  };
+
+	  ex.  var person = { name, 
+	                      age, 
+			      phone,
+	                      getName(){ return this.name;},
+			      setName(n){this.name=n;}
+			     };
+	                    
