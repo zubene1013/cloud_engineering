@@ -426,7 +426,11 @@ ECMAScrpt6 강좌정리
 		    //이벤트 연결 ( DOM 방식 )
 		    //document.querySelector("css선택자");
 
-		   var btn = document.querySelector("#x");
+		   var btn = document.querySelector("#x");  <== 2가지 이슈 
+		                                            1) btn값이 null
+								해결:
+							         방법1:button밑에 <script> 작성
+							         방법2: onload 이용
 		    btn.onclick="fun()";
 
 	       </script>
