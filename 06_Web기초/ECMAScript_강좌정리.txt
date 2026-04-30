@@ -310,3 +310,20 @@ ECMAScrpt6 강좌정리
 
 	  yyy2();
 	  f();
+
+   5) arrow 함수
+     - 함수표현식의 축약표현
+
+      가. 파라미터없고 리턴없는 함수
+          var f = function(){console.log("fun");};
+
+      나. 파라미터있고 리턴없는 함수
+          var f = function(n){console.log("fun");};
+          var f = function(n,n2){console.log("fun");};
+
+      다. 파라미터없고 리턴있는 함수
+          var f = function(){ return 100;};
+
+
+      라. 파라미터있고 리턴있는 함수
+          var f = function(n,n2){return n+n2};
