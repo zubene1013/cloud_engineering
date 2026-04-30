@@ -149,4 +149,27 @@ ECMAScrpt6 강좌정리
 	                      getName(){ return this.name;},
 			      setName(n){this.name=n;}
 			     };
-	                    
+	         
+	# key값은 변수로 사용가능
+
+		 var xxx = "name";
+                 var person = { 
+			     [xxx]:"홍길동",  // name:"홍길동"
+			     [xxx+"01"]:"이순신",  // name01:"이순신"
+	                     age:20
+			   };
+
+	# JSON 작성시 함수앞에 set / get 키워드 지정 가능
+	
+	   - 반드시 속성처럼 사용해야 된다. (**************)
+
+	   var person = { name, 
+	                      age, 
+			      phone,
+	                   get   username(){ return this.name;},
+			   set   username(n){this.name=n;}
+			     };
+
+		person.username="홍길동";  // set
+
+		var xxx = person.username;  //get
