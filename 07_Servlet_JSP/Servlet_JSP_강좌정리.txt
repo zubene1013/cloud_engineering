@@ -400,3 +400,14 @@ Servlet/JSP 강좌정리 2026-05-04
 
 
 	String s = request.getParameter("html태그의 name값");  // 사용작 입력한 모든 값은 문자열로 서블릿에 전달됨(*****)
+
+	String [] s2 =  request.getParameterValues("html태그의 name값"); # html의 체크박스
+	
+	 Enumeration<String> enu  = request.getParameterNames();    // Map의 keySet() 기능
+	                                                            // Enumeration(hasMoreElements(),nextElement())은 
+								       Iterator(hasNext(),next())역할
+
+	   while(enu.hasMoreElements()){
+		String key = enu.nextElement();
+		String value = request.getParameter(key);
+	   }
