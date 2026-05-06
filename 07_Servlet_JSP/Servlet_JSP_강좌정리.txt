@@ -540,9 +540,16 @@ jdbc.passwd=1234
 
      나. com/config/DeptMapper.xml
 
-    5) com.config.MySqlSessionFactory.java 작성
-      
+   5) com.config.MySqlSessionFactory.java 작성
+   
+   
+   6) layer 작성
 
+      # 목록보기
 
+				    DeptService
+ 브라우저------> DeptListServlet       DeptServiceImpl                DeptDAO            mysql
+
+  
 
 
