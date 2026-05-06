@@ -509,3 +509,40 @@ Servlet/JSP 강좌정리 2026-05-04
 			<url-pattern>/*</url-pattern>
 		    </filter-mapping>
 	 - @WebFilter("/MyFilter")
+
+
+12. DB 연동 ( MyBatis 이용 )
+
+   1) 2개의 jar 필요
+
+      mybatis-3.5.17.jar
+      mysql-connector-j-8.0.33.jar
+
+
+     프로젝트내의 webapps
+                WEB-INF
+		    lib # lib폴더에 jar파일을 복사하면 buildpath가 됨
+		        mybatis-3.5.17.jar
+			mysql-connector-j-8.0.33.jar
+
+
+   2) com/config/jdbc.properties 
+jdbc.driver=com.mysql.cj.jdbc.Driver
+jdbc.url=jdbc:mysql://localhost:3306/testdb
+jdbc.userid=root
+jdbc.passwd=1234
+
+   3) com/dto/DeptDTO.java 작성
+
+   4) 2개의 xml 작성
+
+     가. com/config/configuration.xml
+
+     나. com/config/DeptMapper.xml
+
+    5) com.config.MySqlSessionFactory.java 작성
+      
+
+
+
+
