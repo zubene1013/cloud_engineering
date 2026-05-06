@@ -423,10 +423,35 @@ Servlet/JSP 강좌정리 2026-05-04
   2) 종류
 
     가. HttpServletRequest
+	
+	-저장
+	      request.setAttribute(String key, Object obj);
+	-조회
+	      Object obj = request.getAttribute(String key);
+	-삭제
+	      request.removeAttribute(String key);
 
     나. HttpSession
+	# 세션(저장소)이 있으면 리턴하고 없으면 새로생성해서 리턴
+        HttpSession session = request.getSession();
+	HttpSession session = request.getSession(true);
+	------------------------------------------------
+	# 세션(저장소)이 있으면 리턴하고 없으면 null 리턴
+	HttpSession session = request.getSession(false);
+
+	-저장
+	      session.setAttribute(String key, Object obj);
+	-조회
+	      Object obj = session.getAttribute(String key);
+	-삭제
+	      session.removeAttribute(String key);
 
     다. ServletContext
+	ServletContext ctx = getServletContext();
 
-
-
+	-저장
+	      ctx.setAttribute(String key, Object obj);
+	-조회
+	      Object obj = ctx.getAttribute(String key);
+	-삭제
+	      ctx.removeAttribute(String key);
