@@ -411,3 +411,22 @@ Servlet/JSP 강좌정리 2026-05-04
 		String key = enu.nextElement();
 		String value = request.getParameter(key);
 	   }
+
+///////////////////////////////////////////////
+10. scope
+
+  1) 개념
+    - 자바의 변수 ( 로컬변수, 인스턴스변수, static변수 )처럼 
+      tomcat컨테이너가 자동으로 데이터를 관리(저장,조회,수정,삭제)하는 3가지 객체의 lifecycle 의미함.
+
+
+  2) 종류
+
+    가. HttpServletRequest
+
+    나. HttpSession
+
+    다. ServletContext
+
+
+
