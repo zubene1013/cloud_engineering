@@ -345,6 +345,7 @@ Servlet/JSP 강좌정리 2026-05-04
 	     response.setContentType("MIME타입지정");
 
 	     response.setContentType("text/html"); // text/plain (일반텍스트)
+	                                              text/html;charset=UTF-8   (한글깨지면 사용)
 
      나.  출력시 사용하는 API 이용
 
@@ -358,3 +359,44 @@ Servlet/JSP 강좌정리 2026-05-04
 
 		..
 		out.print("</html>");
+
+
+
+9. 요청처리
+  
+                요청 ( HttpServletRequest )
+    웹브라우저 ---------------------> 서버
+           <--------------------
+	        응답   (HttpServletResponse )
+
+
+   1) 개념
+
+     - 웹브라우저에서 사용자 입력폼에 값을 입력하고 서블릿에 전달해서 서블릿이 값을 조회하는 작업의미.
+     - HttpServletRequest API가 처리함.
+   
+
+   2) 사용자 입력 데이터를 가져오는 메서드
+
+	ex.
+
+	 <form action="타겟(서블릿핑매핑값)" method="GET|POST">
+           이름<input type="text" name="username">
+           나이<input type="text" name="age">
+	   <input type="submit" value="전송">
+	 </form>
+
+	 GET 요청?
+	         http://localhost:8080/컨텍스트명/서블릿매핑?key=value&key=value
+
+		 http://localhost:8080/컨텍스트명/서블릿매핑?username=value&age=10
+        
+	 POST 요청?
+	         http://localhost:8080/컨텍스트명/서블릿매핑
+
+		  body:   key=value&key=value
+		          username=value&age=value
+	
+
+
+	String s = request.getParameter("html태그의 name값");  // 사용작 입력한 모든 값은 문자열로 서블릿에 전달됨(*****)
