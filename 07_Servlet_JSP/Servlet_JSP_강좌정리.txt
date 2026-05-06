@@ -422,7 +422,7 @@ Servlet/JSP 강좌정리 2026-05-04
 
   2) 종류
 
-    가. HttpServletRequest
+    가. request scope (HttpServletRequest)
 	
 	-저장
 	      request.setAttribute(String key, Object obj);
@@ -431,7 +431,12 @@ Servlet/JSP 강좌정리 2026-05-04
 	-삭제
 	      request.removeAttribute(String key);
 
-    나. HttpSession
+	
+     scope(Lifecycle)?
+         - 요청 ~ 응답 
+	 - doGet(doPost)메서드안에서만 사용이 가능함(********************) 
+
+    나. session scope ( HttpSession)
 	# 세션(저장소)이 있으면 리턴하고 없으면 새로생성해서 리턴
         HttpSession session = request.getSession();
 	HttpSession session = request.getSession(true);
@@ -446,7 +451,17 @@ Servlet/JSP 강좌정리 2026-05-04
 	-삭제
 	      session.removeAttribute(String key);
 
-    다. ServletContext
+	scope(Lifecycle)?
+	   - 웹브라우저와 scope가 동일 (동일 웹브라우저)
+	     하지만 보안때문에 time-out 지정해서 일정시간(기본:30분)이 지나면 웹브라우저를 종료하지 않아도 세션이 제거된다.
+	       
+	      Server의 web.xml에서 다음과 같이 설정되어 있음 (단위 30분)
+	            <session-config>
+			<session-timeout>30</session-timeout>
+		    </session-config>
+
+
+    다. application scope (ServletContext)
 	ServletContext ctx = getServletContext();
 
 	-저장
@@ -455,3 +470,8 @@ Servlet/JSP 강좌정리 2026-05-04
 	      Object obj = ctx.getAttribute(String key);
 	-삭제
 	      ctx.removeAttribute(String key);
+
+
+	scope(Lifecycle)?
+	  - tomcat 컨테이너와 scope가 동일 
+	   즉, tomcat 컨테이너를 종료하지 않으면 데이터를 계속 사용가능.
