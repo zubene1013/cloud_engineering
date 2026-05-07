@@ -783,10 +783,17 @@ jdbc.passwd=1234
 
 
 
+        * 技记 单捞磐 昏力
 
+            AAA 历厘家(技记) 积己
+	      key | value
+	      -----------
+	       "id" | "aaaa"
+	      "cart" | new ArrayList(..)
 
-
-
+	
+	   - 技记 皋葛府 昏力:  session.invalidate();  ex. 肺弊酒眶
+	   - 技记 漂沥 浚飘府(青) 昏力 :  session.removeAttribute(key); ex. 厘官备聪 昏力
 
 
 
