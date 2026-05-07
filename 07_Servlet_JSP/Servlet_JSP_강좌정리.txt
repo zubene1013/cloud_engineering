@@ -723,6 +723,74 @@ jdbc.passwd=1234
 
       용도: 로그인
 
+     -아키텍처
+
+		
+					            tomcat ( 서버)
+		   1)요청 
+		    ( 웹브라우저의 id값이 전달됨,
+		      jsessionid=AAA                        2)
+		    )                                       AAA 저장소(세션) 생성
+							      key | value
+							      -----------
+							       "id" | "aaaa" 4)데이터저장	
+           웹브라우저 -----------------------------> 서블릿1 
+	   (AAA)				     3)서블릿1에서 세션 접근
+						  # 세션이 있으면 반환하고 없으면 새로 생성해서 반환
+						  HttpSession session = request.getSession();
+						  HttpSession session = request.getSession(true);
+						  -----------------------------------------------
+						  # 세션이 있으면 반환하고 없으면 null 반환
+						  HttpSession session = request.getSession(false);
+
+						  * 저장하는 서블릿코드(ex. 로그인 )
+						 4) 필요한 정보를 세션에 저장
+						 HttpSession session = request.getSession();
+						 session.setAttribute("id","aaaa");
+                  <---------------------------------
+		   5)응답
+	6)랜더링	
+	7)연결끊음
+	           8)요청
+		   ( 웹브라우저의 id값이 전달됨,
+		      jsessionid=AAA                        
+		    )  
+	 	--------------------------------->서블릿2   
+						   9) 서블릿2에서 세션 접근
+						   HttpSession session = request.getSession();
+					
+						   10)데이터 얻기
+						   
+						   String data = (String)session.getAttribute("id");
+						   if( data!= null){
+						       //필요한 데이터 사용
+
+						   }else{
+						       // 서블릿1을 먼저 실행하도록 유도
+						       response.sendRedirect("서블릿1");
+						   }
+
+						   * 다른방법
+						     HttpSession session = request.getSession(false);
+						     if(session != null ){
+                                                          String data = (String)session.getAttribute("id");
+						           //필요한 데이터 사용
+
+						     }else{
+                                                          // 서블릿1을 먼저 실행하도록 유도
+						       response.sendRedirect("서블릿1");
+						     }
+
+
+
+
+
+
+
+
+
+
+
    나. 쿠키이용
      - Cookie 이용
       - 여러 서블릿 및 jsp 간에 데이터를 공유하기 위해서는 공유데이터를 클라이언트(웹브라우저)에 저장하는 방식.
