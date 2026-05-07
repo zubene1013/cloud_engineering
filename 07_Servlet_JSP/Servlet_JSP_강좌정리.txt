@@ -799,6 +799,12 @@ jdbc.passwd=1234
 
 
    나. 쿠키이용
+ 
+     특징:
+       클라이언트에 저장됨.
+       String만 저장됨.
+       도메인당 3000개, 각 쿠키크기가 4kb.
+
      - Cookie 이용
       - 여러 서블릿 및 jsp 간에 데이터를 공유하기 위해서는 공유데이터를 클라이언트(웹브라우저)에 저장하는 방식.
 
@@ -819,7 +825,7 @@ jdbc.passwd=1234
 						#로직처리 후 공유데이터를 쿠키저장	
 						2) 쿠키 생성
 						 // 반드시 value는 문자열만 가능
-						 Cookie c = new Cookie(key, String value);
+						 Cookie c = new Cookie("xxx", String value);
 						  
 						  #쿠키 time-out 지정
 						  c.setMaxAge(초단위);
@@ -835,7 +841,38 @@ jdbc.passwd=1234
   4)클라이언트에 저장
     -웹브라우저에 저장(휘발성)
     -물리적인파일로 저장(비휘발성)
-						 서블릿2  						
-	      <------------------------------
+						
+						 
+						 
+		   5) 요청 ( 쿠키전달 )				 
+		--------------------------------->서블릿2  						
+						 
+						  6) 쿠키얻기
+						   Cookie [] cookies = request.getCookies();
 
+						   for(Cookic c : cookies){
+						      String key = c.getName();
+						      if("xxx".equals(key)){
+						       String value = c.getValue();
+						      }
+		
+						   }
 
+		99) 쿠키삭제 요청 
+             -------------------------------------->
+						 100)
+						    Cookie [] cookies = request.getCookies();
+
+						   for(Cookic c : cookies){
+						      String key = c.getName();
+						      if("xxx".equals(key)){
+							 //쿠키 삭제
+							 c.setMaxAge(0);
+							 response.addCookie(c);
+						      }	
+						   }
+
+	  <-------------------------------------------
+	    101) 응답
+
+   102)쿠키삭제
