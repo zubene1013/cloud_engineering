@@ -899,4 +899,51 @@ jdbc.passwd=1234
 
 ///////////////////////////////////////////////////////////////////////////////////
 
-3. JSP
+3. JSP ( Java Server Page )
+
+  1) 특징
+    - 서블릿처럼 동적 컴포넌트
+    - *.jsp
+    - 3단계로 실행됨.
+       가. 변환단계
+          test.jsp ------------> test_jsp.java
+
+       나. 컴파일단계
+          test_jsp.java ----> test_jsp.class
+
+       다. 실행단계
+          test_jsp.class 실행 -----------> html 만듬
+
+  2) 구성요소
+    
+    가. html태그
+    나. jsp태그
+        a. directive 태그 
+	  
+	   - <%@ page 속성명="속성값"  속성명="속성값" ... %>  <== page directive라고 부름
+           - <%@ include 속성명="속성값"  %>              <== include directive라고 부름
+	   - <%@ taglib 속성명="속성값"  %>               <== taglib directive라고 부름
+
+        b. declaration 태그
+	   <%! 자바코드  %> <== 서블릿의 인스턴스변수, 메서드 역할의 코드지정
+	                 <== 거의 안씀
+
+	c. scriptlet 태그
+	  <% 자바코드  %> <== 서블릿의 doGet 역할의 코드 지정
+
+	d. expression 태그
+	  <%= 변수 %>  <== 서블릿의 응답처리 역할의 코드 지정. 즉 웹브라우저에 출력됨.
+
+    다. EL ( Expression Language )
+     
+      문법: ${표현식}
+
+
+    마. JSTL (JSP Standard Tag Library )
+     
+      - 커스텀 태그
+       ex. 반복,조건,....
+          
+	   <c:if test="">
+
+	   </c:if>
