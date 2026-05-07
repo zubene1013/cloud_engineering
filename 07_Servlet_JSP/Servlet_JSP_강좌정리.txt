@@ -629,6 +629,25 @@ jdbc.passwd=1234
 
 	    request.getRequestDispatcher("target.jsp").forward(request, response);
 
+       - 특징:
+        URL이 변경 안됨.
+
+		 1)요청( http://localhost:8080/app8/ForwardServlet
+		   HttpServletRequest request 하고 HttpServletResponse response생성됨
+	웹브라우저 -----------------------------> 서블릿 ( 비즈니스 로직 )
+					   request.getRequestDispatcher("target.jsp")
+					   .forward(request, response);
+						
+						 |
+						 |
+						 |  2) 서블릿이 웹브라우저처럼 재요청
+						       1)번 요청에서 생성된 request를 재사용
+						 |
+						 |
+
+	      <------------------------------  target2.jsp  ( 화면처리 로직 ) 
+                       3) 응답 
+
 
 
     나. redirect 방식
