@@ -618,6 +618,18 @@ jdbc.passwd=1234
     가. forward 방식
       - HttpServletRequest 사용
       
+      - 문법:
+	 RequestDispatcher dispatcher = request.getRequestDispatcher("타겟");
+	 dispatcher.forward(request, response);
+
+	 # 한번에 사용
+	  request.getRequestDispatcher("타겟").forward(request, response);
+
+	 ex.
+
+	    request.getRequestDispatcher("target.jsp").forward(request, response);
+
+
 
     나. redirect 방식
       - HttpServletResponse 사용
@@ -638,6 +650,7 @@ jdbc.passwd=1234
 			  HttpServletRequest 하고 HttpServletResponse 생성됨
         웹브라우저 -----------------------------> 서블릿 ( 비즈니스 로직 )
 					        2)요청위임
+						request.setAttribute("key","홍길동");
 						response.sendRedirect("target.jsp")
                <-----------------------------
 		       3)응답 ("target.jsp"정보포함)
@@ -646,7 +659,11 @@ jdbc.passwd=1234
 		       4) 재요청 ( http://localhost:8080/app8/target.jsp )
                          HttpServletRequest 하고 HttpServletResponse 생성됨
                ------------------------------->
+						request.getAttribute("key")은 환
 	      <------------------------------  target.jsp  ( 화면처리 로직 ) 
                        5) 응답 
 
 1)번에서 생성된 HttpServletRequest와 4)번에서의 HttpServletRequest 가 서로 다름(***********************)
+
+    - 용도:   홈페이지,
+            로그인 페이지
