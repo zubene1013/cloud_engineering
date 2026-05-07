@@ -599,10 +599,54 @@ jdbc.passwd=1234
 
      
 			요청
-        웹브라우저 -----------------------------> 서블릿 ( 비즈니스로직 )
+        웹브라우저 -----------------------------> 서블릿 ( 비즈니스 로직 )
+
+						|
+						|   요청위임 
+						|   방법2가지: forward 방식, redirect 방식
 
 
-
-
-	      <------------------------------  ?  ( 화면처리 로직 )
+	      <------------------------------  jsp  ( 화면처리 로직 ) - 서블릿,html 가능
                         응답 
+
+
+     서블릿이 jsp를 결국 선택하는 작업인데, 웹브라우저에서 서블릿에게 url입력해서 요청하는 방식과 동일한 방식으로 요청을 해야 된다.
+
+
+  2) 요청 위임 방식 2가지
+
+    가. forward 방식
+      - HttpServletRequest 사용
+      
+
+    나. redirect 방식
+      - HttpServletResponse 사용
+
+      -문법:
+
+         response.sendRedirect("타겟");
+
+	 ex.
+	    response.sendRedirect("target.jsp");
+
+
+     - 특징:
+        URL이 변경됨
+
+
+			1)요청 ( http://localhost:8080/app8/RedirectServlet )
+			  HttpServletRequest 하고 HttpServletResponse 생성됨
+        웹브라우저 -----------------------------> 서블릿 ( 비즈니스 로직 )
+					        2)요청위임
+						response.sendRedirect("target.jsp")
+               <-----------------------------
+		       3)응답 ("target.jsp"정보포함)
+						
+
+		       4) 재요청 ( http://localhost:8080/app8/target.jsp )
+                         HttpServletRequest 하고 HttpServletResponse 생성됨
+               ------------------------------->
+	      <------------------------------  target.jsp  ( 화면처리 로직 ) 
+                       5) 응답 
+
+1)번에서 생성된 HttpServletRequest와 4)번에서의 HttpServletRequest 가 서로 다름(***********************)
