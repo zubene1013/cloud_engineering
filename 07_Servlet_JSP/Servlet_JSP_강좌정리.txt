@@ -678,7 +678,7 @@ jdbc.passwd=1234
 		       4) 재요청 ( http://localhost:8080/app8/target.jsp )
                          HttpServletRequest 하고 HttpServletResponse 생성됨
                ------------------------------->
-						request.getAttribute("key")은 환
+						request.getAttribute("key")은 null
 	      <------------------------------  target.jsp  ( 화면처리 로직 ) 
                        5) 응답 
 
