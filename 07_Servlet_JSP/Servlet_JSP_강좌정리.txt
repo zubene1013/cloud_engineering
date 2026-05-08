@@ -1085,3 +1085,71 @@ jdbc.passwd=1234
 			   | 요청위임
 			   |
         <---------------  JSP (View)
+
+  2) 게시판 테이블
+
+    create table board
+    (  num int primary key auto_increment,
+       title varchar(100) not null,
+       author varchar(50) not null,
+       content varchar(2000) not null,
+       writeday date  default ( current_date ),
+       readcnt  int default 0
+    );
+
+    insert into board( title, author, content ) 
+    values ( '테스트','홍길동','테스트입니다');
+    commit;
+     
+   
+  3) 목록보기
+                                                         BoardService
+ 웹브라우저 ----------------> BoardListServlet ------------> BoardServiceImpl ------> BoardDAO ----> MySQL
+			   |							  BoardDTO
+			   | 요청위임
+			   |
+        <---------------  list.jsp
+
+
+
+  4)글작성하기1-화면보기
+
+
+   웹브라우저 ----------------> BoardWriteUIServlet
+			   |							
+			   | 요청위임
+			   |
+        <---------------  write.jsp
+
+
+
+ 4)글작성하기2-글작성
+
+
+
+                                                         BoardService
+ 웹브라우저 ----------------> BoardWriteServlet ------------> BoardServiceImpl ------> BoardDAO ----> MySQL
+			   |							  BoardDTO
+			   | 요청위임
+			   |
+        <---------------   BoardListServlet
+
+
+  5) 글자세히 보기
+
+ 
+  웹브라우저 ----------------> BoardRetrieveServlet ------------> BoardServiceImpl ------> BoardDAO ----> MySQL
+			   |							  BoardDTO
+			   | 요청위임
+			   |
+        <---------------  retrieve.jsp
+
+
+6) 글수정하기
+
+ 
+  웹브라우저 ----------------> BoardUpdateServlet ------------> BoardServiceImpl ------> BoardDAO ----> MySQL
+			   |							  BoardDTO
+			   | 요청위임
+			   |
+        <---------------   BoardListServlet
