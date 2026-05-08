@@ -1010,9 +1010,42 @@ jdbc.passwd=1234
      - 용도: 화면 재사용. html의 <iframe> 기능과 동일
      - 문법1:
           <%@ include file="jsp파일" %>
+	
+	 특징: *.java 변환되기 전에 포함시킴.
 
      - 문법2:
         
-	  <jsp:include page="jsp파일" />
+	  <jsp:include page="jsp파일" flush="true"/>
+
+	특징: 포함시킬 jsp에 요청을 하고 실행된 결과를 포함시킴.
 
   다. taglib directive 
+   
+     - 용도: JSTL 에서 사용됨
+     - 문법:
+           <%@ taglib prefix="" uri="" %>
+
+
+2. declaration 태그 (  거의 사용안됨 )
+  
+  -용도: 서블릿의 인스턴스 변수 및 메서드 (doGet제외 )
+  문법: 
+      <%!
+           인스턴스변수;
+
+	   메서드
+
+      %>
+
+3. scriptlet 태그 ( 가장 많이 사용 )
+  - 용도:  서블릿의 doGet 메서드내에서의 작업 
+  - 문법: 
+     <%
+	 자바코드 ( 메서드 사용 불가 )
+     %>
+
+
+4. expression 태그
+   - 용도: 웹 브라우저에 값 출력
+   - 문법: 
+          <%= 변수 %>
