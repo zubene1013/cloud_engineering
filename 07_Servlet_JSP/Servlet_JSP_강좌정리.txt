@@ -1153,3 +1153,13 @@ jdbc.passwd=1234
 			   | 요청위임
 			   |
         <---------------   BoardListServlet
+
+
+7) 글삭제하기
+
+ 
+  웹브라우저 ----------------> BoardDeleteServlet ------------> BoardServiceImpl ------> BoardDAO ----> MySQL
+			   |							  BoardDTO
+			   | 요청위임
+			   |
+        <---------------   BoardListServlet
