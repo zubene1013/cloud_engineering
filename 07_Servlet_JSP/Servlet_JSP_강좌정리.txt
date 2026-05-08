@@ -696,7 +696,7 @@ jdbc.passwd=1234
     - 현재 사용중인 프로토콜이 http 임.
        http://localhost:8080/app8/ForwardServlet
 
-    - http 프로토콜의 주요 특징은 Connectionless 임.
+    - http 프로토콜의 주요 특징은 Connectionless, Stateless 임.
        
 			 1)요청
            웹브라우저 -----------------------------> 서블릿 2)실행
@@ -934,6 +934,15 @@ jdbc.passwd=1234
 	d. expression 태그
 	  <%= 변수 %>  <== 서블릿의 응답처리 역할의 코드 지정. 즉 웹브라우저에 출력됨.
 
+    나2: jsp액션태그
+         <jsp:프리픽스  속성명="" />
+
+	 ex. <jsp:include>
+	     <jsp:param>
+	     ..
+
+
+
     다. EL ( Expression Language )
      
       문법: ${표현식}
@@ -976,3 +985,34 @@ jdbc.passwd=1234
 					  | 요청위임
 					  |
 	      <--------------------------JSP
+
+////////////////////////////////////////
+4일차
+
+1. directive 태그 ( 지시자 태그 )
+ 
+ 
+  가. page directive
+      - 용도: JSP에게 특정 정보를 알려줄때 사용.
+      - 문법:
+          <%@ page 속성명="속성값" .... %>
+
+	  <%@ page contentType="text/html"  %>  <== 서블릿의 response.setContentType("text/html") 동일한 역할.
+  
+          <%@ page import="java.util.ArrayList" %>
+          <%@ page import="java.util.Date" %>
+	  <%
+	    ArrayList list = new ArrayList();
+	    Date d = new Date();
+	  %>
+	 
+  나. include directive
+     - 용도: 화면 재사용. html의 <iframe> 기능과 동일
+     - 문법1:
+          <%@ include file="jsp파일" %>
+
+     - 문법2:
+        
+	  <jsp:include page="jsp파일" />
+
+  다. taglib directive 
