@@ -170,7 +170,7 @@ https://spring.io/
    -개념: 임의의 클래스에서 다른 클래스를 참조할 때,
         직접 생성해서 참조하는 것이 아니고 외부에서 생성한 후에 생성자 또는 setter메서드를 이용해서 설정해서 사용하는 방법을 의미함.
 
-    가. 생성자 주입( Constructor-based Dependency Injection)
+    가. 생성자 주입( Constructor-based Dependency Injection) - 권장
 
 	  ex. 
 	     BoardListServlet     BoardServiceImpl               BoardDAO
@@ -205,3 +205,13 @@ https://spring.io/
 		# BoardListSevlet에서 생성했는데. 이 역할이 IoC Container 역할임
 		BoardService service = new BoardServiceImpl();
 		service.setDao(new BoardDAO());	
+
+    다. 필드(변수) 주입 ( Field Dependency Injection) 
+
+         BoardListServlet     BoardServiceImpl               BoardDAO
+				   
+
+					@Autowired
+				       BoardDAO dao;
+
+///////////////////////////////////////////////////////////////////////////
