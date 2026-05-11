@@ -391,6 +391,24 @@ https://docs.spring.io/spring-boot/3.5/reference/using/using-the-springbootappli
 	      -@Service
 	      -@Repository
 	      -@RestController
+	      -@Configuration
 	      ..
 
      다. @SpringBootConfiguration 
+      
+       - 자동으로 설정되는 기본설정(ex. tomcat포트번호가 8080)이 있고 
+        추가로 개발자가 설정이 가능함.
+       - @Configuration + @Bean 사용해서 추가로 설정함.
+       - 용도: 외부라이브러리라서 수동으로 생성해야 되는 경우가 있음.
+
+        ex.  Test.java 생성
+
+	  @Configuration
+	  public class CustomerConfigurtion{
+
+	      @Bean
+	       public Test create(){
+	         return new Test();
+	       }
+
+	  }
