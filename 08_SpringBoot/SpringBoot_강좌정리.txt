@@ -302,3 +302,22 @@ https://spring.io/
 ///////////////////////////////
 3장. 환경설정
 ///////////////////////////////
+
+1. 환경설정
+
+   -JDK21
+   -SpringBoot 3.5.6 버전 ( Spring Framework 6.2.X 포함됨 )
+   -Intellij IDE 툴 사용 ( 일정기간이 지나면 기능 제한됨 )
+
+     http://jetbrains.com
+
+ 
+2. boot 프로젝트 생성 방법
+
+  - Spring Initializer 이용
+  - http://start.spring.io 
+
+  - group: 패키지명
+    artifacts: 프로젝트명 ( 빌드시 jar 파일명으로 사용됨.  ex. demo-버전-SNAPSHOP.jar )
+    등등 지정하고 Generate 버튼틀릭 > 프로젝트명.zip 다운로드됨.
+
