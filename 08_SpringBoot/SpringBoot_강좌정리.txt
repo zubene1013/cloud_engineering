@@ -276,3 +276,29 @@ https://spring.io/
        ..
       
      https://docs.spring.io/spring-boot/3.5/reference/using/build-systems.html
+
+ 
+ 5. SpringBoot 목표
+
+   - 개발자가 프러덕션 환경에서 사용가능한 어플리케이션을 빠르게 빌드하도록 돕는 것이다.
+   - 돕는 방법
+
+   가. Spring Initializer (프로젝트를 로컬이 아닌 웹에서 생성 가능.)
+     
+      http://start.spring.io
+
+   
+  나. Spring Boot Starter 제공
+
+  다. Spring Boot Auto Configuration
+    => 자동환경설정임.
+    => Starter 의존성을 보고 환경설정을 해줌.
+
+  라. SpringBoot devtools
+
+    ==> 코드를 변경하면 자동인식해서 화면을 재래더링해줌.
+    
+
+///////////////////////////////
+3장. 환경설정
+///////////////////////////////
