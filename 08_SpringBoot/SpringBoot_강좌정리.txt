@@ -162,3 +162,46 @@ https://spring.io/
 	  GenericXmlApplicationContext      ( Java SE환경의 IoC Container )
 	  .. 
 	  XXXWebApplicationContext     ( Java EE환경의 IoC Container )
+
+
+ 5) 의존성 주입 ( Dependency Injection : DI )
+  https://docs.spring.io/spring-framework/reference/6.2/core/beans/dependencies/factory-collaborators.html
+
+   -개념: 임의의 클래스에서 다른 클래스를 참조할 때,
+        직접 생성해서 참조하는 것이 아니고 외부에서 생성한 후에 생성자 또는 setter메서드를 이용해서 설정해서 사용하는 방법을 의미함.
+
+    가. 생성자 주입( Constructor-based Dependency Injection)
+
+	  ex. 
+	     BoardListServlet     BoardServiceImpl               BoardDAO
+				   
+				       BoardDAO dao;
+
+					// 생성자 주입
+					public BoardServiceImpl(BoardDAO dao) {
+						this.dao = dao;
+					}
+
+				
+
+		# BoardListSevlet에서 생성했는데. 이 역할이 IoC Container 역할임
+		BoardService service = new BoardServiceImpl(new BoardDAO());
+	
+
+
+
+    나. set 메서드 주입 (Setter-based Dependency Injection)
+
+     BoardListServlet     BoardServiceImpl               BoardDAO
+				   
+				       BoardDAO dao;
+				
+
+					// setter 메서드 주입
+					public void setDao(BoardDAO dao) {
+						this.dao = dao;
+					}
+
+		# BoardListSevlet에서 생성했는데. 이 역할이 IoC Container 역할임
+		BoardService service = new BoardServiceImpl();
+		service.setDao(new BoardDAO());	
