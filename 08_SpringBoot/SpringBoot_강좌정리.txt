@@ -122,3 +122,43 @@ https://spring.io/
    - Spring Boot 4.X ( 2026년ㄴ 05월 )
     수업에서는 SpringBoot 3.5.6 사용할 예정임
 
+5. 용어정리
+
+ 1) POJO ( Plain Old Java Object )
+   - 일반적으로 오래된 자바 객체 의미.
+     특정 플랫폼에 의존하는 자바 객체 대비해서 사용되는 용어.
+     따라서 POJO는 특정 환경(플랫폼)에 의존하지 않고 재사용될 수 있음. ( extends 또는 implements )
+     ex.
+	
+	  HttpServlet
+		|
+		|
+           TestServlet <== 모든 환경이 아닌 웹환경에서만 사용되는 클래스로 제한됨.
+
+
+ 2) Spring Bean
+   - POJO 기반의 Spring 어플리케이션에서 만든 자바 클래스 의미.
+
+ 3) IoC ( Inversion of Control : 제어의 역행 )
+  - 필요한 빈(클래스)를 직접 생성하거나 빈간에 사용(접근)을 직접 설정하지 않고
+    대신 외부(IoC Container)에서 필요한 빈을 생성하고 사용을 설정해주는 개념.
+
+ 4) IoC Container
+   - IoC 방법으로 빈(클래스)를 관리한다는 의미에서 IoC Container라고 부름
+     IoC 방법으로 빈(클래스)를 관리? 빈을 생성하고 사용할 수 있도록 설정.
+
+   - ApplicationContext 빈이 IoC Container역할 담당함.
+
+   ex.
+        BeanFactory (인터페이스)
+	   |
+	   |
+	   |
+        ApplicationContext(인터페이스)
+	   |
+	   |
+	   |
+	  AnnotationConfigApplicationContext ( Java SE환경의 IoC Container )
+	  GenericXmlApplicationContext      ( Java SE환경의 IoC Container )
+	  .. 
+	  XXXWebApplicationContext     ( Java EE환경의 IoC Container )
