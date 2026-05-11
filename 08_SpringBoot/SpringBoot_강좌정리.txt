@@ -332,7 +332,8 @@ https://spring.io/
   
   2) 빌드명령어 ( *.jar 생성 )
     -cmd창에서 ./gradlew clean build
-             
+     빌드결과 build > libs > demo-1.0.0-SNAPSHOT.jar 생성됨.        
+
     -빌드된 jar 실행
 
-      java -jar xxx.jar
+      java -jar demo-1.0.0-SNAPSHOT.jar
