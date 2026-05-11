@@ -49,10 +49,45 @@ https://spring.io/
 	           delete문 처리
 	       }
 
-               @Transactional
+               @Transactional <== 클래스 레벨로 지정하면 클래스내의 모든 메서드들이 트랜잭션으로 처리됨.(부하가 심할수 있음)
 	       public class Service{
 		
                   public int transaction1(...){}
 		  public int transaction2(...){}
 
 	       }
+
+   다. JDBC 추상화
+      - 자체적으로 MyBatis 같이 Wrapper한 클래스(ex. JdbcTemplate)를 제공함.
+        예외처리가 필요없음.
+
+   라. 자체적으로 Spring MVC 아키텍처 제공 ( 강제성이 부여됨 )
+   마. REST API 제공
+
+       -기존 아키텍처 ( SOAP 방식 )
+			요청
+           웹브라우저 ---------------------> 서버
+	         <-----------------------
+		       응답( html 형식 )
+
+
+
+       - REST ( Represenational State Transfer )ful 방식 아키텍처
+         
+	  ex. 클라이언트가 웹브라우저이외의 장치가 많이 나옴. ( 핸드폰,테블릿,냉장고,TV,셋탑박스, 자동차,.....)
+
+
+	  클라이언트
+	  -웹브라우저       요청 ( JSON )
+	  -핸드폰     -------------------------> 서버
+	  -자동차     <-------------------------
+	  -냉장고         응답( html이 아닌 다양한 클라이언트가 인식할 수 있는 공통포맷: JSON )
+	  -IOT 장치
+	  ...
+
+      * 교육과정에서 final 프로젝트 구축 아키텍처 ( RESTful 방식)
+
+                       JSON
+          웹브라우저   ------------------------------> 서버
+	  (Vue.js) <------------------------------ (SpringBoot)
+                        JSON
