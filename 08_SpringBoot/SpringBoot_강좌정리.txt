@@ -1,0 +1,26 @@
+SpringBoot_강좌정리 2026-05-11
+
+https://spring.io/
+
+///////////////////////////////
+1장. Spring Framework
+///////////////////////////////
+
+1. 개요
+
+   - Road Johns 만듬. 'Export One-on-One J2EE Development without EJB'
+     ( EJB: Enterprise Java Beans <== 서블릿/JSP 이후의 Enterprise개발시 사용했던 기술이었음.
+                                      특징은 굉장히 무겁고 플랫폼이 의존성 )
+
+   - 2003년 오픈소스로 시작됨.
+
+2. 특징
+
+   -IoC(Inversion of Control: 제어의 역행) 컨테이너 기반. ( Tomcat 컨테이너는 클래스는 아님. 다운받아서 설치해서 사용하는 s/w)
+    IoC 컨테이너는 클래스(빈)임. ( ex. ApplicationContext )
+    즉, ApplicationContext 가 사용하고자하는 클래스들을 생성 및 소멸 및 서로간에 접근까지 담당함.
+        IoC Container가 사용하고자하는 빈들을 생성 및 소멸 및 의존성 주입(Dependency Injection) 까지 담당함.
+
+    과거에는 클래스들을 직접 생성하고 직접 접근했음. 이 방식이 일반적인 개발할 때 사용했던 방식인데..
+    스프링은 클래스들을 직접 생성하지 않고 또한 사용하고자 하는 클래스들을 외부에서 설정해서 사용하는 방식이다.
+    즉 과거에 사용헀던 방식을 역행했다고 해서 IoC라고 부름.
