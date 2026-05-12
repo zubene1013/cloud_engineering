@@ -426,7 +426,9 @@ https://docs.spring.io/spring-boot/3.5/reference/using/using-the-springbootappli
 4장. 빈 생성 및 DI 설정
 ///////////////////////////////
 
- 1. 권장 패키지 방법 ( 추천 )
+1. 빈생성 방법
+
+ 1) 권장 패키지 방법 ( 추천 )
 
    -개념:
       @SpringBootApplication를 가진 빈의 패키지와 같거나 서브패키지로 만들면 자동으로 빈으로 등록되어 생성됨.
@@ -447,7 +449,7 @@ https://docs.spring.io/spring-boot/3.5/reference/using/using-the-springbootappli
      나.AOP 사용시 부가적인 작업을 더 자세하게 설정할 수 있음.
 
 
-2. 다른 패키지로 만든 경우
+ 2) 다른 패키지로 만든 경우
 
    - 패키지명으로 알려줘야됨.
     
@@ -456,7 +458,7 @@ https://docs.spring.io/spring-boot/3.5/reference/using/using-the-springbootappli
         public class DemoApplication {
 
 
-3. @Configuration + @Bean 이용한 명시적 생성
+ 3) @Configuration + @Bean 이용한 명시적 생성
 
   -@Configuration 역할: 지정된 클래스를 설정(Configuration)클래스임을 알려주는 어노테이션임.
                       이 파일안에 명시적으로 생성할 빈을 등록함.
@@ -464,3 +466,58 @@ https://docs.spring.io/spring-boot/3.5/reference/using/using-the-springbootappli
 
  - @Bean 역할: 메서드레벨.
              명시적으로 생성한 객체를 메서드의 리턴타입으로 지정하여 빈으로 등록함.
+
+-------------------------------------------------
+2. 의존성 주입  ( Dependency Injection: DI )
+
+  1)생성자 이용 ( Constructor-Based  Dependency Injection )
+
+				     DeptService
+				      @Service			    @Repository
+	DeptApplication -----------> DeptServiceImpl --------------> DeptDAO
+				    
+				     DeptDAO dao;
+		 public DeptServiceImpl(DeptDAO dao){
+		    this.dao = dao;
+		 }
+      - 단일 주입
+		 @Service("service")
+		public class DeptServieImpl {
+
+		    DeptDAO dao;
+		    
+		    // 생성자 주입
+		    public DeptServieImpl(DeptDAO dao) {
+			System.out.println("DeptServieImpl");
+			this.dao = dao;
+		    }
+      - 멀티 가능
+                @Service("service")
+		public class DeptServieImpl {
+
+		    DeptDAO dao;
+		    EmpDAO  empdao;
+		    
+		    // 생성자 주입
+		    public DeptServieImpl(DeptDAO dao, EmpDAO  empdao) {
+			System.out.println("DeptServieImpl");
+			this.dao = dao;
+			this.empdao = empdao;
+		    }
+
+       - @Qualifier 어노테이션
+
+        
+				     DeptService			
+				      @Service				CommonDAO(인터페이스)
+	DeptApplication -----------> DeptServiceImpl --------------> DeptDAO   EmpDAO
+				    
+				     DeptDAO dao;
+		 public DeptServiceImpl(DeptDAO dao){
+		    this.dao = dao;
+		 }
+
+
+  2)필드 이용  ( Field  Dependency Injection )
+   
+     - @Autowired
