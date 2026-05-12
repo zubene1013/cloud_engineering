@@ -505,19 +505,56 @@ https://docs.spring.io/spring-boot/3.5/reference/using/using-the-springbootappli
 			this.empdao = empdao;
 		    }
 
-       - @Qualifier 어노테이션
+       - @Qualifier 어노테이션 ( @Primary 이용 가능 )
 
         
 				     DeptService			
 				      @Service				CommonDAO(인터페이스)
 	DeptApplication -----------> DeptServiceImpl --------------> DeptDAO   EmpDAO
 				    
-				     DeptDAO dao;
-		 public DeptServiceImpl(DeptDAO dao){
-		    this.dao = dao;
-		 }
+				     CommonDAO dao;
+				 public DeptServiceImpl(CommonDAO dao){
+				    this.dao = dao;
+				 }
 
+		 CommonDAO dao;
+    
+		    // 생성자 주입
+		    public DeptServieImpl( @Qualifier("empRepository") CommonDAO dao) {
+			System.out.println("DeptServieImpl");
+			this.dao = dao;
+		    }
+
+      @Primary: 주입할 수 있는 후보가 여러개인 경우 우선권을 부여하는 방식
+      @Qualifier: 주입할 수 있는 후보가 여러개인 경우 주입할 빈의 이름을 설정하는 방식
+                   @Primary 보다 우선함.
 
   2)필드 이용  ( Field  Dependency Injection )
    
      - @Autowired
+
+
+-------------------------------------------------
+3. 빈의 scope
+https://docs.spring.io/spring-framework/reference/core/beans/factory-scopes.html#page-title
+
+ 1)개념
+   ApplicationContext(IoC Container)가 생성한 빈은 싱글톤(singleton)으로 실행됨. (기본)
+   즉 하나만 만들어서 여러 사용자가 재사용하게됨.
+
+
+ 2)설정값 종류
+
+  singleton: 기본, 단 한번만 생성, 여러 사용작 공유 가능
+  prototype: 요청할 때마다 매번 생성. 여러 사용자가 공유 불가
+
+  request: HttpServletRequest ( 요청 ~ 응답 )
+  session: HttpSession ( 웹브라우저와 동일 )
+  application:  ServletContet ( tomcat )
+
+
+  3)문법
+
+    @Scope("prototype")
+    @Scope("singleton")
+    @Scope(ConfigurableBeanFactory.SCOPE_PROTOTYPE)
