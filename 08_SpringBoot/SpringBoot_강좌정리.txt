@@ -593,3 +593,13 @@ https://docs.spring.io/spring-boot/3.5/reference/features/external-config.html
        # 실행시 환경변수값 설정
 
          java -jar demo.jar --server.port=8090
+
+ 2) 관리구조
+   
+   Environment ( 최상위 인터페이스 )
+     PropertySource
+      CommandLinePropertySource <== cmd에서 설정값 지정, 우선순위가 가장 높다.  --server.port=8091
+      Java System properties   <== JVM 인자 설정값 지정,   -Dserver.port=8092
+      OS environment variables. <== OS환경변수 , SERVER_PORT=8093
+      Config data ( application.yml) <== server:
+                                            port: 8090
