@@ -43,7 +43,7 @@ https://spring.io/
 
      -Spring 에서는 @Transactional 어노테이션 사용.
 
-	       @Transactional  <== DML이 성공하면 자동으로 commit하고 실패(에러발생)하면 자동으로 rollback처리됨.
+	       @Transactional  <== DML이 성공하면 자동으로 commit하고 실패(에러발생, RuntimeException 계열)하면 자동으로 rollback처리됨.
                public int transaction(...){
 		   insert문 처리 
 	           delete문 처리
@@ -54,6 +54,7 @@ https://spring.io/
 		
                   public int transaction1(...){}
 		  public int transaction2(...){}
+		  public List select(...){}
 
 	       }
 
@@ -243,6 +244,7 @@ https://spring.io/
 	java -jar XXXX.jar <=== 만약에 웹이라면 자동으로 설치된 내장 tomcat으로 실행됨.
 
    라. 설정정보는 xml(기존 스프링 및 서블릿/jsp) 대신에 *.properties 또는 *.yml(yaml) 이용.
+	
 
 3. 빌드도구(build tool)
 
@@ -366,6 +368,11 @@ https://spring.io/
      properties(yml):
                       email=aaa@example.com
 
+
+  ==> SpringBoot가 Starter를 보고 자동으로 대부분의 환경을 설정해줌.
+     나머지 추가설정은 application.yml에서 개발자가 직접 설정함.
+     
+
 6. Application 파일
 
    - src/main/java 에 저장되고 필수 파일임 ( 웹어플리케이션 개발에도 필수 )
@@ -412,3 +419,48 @@ https://docs.spring.io/spring-boot/3.5/reference/using/using-the-springbootappli
 	       }
 
 	  }
+///////////////////////////////////////////////////////////
+2일차 2026-05-12
+
+///////////////////////////////
+4장. 빈 생성 및 DI 설정
+///////////////////////////////
+
+ 1. 권장 패키지 방법 ( 추천 )
+
+   -개념:
+      @SpringBootApplication를 가진 빈의 패키지와 같거나 서브패키지로 만들면 자동으로 빈으로 등록되어 생성됨.
+
+   -구현방법 2step
+
+     step1: @SpringBootApplication를 가진 빈의 패키지와 같거나 서브패키지로 만들면 자동으로 빈으로 등록
+     step2: 자동으로 생성할 빈을 지정
+           @Component ( 범용적 )
+	   @Service   ( 서비스 레이어 )
+	   @Controller ( 서블릿 역할 )
+	   @RestController ( 서블릿 역할 )
+	   @Repository ( DAO 레이어 )
+	   @Configuration ( 설정정보 추가)
+
+   - 다양한 어노테이션을 사용하는 이유?
+     가.프레임워크에게 명시적으로 의도한바를 더 자세하게 알려줌.
+     나.AOP 사용시 부가적인 작업을 더 자세하게 설정할 수 있음.
+
+
+2. 다른 패키지로 만든 경우
+
+   - 패키지명으로 알려줘야됨.
+    
+     //@SpringBootApplication(scanBasePackages = {"com.other"})
+       @SpringBootApplication(scanBasePackageClasses={com.other.EmpDAO.class})
+        public class DemoApplication {
+
+
+3. @Configuration + @Bean 이용한 명시적 생성
+
+  -@Configuration 역할: 지정된 클래스를 설정(Configuration)클래스임을 알려주는 어노테이션임.
+                      이 파일안에 명시적으로 생성할 빈을 등록함.
+		      클래스 레벨임.
+
+ - @Bean 역할: 메서드레벨.
+             명시적으로 생성한 객체를 메서드의 리턴타입으로 지정하여 빈으로 등록함.
