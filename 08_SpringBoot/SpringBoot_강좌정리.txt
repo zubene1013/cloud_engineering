@@ -558,3 +558,38 @@ https://docs.spring.io/spring-framework/reference/core/beans/factory-scopes.html
     @Scope("prototype")
     @Scope("singleton")
     @Scope(ConfigurableBeanFactory.SCOPE_PROTOTYPE)
+
+-------------------------------------------------------
+4. 빈의 초기화 및 cleanup 작업
+
+   - 서블릿의 init(), destroy() 비슷한 역할로서 메서드를 재정의했음.
+
+   - spring에서는 메서드명을 내마음대로 지정 가능.
+
+      @PostConstruct
+      public void start(){
+	//초기화작업
+      }
+
+      @PreDestroy
+      public void shutdown(){
+	//자원반납 작업
+      }
+
+-------------------------------------------------------
+5. external configuration
+https://docs.spring.io/spring-boot/3.5/reference/features/external-config.html
+
+ 1)개념
+  어플리케이션 실행시 필요한 정보(ex.서버포트, 프로파일(dev,prod),로그레벨( ERROR,WARN, INFO, DEBUG, TRACE ))를
+  코드가 아닌 외부파일(application.yml) 또는 실행시 환경변수로 분리해서 관리하는 방법의미.
+
+  ex. 
+       #application.yml
+          
+	   server:
+	     port: 8090
+
+       # 실행시 환경변수값 설정
+
+         java -jar demo.jar --server.port=8090
