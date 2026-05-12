@@ -609,3 +609,11 @@ https://docs.spring.io/spring-boot/3.5/reference/features/external-config.html
                         profiles: 
 			    actvie: dev|prod
      
+
+ 3) 외부에서 설정된 환경변수(설정값)를 빈에서 사용하는 방법
+
+   가. @Value
+       - 단일값 조회
+
+   나. @ConfigurationProperties
+       - 멀티값 조회 적당하고 클래스단위로 관리 가능함
