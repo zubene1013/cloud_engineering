@@ -688,4 +688,26 @@ https://docs.spring.io/spring-boot/3.5/reference/features/external-config.html#f
 
     java -jar myapp.jar   --spring.profiles.active=prod
 
+---------------------------------------------------------------------
+///////////////////////////////
+5장. DB 연동
+///////////////////////////////
 
+1. Spring JDBC
+ 
+  1) 기존 JDBC
+     - 명시적으로 Connection 얻고 PreparedStatement로 SQL전송, ResultSet 결과값 처리.
+     - 반드시 예외처리 필수 ( SQLException 예외가 발생됨 )
+     - 트랜잭션 처리 난이도 있음.
+     - finally에서 반드시 close 필수
+     
+     ==> 보일러플레이트 코드라고 부름
+
+  2) Spring JDBC 특징
+     - JDBC 코드 단순화
+       ex. close 불필요
+     - 예외처리 불필요
+     - 손쉬운 트랜잭션처리 (@Transactional 이용)
+     - ConnectionPool 자동 제공.
+       ex. DBCP2 (Spring Framework), HikariCP(SpringBoot)
+    
