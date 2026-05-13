@@ -648,7 +648,7 @@ https://docs.spring.io/spring-boot/3.5/reference/features/external-config.html#f
  1)개념
     - 개발할 때는 다양한 환경이 존재함 ( ex. 개발환경, 프러덕션 환경, 테스트환경,..)
 
- 2) 문법:
+ 2) 문법1:
 
        기본: application.yml
            application-프로파일명.yml
@@ -661,9 +661,31 @@ https://docs.spring.io/spring-boot/3.5/reference/features/external-config.html#f
 	 application-dev.yml <== 개발시 사용하는 설정저장
 	 application-prod.yml <== 프로덕션시 사용하는 설정저장
 
+   문법2: 빈도 관리 가능
+        @Component
+	@Profile("prod")
+	public class ProdClass {
+	    public ProdClass() {
+		System.out.println("create ProdClass");
+	    }
+	}
+	@Configuration
+	public class ProfileConfiguration {
+
+	    @Bean
+	    @Profile("prod")
+	    public String createProd(){
+		System.out.println("create prod");
+		return "prod 관련 객체 생성"; // Emp 사용
+	    }
 
  3) 프로파일 활성화
     
        spring:
         profiles:
 	 active: 프로파일명
+
+
+    java -jar myapp.jar   --spring.profiles.active=prod
+
+
