@@ -883,3 +883,55 @@ https://docs.spring.io/spring-boot/3.5/reference/features/external-config.html#f
  5) h2에서 사용했던 코드는 그대로 사용됨.
 
  ---------------------------------------------------------------------------------
+ ///////////////////////////////////////////////////////////////////////////////
+2. 코드구현3 - MyBatis + MySQL 연동
+
+1) 의존성 설정
+    
+    //implementation 'org.springframework.boot:spring-boot-starter-data-jdbc' <== Spring JDBC 용
+    implementation("org.mybatis.spring.boot:mybatis-spring-boot-starter:3.0.5")
+
+ 2) DB 설치
+    - 물리적인 DB ( MySQL )
+
+    - 의존성 설정
+
+        runtimeOnly 'com.mysql:mysql-connector-j:8.3.0'
+
+ 3 )MySQL  연동하기 위한 4가지 정보 설정
+
+     spring:
+        datasource:
+	   url: jdbc:mysql://localhost:3306/testdb
+	   driver-class-name: com.mysql.cj.jdbc.Driver
+	   username: root
+	   password: 1234
+
+	#schema.sql 과 data.sql 관리 가능 ( always|never )	
+	sql:
+	 init:
+	   mode: always
+
+ 4) scema.sql 과 data.sql
+
+ 5) xml 파일 작성
+ 
+   - 기존 MyBatis 연동시 필요한 2개의 xml
+      a. configuration.xml <=== application.yml 대체
+      b. DeptMapper.xml
+
+   - Spring MyBatis 연동시 필요한 1개의 xml
+
+      TodoMapper.xml <== 반드시 src/main/resource 폴더에 저장해야됨 (*********************)
+
+
+ 6) 아키텍처
+
+  	               TodoMyBatisService
+		       @Service			            @Repository
+  Application -------> TodoMyBatisServiceImpl -------------> TodoMyBatisepository --------------> MySQL
+
+		    	
+
+						      TodoDTO
+			
