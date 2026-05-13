@@ -711,3 +711,50 @@ https://docs.spring.io/spring-boot/3.5/reference/features/external-config.html#f
      - ConnectionPool 자동 제공.
        ex. DBCP2 (Spring Framework), HikariCP(SpringBoot)
     
+ 
+  3) JdbcTemplate 클래스 이용 ( <== MyBatis의 SqlSession 역할 )
+
+     가. MyBatis 메서드
+      
+        - SELECT : selectOne()
+	           selectList()
+
+        - INSERT: insert()
+	  DELETE: delete()
+	  UPDATE: update()
+
+	- 트랜잭션 처리
+	    session.commit();
+	    session.rollback();
+
+    나. JdbcTemplate 메서드
+
+        - SELECT : queryForObject() <== selectOne() 동일
+		   query()          <==	selectList() 동일
+
+        - INSERT: update()
+	  DELETE: update()
+	  UPDATE: update()
+
+        - 트랜잭션 처리
+	    @Transactional
+
+  4) 의존성 설정 ( starter 즉, jar )
+
+      	implementation 'org.springframework.boot:spring-boot-starter-data-jdbc'
+
+
+ //////////////////////////////////////////////////////////////////////////////////
+2. 코드구현
+
+ 1) 의존성 설정
+    
+    implementation 'org.springframework.boot:spring-boot-starter-data-jdbc'
+
+ 2) DB 설치
+    - 인메모리 DB ( h2 )
+
+    - 의존성 설정
+
+        runtimeOnly 'com.h2database:h2'
+	implementation 'org.springframework.boot:spring-boot-starter-web' # h2 관리자 접속용( 웹에서 접속가능 )
