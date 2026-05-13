@@ -758,3 +758,15 @@ https://docs.spring.io/spring-boot/3.5/reference/features/external-config.html#f
 
         runtimeOnly 'com.h2database:h2'
 	implementation 'org.springframework.boot:spring-boot-starter-web' # h2 관리자 접속용( 웹에서 접속가능 )
+
+
+ 3) application.yml 추가설정
+
+     server:
+       port: 8080
+
+     # h2관리자 접속 활성화 <== 웹에서 접속하기 위한 정보를 console에 출력해줌.
+     spring:
+       h2:
+         console:
+	   enabled: true
