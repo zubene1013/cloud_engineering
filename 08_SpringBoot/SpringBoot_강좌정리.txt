@@ -617,3 +617,53 @@ https://docs.spring.io/spring-boot/3.5/reference/features/external-config.html
 
    나. @ConfigurationProperties
        - 멀티값 조회 적당하고 클래스단위로 관리 가능함
+
+       구현방법
+	A. 스캔 활성화
+	  ex.  @ConfigurationPropertiesScan
+	      @SpringBootApplication
+	      public class DemoApplication{}
+	B. 프로퍼티 클래스정의
+	   ex.  @ConfigurationProperties (prefix=“app”)
+	        public record AppProps {}
+	C. 주입 및사용
+	       ex.   @Autowired
+	       AppProps appProps
+  
+
+  4) @ConfigurationProperties + 유효성체크 (validation)
+https://docs.spring.io/spring-boot/3.5/reference/features/external-config.html#features.external-config.typesafe-configuration-properties.validation
+
+     가. 의존성 설정
+        implementation 'org.springframework.boot:spring-boot-starter-validation'
+
+
+     나. 프러퍼티 클래스에 @Validated 및 유효성어노테이션 추가
+
+///////////////////////////////////////
+3일차 2026-05-13
+
+1. 프로파일(Profile)
+
+ 1)개념
+    - 개발할 때는 다양한 환경이 존재함 ( ex. 개발환경, 프러덕션 환경, 테스트환경,..)
+
+ 2) 문법:
+
+       기본: application.yml
+           application-프로파일명.yml
+	   ex. application-dev.yml
+	       application-prod.yml
+
+
+       최종파일:
+         application.yml <== 공통적으로 사용하는 설정저장
+	 application-dev.yml <== 개발시 사용하는 설정저장
+	 application-prod.yml <== 프로덕션시 사용하는 설정저장
+
+
+ 3) 프로파일 활성화
+    
+       spring:
+        profiles:
+	 active: 프로파일명
