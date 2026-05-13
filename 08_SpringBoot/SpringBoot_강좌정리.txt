@@ -791,3 +791,23 @@ https://docs.spring.io/spring-boot/3.5/reference/features/external-config.html#f
 	   driver-class-name: org.h2.Driver
 	   username: sa
 	   password: 
+
+
+  5) 파일로 create 문과 insert문 작성
+   https://docs.spring.io/spring-boot/docs/1.2.0.M2/reference/html/howto-database-initialization.html#howto-intialize-a-database-using-spring-jdbc
+      
+     가. src/main/resource/schema.sql
+
+	  create table todo
+	  ( id int,
+	    name varchar(255) not null,
+	    job varchar(255) not null,
+	    primary key(id)
+	  );
+	
+
+     나. src/main/resource/data.sql
+
+         insert into todo (id, name, job) values ( 1, '홍길동','Learn Spring');
+         insert into todo (id, name, job) values ( 2, '홍길동','Learn Vuejs');
+         insert into todo (id, name, job) values ( 3, '홍길동','Learn SQL');
