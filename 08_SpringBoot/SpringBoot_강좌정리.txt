@@ -770,3 +770,24 @@ https://docs.spring.io/spring-boot/3.5/reference/features/external-config.html#f
        h2:
          console:
 	   enabled: true
+
+
+  ==> 실행하면 콘솔에 다음과 같은 정보가 출력된다.
+
+     ....
+
+     H2 console available at '/h2-console'. 
+          Database available at 'jdbc:h2:mem:9a2e5a45-aae4-4384-8518-465efb892468'
+	
+    
+     웹브라우저에서 요청
+       http://localhost:8080/h2-console
+
+ 4) h2 연동하기 위한 4가지 정보 설정
+
+     spring:
+        datasource:
+	   url: jdbc:h2:mem:testdb   # 고정된 값으로 접속이 가능
+	   driver-class-name: org.h2.Driver
+	   username: sa
+	   password: 
