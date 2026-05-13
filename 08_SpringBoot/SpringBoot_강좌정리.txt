@@ -912,6 +912,14 @@ https://docs.spring.io/spring-boot/3.5/reference/features/external-config.html#f
 	 init:
 	   mode: always
 
+     # TodoMapper.xml 과  DTO 별칭 설정
+     mybatis:
+	mapper-locations: com/exam/config/TodoMapper.xml
+       #mapper-locations: com/exam/config/TodoMapper.xml, com/exam/config/DeptMapper.xml
+       #mapper-locations: com/exam/config/*Mapper.xml
+	type-alias-package: com.exam.dto
+
+
  4) scema.sql 과 data.sql
 
  5) xml 파일 작성
@@ -922,16 +930,18 @@ https://docs.spring.io/spring-boot/3.5/reference/features/external-config.html#f
 
    - Spring MyBatis 연동시 필요한 1개의 xml
 
-      TodoMapper.xml <== 반드시 src/main/resource 폴더에 저장해야됨 (*********************)
+      com/exam/config/TodoMapper.xml <== 반드시 src/main/resource 폴더에 저장해야됨 (*********************)
 
 
  6) 아키텍처
 
   	               TodoMyBatisService
 		       @Service			            @Repository
-  Application -------> TodoMyBatisServiceImpl -------------> TodoMyBatisepository --------------> MySQL
+  Application -------> TodoMyBatisServiceImpl -------------> TodoMyBatisRepository --------------> MySQL
 
-		    	
+		    					      @Autowired
+						             SqlSessionTemplate template;
+
 
 						      TodoDTO
 			
