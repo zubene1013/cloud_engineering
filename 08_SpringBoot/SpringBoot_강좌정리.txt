@@ -819,9 +819,14 @@ https://docs.spring.io/spring-boot/3.5/reference/features/external-config.html#f
 		       TodoService
 		       @Service			     @Repository
   Application -------> TodoServiceImpl -------------> TodoRepository --------------> h2
-							
+  @Autowired
+  TodoService xxx;
+		     @Autowired
+                      TodoRepository xx;							
 						       @Autowired
 						       JdbcTemplate template;
 
 						      TodoDTO
-
+			//DML
+			@Transactional
+			save(){}
