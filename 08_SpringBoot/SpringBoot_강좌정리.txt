@@ -811,3 +811,17 @@ https://docs.spring.io/spring-boot/3.5/reference/features/external-config.html#f
          insert into todo (id, name, job) values ( 1, 'È«±æµ¿','Learn Spring');
          insert into todo (id, name, job) values ( 2, 'È«±æµ¿','Learn Vuejs');
          insert into todo (id, name, job) values ( 3, 'È«±æµ¿','Learn SQL');
+
+
+
+ 6) ÄÚµå ÀÛ¼º
+
+		       TodoService
+		       @Service			     @Repository
+  Application -------> TodoServiceImpl -------------> TodoRepository --------------> h2
+							
+						       @Autowired
+						       JdbcTemplate template;
+
+						      TodoDTO
+
