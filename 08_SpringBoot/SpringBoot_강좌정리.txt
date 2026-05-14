@@ -1200,3 +1200,43 @@ https://docs.spring.io/spring-boot/3.5/reference/features/external-config.html#f
  -Repository:DB연동
  -ViewResolver: 논리적이름(ex. list)을 이용해서 
                 실제처리되는 view완성(ex. list.html )
+
+/////////////////////////////////////////////////
+2. Spring MVC 구축
+
+ 1) 의존성 추가
+
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+    implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
+
+ 2) thymeleaf 설정
+https://www.thymeleaf.org/doc/tutorials/3.1/usingthymeleaf.html
+
+    -기본디렉터리 추가
+     
+      src
+        main
+	  resources
+	       application.yml
+
+	       static
+	          -이미지
+		  -css
+		  -js
+
+	       templates
+	          main.html ( thymeleaf )
+
+/////////////////////////////////////
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1>main</h1>
+<p th:text="'hello'"></p>
+</body>
+</html>
+////////////////////////////////////////////////////////
