@@ -983,7 +983,7 @@ https://docs.spring.io/spring-boot/3.5/reference/features/external-config.html#f
 	mapper-locations: com/exam/config/TodoMapper.xml
        #mapper-locations: com/exam/config/TodoMapper.xml, com/exam/config/DeptMapper.xml
        #mapper-locations: com/exam/config/*Mapper.xml
-	type-alias-package: com.exam.dto
+	type-aliases-package: com.exam.dto
 
 
  4) scema.sql 과 data.sql
@@ -1014,4 +1014,61 @@ https://docs.spring.io/spring-boot/3.5/reference/features/external-config.html#f
     규칙2: TodoMaper 인터페이스의 추상메서드 이름은 반드시 TodoMapper.xml의 id값과 일치해야 된다.
     규칙3: TodoMaper 인터페이스의 추상메서드 리턴타입은 반드시 TodoMapper.xml의 resultType과 일치해야 된다.
     규칙4: TodoMaper 인터페이스의 추상메서드 파라미터는 반드시 TodoMapper.xml의 paramterType 일치해야 된다.
+		
 						      
+//////////////////////////////////////////////////////////
+4일차 2026-05-14
+
+1. H2와 MySQL 이용한 Profile 실습
+
+  1) 의존성 설정
+     
+     implementation("org.mybatis.spring.boot:mybatis-spring-boot-starter:3.0.5")
+     runtimeOnly 'com.mysql:mysql-connector-j:8.3.0'
+     runtimeOnly 'com.h2database:h2'
+   
+  2) prod 와 dev 프로파일 생성
+
+     기본: application.yml # 공통기능 설정
+     prod: application-prod.yml # mysql
+     dev: application-dev.yml   # h2
+
+     활성화
+          spring:
+	    profiles:
+	      active: prod|dev
+
+
+	# application.yml
+
+	    spring:
+	     profiles:
+	      active: prod|dev
+	  
+	    mybatis:
+	      mapper-locations: com/exam/config/TodoMapper.xml
+	      type-aliases-package: com.exam.dto
+
+
+       # application-prod.yml
+
+	       spring:
+		 datasource:
+		   url: jdbc:mysql://localhost:3306/testdb
+		   driver-class-name: com.mysql.cj.jdbc.Driver
+		   username: root
+		   password: 1234
+
+		#schema.sql 과 data.sql 관리 가능 ( always|never )	
+		sql:
+		 init:
+		   mode: always	
+
+     # application-dev.yml 
+
+	      spring:
+		datasource:
+		   url: jdbc:h2:mem:testdb   # 고정된 값으로 접속이 가능
+		   driver-class-name: org.h2.Driver
+		   username: sa
+		   password: 
