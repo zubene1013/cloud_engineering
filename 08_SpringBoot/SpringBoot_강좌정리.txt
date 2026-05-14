@@ -1082,3 +1082,83 @@ https://docs.spring.io/spring-boot/3.5/reference/features/external-config.html#f
 		    driver-class-name: org.h2.Driver
 		    username: sa
 		    password:
+/////////////////////////////////////////////////////////////////////////////////
+---------------------------------------------------------------------
+///////////////////////////////
+6장. Spring MVC
+///////////////////////////////
+
+1. 아키텍처
+
+
+  1) 서블릿/JSP 기반의 MVC 아키텍처
+
+  
+     웹브라우저 -----------------> 서블릿 -------> 서비스 -----------> DAO --------> MySQL
+			      서블릿맵핑(
+			       @WebServlet("/list")-BoardListServlet
+			       @WebServlet("/write")-BoardWriteServet	
+				|
+				| 포워드 및 리다이렉트
+	    <---------------   jsp
+
+    서블릿을 직접 생성했음.
+    기능에 따라서 여러개의 서블릿을 생성함.
+
+    서블릿을 선택하기 위한 URL 요청?
+      http://서버IP:포트번호/컨텍스트명/서블릿맵핑
+
+     ex.  http://localhost:8080/app/list
+          http://localhost:8080/app/write
+
+
+    서블릿이 JSP를 선택하는 방법 2가지?
+      forward:    request.getRequestDispatcher("list.jsp").forward(request, response);
+
+      redirect:   response.sendRedirect("list.jsp");
+
+
+    사용자 입력데이터를 서블릿이 얻는 방법?
+     
+      String userid  = request.getParameter("userid"); //  <input name="userid" >
+      String [] hobbies = request.getParameterValue("hobby"); // <input name="hobby" type="checkbox">
+
+  2) Spring 기반의 MVC 아키텍처
+
+
+
+   웹브라우저 ------> 서블릿 --------------> Controller
+				     ex.게시판 기능	
+				  
+				   //요청매핑값(request mapping)을 설정
+				  @RequestMappring("/a")
+				      findAll(){}
+				  @RequestMappring("/b")
+				      save(){}
+				  @RequestMappring("/c")
+				      delete(){}
+				  @RequestMappring("/d")
+				      update(){}
+
+
+
+   -서블릿은 제공됨.
+    단하나만 생성됨.
+    DispatcherServlet 이름을 가짐
+    서블릿맵핑(@WebServlet("/")
+    서블릿을 선택하기 위한 URL 요청?
+      http://서버IP:포트번호/컨텍스트명/서블릿맵핑
+
+     ex.  http://localhost:8080/app/
+
+    실제 처리해야되는 작업은 다른 클래스에서 처리함.
+    (Controller 에서 처리함)
+
+
+  - Controller안에서 메서드를 선택하는 방법?
+
+       http://서버IP:포트번호/컨텍스트명/서블릿맵핑/요청매핑값
+        http://localhost::8080/app  /  /a
+
+       ex.  http://localhost:8080/app/a <=findAll(){} 실행
+             http://localhost:8080/app/b <=save(){} 실행
