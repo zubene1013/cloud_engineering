@@ -1187,3 +1187,16 @@ https://docs.spring.io/spring-boot/3.5/reference/features/external-config.html#f
 
        ex.  http://localhost:8080/app/a <=findAll(){} 실행
              http://localhost:8080/app/b <=save(){} 실행
+
+
+	  
+ #각 역할 정리
+ -DispatcherServlet: 모든 요청을 처리 ( Front Controller Pattern)
+ -HandlerMapping:  요청URL을 분석하여 요청처리를 담당하는 Controller 메서드 선택.
+ -Controller:  서블릿/JSP 버전에서 서블릿 역할 담당.
+              ex. 사용자입력데이터 처리, 응답처리(Model과 View처리)
+
+ -Service: 로직과 트랜잭셔처리
+ -Repository:DB연동
+ -ViewResolver: 논리적이름(ex. list)을 이용해서 
+                실제처리되는 view완성(ex. list.html )
