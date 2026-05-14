@@ -1359,3 +1359,31 @@ https://www.thymeleaf.org/doc/tutorials/3.1/usingthymeleaf.html
 
     중요한 점은 GET과 POST의 요청매핑값이 /member로 동일함. method방식으로 구별됨.
   ------------------------------------------------------------------------------
+
+ 5. @RequestMapping(method = RequestMethod.GET)
+    @RequestMapping(method = RequestMethod.POST)를 대체하는 어노테이션 제공
+
+    -@GetMapping("/member")
+    -@PostMapping("/member")
+
+    - @RequestMapping은 클래스레벨인 경우에만 현재 사용됨.
+
+      
+     ex.
+          @Controller
+          @RequestMapping("/member")
+	  public class HomeController{
+
+		  // http://localhost:8080/xxx/hello
+	          //@RequestMapping("/hello")
+		  @GetMapping("/hello")
+		  public String hello(){
+			
+		  }
+
+		  @PostMapping("/hello")
+		  public String hello(){
+			
+		  }
+		
+//////////////////////////////////////////////////////////
