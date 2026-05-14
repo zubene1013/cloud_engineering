@@ -1097,7 +1097,8 @@ https://docs.spring.io/spring-boot/3.5/reference/features/external-config.html#f
      웹브라우저 -----------------> 서블릿 -------> 서비스 -----------> DAO --------> MySQL
 			      서블릿맵핑(
 			       @WebServlet("/list")-BoardListServlet
-			       @WebServlet("/write")-BoardWriteServet	
+			       @WebServlet("/write")-BoardWriteServet
+			         응답처리: 데이터와jsp설정
 				|
 				| 포워드 및 리다이렉트
 	    <---------------   jsp
@@ -1126,8 +1127,13 @@ https://docs.spring.io/spring-boot/3.5/reference/features/external-config.html#f
   2) Spring 기반의 MVC 아키텍처
 
 
-
-   웹브라우저 ------> 서블릿 --------------> Controller
+                           HandlerMapping (요청매핑값이 등록, RequestMappingHandlerMapping)
+			     key | value
+                           ---------------
+			     /a     findAll()
+			     /b	    save()
+         8080/app/a 
+   웹브라우저 ------> 서블릿 --------------> Controller <---->Service  <----> Respository <---> MySQL
 				     ex.게시판 기능	
 				  
 				   //요청매핑값(request mapping)을 설정
@@ -1139,8 +1145,27 @@ https://docs.spring.io/spring-boot/3.5/reference/features/external-config.html#f
 				      delete(){}
 				  @RequestMappring("/d")
 				      update(){}
-
-
+				      여기까지가 요청관련 작업
+                                  -------------------------
+				     다음부터 응답관련 작업(Model과 View처리)
+					데이터와 thymeleaf(jsp기능)
+					데이터:Model이라고 부름.
+                                       thymeleaf:View라고부름.
+				      가.Model을 scope저장(request,session,application)
+				      나.View정보를 지정(이전 서블릿/jsp에서는 list.jsp 라고 전체파일명을 알려줌)
+				        단, 파일명만 알려줌. ( 즉, list 만 설정함 )
+					파일명만 알려주는 이유는 다양한 뷰컴포넌트를 활용하기 위함이다.
+					( jsp와 관련된 의존성을 설정하면 list.jsp를 찾고
+					  thymeleaf  관련된 의존성을 설정하면 list.html를 찾음)
+			  모델과뷰정보
+                        <----------
+			  뷰정보(ex.list)
+			 ---->
+			      ViewResolver ( 뷰관련 의존성 파악: Thymeleaf 가정 )
+                         <---
+			  list.html
+     <--------
+      list.html응답
 
    -서블릿은 제공됨.
     단하나만 생성됨.
