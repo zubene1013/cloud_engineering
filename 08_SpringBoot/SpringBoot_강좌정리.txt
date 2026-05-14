@@ -1322,10 +1322,10 @@ https://www.thymeleaf.org/doc/tutorials/3.1/usingthymeleaf.html
       나.  Spring MVC
 
                    GET
-	  웹브라우저--------------->  @RequestMapping( value="/매핑값", method=HttpMethod.GET )
+	  웹브라우저--------------->  @RequestMapping( value="/매핑값", method=RequestMethod.GET )
 
 	           POST
-	  웹브라우저--------------->  @RequestMapping( value="/매핑값", method=HttpMethod.POST ) 
+	  웹브라우저--------------->  @RequestMapping( value="/매핑값", method=RequestMethod.POST ) 
 
    /////////////////////////////////////
     실제 사용가능한 패턴은 다음과 같다.
