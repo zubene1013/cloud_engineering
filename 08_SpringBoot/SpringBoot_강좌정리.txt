@@ -1240,3 +1240,74 @@ https://www.thymeleaf.org/doc/tutorials/3.1/usingthymeleaf.html
 </body>
 </html>
 ////////////////////////////////////////////////////////
+
+   3) Controller 작성
+    
+      - POJO 기반
+      - @Controller 지정 ( RESTful 서비스인 경우에는 @RestController 지정 )
+      - 실제 구현해야되는 기능을 메서드로 정의하고 요청맵핑값을 설정함.
+	
+        ex.
+	      @RequestMapping("/요청매핑값")	      
+	      public 리턴타입 hello(){
+
+	      }
+		
+	    리턴타입이 String인 경우는 뷰정보를 설정한 것이다.
+
+	    요청하는 방법: http://서버ip:포트번호/컨텍스트명/서블릿매핑/요청매핑값
+
+////////////////////////////////////////////////////////
+3. @RequestMapping 정리
+
+  1) 용도
+    요청 URL ( http://서버ip:포트번호/컨텍스트명/서블릿매핑/요청매핑값 )에서
+    /요청매핑값을 추출해서 일치하는 Controller의 메서드를 선택하는 용도.
+
+
+  2) 다양한 패턴이 제공
+
+        @RequestMapping("/hello") # 단일요청, 정확하게 일치해야됨
+	@RequestMapping(value="/hello") # 단일요청, 정확하게 
+
+	@RequestMapping(value={"/hello2","/hello3"}) # 멀티요청, 정확하게 일치해야됨
+
+	@RequestMapping(value="/yyy*") # 특정값으로 시작 ex. yyy33  yyyasfdasf
+
+	@RequestMapping(value="/zzz/*") # 특정경로 하나 ex.  zzz/  zzz/cccc  ,  /zzz/ccc/ddd (404)
+
+	@RequestMapping(value="/kkk/**") # 특정경로 여러개 ex.  kkk/  kkk/cccc  ,  /kkk/ccc/ddd    
+	
+
+	@RequestMapping(value="/aaa/*/bbb") # 중간에 특정경로 하나 ex.  /aaa/eee/bbb, /aaa/eexx/bbb
+
+	@RequestMapping(value="/ccc/**/ddd") # 중간에 특정경로 여러개 ex.  /ccc/x/ddd , /ccc/x/y/ddd
+                                              
+      /*
+         /ccc/**/ddd 경로를 사용하기 위해서는 반드시 다음과 같이 설정해야됨
+        spring.mvc.pathmatch.matching-strategy=ant_path_matcher
+      */
+
+  3) 클래스 레벨의 @RequestMapping 용도
+
+      
+
+      ex.
+          @Controller
+          @RequestMapping("/member")
+	  public class HomeController{
+
+		  // http://localhost:8080/xxx/hello
+	          @RequestMapping("/hello")
+		  public String hello(){
+			
+		  }
+		  // http://localhost:8080/xxx/hello2
+		  @RequestMapping("/hello2")
+	          public String hello(){
+			
+		  }
+
+
+  4) GET/POST 구별해서 요청 처리
+
