@@ -1540,3 +1540,64 @@ https://www.thymeleaf.org/doc/tutorials/3.1/usingthymeleaf.html
         System.out.println(userid);
         return "main";
     }
+
+4. 멀티값 요청처리
+   
+   1) 이전 서블릿
+     
+         <h1>3. reqeust.getParameterValues 메서드이용(GET)</h1>
+	   <form action="MemberServlet3" method="GET">
+	      이름<input type="text" name="username">
+	      나이<input type="text" name="age">
+	      
+	      취미:
+	      야구<input type="checkbox" name="hobby" value="야구"><br>    
+	      축구<input type="checkbox" name="hobby" value="축구"><br>    
+	      농구<input type="checkbox" name="hobby" value="농구"><br>    
+		  
+	      이메일1:<input type="text" name="email">
+	      이메일2:<input type="text" name="email">
+	      
+	   <input type="submit" value="전송">
+	 </form>
+
+
+	 String [] hobbies = request.getParameterValues("hobby");
+
+
+    2) Spring
+
+        @GetMapping("/login2")
+    public String  login2(@RequestParam("userid") String userid,
+                         @RequestParam("password") String password,
+                         @RequestParam("email") String [] email
+                         ){
+
+       System.out.println(userid);
+       System.out.println(password);
+       System.out.println(Arrays.toString(email));
+
+        return "loginForm";
+    }
+
+    @GetMapping("/login3")
+    public String  login3(@RequestParam("userid") String userid,
+                         @RequestParam("password") String password,
+                         @RequestParam("email") List<String> email
+    ){
+
+        System.out.println(userid);
+        System.out.println(password);
+        System.out.println(email);
+
+        return "loginForm";
+    }
+    @GetMapping("/login")
+    public String  login(LoginDTO loginDTO){
+
+        System.out.println(loginDTO.getUserid());
+        System.out.println(loginDTO.getPassword());
+        System.out.println(loginDTO.getEmail());
+
+        return "loginForm";
+    }
