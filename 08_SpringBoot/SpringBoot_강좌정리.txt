@@ -1288,6 +1288,11 @@ https://www.thymeleaf.org/doc/tutorials/3.1/usingthymeleaf.html
         spring.mvc.pathmatch.matching-strategy=ant_path_matcher
       */
 
+    # 요청뿐만 아니고 다음과 같이 mybatis mapper 등록할때고 사용이 가능하다.
+
+      mapper-locations: com/exam/config/**/*Mapper.xml
+
+
   3) 클래스 레벨의 @RequestMapping 용도
 
       
@@ -1387,3 +1392,92 @@ https://www.thymeleaf.org/doc/tutorials/3.1/usingthymeleaf.html
 		  }
 		
 //////////////////////////////////////////////////////////
+5일차 2026-05-15
+
+1. Controller의 요청 처리 작업
+
+  1) 사용자입력 데이터 처리
+
+    가. 이전 서블릿 처리
+
+       doGet(HttpServeltRequest request, HttpServletResponse response){
+         
+	     String username = request.getParameter("username");
+	     String age = request.getParameter("age");
+
+	     Strng [] s2 = reqeust.getParameterValues("key");
+		
+	     //최종적으로 DTO에 저장
+	     LogindDTO dto = new LoginDTO();
+	     dto.setUsername(username);
+	     dto.setAge(age);
+       }
+
+    
+    나. Spring 처리
+ 
+            @GetMapping("/loginForm")
+	    public String  loginForm(){
+		return "loginForm";
+	    }
+
+	    @GetMapping("/login2")
+	    public String  hello2(HttpServletRequest request, HttpServletResponse response){
+
+		String userid = request.getParameter("userid");
+		String password = request.getParameter("password");
+
+		System.out.println(userid+":"+password);
+		return "main";
+	    }
+	    @GetMapping("/login3")
+	    public String  hello3(@RequestParam(name = "userid") String userid,
+				 @RequestParam(value = "password") //value는 name의 별칭
+				 String password){
+
+		System.out.println(userid+":"+password);
+		return "main";
+	    }
+	    
+	    // 파라미터명과 변수명이 동일하면 파라미터명 생략가능
+	    @GetMapping("/login4")
+	    public String  hello4(@RequestParam String userid,
+				 @RequestParam//value는 name의 별칭
+				 String password){
+
+		System.out.println(userid+":"+password);
+		return "main";
+	    }
+
+	    // @RequestParam은 필수임. 따라서 반드시 해당이름으로 전달해야됨. (필수속성)
+	    // 해당이름으로 전달하지 않으면 400 (Bad Request)가 발생됨.
+	    // 필수속성을 비활성화 가능 (required = false)
+	    // 비활성화하면 null값으로 설정됨.
+	    // null값 대신에 기본값으로 설정 가능 ( defaultValue = "초기값")
+	    @GetMapping("/login5")
+	    public String  hello5(@RequestParam(name = "userid") String userid,
+				  @RequestParam(value = "password",
+					       required = false,
+						defaultValue = "9999") //value는 name의 별칭
+				  String password){
+
+		System.out.println(userid+":"+password);
+		return "main";
+	    }
+
+	    // 사용자 입력 파라미터값이 자동으로 DTO에 저장가능.
+	    @GetMapping("/login6")
+	    public String  hello6(LoginDTO dto){
+
+		System.out.println(dto);
+		return "main";
+	    }
+
+	    // 사용자 입력 파라미터값이 @RequestParam Map<String, String> 로 저장가능
+	    @GetMapping("/login")
+	    public String  hello(@RequestParam Map<String,String> map){
+
+		System.out.println(map);
+		return "main";
+	    }
+      
