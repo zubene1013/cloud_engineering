@@ -1481,3 +1481,62 @@ https://www.thymeleaf.org/doc/tutorials/3.1/usingthymeleaf.html
 		return "main";
 	    }
       
+2. 요청 Header값 얻기
+
+  1) 이전 서블릿
+   
+      doGet(HttpServeltRequest request, HttpServletResponse response){
+
+      //요청 Header값 얻기
+
+      Enumeration<String> enu = request.getHeaderNames();
+      while(enu.hasMoreElements()){
+	  String key = enu.nextElement()
+	  String value = request.getHeader(key);
+      }
+
+
+      String value = request.getHeader("user-agent");
+
+  2) Spring 처리
+
+      @GetMapping("/main2")
+    public String  main2(@RequestHeader(name = "user-agent") String userAgent,
+                         @RequestHeader(name = "connection") String connection
+                          ){
+        System.out.println("user-agent: " +userAgent);
+        System.out.println("connection: " +connection);
+        return "main";
+    }
+
+
+3. Cookie 값 얻기
+
+  1) 서블릿
+   
+       # 쿠키 생성
+       Cookie c = new Cookie("xxx", String value);
+       #쿠키 time-out 지정
+	c.setMaxAge(초단위);
+       response.addCookie(c);
+
+       #쿠키 참조
+        Cookie [] cookies = request.getCookies();
+
+	   for(Cookic c : cookies){
+	      String key = c.getName();
+	      if("xxx".equals(key)){
+	       String value = c.getValue();
+	      }
+
+         }
+
+  2) Spring
+
+     // Spring 쿠키 참조
+    @GetMapping("/get2")
+    public String  main3(@CookieValue("userid") String userid){
+
+        System.out.println(userid);
+        return "main";
+    }
