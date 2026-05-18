@@ -1825,3 +1825,34 @@ https://www.thymeleaf.org/doc/tutorials/3.1/usingthymeleaf.html
 
     }
    
+
+2.  JSON 통신
+
+   1)이전 방식
+
+               요청
+	       ex. http://localhost:8080/app/login?userid=inky&passwd=1234
+      웹브라우저 -----------------> 서버
+           
+	     <----------------
+	       응답: html
+
+   2) JSON통신
+
+                  JSON
+		  {
+                   "userid":"inky",
+		   "passwd":1234
+		  }
+		 @RequestBody + POST(*****************) + Content-Type:application/json (******)
+     클라이언트  -----------------> 서버
+    (웹브라우저,..)       
+	     <----------------
+	          JSON(xml.html,일반텍스트)
+		 @ResponseBody
+    
+    클라이언트 역할의 도구: curl (cmd 기반 요청),
+                   postman (GUI 기반 )
+		   Talend API Tester( 크롬 브라우저 플러그인 )
+
+      
