@@ -1755,3 +1755,73 @@ https://www.thymeleaf.org/doc/tutorials/3.1/usingthymeleaf.html
 	session:<span th:text="${session.bbb}"></span>
 	session:<span th:text="${session.ccc}"></span><br>
 	application:<span th:text="${application.ddd}"></span><br>
+
+//////////////////////////////////////////////////////////////////////
+6일차 2026-05-18
+
+1. Controller의 리턴타입 종류
+
+ 1) 개요
+   
+   Controller의 리턴타입은 메서드의 파라미터가 다양하게 설정할 수 있는것처럼
+   동일하게 다양한 타입을 사요할 수 있다.
+
+ 2)String 타입
+   - 뷰 정보를 의미.
+   - 모델은 파라미터로 설정.
+
+
+ 3)ModelAndView타입
+    - 뷰정보와 모델정보를 ModelAndView에 한번에 설정
+
+  //1. String 타입
+    // 뷰정보만 있고 모델정보는 없음
+    @GetMapping("/m")
+    public String  main(){
+        
+        return "main";
+    }
+
+    //2. ModelAndView 타입
+    @GetMapping("/m2")
+    // 뷰정보 있고 모델정보 있음
+    public ModelAndView  main2(){
+
+        ModelAndView mav = new ModelAndView();
+        mav.setViewName("main2"); // view 설정
+        mav.addObject("userid","inky");
+
+        return mav;
+    }
+
+    //3. LoginDTO 타입
+    // 모델정보(LoginDTO) 있고 뷰정보가 없음.
+    // 따라서 뷰정보는 우리가 유추해야 됨. 요청매핑값으로 뷰 정보를 유추함.  m3.html
+    @GetMapping("/m3")
+    public @ModelAttribute("xxx") LoginDTO  main3(){
+
+        LoginDTO dto  = new LoginDTO("inky","1234");
+        return dto;
+    }
+
+    //4. ArrayList 타입
+    // 모델정보(ArrayList) 있고 뷰정보가 없음.
+    // 따라서 뷰정보는 우리가 유추해야 됨. 요청매핑값으로 뷰 정보를 유추함.  m4.html
+    @GetMapping("/m4")
+    public @ModelAttribute("yyy")  ArrayList<String>  main4(){
+
+        ArrayList<String> nameList = new ArrayList<>();
+        nameList.add("inky4832");
+        nameList.add("lee3842");
+        nameList.add("park424");
+        return nameList;
+    }
+
+    //5. void 타입
+    // 뷰정보 없고 모델정보는 없음
+    // 따라서 뷰정보는 우리가 유추해야 됨. 요청매핑값으로 뷰 정보를 유추함.  m5.html
+    @GetMapping("/m5")
+    public void  main5(){
+
+    }
+   
