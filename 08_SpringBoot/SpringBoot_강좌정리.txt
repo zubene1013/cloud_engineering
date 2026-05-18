@@ -2023,3 +2023,78 @@ https://www.thymeleaf.org/doc/tutorials/3.1/usingthymeleaf.html
 	    }
 
 	}
+
+
+6. Interceptor (요청을 3군데에서 가로채기가 가능 )
+
+ 
+  1) 아키텍쳐
+
+				    preHandle()
+				     return true 지정해야 controller로 넘어감
+    웹브라우저 ---------->서블릿--------------------------> Controller----->Service ---->DAO
+                     (Dispatcher<------------------            <----         <----
+		     Servlet)         postHandler()
+
+		       |
+		       |
+		       |
+	<--------   main.html
+	  
+	 afterCompletion()
+
+	
+ 2) 구현
+   
+     @Component
+	public class MyInterceptor implements HandlerInterceptor{
+
+	    @Override
+	    public void afterCompletion(HttpServletRequest request, HttpServletResponse response, Object handler, Exception ex) throws Exception {
+		System.out.println("afterCompletion");
+	    }
+
+	    @Override
+	    public void postHandle(HttpServletRequest request, HttpServletResponse response, Object handler,
+				   ModelAndView modelAndView) throws Exception {
+		System.out.println("postHandle");
+		// 뷰 정보를 변경가능
+		//조건체크
+		boolean result = true;
+		if(result) {
+		    modelAndView.addObject("userid","inky");
+		    modelAndView.setViewName("success");
+		}
+	    }
+
+	    @Override
+	    public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
+		System.out.println("preHandle");
+		//조건체크
+		boolean result = true;
+		if(result){
+		   return true;
+
+		}else{
+		    response.sendRedirect("/main2");
+		  return false;
+		}
+
+	    }
+	}
+
+	@Configuration
+	public class InterceptorWebConfig 
+		implements WebMvcConfigurer {
+	    
+	    //Interceptor를 등록하는 메서드가 제공됨
+	     @Autowired
+	     MyInterceptor myInterceptor;
+
+	    @Override
+	    public void addInterceptors(InterceptorRegistry registry) {
+	//        registry.addInterceptor(new MyInterceptor())
+		registry.addInterceptor(myInterceptor).addPathPatterns("/main","/aaa/*","/bbb*");
+	    }
+	}
+
