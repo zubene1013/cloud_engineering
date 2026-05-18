@@ -2098,3 +2098,26 @@ https://www.thymeleaf.org/doc/tutorials/3.1/usingthymeleaf.html
 	    }
 	}
 
+///////////////////////////////////////////////////////////////////////////
+
+7. 예외처리
+
+   1) 개념
+     - 스프링에서 발생되는 예외는 항상 RuntimeException 계열임. (***********)
+       그래서 try~catch  및 throws 안함.
+     - RuntimeException 계열의 예외가 발생되면 항상 호출한곳으로 예외가 전달됨.
+      따라서 DAO에서 발생되거나 Service에서 발생되거나 항상 예외는 Controller로 모임.
+      결국 Controller에서 예외처리를 하면 됨.(***************************)
+
+
+ 			  
+    웹브라우저 ---------->서블릿--------------------------> Controller----->Service ---->DAO
+                     (Dispatcher<------------------            <----         <----
+		     Servlet)         
+
+		       |
+		       |
+		       |
+	<--------   main.html
+	  
+	
