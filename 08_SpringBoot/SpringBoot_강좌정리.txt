@@ -1858,7 +1858,7 @@ https://www.thymeleaf.org/doc/tutorials/3.1/usingthymeleaf.html
       
  ------------------------------------------------------------
 
- 3.  redirect와 forward
+ 3.  redirect와 forward 및 flash scope ( flash attribute )
 
 
    1) 이전 서블릿
@@ -1931,6 +1931,55 @@ https://www.thymeleaf.org/doc/tutorials/3.1/usingthymeleaf.html
 	    }
 
 
+4. PRG 패턴 ( Post-Redirect-GET 패턴 )
+
+   1) 개념
+     POST 요청에 대해서 Get 요청으로 다시 redirect 처리하는 패턴.
+     즉 post 로 시작해서 get 으로 끝나게 하는 방식.
+     
+     멱등성: 여러번 실행해도 결과가 동일함을 의미함.
+
+              요청시 method:GET
+      브라우저 ---------------------->
+	 
+	      - 조회할 때 (select 작업 )
+	      - 멱등성을 가짐.
+	      - 새로고침을 여러번 해도 서버에 영향이 없음.
+
+     
+              요청시 method:POST
+      브라우저 ---------------------->
+
+              - 생성/수정/삭제 때 ( 음/update/delete 작업 )
+	      - 멱등성 없음.
+	      - 새로고침을 여러번 하면 서버에 영향이 있기 때문에 항상 경고창으로 재요청이 맞는지 확인필요.
 
 
+   2) POST로 최종 종료되었을 때의 문제점
+     
+      -새로고침하면 동일한 요청이 연속적을 보내지는 멱등성 이슈 발생
+      -URL 복사해서 다른 브라우저에서 요청하면 연결이 안되는이슈 발생
 
+       
+        @GetMapping("/main")
+       public String  hello4(){
+        return "main";
+       }
+
+// 그냥 post로 끝난 경우
+       @PostMapping("/write")
+       public String  write(){
+        return "write";
+       }
+
+ 
+// PRG 패턴
+       @PostMapping("/write")
+       public String  write(){
+        return "redirect:success";
+       }
+
+        @GetMapping("/success")
+       public String  hello4(){
+        return "main";
+       }
