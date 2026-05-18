@@ -1950,7 +1950,7 @@ https://www.thymeleaf.org/doc/tutorials/3.1/usingthymeleaf.html
               요청시 method:POST
       브라우저 ---------------------->
 
-              - 생성/수정/삭제 때 ( 음/update/delete 작업 )
+              - 생성/수정/삭제 때 ( insert/update/delete 작업 )
 	      - 멱등성 없음.
 	      - 새로고침을 여러번 하면 서버에 영향이 있기 때문에 항상 경고창으로 재요청이 맞는지 확인필요.
 
@@ -1983,3 +1983,43 @@ https://www.thymeleaf.org/doc/tutorials/3.1/usingthymeleaf.html
        public String  hello4(){
         return "main";
        }
+
+ 
+5. Filter
+
+  1) 이전 서블릿
+     - implments Filter
+       doFilter(ServletRequest request, ServletResponse response, FilterChain chain) 메서드 재정의
+     - web.xml에 필터 등록
+
+  2) Spring
+     - implments Filter
+       doFilter(ServletRequest request, ServletResponse response, FilterChain chain) 메서드 재정의
+     - web.xml 대신에 @Configuration + @Bean 등록
+
+
+     실습:
+     
+       public class MyFilter implements Filter {
+
+	    @Override
+	    public void doFilter(ServletRequest servletRequest, ServletResponse servletResponse,
+				 FilterChain filterChain) throws IOException, ServletException {
+	       System.out.println("요청 filter");
+		filterChain.doFilter(servletRequest,servletResponse);
+	       System.out.println("응답 filter");
+	    }
+	}
+
+         @Configuration
+	public class FilterWebConfig implements WebMvcConfigurer {
+
+	    @Bean
+	    public FilterRegistrationBean<MyFilter> filterRegistrationBean(){
+		FilterRegistrationBean<MyFilter> filterRegistrationBean =
+			new FilterRegistrationBean<MyFilter>( new MyFilter());
+		filterRegistrationBean.addUrlPatterns("/*"); // "/main", "/main2"
+		return filterRegistrationBean;
+	    }
+
+	}
