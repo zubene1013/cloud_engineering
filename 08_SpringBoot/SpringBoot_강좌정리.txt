@@ -2168,3 +2168,19 @@ https://www.thymeleaf.org/doc/tutorials/3.1/usingthymeleaf.html
  
 
     ³ª. Àü¿ª
+   
+         
+	@ControllerAdvice
+	public class GlobalExceptionHandler {
+
+		@ExceptionHandler(value={IllegalArgumentException.class,
+					 NullPointerException.class,
+					ArithmeticException.class})
+	    //public ModelAndView handleException(Exception ex, RedirectAttributes redirectAttributes){}
+	    public String handleException(Exception ex, Model model){
+
+		model.addAttribute("message", ex.getMessage());
+		return "error/error";  // error/error.html
+	    }
+
+	}
