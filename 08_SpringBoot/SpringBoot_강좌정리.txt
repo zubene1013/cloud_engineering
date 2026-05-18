@@ -1856,3 +1856,81 @@ https://www.thymeleaf.org/doc/tutorials/3.1/usingthymeleaf.html
 		   Talend API Tester( 크롬 브라우저 플러그인 )
 
       
+ ------------------------------------------------------------
+
+ 3.  redirect와 forward
+
+
+   1) 이전 서블릿
+    
+       가. 포워드
+	 - 문법:
+           request.getRequestDispatcher("list.html").forward(request, response);
+         - 특징:
+	   내부적으로 list.html에 요청이 되기 때문에 URL이 변경안됨.
+	   request scope에 저장된 데이터를 list.html에서 참조 가능.
+
+
+       나. 리다이렉트
+	  - 문법:
+           response.sendRediredt("list.html");
+
+         - 특징:
+	   내부적으로 웹브라우저로 응답했다가, 웹브라우저에서 새롭게 list.html에 요청이 되기 때문에 URL이 변경됨.
+	   request scope에 저장된 데이터를 list.html에서 참조 불가능.
+
+
+  2) spring 
+
+     가. 포워드
+	- 문법:
+	  
+            @GetMapping("/list")
+	    public String  aaa(){
+		return "list";
+	    }
+
+	    @GetMapping("/aaa")
+	    public String  aaa(){
+		return "forward:list";
+	    }
+	
+
+     나. 리다이렉트
+
+
+          - 문법:
+	  
+            @GetMapping("/list")
+	    public String  aaa(){
+		return "list";
+	    }
+
+	    @GetMapping("/aaa")
+	    public String  aaa(){
+		return "redirect:list";
+	    }
+
+    3) rediect + request scope에 저장된 데이터를 참조 가능. ( flash scope라고 부름 )
+     https://docs.spring.io/spring-framework/reference/web/webmvc/mvc-controller/ann-methods/redirecting-passing-data.html
+         request scope
+         
+	 flash scope
+
+	 session scope
+
+	 application scope
+ 
+              @GetMapping("/flash")
+	    public String  flash(RedirectAttributes model){
+		System.out.println("flash");
+
+		model.addFlashAttribute("userid","inky");
+
+		return "redirect:main";
+	    }
+
+
+
+
+
