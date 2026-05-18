@@ -2109,7 +2109,8 @@ https://www.thymeleaf.org/doc/tutorials/3.1/usingthymeleaf.html
       따라서 DAO에서 발생되거나 Service에서 발생되거나 항상 예외는 Controller로 모임.
       결국 Controller에서 예외처리를 하면 됨.(***************************)
 
-
+     - Controller에서는 try~cacth 가 아닌 어노테이션 이용(선언적 예외처리)
+       ( @ExceptionHandler 이용)
  			  
     웹브라우저 ---------->서블릿--------------------------> Controller----->Service ---->DAO
                      (Dispatcher<------------------            <----         <----
@@ -2121,3 +2122,49 @@ https://www.thymeleaf.org/doc/tutorials/3.1/usingthymeleaf.html
 	<--------   main.html
 	  
 	
+   2) 예외처리 종류 2가지
+
+
+    가. 로컬
+       - 특정 Controller내에서 발생된 예외만 처리가능.
+
+       구현:
+          
+           @Controller
+		public class MainController {
+
+		    @GetMapping("/main")
+		    public String  main(){
+			System.out.println("main");
+			
+			//예외발생
+			if(true) throw new IllegalArgumentException("IllegalArgumentException 예외발생");
+
+			return "main";
+		    }
+
+		    @GetMapping("/main2")
+		    public String  main2(){
+			System.out.println("main2");
+
+			//예외발생
+			if(true) throw new NullPointerException("NullPointerException 예외발생");
+
+			return "main";
+		    }
+
+		    //로컬
+		    //특정 Controller내에서 처리
+		    //2가지 기능: View+Model
+		    // @ExceptionHandler
+		    // @ExceptionHandler(value=IllegalArgumentException.class)
+		    @ExceptionHandler(value={IllegalArgumentException.class, NullPointerException.class})
+		    //public ModelAndView handleException(Exception ex, RedirectAttributes redirectAttributes){}
+		    public String handleException(Exception ex, Model model){
+
+			model.addAttribute("message", ex.getMessage());
+			return "error/error";  // error/error.html
+		    }
+ 
+
+    나. 전역
