@@ -2184,3 +2184,101 @@ https://www.thymeleaf.org/doc/tutorials/3.1/usingthymeleaf.html
 	    }
 
 	}
+
+
+///////////////////////////////////////////////////////////////////////////
+
+8. 사용자 입력 데이터 유효성 검증
+
+  1) 개념
+    - 사용자 입력태그의 값을 검증하는 작업
+      ex. 글자길이, 필수사항, 이메일, 값의범위 (1~10) 등
+
+  2) 검증작업1
+    
+     -클라이언트
+        a. HTML5에서 제공해주는 속성이용
+            <form action="login" method="get">
+	    아이디:<input type="text" name="userid" required><br>
+	    비밀번:<input type="text" name="password" required><br>
+	    email:<input type="email" name="email"><br>
+	    나이:<input type="number" name="age" max="10"><br>
+	    <input type="submit" value="로그인">
+	    </form>
+
+	b. Javascript 이용
+
+   2)검증작업2
+     
+     가. 의존성 설정
+       	implementation 'org.springframework.boot:spring-boot-starter-validation'
+
+
+	==> 검증할 때 사용할 수 있는 어노테이션 사용 가능
+	    @NotNull
+            @NotBlank
+	    @Size
+	    @Min, @Max
+	    @Future, @Past
+	    @Email
+	    @Positive
+	    @Negative
+	    ..
+
+
+     나. DTO 작성 ex. TodoDTO.java
+
+           public class TodoDTO {
+
+	    @NotBlank(message = "적어도 한글자 이상 입력하세요")
+	    String userid;
+	    @Size(min = 5, message = "최소 5글자 이상 입력하시요")
+	    String description;
+	    
+	    @NotNull
+	    @FutureOrPresent(message = "현재 날짜 또는 미래 날짜 입력하시오")        
+	    LocalDate targetDate;
+
+     다. Controller 작성.  ex. TodoController.java
+
+         - 중요한 핵심은 반드시 사용자 입력 화면을 보여주는 @GetMapping, 사용자 입력을 처리하는 @PostMapping 필요함.
+         - 또한 @GetMapping 과 @PostMapping에서 TodoDTO 모델을 공유해야됨.
+ 
+                 //사용자 입력 화면 보기
+		    @GetMapping("/add-todo")
+		    public String showTodoPage(Model model) {
+
+			// @PostMapping의 @ModelAttribute("xxx") 값과 반드시 일치해야됨.
+			model.addAttribute("xxx", new TodoDTO());
+			return "write";  // write.html
+		    }
+
+		    //사용자 입력 처리 하기
+		    @PostMapping("/add-todo")
+		    public String addTodo(@Valid @ModelAttribute("xxx")  TodoDTO todoDTO,
+					  BindingResult bindingResult, Model model) {
+			//검증실패
+			if(bindingResult.hasErrors()){
+			    return "write";
+			}
+			//검증성공
+			return "redirect:main";  //PRG 패턴
+		    }
+
+    라. write.html
+          <form th:object="${xxx}" th:action="@{/add-todo}" method="post">
+	    아이디:<input type="text" th:field="*{userid}" ><br>
+	      <p th:if="${#fields.hasErrors('userid')}" th:errors="*{userid}"></p>
+	    할일:<input type="text" th:field="*{description}"><br>
+	    <p th:if="${#fields.hasErrors('description')}" th:errors="*{description}"></p>
+	    목표날짜:<input type="date" th:field="*{targetDate}"><br>
+	    <p th:if="${#fields.hasErrors('targetDate')}" th:errors="*{targetDate}"></p>
+	   <input type="submit" value="할일 저장">
+	</form>
+       
+       # 다음과 같이 자동으로 변경됨. 
+       <form th:object="${xxx}">
+         <input type="text" th:field="*{userid}" >
+	 ==> <input type="text" name="userid" id="userid" value="" >
+
+--------------------------------------------------------------------------------------
