@@ -2188,7 +2188,7 @@ https://www.thymeleaf.org/doc/tutorials/3.1/usingthymeleaf.html
 
 ///////////////////////////////////////////////////////////////////////////
 
-8. 사용자 입력 데이터 유효성 검증
+8. 사용자 입력 데이터 유효성 검증 1: @Valid +  BindingResult <== 이방법은 화면이 있는 경우에 사용.
 
   1) 개념
     - 사용자 입력태그의 값을 검증하는 작업
@@ -2282,3 +2282,92 @@ https://www.thymeleaf.org/doc/tutorials/3.1/usingthymeleaf.html
 	 ==> <input type="text" name="userid" id="userid" value="" >
 
 --------------------------------------------------------------------------------------
+
+8. 사용자 입력 데이터 유효성 검증 2: @Validated + @ControllerAdvice
+
+
+   가. 의존성 설정
+       	implementation 'org.springframework.boot:spring-boot-starter-validation'
+
+
+   나. DTO 작성 ex. TodoDTO.java
+
+           public class TodoDTO {
+
+	    String userid;
+	    String description;
+	    LocalDate targetDate;
+
+    == >@Validated는 @Valid와 다르게 검증 어노테이션 (@NotNull)을 
+        DTO가 아닌 Controller의 메서드 파라미터에 사용이 가능함.
+
+   다. Controller 작성. @Valiated + @NotNull 
+
+       @Controller
+	@Validated
+	public class TodoController {
+
+	   //사용자 입력 화면 보기
+	    @GetMapping("/add-todo")
+	    public String showTodoPage() {
+		return "write";  // write.html
+	    }
+
+	    //사용자 입력 처리 하기
+	    @PostMapping("/add-todo")
+	    public String addTodo(@NotBlank(message = "적어도 한글자 이상 입력하세요")
+				      String userid,
+				  @Size(min = 5, message = "최소 5글자 이상 입력하시요")
+				  String description,
+				  @NotNull @FutureOrPresent(message = "현재 날짜 또는 미래 날짜 입력하시오") LocalDate targetDate
+				   ) {
+		//검증실패: 예외가 발생 (ConstraintViolationException 발생됨 )=============> @ControllerAdvice
+		//검증성공
+		System.out.println(userid);
+		System.out.println(description);
+		System.out.println(targetDate);
+		return "redirect:main";  //PRG 패턴
+	    }
+	    // 성공시 보여줄 확면
+	    @GetMapping("/main")
+	    public String main() {
+		return "main";  // main.html
+	    }
+	}
+
+    다. 전역 예외처리 : @ControllerAdvice
+
+       @ControllerAdvice
+	public class GlobalExceptionHandler {
+
+		@ExceptionHandler(value={ConstraintViolationException.class})
+	  //  public ModelAndView handleException(Exception ex, RedirectAttributes redirectAttributes){}
+	//    public String handleException(Exception ex, Model model){
+	    public String handleException(Exception ex, RedirectAttributes redirectAttributes){
+		    redirectAttributes.addFlashAttribute("errorMessage","유효성 검증 실패");
+		return "redirect:add-todo"; //PRG 패턴
+	    }
+
+	}
+
+   라. write.html
+    
+       <!DOCTYPE html>
+	<html xmlns:th="http://www.thymeleaf.org" lang="en">
+	<head>
+	    <meta charset="UTF-8">
+	    <title>Title</title>
+	</head>
+	<body>
+	<h1>write</h1>
+	<p th:if="${errorMessage}" th:text="${errorMessage}"></p>
+	<form  th:action="@{/add-todo}" method="post">
+	    아이디:<input type="text"  name="userid" ><br>
+	    할일:<input type="text" name="description"> <br>
+	    목표날짜:<input type="date" name="targetDate"><br>
+	   <input type="submit" value="할일 저장">
+	</form>
+	</body>
+	</html>
+
+///////////////////////////////////////////////////////////////////////
