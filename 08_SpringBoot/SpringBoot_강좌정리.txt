@@ -1,55 +1,55 @@
-SpringBoot_°­ÁÂÁ¤¸® 2026-05-11
+SpringBoot_ê°•ì¢Œì •ë¦¬ 2026-05-11
 
 https://spring.io/
 
 ///////////////////////////////
-1Àå. Spring Framework
+1ì¥. Spring Framework
 ///////////////////////////////
 
-1. °³¿ä
+1. ê°œìš”
 
-   - Road Johnson ¸¸µë. 'Export One-on-One J2EE Development without EJB'
-     ( EJB: Enterprise Java Beans <== ¼­ºí¸´/JSP ÀÌÈÄÀÇ Enterprise°³¹ß½Ã »ç¿ëÇß´ø ±â¼úÀÌ¾úÀ½.
-                                      Æ¯Â¡Àº ±²ÀåÈ÷ ¹«°Ì°í ÇÃ·§ÆûÀÌ ÀÇÁ¸¼º )
+   - Road Johnson ë§Œë“¬. 'Export One-on-One J2EE Development without EJB'
+     ( EJB: Enterprise Java Beans <== ì„œë¸”ë¦¿/JSP ì´í›„ì˜ Enterpriseê°œë°œì‹œ ì‚¬ìš©í–ˆë˜ ê¸°ìˆ ì´ì—ˆìŒ.
+                                      íŠ¹ì§•ì€ êµ‰ì¥íˆ ë¬´ê²ê³  í”Œë«í¼ì´ ì˜ì¡´ì„± )
 
-   - 2003³â ¿ÀÇÂ¼Ò½º·Î ½ÃÀÛµÊ.
+   - 2003ë…„ ì˜¤í”ˆì†ŒìŠ¤ë¡œ ì‹œì‘ë¨.
 
-2. Æ¯Â¡
+2. íŠ¹ì§•
 
-   °¡.IoC(Inversion of Control: Á¦¾îÀÇ ¿ªÇà) ÄÁÅ×ÀÌ³Ê ±â¹İ. ( Tomcat ÄÁÅ×ÀÌ³Ê´Â Å¬·¡½º´Â ¾Æ´Ô. ´Ù¿î¹Ş¾Æ¼­ ¼³Ä¡ÇØ¼­ »ç¿ëÇÏ´Â s/w)
-    IoC ÄÁÅ×ÀÌ³Ê´Â Å¬·¡½º(ºó)ÀÓ. ( ex. ApplicationContext )
-    Áï, ApplicationContext °¡ »ç¿ëÇÏ°íÀÚÇÏ´Â Å¬·¡½ºµéÀ» »ı¼º ¹× ¼Ò¸ê ¹× ¼­·Î°£¿¡ Á¢±Ù±îÁö ´ã´çÇÔ.
-        IoC Container°¡ »ç¿ëÇÏ°íÀÚÇÏ´Â ºóµéÀ» »ı¼º ¹× ¼Ò¸ê ¹× ÀÇÁ¸¼º ÁÖÀÔ(Dependency Injection) ±îÁö ´ã´çÇÔ.
+   ê°€.IoC(Inversion of Control: ì œì–´ì˜ ì—­í–‰) ì»¨í…Œì´ë„ˆ ê¸°ë°˜. ( Tomcat ì»¨í…Œì´ë„ˆëŠ” í´ë˜ìŠ¤ëŠ” ì•„ë‹˜. ë‹¤ìš´ë°›ì•„ì„œ ì„¤ì¹˜í•´ì„œ ì‚¬ìš©í•˜ëŠ” s/w)
+    IoC ì»¨í…Œì´ë„ˆëŠ” í´ë˜ìŠ¤(ë¹ˆ)ì„. ( ex. ApplicationContext )
+    ì¦‰, ApplicationContext ê°€ ì‚¬ìš©í•˜ê³ ìí•˜ëŠ” í´ë˜ìŠ¤ë“¤ì„ ìƒì„± ë° ì†Œë©¸ ë° ì„œë¡œê°„ì— ì ‘ê·¼ê¹Œì§€ ë‹´ë‹¹í•¨.
+        IoC Containerê°€ ì‚¬ìš©í•˜ê³ ìí•˜ëŠ” ë¹ˆë“¤ì„ ìƒì„± ë° ì†Œë©¸ ë° ì˜ì¡´ì„± ì£¼ì…(Dependency Injection) ê¹Œì§€ ë‹´ë‹¹í•¨.
 
-    °ú°Å¿¡´Â Å¬·¡½ºµéÀ» Á÷Á¢ »ı¼ºÇÏ°í Á÷Á¢ Á¢±ÙÇßÀ½. ÀÌ ¹æ½ÄÀÌ ÀÏ¹İÀûÀÎ °³¹ßÇÒ ¶§ »ç¿ëÇß´ø ¹æ½ÄÀÎµ¥..
-    ½ºÇÁ¸µÀº Å¬·¡½ºµéÀ» Á÷Á¢ »ı¼ºÇÏÁö ¾Ê°í ¶ÇÇÑ »ç¿ëÇÏ°íÀÚ ÇÏ´Â Å¬·¡½ºµéÀ» ¿ÜºÎ¿¡¼­ ¼³Á¤ÇØ¼­ »ç¿ëÇÏ´Â ¹æ½ÄÀÌ´Ù.
-    Áï °ú°Å¿¡ »ç¿ëÁ™´ø ¹æ½ÄÀ» ¿ªÇàÇß´Ù°í ÇØ¼­ IoC¶ó°í ºÎ¸§.
+    ê³¼ê±°ì—ëŠ” í´ë˜ìŠ¤ë“¤ì„ ì§ì ‘ ìƒì„±í•˜ê³  ì§ì ‘ ì ‘ê·¼í–ˆìŒ. ì´ ë°©ì‹ì´ ì¼ë°˜ì ì¸ ê°œë°œí•  ë•Œ ì‚¬ìš©í–ˆë˜ ë°©ì‹ì¸ë°..
+    ìŠ¤í”„ë§ì€ í´ë˜ìŠ¤ë“¤ì„ ì§ì ‘ ìƒì„±í•˜ì§€ ì•Šê³  ë˜í•œ ì‚¬ìš©í•˜ê³ ì í•˜ëŠ” í´ë˜ìŠ¤ë“¤ì„ ì™¸ë¶€ì—ì„œ ì„¤ì •í•´ì„œ ì‚¬ìš©í•˜ëŠ” ë°©ì‹ì´ë‹¤.
+    ì¦‰ ê³¼ê±°ì— ì‚¬ìš©Â™ë˜ ë°©ì‹ì„ ì—­í–‰í–ˆë‹¤ê³  í•´ì„œ IoCë¼ê³  ë¶€ë¦„.
 
-   ³ª. ¼±¾ğÀû Æ®·£Àè¼Ç Ã³¸®
-      -JDBC: ±âº»ÀûÀ¸·Î DML »ç¿ë½Ã ÀÚµ¿À¸·Î commitµÊ.
+   ë‚˜. ì„ ì–¸ì  íŠ¸ëœì­ì…˜ ì²˜ë¦¬
+      -JDBC: ê¸°ë³¸ì ìœ¼ë¡œ DML ì‚¬ìš©ì‹œ ìë™ìœ¼ë¡œ commitë¨.
              con.setAutoCommit(false);
-	          insert¹® Ã³¸®
-		  delete¹® Ã³¸®
+	          insertë¬¸ ì²˜ë¦¬
+		  deleteë¬¸ ì²˜ë¦¬
 	     con.commit();
 	    }catch(Exception e){
 	      con.rollback();
 	    }
 
-      -MyBatis:  ±âº»ÀûÀ¸·Î DML »ç¿ë½Ã ÀÚµ¿ Ä¿¹ÔÀÌ ¾Æ´Ô.
+      -MyBatis:  ê¸°ë³¸ì ìœ¼ë¡œ DML ì‚¬ìš©ì‹œ ìë™ ì»¤ë°‹ì´ ì•„ë‹˜.
                 
-		  insert¹® Ã³¸®
-		  delete¹® Ã³¸®
+		  insertë¬¸ ì²˜ë¦¬
+		  deleteë¬¸ ì²˜ë¦¬
 	         session.commit();
 
-     -Spring ¿¡¼­´Â @Transactional ¾î³ëÅ×ÀÌ¼Ç »ç¿ë.
+     -Spring ì—ì„œëŠ” @Transactional ì–´ë…¸í…Œì´ì…˜ ì‚¬ìš©.
 
-	       @Transactional  <== DMLÀÌ ¼º°øÇÏ¸é ÀÚµ¿À¸·Î commitÇÏ°í ½ÇÆĞ(¿¡·¯¹ß»ı, RuntimeException °è¿­)ÇÏ¸é ÀÚµ¿À¸·Î rollbackÃ³¸®µÊ.
+	       @Transactional  <== DMLì´ ì„±ê³µí•˜ë©´ ìë™ìœ¼ë¡œ commití•˜ê³  ì‹¤íŒ¨(ì—ëŸ¬ë°œìƒ, RuntimeException ê³„ì—´)í•˜ë©´ ìë™ìœ¼ë¡œ rollbackì²˜ë¦¬ë¨.
                public int transaction(...){
-		   insert¹® Ã³¸® 
-	           delete¹® Ã³¸®
+		   insertë¬¸ ì²˜ë¦¬ 
+	           deleteë¬¸ ì²˜ë¦¬
 	       }
 
-               @Transactional <== Å¬·¡½º ·¹º§·Î ÁöÁ¤ÇÏ¸é Å¬·¡½º³»ÀÇ ¸ğµç ¸Ş¼­µåµéÀÌ Æ®·£Àè¼ÇÀ¸·Î Ã³¸®µÊ.(ºÎÇÏ°¡ ½ÉÇÒ¼ö ÀÖÀ½)
+               @Transactional <== í´ë˜ìŠ¤ ë ˆë²¨ë¡œ ì§€ì •í•˜ë©´ í´ë˜ìŠ¤ë‚´ì˜ ëª¨ë“  ë©”ì„œë“œë“¤ì´ íŠ¸ëœì­ì…˜ìœ¼ë¡œ ì²˜ë¦¬ë¨.(ë¶€í•˜ê°€ ì‹¬í• ìˆ˜ ìˆìŒ)
 	       public class Service{
 		
                   public int transaction1(...){}
@@ -58,57 +58,57 @@ https://spring.io/
 
 	       }
 
-   ´Ù. JDBC Ãß»óÈ­
-      - ÀÚÃ¼ÀûÀ¸·Î MyBatis °°ÀÌ WrapperÇÑ Å¬·¡½º(ex. JdbcTemplate)¸¦ Á¦°øÇÔ.
-        ¿¹¿ÜÃ³¸®°¡ ÇÊ¿ä¾øÀ½.
+   ë‹¤. JDBC ì¶”ìƒí™”
+      - ìì²´ì ìœ¼ë¡œ MyBatis ê°™ì´ Wrapperí•œ í´ë˜ìŠ¤(ex. JdbcTemplate)ë¥¼ ì œê³µí•¨.
+        ì˜ˆì™¸ì²˜ë¦¬ê°€ í•„ìš”ì—†ìŒ.
 
-   ¶ó. ÀÚÃ¼ÀûÀ¸·Î Spring MVC ¾ÆÅ°ÅØÃ³ Á¦°ø ( °­Á¦¼ºÀÌ ºÎ¿©µÊ )
-   ¸¶. REST API Á¦°ø
+   ë¼. ìì²´ì ìœ¼ë¡œ Spring MVC ì•„í‚¤í…ì²˜ ì œê³µ ( ê°•ì œì„±ì´ ë¶€ì—¬ë¨ )
+   ë§ˆ. REST API ì œê³µ
 
-       -±âÁ¸ ¾ÆÅ°ÅØÃ³ ( SOAP ¹æ½Ä )
-			¿äÃ»
-           À¥ºê¶ó¿ìÀú ---------------------> ¼­¹ö
+       -ê¸°ì¡´ ì•„í‚¤í…ì²˜ ( SOAP ë°©ì‹ )
+			ìš”ì²­
+           ì›¹ë¸Œë¼ìš°ì € ---------------------> ì„œë²„
 	         <-----------------------
-		       ÀÀ´ä( html Çü½Ä )
+		       ì‘ë‹µ( html í˜•ì‹ )
 
 
 
-       - REST ( Represenational State Transfer )ful ¹æ½Ä ¾ÆÅ°ÅØÃ³
+       - REST ( Represenational State Transfer )ful ë°©ì‹ ì•„í‚¤í…ì²˜
          
-	  ex. Å¬¶óÀÌ¾ğÆ®°¡ À¥ºê¶ó¿ìÀúÀÌ¿ÜÀÇ ÀåÄ¡°¡ ¸¹ÀÌ ³ª¿È. ( ÇÚµåÆù,Å×ºí¸´,³ÃÀå°í,TV,¼ÂÅ¾¹Ú½º, ÀÚµ¿Â÷,.....)
+	  ex. í´ë¼ì´ì–¸íŠ¸ê°€ ì›¹ë¸Œë¼ìš°ì €ì´ì™¸ì˜ ì¥ì¹˜ê°€ ë§ì´ ë‚˜ì˜´. ( í•¸ë“œí°,í…Œë¸”ë¦¿,ëƒ‰ì¥ê³ ,TV,ì…‹íƒ‘ë°•ìŠ¤, ìë™ì°¨,.....)
 
 
-	  Å¬¶óÀÌ¾ğÆ®
-	  -À¥ºê¶ó¿ìÀú       ¿äÃ» ( JSON )
-	  -ÇÚµåÆù     -------------------------> ¼­¹ö
-	  -ÀÚµ¿Â÷     <-------------------------
-	  -³ÃÀå°í         ÀÀ´ä( htmlÀÌ ¾Æ´Ñ ´Ù¾çÇÑ Å¬¶óÀÌ¾ğÆ®°¡ ÀÎ½ÄÇÒ ¼ö ÀÖ´Â °øÅëÆ÷¸Ë: JSON )
-	  -IOT ÀåÄ¡
+	  í´ë¼ì´ì–¸íŠ¸
+	  -ì›¹ë¸Œë¼ìš°ì €       ìš”ì²­ ( JSON )
+	  -í•¸ë“œí°     -------------------------> ì„œë²„
+	  -ìë™ì°¨     <-------------------------
+	  -ëƒ‰ì¥ê³          ì‘ë‹µ( htmlì´ ì•„ë‹Œ ë‹¤ì–‘í•œ í´ë¼ì´ì–¸íŠ¸ê°€ ì¸ì‹í•  ìˆ˜ ìˆëŠ” ê³µí†µí¬ë§·: JSON )
+	  -IOT ì¥ì¹˜
 	  ...
 
-      * ±³À°°úÁ¤¿¡¼­ final ÇÁ·ÎÁ§Æ® ±¸Ãà ¾ÆÅ°ÅØÃ³ ( RESTful ¹æ½Ä)
+      * êµìœ¡ê³¼ì •ì—ì„œ final í”„ë¡œì íŠ¸ êµ¬ì¶• ì•„í‚¤í…ì²˜ ( RESTful ë°©ì‹)
 
                        JSON
-          À¥ºê¶ó¿ìÀú   ------------------------------> ¼­¹ö
+          ì›¹ë¸Œë¼ìš°ì €   ------------------------------> ì„œë²„
 	  (Vue.js) <------------------------------ (SpringBoot)
                         JSON
 
-   ¹Ù. AOP ( Aspect Oriented  Programming: °üÁ¡ ÁöÇâ ÇÁ·Î±×·¡¹Ö) Á¦°ø
+   ë°”. AOP ( Aspect Oriented  Programming: ê´€ì  ì§€í–¥ í”„ë¡œê·¸ë˜ë°) ì œê³µ
     
-      - OOP( Object Oriented  Programming: °´Ã¼ÁöÇâ ÇÁ·Î±×·¡¹Ö) °³¹ß¹æ¹ı·Ğ
+      - OOP( Object Oriented  Programming: ê°ì²´ì§€í–¥ í”„ë¡œê·¸ë˜ë°) ê°œë°œë°©ë²•ë¡ 
 
-      °³³ä: ¸ğµç ÇÁ·Î±×·¡¹Ö ÄÚµå´Â ÇÙ½É±â´É(ex. ·Î±×ÀÎ,Àå¹Ù±¸´Ï )°ú ºÎ°¡±â´É(ex. ·Î±×Ã³¸®)À¸·Î ±¸¼ºµÇ¾î ÀÖÀ½.
-          ÇÙ½É±â´É°ú ºÎ°¡±â´ÉÀ» ºĞ¸®ÇÏ°í, ÇÙ½É±â´É¿¡¼­ ºÎ°¡±â´ÉÀÌ ÇÊ¿äÇÒ ¶§ ÁÖÀÔ(injection) ¹Ş¾Æ¼­ »ç¿ëÇÏ´Â °³¹ß¹æ¹ı·Ğ ÀÇ¹Ì.
+      ê°œë…: ëª¨ë“  í”„ë¡œê·¸ë˜ë° ì½”ë“œëŠ” í•µì‹¬ê¸°ëŠ¥(ex. ë¡œê·¸ì¸,ì¥ë°”êµ¬ë‹ˆ )ê³¼ ë¶€ê°€ê¸°ëŠ¥(ex. ë¡œê·¸ì²˜ë¦¬)ìœ¼ë¡œ êµ¬ì„±ë˜ì–´ ìˆìŒ.
+          í•µì‹¬ê¸°ëŠ¥ê³¼ ë¶€ê°€ê¸°ëŠ¥ì„ ë¶„ë¦¬í•˜ê³ , í•µì‹¬ê¸°ëŠ¥ì—ì„œ ë¶€ê°€ê¸°ëŠ¥ì´ í•„ìš”í•  ë•Œ ì£¼ì…(injection) ë°›ì•„ì„œ ì‚¬ìš©í•˜ëŠ” ê°œë°œë°©ë²•ë¡  ì˜ë¯¸.
 
-      AOP: ¿øÃµ±â¼úÀÌ ÀÖÀ½. 2003³âÀü¿¡ »ç¿ëÇÏ´ø ±â¼úÀÓ.
-           ÀÌ ±â¼úÀÇ ÀÏºÎºĞÀ» Spring¿¡¼­ ºô·Á¿Í¼­ ¸¸µë. Spring AOP¶óº¸ ºÎ¸¥´Ù.
-
-
-  »ç. MyBatis, JPA °°Àº ÇÁ·¹ÀÓ¿öÅ©¿Í ¼Õ½±°Ô ¿¬µ¿ °¡´É
-  ¾Æ. Spring MVC¿¡¼­ View¿ªÇÒ ´ã´çÇÏ´Â ÄÄÆ÷³ÍÆ®°¡ ´Ù¾çÇÏ°Ô Á¦°øµÊ. ( ex. JSP, Thymeleaf(*), Velocity, FreeMarker,...)
+      AOP: ì›ì²œê¸°ìˆ ì´ ìˆìŒ. 2003ë…„ì „ì— ì‚¬ìš©í•˜ë˜ ê¸°ìˆ ì„.
+           ì´ ê¸°ìˆ ì˜ ì¼ë¶€ë¶„ì„ Springì—ì„œ ë¹Œë ¤ì™€ì„œ ë§Œë“¬. Spring AOPë¼ë³´ ë¶€ë¥¸ë‹¤.
 
 
-3. Spring »ıÅÂ°è
+  ì‚¬. MyBatis, JPA ê°™ì€ í”„ë ˆì„ì›Œí¬ì™€ ì†ì‰½ê²Œ ì—°ë™ ê°€ëŠ¥
+  ì•„. Spring MVCì—ì„œ Viewì—­í•  ë‹´ë‹¹í•˜ëŠ” ì»´í¬ë„ŒíŠ¸ê°€ ë‹¤ì–‘í•˜ê²Œ ì œê³µë¨. ( ex. JSP, Thymeleaf(*), Velocity, FreeMarker,...)
+
+
+3. Spring ìƒíƒœê³„
  
    -Spring Framework (core)
    -Spring Boot
@@ -117,97 +117,97 @@ https://spring.io/
    -Spring AI
    ...
 
-4. Spring ¹öÀü
+4. Spring ë²„ì „
 
-   - Spring Framework 7.X ( 2025³â 11¿ù )
-   - Spring Boot 4.X ( 2026³â¤¤ 05¿ù )
-    ¼ö¾÷¿¡¼­´Â SpringBoot 3.5.6 »ç¿ëÇÒ ¿¹Á¤ÀÓ
+   - Spring Framework 7.X ( 2025ë…„ 11ì›” )
+   - Spring Boot 4.X ( 2026ë…„ã„´ 05ì›” )
+    ìˆ˜ì—…ì—ì„œëŠ” SpringBoot 3.5.6 ì‚¬ìš©í•  ì˜ˆì •ì„
 
-5. ¿ë¾îÁ¤¸®
+5. ìš©ì–´ì •ë¦¬
 
  1) POJO ( Plain Old Java Object )
-   - ÀÏ¹İÀûÀ¸·Î ¿À·¡µÈ ÀÚ¹Ù °´Ã¼ ÀÇ¹Ì.
-     Æ¯Á¤ ÇÃ·§Æû¿¡ ÀÇÁ¸ÇÏ´Â ÀÚ¹Ù °´Ã¼ ´ëºñÇØ¼­ »ç¿ëµÇ´Â ¿ë¾î.
-     µû¶ó¼­ POJO´Â Æ¯Á¤ È¯°æ(ÇÃ·§Æû)¿¡ ÀÇÁ¸ÇÏÁö ¾Ê°í Àç»ç¿ëµÉ ¼ö ÀÖÀ½. ( extends ¶Ç´Â implements )
+   - ì¼ë°˜ì ìœ¼ë¡œ ì˜¤ë˜ëœ ìë°” ê°ì²´ ì˜ë¯¸.
+     íŠ¹ì • í”Œë«í¼ì— ì˜ì¡´í•˜ëŠ” ìë°” ê°ì²´ ëŒ€ë¹„í•´ì„œ ì‚¬ìš©ë˜ëŠ” ìš©ì–´.
+     ë”°ë¼ì„œ POJOëŠ” íŠ¹ì • í™˜ê²½(í”Œë«í¼)ì— ì˜ì¡´í•˜ì§€ ì•Šê³  ì¬ì‚¬ìš©ë  ìˆ˜ ìˆìŒ. ( extends ë˜ëŠ” implements )
      ex.
 	
 	  HttpServlet
 		|
 		|
-           TestServlet <== ¸ğµç È¯°æÀÌ ¾Æ´Ñ À¥È¯°æ¿¡¼­¸¸ »ç¿ëµÇ´Â Å¬·¡½º·Î Á¦ÇÑµÊ.
+           TestServlet <== ëª¨ë“  í™˜ê²½ì´ ì•„ë‹Œ ì›¹í™˜ê²½ì—ì„œë§Œ ì‚¬ìš©ë˜ëŠ” í´ë˜ìŠ¤ë¡œ ì œí•œë¨.
 
 
  2) Spring Bean
-   - POJO ±â¹İÀÇ Spring ¾îÇÃ¸®ÄÉÀÌ¼Ç¿¡¼­ ¸¸µç ÀÚ¹Ù Å¬·¡½º ÀÇ¹Ì.
+   - POJO ê¸°ë°˜ì˜ Spring ì–´í”Œë¦¬ì¼€ì´ì…˜ì—ì„œ ë§Œë“  ìë°” í´ë˜ìŠ¤ ì˜ë¯¸.
 
- 3) IoC ( Inversion of Control : Á¦¾îÀÇ ¿ªÇà )
-  - ÇÊ¿äÇÑ ºó(Å¬·¡½º)¸¦ Á÷Á¢ »ı¼ºÇÏ°Å³ª ºó°£¿¡ »ç¿ë(Á¢±Ù)À» Á÷Á¢ ¼³Á¤ÇÏÁö ¾Ê°í
-    ´ë½Å ¿ÜºÎ(IoC Container)¿¡¼­ ÇÊ¿äÇÑ ºóÀ» »ı¼ºÇÏ°í »ç¿ëÀ» ¼³Á¤ÇØÁÖ´Â °³³ä.
+ 3) IoC ( Inversion of Control : ì œì–´ì˜ ì—­í–‰ )
+  - í•„ìš”í•œ ë¹ˆ(í´ë˜ìŠ¤)ë¥¼ ì§ì ‘ ìƒì„±í•˜ê±°ë‚˜ ë¹ˆê°„ì— ì‚¬ìš©(ì ‘ê·¼)ì„ ì§ì ‘ ì„¤ì •í•˜ì§€ ì•Šê³ 
+    ëŒ€ì‹  ì™¸ë¶€(IoC Container)ì—ì„œ í•„ìš”í•œ ë¹ˆì„ ìƒì„±í•˜ê³  ì‚¬ìš©ì„ ì„¤ì •í•´ì£¼ëŠ” ê°œë….
 
  4) IoC Container
-   - IoC ¹æ¹ıÀ¸·Î ºó(Å¬·¡½º)¸¦ °ü¸®ÇÑ´Ù´Â ÀÇ¹Ì¿¡¼­ IoC Container¶ó°í ºÎ¸§
-     IoC ¹æ¹ıÀ¸·Î ºó(Å¬·¡½º)¸¦ °ü¸®? ºóÀ» »ı¼ºÇÏ°í »ç¿ëÇÒ ¼ö ÀÖµµ·Ï ¼³Á¤.
+   - IoC ë°©ë²•ìœ¼ë¡œ ë¹ˆ(í´ë˜ìŠ¤)ë¥¼ ê´€ë¦¬í•œë‹¤ëŠ” ì˜ë¯¸ì—ì„œ IoC Containerë¼ê³  ë¶€ë¦„
+     IoC ë°©ë²•ìœ¼ë¡œ ë¹ˆ(í´ë˜ìŠ¤)ë¥¼ ê´€ë¦¬? ë¹ˆì„ ìƒì„±í•˜ê³  ì‚¬ìš©í•  ìˆ˜ ìˆë„ë¡ ì„¤ì •.
 
-   - ApplicationContext ºóÀÌ IoC Container¿ªÇÒ ´ã´çÇÔ.
+   - ApplicationContext ë¹ˆì´ IoC Containerì—­í•  ë‹´ë‹¹í•¨.
 
    ex.
-        BeanFactory (ÀÎÅÍÆäÀÌ½º)
+        BeanFactory (ì¸í„°í˜ì´ìŠ¤)
 	   |
 	   |
 	   |
-        ApplicationContext(ÀÎÅÍÆäÀÌ½º)
+        ApplicationContext(ì¸í„°í˜ì´ìŠ¤)
 	   |
 	   |
 	   |
-	  AnnotationConfigApplicationContext ( Java SEÈ¯°æÀÇ IoC Container )
-	  GenericXmlApplicationContext      ( Java SEÈ¯°æÀÇ IoC Container )
+	  AnnotationConfigApplicationContext ( Java SEí™˜ê²½ì˜ IoC Container )
+	  GenericXmlApplicationContext      ( Java SEí™˜ê²½ì˜ IoC Container )
 	  .. 
-	  XXXWebApplicationContext     ( Java EEÈ¯°æÀÇ IoC Container )
+	  XXXWebApplicationContext     ( Java EEí™˜ê²½ì˜ IoC Container )
 
 
- 5) ÀÇÁ¸¼º ÁÖÀÔ ( Dependency Injection : DI )
+ 5) ì˜ì¡´ì„± ì£¼ì… ( Dependency Injection : DI )
   https://docs.spring.io/spring-framework/reference/6.2/core/beans/dependencies/factory-collaborators.html
 
-   -°³³ä: ÀÓÀÇÀÇ Å¬·¡½º¿¡¼­ ´Ù¸¥ Å¬·¡½º¸¦ ÂüÁ¶ÇÒ ¶§,
-        Á÷Á¢ »ı¼ºÇØ¼­ ÂüÁ¶ÇÏ´Â °ÍÀÌ ¾Æ´Ï°í ¿ÜºÎ¿¡¼­ »ı¼ºÇÑ ÈÄ¿¡ »ı¼ºÀÚ ¶Ç´Â setter¸Ş¼­µå¸¦ ÀÌ¿ëÇØ¼­ ¼³Á¤ÇØ¼­ »ç¿ëÇÏ´Â ¹æ¹ıÀ» ÀÇ¹ÌÇÔ.
+   -ê°œë…: ì„ì˜ì˜ í´ë˜ìŠ¤ì—ì„œ ë‹¤ë¥¸ í´ë˜ìŠ¤ë¥¼ ì°¸ì¡°í•  ë•Œ,
+        ì§ì ‘ ìƒì„±í•´ì„œ ì°¸ì¡°í•˜ëŠ” ê²ƒì´ ì•„ë‹ˆê³  ì™¸ë¶€ì—ì„œ ìƒì„±í•œ í›„ì— ìƒì„±ì ë˜ëŠ” setterë©”ì„œë“œë¥¼ ì´ìš©í•´ì„œ ì„¤ì •í•´ì„œ ì‚¬ìš©í•˜ëŠ” ë°©ë²•ì„ ì˜ë¯¸í•¨.
 
-    °¡. »ı¼ºÀÚ ÁÖÀÔ( Constructor-based Dependency Injection) - ±ÇÀå
+    ê°€. ìƒì„±ì ì£¼ì…( Constructor-based Dependency Injection) - ê¶Œì¥
 
 	  ex. 
 	     BoardListServlet     BoardServiceImpl               BoardDAO
 				   
 				       BoardDAO dao;
 
-					// »ı¼ºÀÚ ÁÖÀÔ
+					// ìƒì„±ì ì£¼ì…
 					public BoardServiceImpl(BoardDAO dao) {
 						this.dao = dao;
 					}
 
 				
 
-		# BoardListSevlet¿¡¼­ »ı¼ºÇß´Âµ¥. ÀÌ ¿ªÇÒÀÌ IoC Container ¿ªÇÒÀÓ
+		# BoardListSevletì—ì„œ ìƒì„±í–ˆëŠ”ë°. ì´ ì—­í• ì´ IoC Container ì—­í• ì„
 		BoardService service = new BoardServiceImpl(new BoardDAO());
 	
 
 
 
-    ³ª. set ¸Ş¼­µå ÁÖÀÔ (Setter-based Dependency Injection)
+    ë‚˜. set ë©”ì„œë“œ ì£¼ì… (Setter-based Dependency Injection)
 
      BoardListServlet     BoardServiceImpl               BoardDAO
 				   
 				       BoardDAO dao;
 				
 
-					// setter ¸Ş¼­µå ÁÖÀÔ
+					// setter ë©”ì„œë“œ ì£¼ì…
 					public void setDao(BoardDAO dao) {
 						this.dao = dao;
 					}
 
-		# BoardListSevlet¿¡¼­ »ı¼ºÇß´Âµ¥. ÀÌ ¿ªÇÒÀÌ IoC Container ¿ªÇÒÀÓ
+		# BoardListSevletì—ì„œ ìƒì„±í–ˆëŠ”ë°. ì´ ì—­í• ì´ IoC Container ì—­í• ì„
 		BoardService service = new BoardServiceImpl();
 		service.setDao(new BoardDAO());	
 
-    ´Ù. ÇÊµå(º¯¼ö) ÁÖÀÔ ( Field Dependency Injection) 
+    ë‹¤. í•„ë“œ(ë³€ìˆ˜) ì£¼ì… ( Field Dependency Injection) 
 
          BoardListServlet     BoardServiceImpl               BoardDAO
 				   
@@ -217,58 +217,58 @@ https://spring.io/
 
 
 ///////////////////////////////
-2Àå. Spring Boot
+2ì¥. Spring Boot
 ///////////////////////////////
 
-1. Spring Boot µîÀå
+1. Spring Boot ë“±ì¥
 
-    - 2016³â µîÀå
-    - ±âÁ¸ Spring Framework¿¡¼­´Â °³¹ßÀÚ°¡ Ã³¸®ÇØ¾ß µÇ´Â ¸¹Àº ¼³Á¤ÀÌ ÀÖ¾úÀ½.
-      ( ex. DB ¿¬µ¿(4°¡Áö ¼³Á¤Á¤º¸, µå¶óÀÌ¹ö ºôµåÆĞ½º,...) Tomcat ¼³Ä¡ µî ..)
-      ½ÇÁ¦·Î´Â ºñÁî´Ï½º ·ÎÁ÷¿¡ ÁıÁßÇØ¾ßÇÔ¿¡µµ ºÒ±¸ÇÏ°í À§ ÀÛ¾÷µéÀ» ¸í½ÃÀûÀ¸·Î ¼³Á¤ÇßÀ½. 
-      Áï, ÁıÁßÀÌ ºĞ»êµÊ.
+    - 2016ë…„ ë“±ì¥
+    - ê¸°ì¡´ Spring Frameworkì—ì„œëŠ” ê°œë°œìê°€ ì²˜ë¦¬í•´ì•¼ ë˜ëŠ” ë§ì€ ì„¤ì •ì´ ìˆì—ˆìŒ.
+      ( ex. DB ì—°ë™(4ê°€ì§€ ì„¤ì •ì •ë³´, ë“œë¼ì´ë²„ ë¹Œë“œíŒ¨ìŠ¤,...) Tomcat ì„¤ì¹˜ ë“± ..)
+      ì‹¤ì œë¡œëŠ” ë¹„ì¦ˆë‹ˆìŠ¤ ë¡œì§ì— ì§‘ì¤‘í•´ì•¼í•¨ì—ë„ ë¶ˆêµ¬í•˜ê³  ìœ„ ì‘ì—…ë“¤ì„ ëª…ì‹œì ìœ¼ë¡œ ì„¤ì •í–ˆìŒ. 
+      ì¦‰, ì§‘ì¤‘ì´ ë¶„ì‚°ë¨.
 
-    - ÀÌ·¯ÇÑ ¹®Á¦¸¦ ÇØ°áÇÏ±â À§ÇØ¼­ Spring Boot ¼­ºê ÇÁ·ÎÁ§Æ®°¡ ÁøÇàµÊ.
+    - ì´ëŸ¬í•œ ë¬¸ì œë¥¼ í•´ê²°í•˜ê¸° ìœ„í•´ì„œ Spring Boot ì„œë¸Œ í”„ë¡œì íŠ¸ê°€ ì§„í–‰ë¨.
 
-2. Spring Boot Æ¯Â¡
+2. Spring Boot íŠ¹ì§•
 
-   °¡. ¶óÀÌºê·¯¸® °ü¸® ÀÚµ¿È­ : ºôµåµµ±¸(build tool) + starter(*.jarÆÄÀÏµéÀÇ ¸ğÀÓ) °³³äÀ» ÀÌ¿ëÇÏ¿© ÀÇÁ¸¼º(*.jar) ÀÚµ¿ °ü¸® Áö¿ø.
-   ³ª. ¼³Á¤ ÀÚµ¿È­ : Æ¯Á¤ starter(*.jar)¸¦ ¼³Á¤ÇÏ¸é SpringBoot°¡ ¾Ë¾Æ¼­ ÀÚµ¿À¸·Î È¯°æ¼³Á¤À» ¸ÂÃçÁÜ.
-                ex. XXX-starter-web ¼³Á¤ÇÏ¸é ÀÚµ¿À¸·Î ³»Àå tomcatÀ» ¼³Ä¡ÇØÁÜ.
-   ´Ù. µ¶¸³ÀûÀ¸·Î ½ÇÇàÇÑ jar Áö¿ø.     
-      - Java SEÈ¯°æ: ¾îÇÃ¸®ÄÉÀÌ¼Ç °³¹ßÈÄ ¹èÆ÷ÇÏ±â À§ÇØ¼­ jar ÆÄÀÏ·Î ¾ĞÃàÇÔ.(ºôµå ÇÑ´Ù°í ÇÔ)
-      - Java EEÈ¯°æ: ¾îÇÃ¸®ÄÉÀÌ¼Ç °³¹ßÈÄ ¹èÆ÷ÇÏ±â À§ÇØ¼­ war ÆÄÀÏ·Î ¾ĞÃàÇÔ.(ºôµå ÇÑ´Ù°í ÇÔ)
+   ê°€. ë¼ì´ë¸ŒëŸ¬ë¦¬ ê´€ë¦¬ ìë™í™” : ë¹Œë“œë„êµ¬(build tool) + starter(*.jaríŒŒì¼ë“¤ì˜ ëª¨ì„) ê°œë…ì„ ì´ìš©í•˜ì—¬ ì˜ì¡´ì„±(*.jar) ìë™ ê´€ë¦¬ ì§€ì›.
+   ë‚˜. ì„¤ì • ìë™í™” : íŠ¹ì • starter(*.jar)ë¥¼ ì„¤ì •í•˜ë©´ SpringBootê°€ ì•Œì•„ì„œ ìë™ìœ¼ë¡œ í™˜ê²½ì„¤ì •ì„ ë§ì¶°ì¤Œ.
+                ex. XXX-starter-web ì„¤ì •í•˜ë©´ ìë™ìœ¼ë¡œ ë‚´ì¥ tomcatì„ ì„¤ì¹˜í•´ì¤Œ.
+   ë‹¤. ë…ë¦½ì ìœ¼ë¡œ ì‹¤í–‰í•œ jar ì§€ì›.     
+      - Java SEí™˜ê²½: ì–´í”Œë¦¬ì¼€ì´ì…˜ ê°œë°œí›„ ë°°í¬í•˜ê¸° ìœ„í•´ì„œ jar íŒŒì¼ë¡œ ì••ì¶•í•¨.(ë¹Œë“œ í•œë‹¤ê³  í•¨)
+      - Java EEí™˜ê²½: ì–´í”Œë¦¬ì¼€ì´ì…˜ ê°œë°œí›„ ë°°í¬í•˜ê¸° ìœ„í•´ì„œ war íŒŒì¼ë¡œ ì••ì¶•í•¨.(ë¹Œë“œ í•œë‹¤ê³  í•¨)
 
-     ==> Java SEÈ¯°æ ¹× Java EEÈ¯°æ ¸ğµÎ jar·Î ¾ĞÃàÇÔ(********************)
+     ==> Java SEí™˜ê²½ ë° Java EEí™˜ê²½ ëª¨ë‘ jarë¡œ ì••ì¶•í•¨(********************)
         
-	java -jar XXXX.jar <=== ¸¸¾à¿¡ À¥ÀÌ¶ó¸é ÀÚµ¿À¸·Î ¼³Ä¡µÈ ³»Àå tomcatÀ¸·Î ½ÇÇàµÊ.
+	java -jar XXXX.jar <=== ë§Œì•½ì— ì›¹ì´ë¼ë©´ ìë™ìœ¼ë¡œ ì„¤ì¹˜ëœ ë‚´ì¥ tomcatìœ¼ë¡œ ì‹¤í–‰ë¨.
 
-   ¶ó. ¼³Á¤Á¤º¸´Â xml(±âÁ¸ ½ºÇÁ¸µ ¹× ¼­ºí¸´/jsp) ´ë½Å¿¡ *.properties ¶Ç´Â *.yml(yaml) ÀÌ¿ë.
+   ë¼. ì„¤ì •ì •ë³´ëŠ” xml(ê¸°ì¡´ ìŠ¤í”„ë§ ë° ì„œë¸”ë¦¿/jsp) ëŒ€ì‹ ì— *.properties ë˜ëŠ” *.yml(yaml) ì´ìš©.
 	
 
-3. ºôµåµµ±¸(build tool)
+3. ë¹Œë“œë„êµ¬(build tool)
 
-   -ÀüÃ¼ °³¹ßÇÁ·Î¼¼½º¿¡¼­ ÇÊ¿äÇÑ ÀÛ¾÷À» ÀÚµ¿È­ÇÏ´Â µµ±¸.
+   -ì „ì²´ ê°œë°œí”„ë¡œì„¸ìŠ¤ì—ì„œ í•„ìš”í•œ ì‘ì—…ì„ ìë™í™”í•˜ëŠ” ë„êµ¬.
 
-   °³¹ßÇÁ·Î¼¼½º´Â ÀÏ¹İÀûÀ¸·Î ´ÙÀ½°ú °°´Ù.
+   ê°œë°œí”„ë¡œì„¸ìŠ¤ëŠ” ì¼ë°˜ì ìœ¼ë¡œ ë‹¤ìŒê³¼ ê°™ë‹¤.
 
-   È¯°æ¼³Á¤   ------> ÄÚµåÀÛ¼º ---> *.jar´Ù¿î+ºôµåÆĞ½º + ±¸Çö----> Å×½ºÆ®(´ÜÀ§Å×½ºÆ®,junit5)---> ºôµå(¾ĞÃà) ---> ¹èÆ÷
-   (jdk¼³Ä¡, 
-   tomcat¼³Ä¡)               <------------------------------------------------------------>
-                                         ÀÚµ¿È­
+   í™˜ê²½ì„¤ì •   ------> ì½”ë“œì‘ì„± ---> *.jarë‹¤ìš´+ë¹Œë“œíŒ¨ìŠ¤ + êµ¬í˜„----> í…ŒìŠ¤íŠ¸(ë‹¨ìœ„í…ŒìŠ¤íŠ¸,junit5)---> ë¹Œë“œ(ì••ì¶•) ---> ë°°í¬
+   (jdkì„¤ì¹˜, 
+   tomcatì„¤ì¹˜)               <------------------------------------------------------------>
+                                         ìë™í™”
 
-  - Á¾·ù
+  - ì¢…ë¥˜
 
-    °¡. Maven
-       - ¼³Á¤Á¤º¸°¡ xml·Î µÇ¾î ÀÖÀ½.
+    ê°€. Maven
+       - ì„¤ì •ì •ë³´ê°€ xmlë¡œ ë˜ì–´ ìˆìŒ.
 
-    ³ª. Gradle (*)
-       - ¼³Á¤Á¤º¸°¡ build.gralde·Î µÇ¾î ÀÖÀ½.
+    ë‚˜. Gradle (*)
+       - ì„¤ì •ì •ë³´ê°€ build.graldeë¡œ ë˜ì–´ ìˆìŒ.
 
   
  4. Starters
   
-    - °³¹ß½Ã ÇÊ¿äÇÑ ¿©·¯ jar ÆÄÀÏµéÀÇ ¹­À½ ÇüÅÂ·Î Á¦°ø. (ÀÇÁ¸¼º °ü¸®)
+    - ê°œë°œì‹œ í•„ìš”í•œ ì—¬ëŸ¬ jar íŒŒì¼ë“¤ì˜ ë¬¶ìŒ í˜•íƒœë¡œ ì œê³µ. (ì˜ì¡´ì„± ê´€ë¦¬)
        spring-boot-starter-data-jpa
        spring-boot-starter-data-redis
        spring-boot-starter-security
@@ -280,120 +280,120 @@ https://spring.io/
      https://docs.spring.io/spring-boot/3.5/reference/using/build-systems.html
 
  
- 5. SpringBoot ¸ñÇ¥
+ 5. SpringBoot ëª©í‘œ
 
-   - °³¹ßÀÚ°¡ ÇÁ·¯´ö¼Ç È¯°æ¿¡¼­ »ç¿ë°¡´ÉÇÑ ¾îÇÃ¸®ÄÉÀÌ¼ÇÀ» ºü¸£°Ô ºôµåÇÏµµ·Ï µ½´Â °ÍÀÌ´Ù.
-   - µ½´Â ¹æ¹ı
+   - ê°œë°œìê°€ í”„ëŸ¬ë•ì…˜ í™˜ê²½ì—ì„œ ì‚¬ìš©ê°€ëŠ¥í•œ ì–´í”Œë¦¬ì¼€ì´ì…˜ì„ ë¹ ë¥´ê²Œ ë¹Œë“œí•˜ë„ë¡ ë•ëŠ” ê²ƒì´ë‹¤.
+   - ë•ëŠ” ë°©ë²•
 
-   °¡. Spring Initializer (ÇÁ·ÎÁ§Æ®¸¦ ·ÎÄÃÀÌ ¾Æ´Ñ À¥¿¡¼­ »ı¼º °¡´É.)
+   ê°€. Spring Initializer (í”„ë¡œì íŠ¸ë¥¼ ë¡œì»¬ì´ ì•„ë‹Œ ì›¹ì—ì„œ ìƒì„± ê°€ëŠ¥.)
      
       http://start.spring.io
 
    
-  ³ª. Spring Boot Starter Á¦°ø
+  ë‚˜. Spring Boot Starter ì œê³µ
 
-  ´Ù. Spring Boot Auto Configuration
-    => ÀÚµ¿È¯°æ¼³Á¤ÀÓ.
-    => Starter ÀÇÁ¸¼ºÀ» º¸°í È¯°æ¼³Á¤À» ÇØÁÜ.
+  ë‹¤. Spring Boot Auto Configuration
+    => ìë™í™˜ê²½ì„¤ì •ì„.
+    => Starter ì˜ì¡´ì„±ì„ ë³´ê³  í™˜ê²½ì„¤ì •ì„ í•´ì¤Œ.
 
-  ¶ó. SpringBoot devtools
+  ë¼. SpringBoot devtools
 
-    ==> ÄÚµå¸¦ º¯°æÇÏ¸é ÀÚµ¿ÀÎ½ÄÇØ¼­ È­¸éÀ» Àç·¡´õ¸µÇØÁÜ.
+    ==> ì½”ë“œë¥¼ ë³€ê²½í•˜ë©´ ìë™ì¸ì‹í•´ì„œ í™”ë©´ì„ ì¬ë˜ë”ë§í•´ì¤Œ.
     
 
 ///////////////////////////////
-3Àå. È¯°æ¼³Á¤
+3ì¥. í™˜ê²½ì„¤ì •
 ///////////////////////////////
 
-1. È¯°æ¼³Á¤
+1. í™˜ê²½ì„¤ì •
 
    -JDK21
-   -SpringBoot 3.5.6 ¹öÀü ( Spring Framework 6.2.X Æ÷ÇÔµÊ )
-   -Intellij IDE Åø »ç¿ë ( ÀÏÁ¤±â°£ÀÌ Áö³ª¸é ±â´É Á¦ÇÑµÊ )
+   -SpringBoot 3.5.6 ë²„ì „ ( Spring Framework 6.2.X í¬í•¨ë¨ )
+   -Intellij IDE íˆ´ ì‚¬ìš© ( ì¼ì •ê¸°ê°„ì´ ì§€ë‚˜ë©´ ê¸°ëŠ¥ ì œí•œë¨ )
 
      http://jetbrains.com
 
  
-2. boot ÇÁ·ÎÁ§Æ® »ı¼º ¹æ¹ı
+2. boot í”„ë¡œì íŠ¸ ìƒì„± ë°©ë²•
 
-  - Spring Initializer ÀÌ¿ë
+  - Spring Initializer ì´ìš©
   - http://start.spring.io 
 
-  - group: ÆĞÅ°Áö¸í
-    artifacts: ÇÁ·ÎÁ§Æ®¸í ( ºôµå½Ã jar ÆÄÀÏ¸íÀ¸·Î »ç¿ëµÊ.  ex. demo-¹öÀü-SNAPSHOP.jar )
-    µîµî ÁöÁ¤ÇÏ°í Generate ¹öÆ°Æ²¸¯ > ÇÁ·ÎÁ§Æ®¸í.zip ´Ù¿î·ÎµåµÊ.
+  - group: íŒ¨í‚¤ì§€ëª…
+    artifacts: í”„ë¡œì íŠ¸ëª… ( ë¹Œë“œì‹œ jar íŒŒì¼ëª…ìœ¼ë¡œ ì‚¬ìš©ë¨.  ex. demo-ë²„ì „-SNAPSHOP.jar )
+    ë“±ë“± ì§€ì •í•˜ê³  Generate ë²„íŠ¼í‹€ë¦­ > í”„ë¡œì íŠ¸ëª….zip ë‹¤ìš´ë¡œë“œë¨.
 
 
-3. ½ÇÇà ¹× ºôµå
+3. ì‹¤í–‰ ë° ë¹Œë“œ
 
-  1) ½ÇÇà¸í·É¾î
+  1) ì‹¤í–‰ëª…ë ¹ì–´
    
-    -cmdÃ¢¿¡¼­ ./gradlew bootRun ½ÇÇà
-    -¸¶¿ì½º¿¡¼­  Run ½ÇÇà
+    -cmdì°½ì—ì„œ ./gradlew bootRun ì‹¤í–‰
+    -ë§ˆìš°ìŠ¤ì—ì„œ  Run ì‹¤í–‰
 
   
-  2) ºôµå¸í·É¾î ( *.jar »ı¼º )
-    -cmdÃ¢¿¡¼­ ./gradlew clean build
-     ºôµå°á°ú build > libs > demo-1.0.0-SNAPSHOT.jar »ı¼ºµÊ.        
+  2) ë¹Œë“œëª…ë ¹ì–´ ( *.jar ìƒì„± )
+    -cmdì°½ì—ì„œ ./gradlew clean build
+     ë¹Œë“œê²°ê³¼ build > libs > demo-1.0.0-SNAPSHOT.jar ìƒì„±ë¨.        
 
-    -ºôµåµÈ jar ½ÇÇà
+    -ë¹Œë“œëœ jar ì‹¤í–‰
 
       java -jar demo-1.0.0-SNAPSHOT.jar
 
 
-4. ÀÇÁ¸¼º ¼³Á¤
+4. ì˜ì¡´ì„± ì„¤ì •
   
-  -build.gradle ÆÄÀÏ¿¡ ÀÇÁ¸¼ºÀ» ¼³Á¤ÇÑ´Ù.
-   ÀÚµ¿À¸·Î °ü·ÃµÈ jarÆÄÀÏµéÀ» ´Ù¿î·Îµå µÊ.
+  -build.gradle íŒŒì¼ì— ì˜ì¡´ì„±ì„ ì„¤ì •í•œë‹¤.
+   ìë™ìœ¼ë¡œ ê´€ë ¨ëœ jaríŒŒì¼ë“¤ì„ ë‹¤ìš´ë¡œë“œ ë¨.
 
-  -°¡ÀÌµåµÇÁö ¾ÊÀº starter ÀÇÁ¸¼º ¼³Á¤ÇÏ´Â ¹æ¹ı
+  -ê°€ì´ë“œë˜ì§€ ì•Šì€ starter ì˜ì¡´ì„± ì„¤ì •í•˜ëŠ” ë°©ë²•
 
    https://mvnrepository.com/
 
-   ÁÖÀÇÇÒÁ¡Àº ÇöÀç springboot ¹öÀü°ú È£È¯µÇ´Â ¹öÀüÀ» »ç¿ëÇØ¾ß µÊ.
+   ì£¼ì˜í• ì ì€ í˜„ì¬ springboot ë²„ì „ê³¼ í˜¸í™˜ë˜ëŠ” ë²„ì „ì„ ì‚¬ìš©í•´ì•¼ ë¨.
 
 
-5. src/main/resources/application.properties ( application.yml, application.yaml : '¾ß¹°'ÆÄÀÏÀÌ¶ó°í ºÎ¸§) ±â´É
+5. src/main/resources/application.properties ( application.yml, application.yaml : 'ì•¼ë¬¼'íŒŒì¼ì´ë¼ê³  ë¶€ë¦„) ê¸°ëŠ¥
 
-  - ÁÖ¿ä±â´É
-   1) ÀÇÁ¸¼º¿¡ ÀÇÇØ¼­ ÀÚµ¿À¸·Î ¼³Á¤µÈ ±âº»¼³Á¤À» º¯°æ
-      ex. TomcatÀÇ port º¯°æ, log ·¹º§ º¯°æµî...
+  - ì£¼ìš”ê¸°ëŠ¥
+   1) ì˜ì¡´ì„±ì— ì˜í•´ì„œ ìë™ìœ¼ë¡œ ì„¤ì •ëœ ê¸°ë³¸ì„¤ì •ì„ ë³€ê²½
+      ex. Tomcatì˜ port ë³€ê²½, log ë ˆë²¨ ë³€ê²½ë“±...
 
 
-   2) ºó(Å¬·¡½º)¿¡¼­ »ç¿ë°¡´ÉÇÑ ÀÓÀÇÀÇ °ªÀ» ¼³Á¤
+   2) ë¹ˆ(í´ë˜ìŠ¤)ì—ì„œ ì‚¬ìš©ê°€ëŠ¥í•œ ì„ì˜ì˜ ê°’ì„ ì„¤ì •
 
-      ÀÚ¹ÙÄÚµå: String email="aaa@example.com";
-             ÀÌ¸ŞÀÏ º¯°æ½Ã ÀÚ¹ÙÄÚµå ÀçÄÄÆÄÀÏ ÇÊ¿ä.
+      ìë°”ì½”ë“œ: String email="aaa@example.com";
+             ì´ë©”ì¼ ë³€ê²½ì‹œ ìë°”ì½”ë“œ ì¬ì»´íŒŒì¼ í•„ìš”.
 
      properties(yml):
                       email=aaa@example.com
 
 
-  ==> SpringBoot°¡ Starter¸¦ º¸°í ÀÚµ¿À¸·Î ´ëºÎºĞÀÇ È¯°æÀ» ¼³Á¤ÇØÁÜ.
-     ³ª¸ÓÁö Ãß°¡¼³Á¤Àº application.yml¿¡¼­ °³¹ßÀÚ°¡ Á÷Á¢ ¼³Á¤ÇÔ.
+  ==> SpringBootê°€ Starterë¥¼ ë³´ê³  ìë™ìœ¼ë¡œ ëŒ€ë¶€ë¶„ì˜ í™˜ê²½ì„ ì„¤ì •í•´ì¤Œ.
+     ë‚˜ë¨¸ì§€ ì¶”ê°€ì„¤ì •ì€ application.ymlì—ì„œ ê°œë°œìê°€ ì§ì ‘ ì„¤ì •í•¨.
      
 
-6. Application ÆÄÀÏ
+6. Application íŒŒì¼
 
-   - src/main/java ¿¡ ÀúÀåµÇ°í ÇÊ¼ö ÆÄÀÏÀÓ ( À¥¾îÇÃ¸®ÄÉÀÌ¼Ç °³¹ß¿¡µµ ÇÊ¼ö )
-   - ¿ªÇÒ: ½ÃÀÛÁ¡ ¿ªÇÒ + @SpringBootApplication ±â´É
+   - src/main/java ì— ì €ì¥ë˜ê³  í•„ìˆ˜ íŒŒì¼ì„ ( ì›¹ì–´í”Œë¦¬ì¼€ì´ì…˜ ê°œë°œì—ë„ í•„ìˆ˜ )
+   - ì—­í• : ì‹œì‘ì  ì—­í•  + @SpringBootApplication ê¸°ëŠ¥
 
 
-   - @SpringBootApplication´Â ´ÙÀ½ 3°¡Áö ¾î³ëÅ×ÀÌ¼ÇÀ» Æ÷ÇÔÇÔ.
+   - @SpringBootApplicationëŠ” ë‹¤ìŒ 3ê°€ì§€ ì–´ë…¸í…Œì´ì…˜ì„ í¬í•¨í•¨.
 https://docs.spring.io/spring-boot/3.5/reference/using/using-the-springbootapplication-annotation.html
 
 
-     °¡. @EnableAutoConfiguration 
-        - ÀÚµ¿À¸·Î Configuration(È¯°æ¼³Á¤) ¼³Á¤ÇÏ´Â ±â´É.
-	  Áï, build.gradle¿¡ µî·ÏµÈ ÀÇÁ¸¼ºÀ» º¸°í, ±×¿¡ ¾Ë¸ÂÀº ÃÖÀûÀÇ ¼³Á´Á¤º¸¸¦ ÀÚµ¿À¸·Î Áö¿øÇÔ.
-	  ex. xxx-starter-web À» ¼³Á¤ÇÏ¸é ÀÚµ¿À¸·Î tomcat ¼³Ä¡ ¹× À¥ ¾îÇÃ¸®ÄÉÀÌ¼Ç °³¹ßÇÏ±â À§ÇÑ È¯°æÀÌ ÀÚµ¿À¸·Î ¼³Á¤µÊ.
+     ê°€. @EnableAutoConfiguration 
+        - ìë™ìœ¼ë¡œ Configuration(í™˜ê²½ì„¤ì •) ì„¤ì •í•˜ëŠ” ê¸°ëŠ¥.
+	  ì¦‰, build.gradleì— ë“±ë¡ëœ ì˜ì¡´ì„±ì„ ë³´ê³ , ê·¸ì— ì•Œë§ì€ ìµœì ì˜ ì„¤ì¡ì •ë³´ë¥¼ ìë™ìœ¼ë¡œ ì§€ì›í•¨.
+	  ex. xxx-starter-web ì„ ì„¤ì •í•˜ë©´ ìë™ìœ¼ë¡œ tomcat ì„¤ì¹˜ ë° ì›¹ ì–´í”Œë¦¬ì¼€ì´ì…˜ ê°œë°œí•˜ê¸° ìœ„í•œ í™˜ê²½ì´ ìë™ìœ¼ë¡œ ì„¤ì •ë¨.
 
-     ³ª. @ComponentScan
-        - ÀÚµ¿À¸·Î ºó(Å¬·¡½º)¸¦ Ã£¾Æ¼­ new ÇØÁÜ.
-	- ¹İµå½Ã ´ÙÀ½ 2°¡Áö ±ÔÄ¢À¸·Î µÇ¾îÀÖ¾î¾ß µÊ.
-	  a. XXXApplication.java (@SpringBootApplication Æ÷ÇÔ)ÀÇ ÆĞÅ°Áö¿Í °°°Å³ª ¶Ç´Â ¼­ºêÆĞÅ°Áö·Î µÇ¾î ÀÖ¾î¾ß µÊ.
-          b. ¸¶Å·ÇØ¾ßµÊ.
-              -@Component ( ¹ü¿ëÀû )
+     ë‚˜. @ComponentScan
+        - ìë™ìœ¼ë¡œ ë¹ˆ(í´ë˜ìŠ¤)ë¥¼ ì°¾ì•„ì„œ new í•´ì¤Œ.
+	- ë°˜ë“œì‹œ ë‹¤ìŒ 2ê°€ì§€ ê·œì¹™ìœ¼ë¡œ ë˜ì–´ìˆì–´ì•¼ ë¨.
+	  a. XXXApplication.java (@SpringBootApplication í¬í•¨)ì˜ íŒ¨í‚¤ì§€ì™€ ê°™ê±°ë‚˜ ë˜ëŠ” ì„œë¸ŒíŒ¨í‚¤ì§€ë¡œ ë˜ì–´ ìˆì–´ì•¼ ë¨.
+          b. ë§ˆí‚¹í•´ì•¼ë¨.
+              -@Component ( ë²”ìš©ì  )
 	      -@Controller
 	      -@Service
 	      -@Repository
@@ -401,14 +401,14 @@ https://docs.spring.io/spring-boot/3.5/reference/using/using-the-springbootappli
 	      -@Configuration
 	      ..
 
-     ´Ù. @SpringBootConfiguration 
+     ë‹¤. @SpringBootConfiguration 
       
-       - ÀÚµ¿À¸·Î ¼³Á¤µÇ´Â ±âº»¼³Á¤(ex. tomcatÆ÷Æ®¹øÈ£°¡ 8080)ÀÌ ÀÖ°í 
-        Ãß°¡·Î °³¹ßÀÚ°¡ ¼³Á¤ÀÌ °¡´ÉÇÔ.
-       - @Configuration + @Bean »ç¿ëÇØ¼­ Ãß°¡·Î ¼³Á¤ÇÔ.
-       - ¿ëµµ: ¿ÜºÎ¶óÀÌºê·¯¸®¶ó¼­ ¼öµ¿À¸·Î »ı¼ºÇØ¾ß µÇ´Â °æ¿ì°¡ ÀÖÀ½.
+       - ìë™ìœ¼ë¡œ ì„¤ì •ë˜ëŠ” ê¸°ë³¸ì„¤ì •(ex. tomcatí¬íŠ¸ë²ˆí˜¸ê°€ 8080)ì´ ìˆê³  
+        ì¶”ê°€ë¡œ ê°œë°œìê°€ ì„¤ì •ì´ ê°€ëŠ¥í•¨.
+       - @Configuration + @Bean ì‚¬ìš©í•´ì„œ ì¶”ê°€ë¡œ ì„¤ì •í•¨.
+       - ìš©ë„: ì™¸ë¶€ë¼ì´ë¸ŒëŸ¬ë¦¬ë¼ì„œ ìˆ˜ë™ìœ¼ë¡œ ìƒì„±í•´ì•¼ ë˜ëŠ” ê²½ìš°ê°€ ìˆìŒ.
 
-        ex.  Test.java »ı¼º
+        ex.  Test.java ìƒì„±
 
 	  @Configuration
 	  public class CustomerConfigurtion{
@@ -420,57 +420,57 @@ https://docs.spring.io/spring-boot/3.5/reference/using/using-the-springbootappli
 
 	  }
 ///////////////////////////////////////////////////////////
-2ÀÏÂ÷ 2026-05-12
+2ì¼ì°¨ 2026-05-12
 
 ///////////////////////////////
-4Àå. ºó »ı¼º ¹× DI ¼³Á¤
+4ì¥. ë¹ˆ ìƒì„± ë° DI ì„¤ì •
 ///////////////////////////////
 
-1. ºó»ı¼º ¹æ¹ı
+1. ë¹ˆìƒì„± ë°©ë²•
 
- 1) ±ÇÀå ÆĞÅ°Áö ¹æ¹ı ( ÃßÃµ )
+ 1) ê¶Œì¥ íŒ¨í‚¤ì§€ ë°©ë²• ( ì¶”ì²œ )
 
-   -°³³ä:
-      @SpringBootApplication¸¦ °¡Áø ºóÀÇ ÆĞÅ°Áö¿Í °°°Å³ª ¼­ºêÆĞÅ°Áö·Î ¸¸µé¸é ÀÚµ¿À¸·Î ºóÀ¸·Î µî·ÏµÇ¾î »ı¼ºµÊ.
+   -ê°œë…:
+      @SpringBootApplicationë¥¼ ê°€ì§„ ë¹ˆì˜ íŒ¨í‚¤ì§€ì™€ ê°™ê±°ë‚˜ ì„œë¸ŒíŒ¨í‚¤ì§€ë¡œ ë§Œë“¤ë©´ ìë™ìœ¼ë¡œ ë¹ˆìœ¼ë¡œ ë“±ë¡ë˜ì–´ ìƒì„±ë¨.
 
-   -±¸Çö¹æ¹ı 2step
+   -êµ¬í˜„ë°©ë²• 2step
 
-     step1: @SpringBootApplication¸¦ °¡Áø ºóÀÇ ÆĞÅ°Áö¿Í °°°Å³ª ¼­ºêÆĞÅ°Áö·Î ¸¸µé¸é ÀÚµ¿À¸·Î ºóÀ¸·Î µî·Ï
-     step2: ÀÚµ¿À¸·Î »ı¼ºÇÒ ºóÀ» ÁöÁ¤
-           @Component ( ¹ü¿ëÀû )
-	   @Service   ( ¼­ºñ½º ·¹ÀÌ¾î )
-	   @Controller ( ¼­ºí¸´ ¿ªÇÒ )
-	   @RestController ( ¼­ºí¸´ ¿ªÇÒ )
-	   @Repository ( DAO ·¹ÀÌ¾î )
-	   @Configuration ( ¼³Á¤Á¤º¸ Ãß°¡)
+     step1: @SpringBootApplicationë¥¼ ê°€ì§„ ë¹ˆì˜ íŒ¨í‚¤ì§€ì™€ ê°™ê±°ë‚˜ ì„œë¸ŒíŒ¨í‚¤ì§€ë¡œ ë§Œë“¤ë©´ ìë™ìœ¼ë¡œ ë¹ˆìœ¼ë¡œ ë“±ë¡
+     step2: ìë™ìœ¼ë¡œ ìƒì„±í•  ë¹ˆì„ ì§€ì •
+           @Component ( ë²”ìš©ì  )
+	   @Service   ( ì„œë¹„ìŠ¤ ë ˆì´ì–´ )
+	   @Controller ( ì„œë¸”ë¦¿ ì—­í•  )
+	   @RestController ( ì„œë¸”ë¦¿ ì—­í•  )
+	   @Repository ( DAO ë ˆì´ì–´ )
+	   @Configuration ( ì„¤ì •ì •ë³´ ì¶”ê°€)
 
-   - ´Ù¾çÇÑ ¾î³ëÅ×ÀÌ¼ÇÀ» »ç¿ëÇÏ´Â ÀÌÀ¯?
-     °¡.ÇÁ·¹ÀÓ¿öÅ©¿¡°Ô ¸í½ÃÀûÀ¸·Î ÀÇµµÇÑ¹Ù¸¦ ´õ ÀÚ¼¼ÇÏ°Ô ¾Ë·ÁÁÜ.
-     ³ª.AOP »ç¿ë½Ã ºÎ°¡ÀûÀÎ ÀÛ¾÷À» ´õ ÀÚ¼¼ÇÏ°Ô ¼³Á¤ÇÒ ¼ö ÀÖÀ½.
+   - ë‹¤ì–‘í•œ ì–´ë…¸í…Œì´ì…˜ì„ ì‚¬ìš©í•˜ëŠ” ì´ìœ ?
+     ê°€.í”„ë ˆì„ì›Œí¬ì—ê²Œ ëª…ì‹œì ìœ¼ë¡œ ì˜ë„í•œë°”ë¥¼ ë” ìì„¸í•˜ê²Œ ì•Œë ¤ì¤Œ.
+     ë‚˜.AOP ì‚¬ìš©ì‹œ ë¶€ê°€ì ì¸ ì‘ì—…ì„ ë” ìì„¸í•˜ê²Œ ì„¤ì •í•  ìˆ˜ ìˆìŒ.
 
 
- 2) ´Ù¸¥ ÆĞÅ°Áö·Î ¸¸µç °æ¿ì
+ 2) ë‹¤ë¥¸ íŒ¨í‚¤ì§€ë¡œ ë§Œë“  ê²½ìš°
 
-   - ÆĞÅ°Áö¸íÀ¸·Î ¾Ë·ÁÁà¾ßµÊ.
+   - íŒ¨í‚¤ì§€ëª…ìœ¼ë¡œ ì•Œë ¤ì¤˜ì•¼ë¨.
     
      //@SpringBootApplication(scanBasePackages = {"com.other"})
        @SpringBootApplication(scanBasePackageClasses={com.other.EmpDAO.class})
         public class DemoApplication {
 
 
- 3) @Configuration + @Bean ÀÌ¿ëÇÑ ¸í½ÃÀû »ı¼º
+ 3) @Configuration + @Bean ì´ìš©í•œ ëª…ì‹œì  ìƒì„±
 
-  -@Configuration ¿ªÇÒ: ÁöÁ¤µÈ Å¬·¡½º¸¦ ¼³Á¤(Configuration)Å¬·¡½ºÀÓÀ» ¾Ë·ÁÁÖ´Â ¾î³ëÅ×ÀÌ¼ÇÀÓ.
-                      ÀÌ ÆÄÀÏ¾È¿¡ ¸í½ÃÀûÀ¸·Î »ı¼ºÇÒ ºóÀ» µî·ÏÇÔ.
-		      Å¬·¡½º ·¹º§ÀÓ.
+  -@Configuration ì—­í• : ì§€ì •ëœ í´ë˜ìŠ¤ë¥¼ ì„¤ì •(Configuration)í´ë˜ìŠ¤ì„ì„ ì•Œë ¤ì£¼ëŠ” ì–´ë…¸í…Œì´ì…˜ì„.
+                      ì´ íŒŒì¼ì•ˆì— ëª…ì‹œì ìœ¼ë¡œ ìƒì„±í•  ë¹ˆì„ ë“±ë¡í•¨.
+		      í´ë˜ìŠ¤ ë ˆë²¨ì„.
 
- - @Bean ¿ªÇÒ: ¸Ş¼­µå·¹º§.
-             ¸í½ÃÀûÀ¸·Î »ı¼ºÇÑ °´Ã¼¸¦ ¸Ş¼­µåÀÇ ¸®ÅÏÅ¸ÀÔÀ¸·Î ÁöÁ¤ÇÏ¿© ºóÀ¸·Î µî·ÏÇÔ.
+ - @Bean ì—­í• : ë©”ì„œë“œë ˆë²¨.
+             ëª…ì‹œì ìœ¼ë¡œ ìƒì„±í•œ ê°ì²´ë¥¼ ë©”ì„œë“œì˜ ë¦¬í„´íƒ€ì…ìœ¼ë¡œ ì§€ì •í•˜ì—¬ ë¹ˆìœ¼ë¡œ ë“±ë¡í•¨.
 
 -------------------------------------------------
-2. ÀÇÁ¸¼º ÁÖÀÔ  ( Dependency Injection: DI )
+2. ì˜ì¡´ì„± ì£¼ì…  ( Dependency Injection: DI )
 
-  1)»ı¼ºÀÚ ÀÌ¿ë ( Constructor-Based  Dependency Injection )
+  1)ìƒì„±ì ì´ìš© ( Constructor-Based  Dependency Injection )
 
 				     DeptService
 				      @Service			    @Repository
@@ -480,36 +480,36 @@ https://docs.spring.io/spring-boot/3.5/reference/using/using-the-springbootappli
 		 public DeptServiceImpl(DeptDAO dao){
 		    this.dao = dao;
 		 }
-      - ´ÜÀÏ ÁÖÀÔ
+      - ë‹¨ì¼ ì£¼ì…
 		 @Service("service")
 		public class DeptServieImpl {
 
 		    DeptDAO dao;
 		    
-		    // »ı¼ºÀÚ ÁÖÀÔ
+		    // ìƒì„±ì ì£¼ì…
 		    public DeptServieImpl(DeptDAO dao) {
 			System.out.println("DeptServieImpl");
 			this.dao = dao;
 		    }
-      - ¸ÖÆ¼ °¡´É
+      - ë©€í‹° ê°€ëŠ¥
                 @Service("service")
 		public class DeptServieImpl {
 
 		    DeptDAO dao;
 		    EmpDAO  empdao;
 		    
-		    // »ı¼ºÀÚ ÁÖÀÔ
+		    // ìƒì„±ì ì£¼ì…
 		    public DeptServieImpl(DeptDAO dao, EmpDAO  empdao) {
 			System.out.println("DeptServieImpl");
 			this.dao = dao;
 			this.empdao = empdao;
 		    }
 
-       - @Qualifier ¾î³ëÅ×ÀÌ¼Ç ( @Primary ÀÌ¿ë °¡´É )
+       - @Qualifier ì–´ë…¸í…Œì´ì…˜ ( @Primary ì´ìš© ê°€ëŠ¥ )
 
         
 				     DeptService			
-				      @Service				CommonDAO(ÀÎÅÍÆäÀÌ½º)
+				      @Service				CommonDAO(ì¸í„°í˜ì´ìŠ¤)
 	DeptApplication -----------> DeptServiceImpl --------------> DeptDAO   EmpDAO
 				    
 				     CommonDAO dao;
@@ -519,70 +519,70 @@ https://docs.spring.io/spring-boot/3.5/reference/using/using-the-springbootappli
 
 		 CommonDAO dao;
     
-		    // »ı¼ºÀÚ ÁÖÀÔ
+		    // ìƒì„±ì ì£¼ì…
 		    public DeptServieImpl( @Qualifier("empRepository") CommonDAO dao) {
 			System.out.println("DeptServieImpl");
 			this.dao = dao;
 		    }
 
-      @Primary: ÁÖÀÔÇÒ ¼ö ÀÖ´Â ÈÄº¸°¡ ¿©·¯°³ÀÎ °æ¿ì ¿ì¼±±ÇÀ» ºÎ¿©ÇÏ´Â ¹æ½Ä
-      @Qualifier: ÁÖÀÔÇÒ ¼ö ÀÖ´Â ÈÄº¸°¡ ¿©·¯°³ÀÎ °æ¿ì ÁÖÀÔÇÒ ºóÀÇ ÀÌ¸§À» ¼³Á¤ÇÏ´Â ¹æ½Ä
-                   @Primary º¸´Ù ¿ì¼±ÇÔ.
+      @Primary: ì£¼ì…í•  ìˆ˜ ìˆëŠ” í›„ë³´ê°€ ì—¬ëŸ¬ê°œì¸ ê²½ìš° ìš°ì„ ê¶Œì„ ë¶€ì—¬í•˜ëŠ” ë°©ì‹
+      @Qualifier: ì£¼ì…í•  ìˆ˜ ìˆëŠ” í›„ë³´ê°€ ì—¬ëŸ¬ê°œì¸ ê²½ìš° ì£¼ì…í•  ë¹ˆì˜ ì´ë¦„ì„ ì„¤ì •í•˜ëŠ” ë°©ì‹
+                   @Primary ë³´ë‹¤ ìš°ì„ í•¨.
 
-  2)ÇÊµå ÀÌ¿ë  ( Field  Dependency Injection )
+  2)í•„ë“œ ì´ìš©  ( Field  Dependency Injection )
    
      - @Autowired
 
 
 -------------------------------------------------
-3. ºóÀÇ scope
+3. ë¹ˆì˜ scope
 https://docs.spring.io/spring-framework/reference/core/beans/factory-scopes.html#page-title
 
- 1)°³³ä
-   ApplicationContext(IoC Container)°¡ »ı¼ºÇÑ ºóÀº ½Ì±ÛÅæ(singleton)À¸·Î ½ÇÇàµÊ. (±âº»)
-   Áï ÇÏ³ª¸¸ ¸¸µé¾î¼­ ¿©·¯ »ç¿ëÀÚ°¡ Àç»ç¿ëÇÏ°ÔµÊ.
+ 1)ê°œë…
+   ApplicationContext(IoC Container)ê°€ ìƒì„±í•œ ë¹ˆì€ ì‹±ê¸€í†¤(singleton)ìœ¼ë¡œ ì‹¤í–‰ë¨. (ê¸°ë³¸)
+   ì¦‰ í•˜ë‚˜ë§Œ ë§Œë“¤ì–´ì„œ ì—¬ëŸ¬ ì‚¬ìš©ìê°€ ì¬ì‚¬ìš©í•˜ê²Œë¨.
 
 
- 2)¼³Á¤°ª Á¾·ù
+ 2)ì„¤ì •ê°’ ì¢…ë¥˜
 
-  singleton: ±âº», ´Ü ÇÑ¹ø¸¸ »ı¼º, ¿©·¯ »ç¿ëÀÛ °øÀ¯ °¡´É
-  prototype: ¿äÃ»ÇÒ ¶§¸¶´Ù ¸Å¹ø »ı¼º. ¿©·¯ »ç¿ëÀÚ°¡ °øÀ¯ ºÒ°¡
+  singleton: ê¸°ë³¸, ë‹¨ í•œë²ˆë§Œ ìƒì„±, ì—¬ëŸ¬ ì‚¬ìš©ì‘ ê³µìœ  ê°€ëŠ¥
+  prototype: ìš”ì²­í•  ë•Œë§ˆë‹¤ ë§¤ë²ˆ ìƒì„±. ì—¬ëŸ¬ ì‚¬ìš©ìê°€ ê³µìœ  ë¶ˆê°€
 
-  request: HttpServletRequest ( ¿äÃ» ~ ÀÀ´ä )
-  session: HttpSession ( À¥ºê¶ó¿ìÀú¿Í µ¿ÀÏ )
+  request: HttpServletRequest ( ìš”ì²­ ~ ì‘ë‹µ )
+  session: HttpSession ( ì›¹ë¸Œë¼ìš°ì €ì™€ ë™ì¼ )
   application:  ServletContet ( tomcat )
 
 
-  3)¹®¹ı
+  3)ë¬¸ë²•
 
     @Scope("prototype")
     @Scope("singleton")
     @Scope(ConfigurableBeanFactory.SCOPE_PROTOTYPE)
 
 -------------------------------------------------------
-4. ºóÀÇ ÃÊ±âÈ­ ¹× cleanup ÀÛ¾÷
+4. ë¹ˆì˜ ì´ˆê¸°í™” ë° cleanup ì‘ì—…
 
-   - ¼­ºí¸´ÀÇ init(), destroy() ºñ½ÁÇÑ ¿ªÇÒ·Î¼­ ¸Ş¼­µå¸¦ ÀçÁ¤ÀÇÇßÀ½.
+   - ì„œë¸”ë¦¿ì˜ init(), destroy() ë¹„ìŠ·í•œ ì—­í• ë¡œì„œ ë©”ì„œë“œë¥¼ ì¬ì •ì˜í–ˆìŒ.
 
-   - spring¿¡¼­´Â ¸Ş¼­µå¸íÀ» ³»¸¶À½´ë·Î ÁöÁ¤ °¡´É.
+   - springì—ì„œëŠ” ë©”ì„œë“œëª…ì„ ë‚´ë§ˆìŒëŒ€ë¡œ ì§€ì • ê°€ëŠ¥.
 
       @PostConstruct
       public void start(){
-	//ÃÊ±âÈ­ÀÛ¾÷
+	//ì´ˆê¸°í™”ì‘ì—…
       }
 
       @PreDestroy
       public void shutdown(){
-	//ÀÚ¿ø¹İ³³ ÀÛ¾÷
+	//ìì›ë°˜ë‚© ì‘ì—…
       }
 
 -------------------------------------------------------
 5. external configuration
 https://docs.spring.io/spring-boot/3.5/reference/features/external-config.html
 
- 1)°³³ä
-  ¾îÇÃ¸®ÄÉÀÌ¼Ç ½ÇÇà½Ã ÇÊ¿äÇÑ Á¤º¸(ex.¼­¹öÆ÷Æ®, ÇÁ·ÎÆÄÀÏ(dev,prod),·Î±×·¹º§( ERROR,WARN, INFO, DEBUG, TRACE ))¸¦
-  ÄÚµå°¡ ¾Æ´Ñ ¿ÜºÎÆÄÀÏ(application.yml) ¶Ç´Â ½ÇÇà½Ã È¯°æº¯¼ö·Î ºĞ¸®ÇØ¼­ °ü¸®ÇÏ´Â ¹æ¹ıÀÇ¹Ì.
+ 1)ê°œë…
+  ì–´í”Œë¦¬ì¼€ì´ì…˜ ì‹¤í–‰ì‹œ í•„ìš”í•œ ì •ë³´(ex.ì„œë²„í¬íŠ¸, í”„ë¡œíŒŒì¼(dev,prod),ë¡œê·¸ë ˆë²¨( ERROR,WARN, INFO, DEBUG, TRACE ))ë¥¼
+  ì½”ë“œê°€ ì•„ë‹Œ ì™¸ë¶€íŒŒì¼(application.yml) ë˜ëŠ” ì‹¤í–‰ì‹œ í™˜ê²½ë³€ìˆ˜ë¡œ ë¶„ë¦¬í•´ì„œ ê´€ë¦¬í•˜ëŠ” ë°©ë²•ì˜ë¯¸.
 
   ex. 
        #application.yml
@@ -590,78 +590,78 @@ https://docs.spring.io/spring-boot/3.5/reference/features/external-config.html
 	   server:
 	     port: 8090
 
-       # ½ÇÇà½Ã È¯°æº¯¼ö°ª ¼³Á¤
+       # ì‹¤í–‰ì‹œ í™˜ê²½ë³€ìˆ˜ê°’ ì„¤ì •
 
          java -jar demo.jar --server.port=8090
 
- 2) °ü¸®±¸Á¶
+ 2) ê´€ë¦¬êµ¬ì¡°
    
-   Environment ( ÃÖ»óÀ§ ÀÎÅÍÆäÀÌ½º )
+   Environment ( ìµœìƒìœ„ ì¸í„°í˜ì´ìŠ¤ )
      -PropertySource
-      CommandLinePropertySource <== cmd¿¡¼­ ¼³Á¤°ª ÁöÁ¤, ¿ì¼±¼øÀ§°¡ °¡Àå ³ô´Ù.  --server.port=8091
-      Java System properties   <== JVM ÀÎÀÚ ¼³Á¤°ª ÁöÁ¤,   -Dserver.port=8092
-      OS environment variables. <== OSÈ¯°æº¯¼ö , SERVER_PORT=8093
+      CommandLinePropertySource <== cmdì—ì„œ ì„¤ì •ê°’ ì§€ì •, ìš°ì„ ìˆœìœ„ê°€ ê°€ì¥ ë†’ë‹¤.  --server.port=8091
+      Java System properties   <== JVM ì¸ì ì„¤ì •ê°’ ì§€ì •,   -Dserver.port=8092
+      OS environment variables. <== OSí™˜ê²½ë³€ìˆ˜ , SERVER_PORT=8093
       Config data ( application.yml) <== server:
                                             port: 8090
      
      -Profiles
-       È°¼ºÈ­ÇÁ·ÎÆÄÀÏ¼±ÅÃ:   spring: 
+       í™œì„±í™”í”„ë¡œíŒŒì¼ì„ íƒ:   spring: 
                         profiles: 
 			    actvie: dev|prod
      
 
- 3) ¿ÜºÎ¿¡¼­ ¼³Á¤µÈ È¯°æº¯¼ö(¼³Á¤°ª)¸¦ ºó¿¡¼­ »ç¿ëÇÏ´Â ¹æ¹ı
+ 3) ì™¸ë¶€ì—ì„œ ì„¤ì •ëœ í™˜ê²½ë³€ìˆ˜(ì„¤ì •ê°’)ë¥¼ ë¹ˆì—ì„œ ì‚¬ìš©í•˜ëŠ” ë°©ë²•
 
-   °¡. @Value
-       - ´ÜÀÏ°ª Á¶È¸
+   ê°€. @Value
+       - ë‹¨ì¼ê°’ ì¡°íšŒ
 
-   ³ª. @ConfigurationProperties
-       - ¸ÖÆ¼°ª Á¶È¸ Àû´çÇÏ°í Å¬·¡½º´ÜÀ§·Î °ü¸® °¡´ÉÇÔ
+   ë‚˜. @ConfigurationProperties
+       - ë©€í‹°ê°’ ì¡°íšŒ ì ë‹¹í•˜ê³  í´ë˜ìŠ¤ë‹¨ìœ„ë¡œ ê´€ë¦¬ ê°€ëŠ¥í•¨
 
-       ±¸Çö¹æ¹ı
-	A. ½ºÄµ È°¼ºÈ­
+       êµ¬í˜„ë°©ë²•
+	A. ìŠ¤ìº” í™œì„±í™”
 	  ex.  @ConfigurationPropertiesScan
 	      @SpringBootApplication
 	      public class DemoApplication{}
-	B. ÇÁ·ÎÆÛÆ¼ Å¬·¡½ºÁ¤ÀÇ
-	   ex.  @ConfigurationProperties (prefix=¡°app¡±)
+	B. í”„ë¡œí¼í‹° í´ë˜ìŠ¤ì •ì˜
+	   ex.  @ConfigurationProperties (prefix=â€œappâ€)
 	        public record AppProps {}
-	C. ÁÖÀÔ ¹×»ç¿ë
+	C. ì£¼ì… ë°ì‚¬ìš©
 	       ex.   @Autowired
 	       AppProps appProps
   
 
-  4) @ConfigurationProperties + À¯È¿¼ºÃ¼Å© (validation)
+  4) @ConfigurationProperties + ìœ íš¨ì„±ì²´í¬ (validation)
 https://docs.spring.io/spring-boot/3.5/reference/features/external-config.html#features.external-config.typesafe-configuration-properties.validation
 
-     °¡. ÀÇÁ¸¼º ¼³Á¤
+     ê°€. ì˜ì¡´ì„± ì„¤ì •
         implementation 'org.springframework.boot:spring-boot-starter-validation'
 
 
-     ³ª. ÇÁ·¯ÆÛÆ¼ Å¬·¡½º¿¡ @Validated ¹× À¯È¿¼º¾î³ëÅ×ÀÌ¼Ç Ãß°¡
+     ë‚˜. í”„ëŸ¬í¼í‹° í´ë˜ìŠ¤ì— @Validated ë° ìœ íš¨ì„±ì–´ë…¸í…Œì´ì…˜ ì¶”ê°€
 
 ///////////////////////////////////////
-3ÀÏÂ÷ 2026-05-13
+3ì¼ì°¨ 2026-05-13
 
-1. ÇÁ·ÎÆÄÀÏ(Profile)
+1. í”„ë¡œíŒŒì¼(Profile)
 
- 1)°³³ä
-    - °³¹ßÇÒ ¶§´Â ´Ù¾çÇÑ È¯°æÀÌ Á¸ÀçÇÔ ( ex. °³¹ßÈ¯°æ, ÇÁ·¯´ö¼Ç È¯°æ, Å×½ºÆ®È¯°æ,..)
+ 1)ê°œë…
+    - ê°œë°œí•  ë•ŒëŠ” ë‹¤ì–‘í•œ í™˜ê²½ì´ ì¡´ì¬í•¨ ( ex. ê°œë°œí™˜ê²½, í”„ëŸ¬ë•ì…˜ í™˜ê²½, í…ŒìŠ¤íŠ¸í™˜ê²½,..)
 
- 2) ¹®¹ı1:
+ 2) ë¬¸ë²•1:
 
-       ±âº»: application.yml
-           application-ÇÁ·ÎÆÄÀÏ¸í.yml
+       ê¸°ë³¸: application.yml
+           application-í”„ë¡œíŒŒì¼ëª….yml
 	   ex. application-dev.yml
 	       application-prod.yml
 
 
-       ÃÖÁ¾ÆÄÀÏ:
-         application.yml <== °øÅëÀûÀ¸·Î »ç¿ëÇÏ´Â ¼³Á¤ÀúÀå
-	 application-dev.yml <== °³¹ß½Ã »ç¿ëÇÏ´Â ¼³Á¤ÀúÀå
-	 application-prod.yml <== ÇÁ·Î´ö¼Ç½Ã »ç¿ëÇÏ´Â ¼³Á¤ÀúÀå
+       ìµœì¢…íŒŒì¼:
+         application.yml <== ê³µí†µì ìœ¼ë¡œ ì‚¬ìš©í•˜ëŠ” ì„¤ì •ì €ì¥
+	 application-dev.yml <== ê°œë°œì‹œ ì‚¬ìš©í•˜ëŠ” ì„¤ì •ì €ì¥
+	 application-prod.yml <== í”„ë¡œë•ì…˜ì‹œ ì‚¬ìš©í•˜ëŠ” ì„¤ì •ì €ì¥
 
-   ¹®¹ı2: ºóµµ °ü¸® °¡´É
+   ë¬¸ë²•2: ë¹ˆë„ ê´€ë¦¬ ê°€ëŠ¥
         @Component
 	@Profile("prod")
 	public class ProdClass {
@@ -676,45 +676,45 @@ https://docs.spring.io/spring-boot/3.5/reference/features/external-config.html#f
 	    @Profile("prod")
 	    public String createProd(){
 		System.out.println("create prod");
-		return "prod °ü·Ã °´Ã¼ »ı¼º"; // Emp »ç¿ë
+		return "prod ê´€ë ¨ ê°ì²´ ìƒì„±"; // Emp ì‚¬ìš©
 	    }
 
- 3) ÇÁ·ÎÆÄÀÏ È°¼ºÈ­
+ 3) í”„ë¡œíŒŒì¼ í™œì„±í™”
     
        spring:
         profiles:
-	 active: ÇÁ·ÎÆÄÀÏ¸í
+	 active: í”„ë¡œíŒŒì¼ëª…
 
 
     java -jar myapp.jar   --spring.profiles.active=prod
 
 ---------------------------------------------------------------------
 ///////////////////////////////
-5Àå. DB ¿¬µ¿
+5ì¥. DB ì—°ë™
 ///////////////////////////////
 
 1. Spring JDBC
  
-  1) ±âÁ¸ JDBC
-     - ¸í½ÃÀûÀ¸·Î Connection ¾ò°í PreparedStatement·Î SQLÀü¼Û, ResultSet °á°ú°ª Ã³¸®.
-     - ¹İµå½Ã ¿¹¿ÜÃ³¸® ÇÊ¼ö ( SQLException ¿¹¿Ü°¡ ¹ß»ıµÊ )
-     - Æ®·£Àè¼Ç Ã³¸® ³­ÀÌµµ ÀÖÀ½.
-     - finally¿¡¼­ ¹İµå½Ã close ÇÊ¼ö
+  1) ê¸°ì¡´ JDBC
+     - ëª…ì‹œì ìœ¼ë¡œ Connection ì–»ê³  PreparedStatementë¡œ SQLì „ì†¡, ResultSet ê²°ê³¼ê°’ ì²˜ë¦¬.
+     - ë°˜ë“œì‹œ ì˜ˆì™¸ì²˜ë¦¬ í•„ìˆ˜ ( SQLException ì˜ˆì™¸ê°€ ë°œìƒë¨ )
+     - íŠ¸ëœì­ì…˜ ì²˜ë¦¬ ë‚œì´ë„ ìˆìŒ.
+     - finallyì—ì„œ ë°˜ë“œì‹œ close í•„ìˆ˜
      
-     ==> º¸ÀÏ·¯ÇÃ·¹ÀÌÆ® ÄÚµå¶ó°í ºÎ¸§
+     ==> ë³´ì¼ëŸ¬í”Œë ˆì´íŠ¸ ì½”ë“œë¼ê³  ë¶€ë¦„
 
-  2) Spring JDBC Æ¯Â¡
-     - JDBC ÄÚµå ´Ü¼øÈ­
-       ex. close ºÒÇÊ¿ä
-     - ¿¹¿ÜÃ³¸® ºÒÇÊ¿ä
-     - ¼Õ½¬¿î Æ®·£Àè¼ÇÃ³¸® (@Transactional ÀÌ¿ë)
-     - ConnectionPool ÀÚµ¿ Á¦°ø.
+  2) Spring JDBC íŠ¹ì§•
+     - JDBC ì½”ë“œ ë‹¨ìˆœí™”
+       ex. close ë¶ˆí•„ìš”
+     - ì˜ˆì™¸ì²˜ë¦¬ ë¶ˆí•„ìš”
+     - ì†ì‰¬ìš´ íŠ¸ëœì­ì…˜ì²˜ë¦¬ (@Transactional ì´ìš©)
+     - ConnectionPool ìë™ ì œê³µ.
        ex. DBCP2 (Spring Framework), HikariCP(SpringBoot)
     
  
-  3) JdbcTemplate Å¬·¡½º ÀÌ¿ë ( <== MyBatisÀÇ SqlSession ¿ªÇÒ )
+  3) JdbcTemplate í´ë˜ìŠ¤ ì´ìš© ( <== MyBatisì˜ SqlSession ì—­í•  )
 
-     °¡. MyBatis ¸Ş¼­µå
+     ê°€. MyBatis ë©”ì„œë“œ
       
         - SELECT : selectOne()
 	           selectList()
@@ -723,56 +723,56 @@ https://docs.spring.io/spring-boot/3.5/reference/features/external-config.html#f
 	  DELETE: delete()
 	  UPDATE: update()
 
-	- Æ®·£Àè¼Ç Ã³¸®
+	- íŠ¸ëœì­ì…˜ ì²˜ë¦¬
 	    session.commit();
 	    session.rollback();
 
-    ³ª. JdbcTemplate ¸Ş¼­µå
+    ë‚˜. JdbcTemplate ë©”ì„œë“œ
 
-        - SELECT : queryForObject() <== selectOne() µ¿ÀÏ
-		   query()          <==	selectList() µ¿ÀÏ
+        - SELECT : queryForObject() <== selectOne() ë™ì¼
+		   query()          <==	selectList() ë™ì¼
 
         - INSERT: update()
 	  DELETE: update()
 	  UPDATE: update()
 
-        - Æ®·£Àè¼Ç Ã³¸®
+        - íŠ¸ëœì­ì…˜ ì²˜ë¦¬
 	    @Transactional
 
-  4) ÀÇÁ¸¼º ¼³Á¤ ( starter Áï, jar )
+  4) ì˜ì¡´ì„± ì„¤ì • ( starter ì¦‰, jar )
 
       	implementation 'org.springframework.boot:spring-boot-starter-data-jdbc'
 
 
  //////////////////////////////////////////////////////////////////////////////////
-2. ÄÚµå±¸Çö1 - JdbcTemplate + h2 ¿¬µ¿
+2. ì½”ë“œêµ¬í˜„1 - JdbcTemplate + h2 ì—°ë™
 
- 1) ÀÇÁ¸¼º ¼³Á¤
+ 1) ì˜ì¡´ì„± ì„¤ì •
     
     implementation 'org.springframework.boot:spring-boot-starter-data-jdbc'
 
- 2) DB ¼³Ä¡
-    - ÀÎ¸Ş¸ğ¸® DB ( h2 )
+ 2) DB ì„¤ì¹˜
+    - ì¸ë©”ëª¨ë¦¬ DB ( h2 )
 
-    - ÀÇÁ¸¼º ¼³Á¤
+    - ì˜ì¡´ì„± ì„¤ì •
 
         runtimeOnly 'com.h2database:h2'
-	implementation 'org.springframework.boot:spring-boot-starter-web' # h2 °ü¸®ÀÚ Á¢¼Ó¿ë( À¥¿¡¼­ Á¢¼Ó°¡´É )
+	implementation 'org.springframework.boot:spring-boot-starter-web' # h2 ê´€ë¦¬ì ì ‘ì†ìš©( ì›¹ì—ì„œ ì ‘ì†ê°€ëŠ¥ )
 
 
- 3) application.yml Ãß°¡¼³Á¤
+ 3) application.yml ì¶”ê°€ì„¤ì •
 
      server:
        port: 8080
 
-     # h2°ü¸®ÀÚ Á¢¼Ó È°¼ºÈ­ <== À¥¿¡¼­ Á¢¼ÓÇÏ±â À§ÇÑ Á¤º¸¸¦ console¿¡ Ãâ·ÂÇØÁÜ.
+     # h2ê´€ë¦¬ì ì ‘ì† í™œì„±í™” <== ì›¹ì—ì„œ ì ‘ì†í•˜ê¸° ìœ„í•œ ì •ë³´ë¥¼ consoleì— ì¶œë ¥í•´ì¤Œ.
      spring:
        h2:
          console:
 	   enabled: true
 
 
-  ==> ½ÇÇàÇÏ¸é ÄÜ¼Ö¿¡ ´ÙÀ½°ú °°Àº Á¤º¸°¡ Ãâ·ÂµÈ´Ù.
+  ==> ì‹¤í–‰í•˜ë©´ ì½˜ì†”ì— ë‹¤ìŒê³¼ ê°™ì€ ì •ë³´ê°€ ì¶œë ¥ëœë‹¤.
 
      ....
 
@@ -780,23 +780,23 @@ https://docs.spring.io/spring-boot/3.5/reference/features/external-config.html#f
           Database available at 'jdbc:h2:mem:9a2e5a45-aae4-4384-8518-465efb892468'
 	
     
-     À¥ºê¶ó¿ìÀú¿¡¼­ ¿äÃ»
+     ì›¹ë¸Œë¼ìš°ì €ì—ì„œ ìš”ì²­
        http://localhost:8080/h2-console
 
- 4) h2 ¿¬µ¿ÇÏ±â À§ÇÑ 4°¡Áö Á¤º¸ ¼³Á¤
+ 4) h2 ì—°ë™í•˜ê¸° ìœ„í•œ 4ê°€ì§€ ì •ë³´ ì„¤ì •
 
      spring:
         datasource:
-	   url: jdbc:h2:mem:testdb   # °íÁ¤µÈ °ªÀ¸·Î Á¢¼ÓÀÌ °¡´É
+	   url: jdbc:h2:mem:testdb   # ê³ ì •ëœ ê°’ìœ¼ë¡œ ì ‘ì†ì´ ê°€ëŠ¥
 	   driver-class-name: org.h2.Driver
 	   username: sa
 	   password: 
 
 
-  5) ÆÄÀÏ·Î create ¹®°ú insert¹® ÀÛ¼º
+  5) íŒŒì¼ë¡œ create ë¬¸ê³¼ insertë¬¸ ì‘ì„±
    https://docs.spring.io/spring-boot/docs/1.2.0.M2/reference/html/howto-database-initialization.html#howto-intialize-a-database-using-spring-jdbc
       
-     °¡. src/main/resource/schema.sql
+     ê°€. src/main/resource/schema.sql
 
 	  create table todo
 	  ( id int,
@@ -806,15 +806,15 @@ https://docs.spring.io/spring-boot/3.5/reference/features/external-config.html#f
 	  );
 	
 
-     ³ª. src/main/resource/data.sql
+     ë‚˜. src/main/resource/data.sql
 
-         insert into todo (id, name, job) values ( 1, 'È«±æµ¿','Learn Spring');
-         insert into todo (id, name, job) values ( 2, 'È«±æµ¿','Learn Vuejs');
-         insert into todo (id, name, job) values ( 3, 'È«±æµ¿','Learn SQL');
+         insert into todo (id, name, job) values ( 1, 'í™ê¸¸ë™','Learn Spring');
+         insert into todo (id, name, job) values ( 2, 'í™ê¸¸ë™','Learn Vuejs');
+         insert into todo (id, name, job) values ( 3, 'í™ê¸¸ë™','Learn SQL');
 
 
 
- 6) ÄÚµå ÀÛ¼º
+ 6) ì½”ë“œ ì‘ì„±
 
 		       TodoService
 		       @Service			     @Repository
@@ -831,21 +831,21 @@ https://docs.spring.io/spring-boot/3.5/reference/features/external-config.html#f
 			@Transactional
 			save(){}
 ///////////////////////////////////////////////////////////////////////////////
-2. ÄÚµå±¸Çö2 - JdbcTemplate + MySQL ¿¬µ¿
+2. ì½”ë“œêµ¬í˜„2 - JdbcTemplate + MySQL ì—°ë™
 
-1) ÀÇÁ¸¼º ¼³Á¤
+1) ì˜ì¡´ì„± ì„¤ì •
     
     implementation 'org.springframework.boot:spring-boot-starter-data-jdbc'
 
- 2) DB ¼³Ä¡
-    - ¹°¸®ÀûÀÎ DB ( MySQL )
+ 2) DB ì„¤ì¹˜
+    - ë¬¼ë¦¬ì ì¸ DB ( MySQL )
 
-    - ÀÇÁ¸¼º ¼³Á¤
+    - ì˜ì¡´ì„± ì„¤ì •
 
         runtimeOnly 'com.mysql:mysql-connector-j:8.3.0'
 
 
- 3)MySQL  ¿¬µ¿ÇÏ±â À§ÇÑ 4°¡Áö Á¤º¸ ¼³Á¤
+ 3)MySQL  ì—°ë™í•˜ê¸° ìœ„í•œ 4ê°€ì§€ ì •ë³´ ì„¤ì •
 
      spring:
         datasource:
@@ -854,16 +854,16 @@ https://docs.spring.io/spring-boot/3.5/reference/features/external-config.html#f
 	   username: root
 	   password: 1234
 
-	#schema.sql °ú data.sql °ü¸® °¡´É ( always|never )	
+	#schema.sql ê³¼ data.sql ê´€ë¦¬ ê°€ëŠ¥ ( always|never )	
 	sql:
 	 init:
 	   mode: always
 
-  4) scema.sql °ú data.sql
+  4) scema.sql ê³¼ data.sql
    
     https://docs.spring.io/spring-boot/docs/1.2.0.M2/reference/html/howto-database-initialization.html#howto-intialize-a-database-using-spring-jdbc
       
-     °¡. src/main/resource/schema.sql
+     ê°€. src/main/resource/schema.sql
 
           create table if not exists todo
 	  ( id int,
@@ -873,32 +873,32 @@ https://docs.spring.io/spring-boot/3.5/reference/features/external-config.html#f
 	  );
 	
 
-     ³ª. src/main/resource/data.sql
+     ë‚˜. src/main/resource/data.sql
 
-         insert into todo (id, name, job) values ( 1, 'È«±æµ¿','Learn Spring');
-         insert into todo (id, name, job) values ( 2, 'È«±æµ¿','Learn Vuejs');
-         insert into todo (id, name, job) values ( 3, 'È«±æµ¿','Learn SQL');
+         insert into todo (id, name, job) values ( 1, 'í™ê¸¸ë™','Learn Spring');
+         insert into todo (id, name, job) values ( 2, 'í™ê¸¸ë™','Learn Vuejs');
+         insert into todo (id, name, job) values ( 3, 'í™ê¸¸ë™','Learn SQL');
 
 
- 5) h2¿¡¼­ »ç¿ëÇß´ø ÄÚµå´Â ±×´ë·Î »ç¿ëµÊ.
+ 5) h2ì—ì„œ ì‚¬ìš©í–ˆë˜ ì½”ë“œëŠ” ê·¸ëŒ€ë¡œ ì‚¬ìš©ë¨.
 
  ---------------------------------------------------------------------------------
  ///////////////////////////////////////////////////////////////////////////////
-2. ÄÚµå±¸Çö3 - MyBatis + MySQL ¿¬µ¿
+2. ì½”ë“œêµ¬í˜„3 - MyBatis + MySQL ì—°ë™
 
-1) ÀÇÁ¸¼º ¼³Á¤
+1) ì˜ì¡´ì„± ì„¤ì •
     
-    //implementation 'org.springframework.boot:spring-boot-starter-data-jdbc' <== Spring JDBC ¿ë
+    //implementation 'org.springframework.boot:spring-boot-starter-data-jdbc' <== Spring JDBC ìš©
     implementation("org.mybatis.spring.boot:mybatis-spring-boot-starter:3.0.5")
 
- 2) DB ¼³Ä¡
-    - ¹°¸®ÀûÀÎ DB ( MySQL )
+ 2) DB ì„¤ì¹˜
+    - ë¬¼ë¦¬ì ì¸ DB ( MySQL )
 
-    - ÀÇÁ¸¼º ¼³Á¤
+    - ì˜ì¡´ì„± ì„¤ì •
 
         runtimeOnly 'com.mysql:mysql-connector-j:8.3.0'
 
- 3 )MySQL  ¿¬µ¿ÇÏ±â À§ÇÑ 4°¡Áö Á¤º¸ ¼³Á¤
+ 3 )MySQL  ì—°ë™í•˜ê¸° ìœ„í•œ 4ê°€ì§€ ì •ë³´ ì„¤ì •
 
      spring:
         datasource:
@@ -907,12 +907,12 @@ https://docs.spring.io/spring-boot/3.5/reference/features/external-config.html#f
 	   username: root
 	   password: 1234
 
-	#schema.sql °ú data.sql °ü¸® °¡´É ( always|never )	
+	#schema.sql ê³¼ data.sql ê´€ë¦¬ ê°€ëŠ¥ ( always|never )	
 	sql:
 	 init:
 	   mode: always
 
-     # TodoMapper.xml °ú  DTO º°Äª ¼³Á¤
+     # TodoMapper.xml ê³¼  DTO ë³„ì¹­ ì„¤ì •
      mybatis:
 	mapper-locations: com/exam/config/TodoMapper.xml
        #mapper-locations: com/exam/config/TodoMapper.xml, com/exam/config/DeptMapper.xml
@@ -920,25 +920,25 @@ https://docs.spring.io/spring-boot/3.5/reference/features/external-config.html#f
 	type-alias-package: com.exam.dto
 
 
- 4) scema.sql °ú data.sql
+ 4) scema.sql ê³¼ data.sql
 
- 5) xml ÆÄÀÏ ÀÛ¼º
+ 5) xml íŒŒì¼ ì‘ì„±
  
-   - ±âÁ¸ MyBatis ¿¬µ¿½Ã ÇÊ¿äÇÑ 2°³ÀÇ xml
-      a. configuration.xml <=== application.yml ´ëÃ¼
+   - ê¸°ì¡´ MyBatis ì—°ë™ì‹œ í•„ìš”í•œ 2ê°œì˜ xml
+      a. configuration.xml <=== application.yml ëŒ€ì²´
       b. DeptMapper.xml
 
-   - Spring MyBatis ¿¬µ¿½Ã ÇÊ¿äÇÑ 1°³ÀÇ xml
+   - Spring MyBatis ì—°ë™ì‹œ í•„ìš”í•œ 1ê°œì˜ xml
 
-      com/exam/config/TodoMapper.xml <== ¹İµå½Ã src/main/resource Æú´õ¿¡ ÀúÀåÇØ¾ßµÊ (*********************)
+      com/exam/config/TodoMapper.xml <== ë°˜ë“œì‹œ src/main/resource í´ë”ì— ì €ì¥í•´ì•¼ë¨ (*********************)
 
 
- 6) ¾ÆÅ°ÅØÃ³
+ 6) ì•„í‚¤í…ì²˜
 
   	               TodoMyBatisService
 		       @Service			            @Repository
   Application -------> TodoMyBatisServiceImpl -------------> TodoMyBatisRepository --------------> MySQL
-  @Autowired						      ( TodoMapper.xml°ú ¿¬µ¿ )
+  @Autowired						      ( TodoMapper.xmlê³¼ ì—°ë™ )
   TodoMyBatisService
 		        @Autowired
 			TodoMyBatisRepository xxx;
@@ -950,21 +950,21 @@ https://docs.spring.io/spring-boot/3.5/reference/features/external-config.html#f
 			
 
  ///////////////////////////////////////////////////////////////////////////////
-2. ÄÚµå±¸Çö4 - MyBatis + MySQL + Mapper ÀÎÅÍÆäÀÌ½º ¿¬µ¿
+2. ì½”ë“œêµ¬í˜„4 - MyBatis + MySQL + Mapper ì¸í„°í˜ì´ìŠ¤ ì—°ë™
 
-1) ÀÇÁ¸¼º ¼³Á¤
+1) ì˜ì¡´ì„± ì„¤ì •
     
-    //implementation 'org.springframework.boot:spring-boot-starter-data-jdbc' <== Spring JDBC ¿ë
+    //implementation 'org.springframework.boot:spring-boot-starter-data-jdbc' <== Spring JDBC ìš©
     implementation("org.mybatis.spring.boot:mybatis-spring-boot-starter:3.0.5")
 
- 2) DB ¼³Ä¡
-    - ¹°¸®ÀûÀÎ DB ( MySQL )
+ 2) DB ì„¤ì¹˜
+    - ë¬¼ë¦¬ì ì¸ DB ( MySQL )
 
-    - ÀÇÁ¸¼º ¼³Á¤
+    - ì˜ì¡´ì„± ì„¤ì •
 
         runtimeOnly 'com.mysql:mysql-connector-j:8.3.0'
 
- 3 )MySQL  ¿¬µ¿ÇÏ±â À§ÇÑ 4°¡Áö Á¤º¸ ¼³Á¤
+ 3 )MySQL  ì—°ë™í•˜ê¸° ìœ„í•œ 4ê°€ì§€ ì •ë³´ ì„¤ì •
 
      spring:
         datasource:
@@ -973,12 +973,12 @@ https://docs.spring.io/spring-boot/3.5/reference/features/external-config.html#f
 	   username: root
 	   password: 1234
 
-	#schema.sql °ú data.sql °ü¸® °¡´É ( always|never )	
+	#schema.sql ê³¼ data.sql ê´€ë¦¬ ê°€ëŠ¥ ( always|never )	
 	sql:
 	 init:
 	   mode: always
 
-     # TodoMapper.xml °ú  DTO º°Äª ¼³Á¤
+     # TodoMapper.xml ê³¼  DTO ë³„ì¹­ ì„¤ì •
      mybatis:
 	mapper-locations: com/exam/config/TodoMapper.xml
        #mapper-locations: com/exam/config/TodoMapper.xml, com/exam/config/DeptMapper.xml
@@ -986,55 +986,55 @@ https://docs.spring.io/spring-boot/3.5/reference/features/external-config.html#f
 	type-aliases-package: com.exam.dto
 
 
- 4) scema.sql °ú data.sql
+ 4) scema.sql ê³¼ data.sql
 
- 5) xml ÆÄÀÏ ÀÛ¼º
+ 5) xml íŒŒì¼ ì‘ì„±
  
-   - ±âÁ¸ MyBatis ¿¬µ¿½Ã ÇÊ¿äÇÑ 2°³ÀÇ xml
-      a. configuration.xml <=== application.yml ´ëÃ¼
+   - ê¸°ì¡´ MyBatis ì—°ë™ì‹œ í•„ìš”í•œ 2ê°œì˜ xml
+      a. configuration.xml <=== application.yml ëŒ€ì²´
       b. DeptMapper.xml
 
-   - Spring MyBatis ¿¬µ¿½Ã ÇÊ¿äÇÑ 1°³ÀÇ xml
+   - Spring MyBatis ì—°ë™ì‹œ í•„ìš”í•œ 1ê°œì˜ xml
 
-      com/exam/config/TodoMapper.xml <== ¹İµå½Ã src/main/resource Æú´õ¿¡ ÀúÀåÇØ¾ßµÊ (*********************)
+      com/exam/config/TodoMapper.xml <== ë°˜ë“œì‹œ src/main/resource í´ë”ì— ì €ì¥í•´ì•¼ë¨ (*********************)
 
 
- 6) ¾ÆÅ°ÅØÃ³
+ 6) ì•„í‚¤í…ì²˜
 
   	               TodoMyBatisService
 		       @Service				    @Mapper	
-  Application -------> TodoMyBatisServiceImpl -------->     TodoMapper(ÀÎÅÍÆäÀÌ½º)   --------------> MySQL
-  @Autowired                                              ( TodoMapper.xml°ú ¿¬µ¿ )
+  Application -------> TodoMyBatisServiceImpl -------->     TodoMapper(ì¸í„°í˜ì´ìŠ¤)   --------------> MySQL
+  @Autowired                                              ( TodoMapper.xmlê³¼ ì—°ë™ )
   TodoMyBatisService
 		        @Autowired
 			TodoMyBatisRepository xxx;        TodoDTO
 		    					      
 						             
-    ±ÔÄ¢1: TodoMapper.xmlÀÇ namespace°ª°ú ÀÏÄ¡ÇÏµµ·Ï TodoMaper ÀÎÅÍÆäÀÌ½º¸¦ ¸¸µç´Ù.
-    ±ÔÄ¢2: TodoMaper ÀÎÅÍÆäÀÌ½ºÀÇ Ãß»ó¸Ş¼­µå ÀÌ¸§Àº ¹İµå½Ã TodoMapper.xmlÀÇ id°ª°ú ÀÏÄ¡ÇØ¾ß µÈ´Ù.
-    ±ÔÄ¢3: TodoMaper ÀÎÅÍÆäÀÌ½ºÀÇ Ãß»ó¸Ş¼­µå ¸®ÅÏÅ¸ÀÔÀº ¹İµå½Ã TodoMapper.xmlÀÇ resultType°ú ÀÏÄ¡ÇØ¾ß µÈ´Ù.
-    ±ÔÄ¢4: TodoMaper ÀÎÅÍÆäÀÌ½ºÀÇ Ãß»ó¸Ş¼­µå ÆÄ¶ó¹ÌÅÍ´Â ¹İµå½Ã TodoMapper.xmlÀÇ paramterType ÀÏÄ¡ÇØ¾ß µÈ´Ù.
+    ê·œì¹™1: TodoMapper.xmlì˜ namespaceê°’ê³¼ ì¼ì¹˜í•˜ë„ë¡ TodoMaper ì¸í„°í˜ì´ìŠ¤ë¥¼ ë§Œë“ ë‹¤.
+    ê·œì¹™2: TodoMaper ì¸í„°í˜ì´ìŠ¤ì˜ ì¶”ìƒë©”ì„œë“œ ì´ë¦„ì€ ë°˜ë“œì‹œ TodoMapper.xmlì˜ idê°’ê³¼ ì¼ì¹˜í•´ì•¼ ëœë‹¤.
+    ê·œì¹™3: TodoMaper ì¸í„°í˜ì´ìŠ¤ì˜ ì¶”ìƒë©”ì„œë“œ ë¦¬í„´íƒ€ì…ì€ ë°˜ë“œì‹œ TodoMapper.xmlì˜ resultTypeê³¼ ì¼ì¹˜í•´ì•¼ ëœë‹¤.
+    ê·œì¹™4: TodoMaper ì¸í„°í˜ì´ìŠ¤ì˜ ì¶”ìƒë©”ì„œë“œ íŒŒë¼ë¯¸í„°ëŠ” ë°˜ë“œì‹œ TodoMapper.xmlì˜ paramterType ì¼ì¹˜í•´ì•¼ ëœë‹¤.
 		
 						      
 //////////////////////////////////////////////////////////
-4ÀÏÂ÷ 2026-05-14
+4ì¼ì°¨ 2026-05-14
 
-1. H2¿Í MySQL ÀÌ¿ëÇÑ Profile ½Ç½À
+1. H2ì™€ MySQL ì´ìš©í•œ Profile ì‹¤ìŠµ
 
-  1) ÀÇÁ¸¼º ¼³Á¤
+  1) ì˜ì¡´ì„± ì„¤ì •
      
      implementation("org.mybatis.spring.boot:mybatis-spring-boot-starter:3.0.5")
      runtimeOnly 'com.mysql:mysql-connector-j:8.3.0'
      runtimeOnly 'com.h2database:h2'
-     implementation 'org.springframework.boot:spring-boot-starter-web'   # h2 °ü¸®ÀÚ ÄÜ¼Ö¿ë
+     implementation 'org.springframework.boot:spring-boot-starter-web'   # h2 ê´€ë¦¬ì ì½˜ì†”ìš©
    
-  2) prod ¿Í dev ÇÁ·ÎÆÄÀÏ »ı¼º
+  2) prod ì™€ dev í”„ë¡œíŒŒì¼ ìƒì„±
 
-     ±âº»: application.yml # °øÅë±â´É ¼³Á¤
+     ê¸°ë³¸: application.yml # ê³µí†µê¸°ëŠ¥ ì„¤ì •
      prod: application-prod.yml # mysql
      dev: application-dev.yml   # h2
 
-     È°¼ºÈ­
+     í™œì„±í™”
           spring:
 	    profiles:
 	      active: prod|dev
@@ -1060,14 +1060,14 @@ https://docs.spring.io/spring-boot/3.5/reference/features/external-config.html#f
 		   username: root
 		   password: 1234
 
-		#schema.sql °ú data.sql °ü¸® °¡´É ( always|never )	
+		#schema.sql ê³¼ data.sql ê´€ë¦¬ ê°€ëŠ¥ ( always|never )	
 		sql:
 		 init:
 		   mode: always	
 
      # application-dev.yml 
 
-		# h2 °ü¸®ÀÚ ÄÜ¼Ö È°¼ºÈ­
+		# h2 ê´€ë¦¬ì ì½˜ì†” í™œì„±í™”
 		server:
 		  port: 8080
 		  
@@ -1076,7 +1076,7 @@ https://docs.spring.io/spring-boot/3.5/reference/features/external-config.html#f
 		    console:
 		      enabled: true
 
-		  # h2 DB ¿¬µ¿
+		  # h2 DB ì—°ë™
 		  datasource:
 		    url: jdbc:h2:mem:testdb
 		    driver-class-name: org.h2.Driver
@@ -1085,58 +1085,58 @@ https://docs.spring.io/spring-boot/3.5/reference/features/external-config.html#f
 /////////////////////////////////////////////////////////////////////////////////
 ---------------------------------------------------------------------
 ///////////////////////////////
-6Àå. Spring MVC
+6ì¥. Spring MVC
 ///////////////////////////////
 
-1. ¾ÆÅ°ÅØÃ³
+1. ì•„í‚¤í…ì²˜
 
 
-  1) ¼­ºí¸´/JSP ±â¹İÀÇ MVC ¾ÆÅ°ÅØÃ³
+  1) ì„œë¸”ë¦¿/JSP ê¸°ë°˜ì˜ MVC ì•„í‚¤í…ì²˜
 
   
-     À¥ºê¶ó¿ìÀú -----------------> ¼­ºí¸´ -------> ¼­ºñ½º -----------> DAO --------> MySQL
-			      ¼­ºí¸´¸ÊÇÎ(
+     ì›¹ë¸Œë¼ìš°ì € -----------------> ì„œë¸”ë¦¿ -------> ì„œë¹„ìŠ¤ -----------> DAO --------> MySQL
+			      ì„œë¸”ë¦¿ë§µí•‘(
 			       @WebServlet("/list")-BoardListServlet
 			       @WebServlet("/write")-BoardWriteServet
-			         ÀÀ´äÃ³¸®: µ¥ÀÌÅÍ¿Íjsp¼³Á¤
+			         ì‘ë‹µì²˜ë¦¬: ë°ì´í„°ì™€jspì„¤ì •
 				|
-				| Æ÷¿öµå ¹× ¸®´ÙÀÌ·ºÆ®
+				| í¬ì›Œë“œ ë° ë¦¬ë‹¤ì´ë ‰íŠ¸
 	    <---------------   jsp
 
-    ¼­ºí¸´À» Á÷Á¢ »ı¼ºÇßÀ½.
-    ±â´É¿¡ µû¶ó¼­ ¿©·¯°³ÀÇ ¼­ºí¸´À» »ı¼ºÇÔ.
+    ì„œë¸”ë¦¿ì„ ì§ì ‘ ìƒì„±í–ˆìŒ.
+    ê¸°ëŠ¥ì— ë”°ë¼ì„œ ì—¬ëŸ¬ê°œì˜ ì„œë¸”ë¦¿ì„ ìƒì„±í•¨.
 
-    ¼­ºí¸´À» ¼±ÅÃÇÏ±â À§ÇÑ URL ¿äÃ»?
-      http://¼­¹öIP:Æ÷Æ®¹øÈ£/ÄÁÅØ½ºÆ®¸í/¼­ºí¸´¸ÊÇÎ
+    ì„œë¸”ë¦¿ì„ ì„ íƒí•˜ê¸° ìœ„í•œ URL ìš”ì²­?
+      http://ì„œë²„IP:í¬íŠ¸ë²ˆí˜¸/ì»¨í…ìŠ¤íŠ¸ëª…/ì„œë¸”ë¦¿ë§µí•‘
 
      ex.  http://localhost:8080/app/list
           http://localhost:8080/app/write
 
 
-    ¼­ºí¸´ÀÌ JSP¸¦ ¼±ÅÃÇÏ´Â ¹æ¹ı 2°¡Áö?
+    ì„œë¸”ë¦¿ì´ JSPë¥¼ ì„ íƒí•˜ëŠ” ë°©ë²• 2ê°€ì§€?
       forward:    request.getRequestDispatcher("list.jsp").forward(request, response);
 
       redirect:   response.sendRedirect("list.jsp");
 
 
-    »ç¿ëÀÚ ÀÔ·Âµ¥ÀÌÅÍ¸¦ ¼­ºí¸´ÀÌ ¾ò´Â ¹æ¹ı?
+    ì‚¬ìš©ì ì…ë ¥ë°ì´í„°ë¥¼ ì„œë¸”ë¦¿ì´ ì–»ëŠ” ë°©ë²•?
      
       String userid  = request.getParameter("userid"); //  <input name="userid" >
       String [] hobbies = request.getParameterValue("hobby"); // <input name="hobby" type="checkbox">
 
-  2) Spring ±â¹İÀÇ MVC ¾ÆÅ°ÅØÃ³
+  2) Spring ê¸°ë°˜ì˜ MVC ì•„í‚¤í…ì²˜
 
 
-                           HandlerMapping (¿äÃ»¸ÅÇÎ°ªÀÌ µî·Ï, RequestMappingHandlerMapping)
+                           HandlerMapping (ìš”ì²­ë§¤í•‘ê°’ì´ ë“±ë¡, RequestMappingHandlerMapping)
 			     key | value
                            ---------------
 			     /a     findAll()
 			     /b	    save()
          8080/app/a 
-   À¥ºê¶ó¿ìÀú ------> ¼­ºí¸´ --------------> Controller <---->Service  <----> Respository <---> MySQL
-				     ex.°Ô½ÃÆÇ ±â´É	
+   ì›¹ë¸Œë¼ìš°ì € ------> ì„œë¸”ë¦¿ --------------> Controller <---->Service  <----> Respository <---> MySQL
+				     ex.ê²Œì‹œíŒ ê¸°ëŠ¥	
 				  
-				   //¿äÃ»¸ÅÇÎ°ª(request mapping)À» ¼³Á¤
+				   //ìš”ì²­ë§¤í•‘ê°’(request mapping)ì„ ì„¤ì •
 				  @RequestMappring("/a")
 				      findAll(){}
 				  @RequestMappring("/b")
@@ -1145,74 +1145,74 @@ https://docs.spring.io/spring-boot/3.5/reference/features/external-config.html#f
 				      delete(){}
 				  @RequestMappring("/d")
 				      update(){}
-				      ¿©±â±îÁö°¡ ¿äÃ»°ü·Ã ÀÛ¾÷
+				      ì—¬ê¸°ê¹Œì§€ê°€ ìš”ì²­ê´€ë ¨ ì‘ì—…
                                   -------------------------
-				     ´ÙÀ½ºÎÅÍ ÀÀ´ä°ü·Ã ÀÛ¾÷(Model°ú ViewÃ³¸®)
-					µ¥ÀÌÅÍ¿Í thymeleaf(jsp±â´É)
-					µ¥ÀÌÅÍ:ModelÀÌ¶ó°í ºÎ¸§.
-                                       thymeleaf:View¶ó°íºÎ¸§.
-				      °¡.ModelÀ» scopeÀúÀå(request,session,application)
-				      ³ª.ViewÁ¤º¸¸¦ ÁöÁ¤(ÀÌÀü ¼­ºí¸´/jsp¿¡¼­´Â list.jsp ¶ó°í ÀüÃ¼ÆÄÀÏ¸íÀ» ¾Ë·ÁÁÜ)
-				        ´Ü, ÆÄÀÏ¸í¸¸ ¾Ë·ÁÁÜ. ( Áï, list ¸¸ ¼³Á¤ÇÔ )
-					ÆÄÀÏ¸í¸¸ ¾Ë·ÁÁÖ´Â ÀÌÀ¯´Â ´Ù¾çÇÑ ºäÄÄÆ÷³ÍÆ®¸¦ È°¿ëÇÏ±â À§ÇÔÀÌ´Ù.
-					( jsp¿Í °ü·ÃµÈ ÀÇÁ¸¼ºÀ» ¼³Á¤ÇÏ¸é list.jsp¸¦ Ã£°í
-					  thymeleaf  °ü·ÃµÈ ÀÇÁ¸¼ºÀ» ¼³Á¤ÇÏ¸é list.html¸¦ Ã£À½)
-			  ¸ğµ¨°úºäÁ¤º¸
+				     ë‹¤ìŒë¶€í„° ì‘ë‹µê´€ë ¨ ì‘ì—…(Modelê³¼ Viewì²˜ë¦¬)
+					ë°ì´í„°ì™€ thymeleaf(jspê¸°ëŠ¥)
+					ë°ì´í„°:Modelì´ë¼ê³  ë¶€ë¦„.
+                                       thymeleaf:Viewë¼ê³ ë¶€ë¦„.
+				      ê°€.Modelì„ scopeì €ì¥(request,session,application)
+				      ë‚˜.Viewì •ë³´ë¥¼ ì§€ì •(ì´ì „ ì„œë¸”ë¦¿/jspì—ì„œëŠ” list.jsp ë¼ê³  ì „ì²´íŒŒì¼ëª…ì„ ì•Œë ¤ì¤Œ)
+				        ë‹¨, íŒŒì¼ëª…ë§Œ ì•Œë ¤ì¤Œ. ( ì¦‰, list ë§Œ ì„¤ì •í•¨ )
+					íŒŒì¼ëª…ë§Œ ì•Œë ¤ì£¼ëŠ” ì´ìœ ëŠ” ë‹¤ì–‘í•œ ë·°ì»´í¬ë„ŒíŠ¸ë¥¼ í™œìš©í•˜ê¸° ìœ„í•¨ì´ë‹¤.
+					( jspì™€ ê´€ë ¨ëœ ì˜ì¡´ì„±ì„ ì„¤ì •í•˜ë©´ list.jspë¥¼ ì°¾ê³ 
+					  thymeleaf  ê´€ë ¨ëœ ì˜ì¡´ì„±ì„ ì„¤ì •í•˜ë©´ list.htmlë¥¼ ì°¾ìŒ)
+			  ëª¨ë¸ê³¼ë·°ì •ë³´
                         <----------
-			  ºäÁ¤º¸(ex.list)
+			  ë·°ì •ë³´(ex.list)
 			 ---->
-			      ViewResolver ( ºä°ü·Ã ÀÇÁ¸¼º ÆÄ¾Ç: Thymeleaf °¡Á¤ )
+			      ViewResolver ( ë·°ê´€ë ¨ ì˜ì¡´ì„± íŒŒì•…: Thymeleaf ê°€ì • )
                          <---
 			  list.html
      <--------
-      list.htmlÀÀ´ä
+      list.htmlì‘ë‹µ
 
-   -¼­ºí¸´Àº Á¦°øµÊ.
-    ´ÜÇÏ³ª¸¸ »ı¼ºµÊ.
-    DispatcherServlet ÀÌ¸§À» °¡Áü
-    ¼­ºí¸´¸ÊÇÎ(@WebServlet("/")
-    ¼­ºí¸´À» ¼±ÅÃÇÏ±â À§ÇÑ URL ¿äÃ»?
-      http://¼­¹öIP:Æ÷Æ®¹øÈ£/ÄÁÅØ½ºÆ®¸í/¼­ºí¸´¸ÊÇÎ
+   -ì„œë¸”ë¦¿ì€ ì œê³µë¨.
+    ë‹¨í•˜ë‚˜ë§Œ ìƒì„±ë¨.
+    DispatcherServlet ì´ë¦„ì„ ê°€ì§
+    ì„œë¸”ë¦¿ë§µí•‘(@WebServlet("/")
+    ì„œë¸”ë¦¿ì„ ì„ íƒí•˜ê¸° ìœ„í•œ URL ìš”ì²­?
+      http://ì„œë²„IP:í¬íŠ¸ë²ˆí˜¸/ì»¨í…ìŠ¤íŠ¸ëª…/ì„œë¸”ë¦¿ë§µí•‘
 
      ex.  http://localhost:8080/app/
 
-    ½ÇÁ¦ Ã³¸®ÇØ¾ßµÇ´Â ÀÛ¾÷Àº ´Ù¸¥ Å¬·¡½º¿¡¼­ Ã³¸®ÇÔ.
-    (Controller ¿¡¼­ Ã³¸®ÇÔ)
+    ì‹¤ì œ ì²˜ë¦¬í•´ì•¼ë˜ëŠ” ì‘ì—…ì€ ë‹¤ë¥¸ í´ë˜ìŠ¤ì—ì„œ ì²˜ë¦¬í•¨.
+    (Controller ì—ì„œ ì²˜ë¦¬í•¨)
 
 
-  - Controller¾È¿¡¼­ ¸Ş¼­µå¸¦ ¼±ÅÃÇÏ´Â ¹æ¹ı?
+  - Controllerì•ˆì—ì„œ ë©”ì„œë“œë¥¼ ì„ íƒí•˜ëŠ” ë°©ë²•?
 
-       http://¼­¹öIP:Æ÷Æ®¹øÈ£/ÄÁÅØ½ºÆ®¸í/¼­ºí¸´¸ÊÇÎ/¿äÃ»¸ÅÇÎ°ª
+       http://ì„œë²„IP:í¬íŠ¸ë²ˆí˜¸/ì»¨í…ìŠ¤íŠ¸ëª…/ì„œë¸”ë¦¿ë§µí•‘/ìš”ì²­ë§¤í•‘ê°’
         http://localhost::8080/app  /  /a
 
-       ex.  http://localhost:8080/app/a <=findAll(){} ½ÇÇà
-             http://localhost:8080/app/b <=save(){} ½ÇÇà
+       ex.  http://localhost:8080/app/a <=findAll(){} ì‹¤í–‰
+             http://localhost:8080/app/b <=save(){} ì‹¤í–‰
 
 
 	  
- #°¢ ¿ªÇÒ Á¤¸®
- -DispatcherServlet: ¸ğµç ¿äÃ»À» Ã³¸® ( Front Controller Pattern)
- -HandlerMapping:  ¿äÃ»URLÀ» ºĞ¼®ÇÏ¿© ¿äÃ»Ã³¸®¸¦ ´ã´çÇÏ´Â Controller ¸Ş¼­µå ¼±ÅÃ.
- -Controller:  ¼­ºí¸´/JSP ¹öÀü¿¡¼­ ¼­ºí¸´ ¿ªÇÒ ´ã´ç.
-              ex. »ç¿ëÀÚÀÔ·Âµ¥ÀÌÅÍ Ã³¸®, ÀÀ´äÃ³¸®(Model°ú ViewÃ³¸®)
+ #ê° ì—­í•  ì •ë¦¬
+ -DispatcherServlet: ëª¨ë“  ìš”ì²­ì„ ì²˜ë¦¬ ( Front Controller Pattern)
+ -HandlerMapping:  ìš”ì²­URLì„ ë¶„ì„í•˜ì—¬ ìš”ì²­ì²˜ë¦¬ë¥¼ ë‹´ë‹¹í•˜ëŠ” Controller ë©”ì„œë“œ ì„ íƒ.
+ -Controller:  ì„œë¸”ë¦¿/JSP ë²„ì „ì—ì„œ ì„œë¸”ë¦¿ ì—­í•  ë‹´ë‹¹.
+              ex. ì‚¬ìš©ìì…ë ¥ë°ì´í„° ì²˜ë¦¬, ì‘ë‹µì²˜ë¦¬(Modelê³¼ Viewì²˜ë¦¬)
 
- -Service: ·ÎÁ÷°ú Æ®·£Àè¼ÅÃ³¸®
- -Repository:DB¿¬µ¿
- -ViewResolver: ³í¸®ÀûÀÌ¸§(ex. list)À» ÀÌ¿ëÇØ¼­ 
-                ½ÇÁ¦Ã³¸®µÇ´Â view¿Ï¼º(ex. list.html )
+ -Service: ë¡œì§ê³¼ íŠ¸ëœì­ì…”ì²˜ë¦¬
+ -Repository:DBì—°ë™
+ -ViewResolver: ë…¼ë¦¬ì ì´ë¦„(ex. list)ì„ ì´ìš©í•´ì„œ 
+                ì‹¤ì œì²˜ë¦¬ë˜ëŠ” viewì™„ì„±(ex. list.html )
 
 /////////////////////////////////////////////////
-2. Spring MVC ±¸Ãà
+2. Spring MVC êµ¬ì¶•
 
- 1) ÀÇÁ¸¼º Ãß°¡
+ 1) ì˜ì¡´ì„± ì¶”ê°€
 
     implementation 'org.springframework.boot:spring-boot-starter-web'
     implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
 
- 2) thymeleaf ¼³Á¤
+ 2) thymeleaf ì„¤ì •
 https://www.thymeleaf.org/doc/tutorials/3.1/usingthymeleaf.html
 
-    -±âº»µğ·ºÅÍ¸® Ãß°¡
+    -ê¸°ë³¸ë””ë ‰í„°ë¦¬ ì¶”ê°€
      
       src
         main
@@ -1220,7 +1220,7 @@ https://www.thymeleaf.org/doc/tutorials/3.1/usingthymeleaf.html
 	       application.yml
 
 	       static
-	          -ÀÌ¹ÌÁö
+	          -ì´ë¯¸ì§€
 		  -css
 		  -js
 
@@ -1241,59 +1241,59 @@ https://www.thymeleaf.org/doc/tutorials/3.1/usingthymeleaf.html
 </html>
 ////////////////////////////////////////////////////////
 
-   3) Controller ÀÛ¼º
+   3) Controller ì‘ì„±
     
-      - POJO ±â¹İ
-      - @Controller ÁöÁ¤ ( RESTful ¼­ºñ½ºÀÎ °æ¿ì¿¡´Â @RestController ÁöÁ¤ )
-      - ½ÇÁ¦ ±¸ÇöÇØ¾ßµÇ´Â ±â´ÉÀ» ¸Ş¼­µå·Î Á¤ÀÇÇÏ°í ¿äÃ»¸ÊÇÎ°ªÀ» ¼³Á¤ÇÔ.
+      - POJO ê¸°ë°˜
+      - @Controller ì§€ì • ( RESTful ì„œë¹„ìŠ¤ì¸ ê²½ìš°ì—ëŠ” @RestController ì§€ì • )
+      - ì‹¤ì œ êµ¬í˜„í•´ì•¼ë˜ëŠ” ê¸°ëŠ¥ì„ ë©”ì„œë“œë¡œ ì •ì˜í•˜ê³  ìš”ì²­ë§µí•‘ê°’ì„ ì„¤ì •í•¨.
 	
         ex.
-	      @RequestMapping("/¿äÃ»¸ÅÇÎ°ª")	      
-	      public ¸®ÅÏÅ¸ÀÔ hello(){
+	      @RequestMapping("/ìš”ì²­ë§¤í•‘ê°’")	      
+	      public ë¦¬í„´íƒ€ì… hello(){
 
 	      }
 		
-	    ¸®ÅÏÅ¸ÀÔÀÌ StringÀÎ °æ¿ì´Â ºäÁ¤º¸¸¦ ¼³Á¤ÇÑ °ÍÀÌ´Ù.
+	    ë¦¬í„´íƒ€ì…ì´ Stringì¸ ê²½ìš°ëŠ” ë·°ì •ë³´ë¥¼ ì„¤ì •í•œ ê²ƒì´ë‹¤.
 
-	    ¿äÃ»ÇÏ´Â ¹æ¹ı: http://¼­¹öip:Æ÷Æ®¹øÈ£/ÄÁÅØ½ºÆ®¸í/¼­ºí¸´¸ÅÇÎ/¿äÃ»¸ÅÇÎ°ª
+	    ìš”ì²­í•˜ëŠ” ë°©ë²•: http://ì„œë²„ip:í¬íŠ¸ë²ˆí˜¸/ì»¨í…ìŠ¤íŠ¸ëª…/ì„œë¸”ë¦¿ë§¤í•‘/ìš”ì²­ë§¤í•‘ê°’
 
 ////////////////////////////////////////////////////////
-3. @RequestMapping Á¤¸®
+3. @RequestMapping ì •ë¦¬
 
-  1) ¿ëµµ
-    ¿äÃ» URL ( http://¼­¹öip:Æ÷Æ®¹øÈ£/ÄÁÅØ½ºÆ®¸í/¼­ºí¸´¸ÅÇÎ/¿äÃ»¸ÅÇÎ°ª )¿¡¼­
-    /¿äÃ»¸ÅÇÎ°ªÀ» ÃßÃâÇØ¼­ ÀÏÄ¡ÇÏ´Â ControllerÀÇ ¸Ş¼­µå¸¦ ¼±ÅÃÇÏ´Â ¿ëµµ.
+  1) ìš©ë„
+    ìš”ì²­ URL ( http://ì„œë²„ip:í¬íŠ¸ë²ˆí˜¸/ì»¨í…ìŠ¤íŠ¸ëª…/ì„œë¸”ë¦¿ë§¤í•‘/ìš”ì²­ë§¤í•‘ê°’ )ì—ì„œ
+    /ìš”ì²­ë§¤í•‘ê°’ì„ ì¶”ì¶œí•´ì„œ ì¼ì¹˜í•˜ëŠ” Controllerì˜ ë©”ì„œë“œë¥¼ ì„ íƒí•˜ëŠ” ìš©ë„.
 
 
-  2) ´Ù¾çÇÑ ÆĞÅÏÀÌ Á¦°ø
+  2) ë‹¤ì–‘í•œ íŒ¨í„´ì´ ì œê³µ
 
-        @RequestMapping("/hello") # ´ÜÀÏ¿äÃ», Á¤È®ÇÏ°Ô ÀÏÄ¡ÇØ¾ßµÊ
-	@RequestMapping(value="/hello") # ´ÜÀÏ¿äÃ», Á¤È®ÇÏ°Ô 
+        @RequestMapping("/hello") # ë‹¨ì¼ìš”ì²­, ì •í™•í•˜ê²Œ ì¼ì¹˜í•´ì•¼ë¨
+	@RequestMapping(value="/hello") # ë‹¨ì¼ìš”ì²­, ì •í™•í•˜ê²Œ 
 
-	@RequestMapping(value={"/hello2","/hello3"}) # ¸ÖÆ¼¿äÃ», Á¤È®ÇÏ°Ô ÀÏÄ¡ÇØ¾ßµÊ
+	@RequestMapping(value={"/hello2","/hello3"}) # ë©€í‹°ìš”ì²­, ì •í™•í•˜ê²Œ ì¼ì¹˜í•´ì•¼ë¨
 
-	@RequestMapping(value="/yyy*") # Æ¯Á¤°ªÀ¸·Î ½ÃÀÛ ex. yyy33  yyyasfdasf
+	@RequestMapping(value="/yyy*") # íŠ¹ì •ê°’ìœ¼ë¡œ ì‹œì‘ ex. yyy33  yyyasfdasf
 
-	@RequestMapping(value="/zzz/*") # Æ¯Á¤°æ·Î ÇÏ³ª ex.  zzz/  zzz/cccc  ,  /zzz/ccc/ddd (404)
+	@RequestMapping(value="/zzz/*") # íŠ¹ì •ê²½ë¡œ í•˜ë‚˜ ex.  zzz/  zzz/cccc  ,  /zzz/ccc/ddd (404)
 
-	@RequestMapping(value="/kkk/**") # Æ¯Á¤°æ·Î ¿©·¯°³ ex.  kkk/  kkk/cccc  ,  /kkk/ccc/ddd    
+	@RequestMapping(value="/kkk/**") # íŠ¹ì •ê²½ë¡œ ì—¬ëŸ¬ê°œ ex.  kkk/  kkk/cccc  ,  /kkk/ccc/ddd    
 	
 
-	@RequestMapping(value="/aaa/*/bbb") # Áß°£¿¡ Æ¯Á¤°æ·Î ÇÏ³ª ex.  /aaa/eee/bbb, /aaa/eexx/bbb
+	@RequestMapping(value="/aaa/*/bbb") # ì¤‘ê°„ì— íŠ¹ì •ê²½ë¡œ í•˜ë‚˜ ex.  /aaa/eee/bbb, /aaa/eexx/bbb
 
-	@RequestMapping(value="/ccc/**/ddd") # Áß°£¿¡ Æ¯Á¤°æ·Î ¿©·¯°³ ex.  /ccc/x/ddd , /ccc/x/y/ddd
+	@RequestMapping(value="/ccc/**/ddd") # ì¤‘ê°„ì— íŠ¹ì •ê²½ë¡œ ì—¬ëŸ¬ê°œ ex.  /ccc/x/ddd , /ccc/x/y/ddd
                                               
       /*
-         /ccc/**/ddd °æ·Î¸¦ »ç¿ëÇÏ±â À§ÇØ¼­´Â ¹İµå½Ã ´ÙÀ½°ú °°ÀÌ ¼³Á¤ÇØ¾ßµÊ
+         /ccc/**/ddd ê²½ë¡œë¥¼ ì‚¬ìš©í•˜ê¸° ìœ„í•´ì„œëŠ” ë°˜ë“œì‹œ ë‹¤ìŒê³¼ ê°™ì´ ì„¤ì •í•´ì•¼ë¨
         spring.mvc.pathmatch.matching-strategy=ant_path_matcher
       */
 
-    # ¿äÃ»»Ó¸¸ ¾Æ´Ï°í ´ÙÀ½°ú °°ÀÌ mybatis mapper µî·ÏÇÒ¶§°í »ç¿ëÀÌ °¡´ÉÇÏ´Ù.
+    # ìš”ì²­ë¿ë§Œ ì•„ë‹ˆê³  ë‹¤ìŒê³¼ ê°™ì´ mybatis mapper ë“±ë¡í• ë•Œê³  ì‚¬ìš©ì´ ê°€ëŠ¥í•˜ë‹¤.
 
       mapper-locations: com/exam/config/**/*Mapper.xml
 
 
-  3) Å¬·¡½º ·¹º§ÀÇ @RequestMapping ¿ëµµ
+  3) í´ë˜ìŠ¤ ë ˆë²¨ì˜ @RequestMapping ìš©ë„
 
       
 
@@ -1314,64 +1314,64 @@ https://www.thymeleaf.org/doc/tutorials/3.1/usingthymeleaf.html
 		  }
 
 
-  4) GET(±âº»)/POST ±¸º°ÇØ¼­ ¿äÃ» Ã³¸®
+  4) GET(ê¸°ë³¸)/POST êµ¬ë³„í•´ì„œ ìš”ì²­ ì²˜ë¦¬
 
-      °¡. ÀÌÀü ¼­ºí¸´
+      ê°€. ì´ì „ ì„œë¸”ë¦¿
                    GET
-	  À¥ºê¶ó¿ìÀú--------------->  doGet ¸Ş¼­µå
+	  ì›¹ë¸Œë¼ìš°ì €--------------->  doGet ë©”ì„œë“œ
 
 	           POST
-	  À¥ºê¶ó¿ìÀú--------------->  doPost ¸Ş¼­µå  
+	  ì›¹ë¸Œë¼ìš°ì €--------------->  doPost ë©”ì„œë“œ  
 
 
-      ³ª.  Spring MVC
+      ë‚˜.  Spring MVC
 
                    GET
-	  À¥ºê¶ó¿ìÀú--------------->  @RequestMapping( value="/¸ÅÇÎ°ª", method=RequestMethod.GET )
+	  ì›¹ë¸Œë¼ìš°ì €--------------->  @RequestMapping( value="/ë§¤í•‘ê°’", method=RequestMethod.GET )
 
 	           POST
-	  À¥ºê¶ó¿ìÀú--------------->  @RequestMapping( value="/¸ÅÇÎ°ª", method=RequestMethod.POST ) 
+	  ì›¹ë¸Œë¼ìš°ì €--------------->  @RequestMapping( value="/ë§¤í•‘ê°’", method=RequestMethod.POST ) 
 
    /////////////////////////////////////
-    ½ÇÁ¦ »ç¿ë°¡´ÉÇÑ ÆĞÅÏÀº ´ÙÀ½°ú °°´Ù.
-    1. È­¸é ÀÛ¼º
-       <h2>2. POST ¿äÃ»</h2>
+    ì‹¤ì œ ì‚¬ìš©ê°€ëŠ¥í•œ íŒ¨í„´ì€ ë‹¤ìŒê³¼ ê°™ë‹¤.
+    1. í™”ë©´ ì‘ì„±
+       <h2>2. POST ìš”ì²­</h2>
 	<form action="member" method="post">
-	    ¾ÆÀÌµğ:<input type="text" name="userid"><br>
-	    ºñ¹Ğ¹ø:<input type="text" name="passwd"><br>
-	    <input type="submit" value="È¸¿ø°¡ÀÔ">
+	    ì•„ì´ë””:<input type="text" name="userid"><br>
+	    ë¹„ë°€ë²ˆ:<input type="text" name="passwd"><br>
+	    <input type="submit" value="íšŒì›ê°€ì…">
 	</form>
 
-    2. Controller ÀÛ¾÷
+    2. Controller ì‘ì—…
 
-      °¡. È­¸éº¸´Â ¿äÃ» ( GET ¿äÃ» )
+      ê°€. í™”ë©´ë³´ëŠ” ìš”ì²­ ( GET ìš”ì²­ )
                    // @RequestMapping(value = "/member") 
-                   @RequestMapping(value = "/member", method = RequestMethod.GET) //GET ¹æ½ÄÀ¸·Î ¿äÃ»µÊ
+                   @RequestMapping(value = "/member", method = RequestMethod.GET) //GET ë°©ì‹ìœ¼ë¡œ ìš”ì²­ë¨
 		    public String memberGET(){
 			System.out.println("memberGET");
 			return "memberForm";
 		    }
 
 
-      ³ª. ½ÇÁ¦ Ã³¸®ÇÏ´Â ¿äÃ» ( POST ¿äÃ» )
+      ë‚˜. ì‹¤ì œ ì²˜ë¦¬í•˜ëŠ” ìš”ì²­ ( POST ìš”ì²­ )
 
-         //2. POST ¿äÃ»
-	    @RequestMapping(value = "/member", method = RequestMethod.POST) //POST ¹æ½ÄÀ¸·Î ¿äÃ»µÊ
+         //2. POST ìš”ì²­
+	    @RequestMapping(value = "/member", method = RequestMethod.POST) //POST ë°©ì‹ìœ¼ë¡œ ìš”ì²­ë¨
 	    public String memberPost(){
 		System.out.println("memberPost");
 		return "memberForm";
 	    }
 
-    Áß¿äÇÑ Á¡Àº GET°ú POSTÀÇ ¿äÃ»¸ÅÇÎ°ªÀÌ /member·Î µ¿ÀÏÇÔ. method¹æ½ÄÀ¸·Î ±¸º°µÊ.
+    ì¤‘ìš”í•œ ì ì€ GETê³¼ POSTì˜ ìš”ì²­ë§¤í•‘ê°’ì´ /memberë¡œ ë™ì¼í•¨. methodë°©ì‹ìœ¼ë¡œ êµ¬ë³„ë¨.
   ------------------------------------------------------------------------------
 
  5. @RequestMapping(method = RequestMethod.GET)
-    @RequestMapping(method = RequestMethod.POST)¸¦ ´ëÃ¼ÇÏ´Â ¾î³ëÅ×ÀÌ¼Ç Á¦°ø
+    @RequestMapping(method = RequestMethod.POST)ë¥¼ ëŒ€ì²´í•˜ëŠ” ì–´ë…¸í…Œì´ì…˜ ì œê³µ
 
     -@GetMapping("/member")
     -@PostMapping("/member")
 
-    - @RequestMappingÀº Å¬·¡½º·¹º§ÀÎ °æ¿ì¿¡¸¸ ÇöÀç »ç¿ëµÊ.
+    - @RequestMappingì€ í´ë˜ìŠ¤ë ˆë²¨ì¸ ê²½ìš°ì—ë§Œ í˜„ì¬ ì‚¬ìš©ë¨.
 
       
      ex.
@@ -1392,13 +1392,13 @@ https://www.thymeleaf.org/doc/tutorials/3.1/usingthymeleaf.html
 		  }
 		
 //////////////////////////////////////////////////////////
-5ÀÏÂ÷ 2026-05-15
+5ì¼ì°¨ 2026-05-15
 
-1. ControllerÀÇ ¿äÃ» Ã³¸® ÀÛ¾÷
+1. Controllerì˜ ìš”ì²­ ì²˜ë¦¬ ì‘ì—…
 
-  1) »ç¿ëÀÚÀÔ·Â µ¥ÀÌÅÍ Ã³¸®
+  1) ì‚¬ìš©ìì…ë ¥ ë°ì´í„° ì²˜ë¦¬
 
-    °¡. ÀÌÀü ¼­ºí¸´ Ã³¸®
+    ê°€. ì´ì „ ì„œë¸”ë¦¿ ì²˜ë¦¬
 
        doGet(HttpServeltRequest request, HttpServletResponse response){
          
@@ -1407,14 +1407,14 @@ https://www.thymeleaf.org/doc/tutorials/3.1/usingthymeleaf.html
 
 	     Strng [] s2 = reqeust.getParameterValues("key");
 		
-	     //ÃÖÁ¾ÀûÀ¸·Î DTO¿¡ ÀúÀå
+	     //ìµœì¢…ì ìœ¼ë¡œ DTOì— ì €ì¥
 	     LogindDTO dto = new LoginDTO();
 	     dto.setUsername(username);
 	     dto.setAge(age);
        }
 
     
-    ³ª. Spring Ã³¸®
+    ë‚˜. Spring ì²˜ë¦¬
  
             @GetMapping("/loginForm")
 	    public String  loginForm(){
@@ -1432,40 +1432,40 @@ https://www.thymeleaf.org/doc/tutorials/3.1/usingthymeleaf.html
 	    }
 	    @GetMapping("/login3")
 	    public String  hello3(@RequestParam(name = "userid") String userid,
-				 @RequestParam(value = "password") //value´Â nameÀÇ º°Äª
+				 @RequestParam(value = "password") //valueëŠ” nameì˜ ë³„ì¹­
 				 String password){
 
 		System.out.println(userid+":"+password);
 		return "main";
 	    }
 	    
-	    // ÆÄ¶ó¹ÌÅÍ¸í°ú º¯¼ö¸íÀÌ µ¿ÀÏÇÏ¸é ÆÄ¶ó¹ÌÅÍ¸í »ı·«°¡´É
+	    // íŒŒë¼ë¯¸í„°ëª…ê³¼ ë³€ìˆ˜ëª…ì´ ë™ì¼í•˜ë©´ íŒŒë¼ë¯¸í„°ëª… ìƒëµê°€ëŠ¥
 	    @GetMapping("/login4")
 	    public String  hello4(@RequestParam String userid,
-				 @RequestParam//value´Â nameÀÇ º°Äª
+				 @RequestParam//valueëŠ” nameì˜ ë³„ì¹­
 				 String password){
 
 		System.out.println(userid+":"+password);
 		return "main";
 	    }
 
-	    // @RequestParamÀº ÇÊ¼öÀÓ. µû¶ó¼­ ¹İµå½Ã ÇØ´çÀÌ¸§À¸·Î Àü´ŞÇØ¾ßµÊ. (ÇÊ¼ö¼Ó¼º)
-	    // ÇØ´çÀÌ¸§À¸·Î Àü´ŞÇÏÁö ¾ÊÀ¸¸é 400 (Bad Request)°¡ ¹ß»ıµÊ.
-	    // ÇÊ¼ö¼Ó¼ºÀ» ºñÈ°¼ºÈ­ °¡´É (required = false)
-	    // ºñÈ°¼ºÈ­ÇÏ¸é null°ªÀ¸·Î ¼³Á¤µÊ.
-	    // null°ª ´ë½Å¿¡ ±âº»°ªÀ¸·Î ¼³Á¤ °¡´É ( defaultValue = "ÃÊ±â°ª")
+	    // @RequestParamì€ í•„ìˆ˜ì„. ë”°ë¼ì„œ ë°˜ë“œì‹œ í•´ë‹¹ì´ë¦„ìœ¼ë¡œ ì „ë‹¬í•´ì•¼ë¨. (í•„ìˆ˜ì†ì„±)
+	    // í•´ë‹¹ì´ë¦„ìœ¼ë¡œ ì „ë‹¬í•˜ì§€ ì•Šìœ¼ë©´ 400 (Bad Request)ê°€ ë°œìƒë¨.
+	    // í•„ìˆ˜ì†ì„±ì„ ë¹„í™œì„±í™” ê°€ëŠ¥ (required = false)
+	    // ë¹„í™œì„±í™”í•˜ë©´ nullê°’ìœ¼ë¡œ ì„¤ì •ë¨.
+	    // nullê°’ ëŒ€ì‹ ì— ê¸°ë³¸ê°’ìœ¼ë¡œ ì„¤ì • ê°€ëŠ¥ ( defaultValue = "ì´ˆê¸°ê°’")
 	    @GetMapping("/login5")
 	    public String  hello5(@RequestParam(name = "userid") String userid,
 				  @RequestParam(value = "password",
 					       required = false,
-						defaultValue = "9999") //value´Â nameÀÇ º°Äª
+						defaultValue = "9999") //valueëŠ” nameì˜ ë³„ì¹­
 				  String password){
 
 		System.out.println(userid+":"+password);
 		return "main";
 	    }
 
-	    // »ç¿ëÀÚ ÀÔ·Â ÆÄ¶ó¹ÌÅÍ°ªÀÌ ÀÚµ¿À¸·Î DTO¿¡ ÀúÀå°¡´É.
+	    // ì‚¬ìš©ì ì…ë ¥ íŒŒë¼ë¯¸í„°ê°’ì´ ìë™ìœ¼ë¡œ DTOì— ì €ì¥ê°€ëŠ¥.
 	    @GetMapping("/login6")
 	    public String  hello6(LoginDTO dto){
 
@@ -1473,7 +1473,7 @@ https://www.thymeleaf.org/doc/tutorials/3.1/usingthymeleaf.html
 		return "main";
 	    }
 
-	    // »ç¿ëÀÚ ÀÔ·Â ÆÄ¶ó¹ÌÅÍ°ªÀÌ @RequestParam Map<String, String> ·Î ÀúÀå°¡´É
+	    // ì‚¬ìš©ì ì…ë ¥ íŒŒë¼ë¯¸í„°ê°’ì´ @RequestParam Map<String, String> ë¡œ ì €ì¥ê°€ëŠ¥
 	    @GetMapping("/login")
 	    public String  hello(@RequestParam Map<String,String> map){
 
@@ -1481,13 +1481,13 @@ https://www.thymeleaf.org/doc/tutorials/3.1/usingthymeleaf.html
 		return "main";
 	    }
       
-2. ¿äÃ» Header°ª ¾ò±â
+2. ìš”ì²­ Headerê°’ ì–»ê¸°
 
-  1) ÀÌÀü ¼­ºí¸´
+  1) ì´ì „ ì„œë¸”ë¦¿
    
       doGet(HttpServeltRequest request, HttpServletResponse response){
 
-      //¿äÃ» Header°ª ¾ò±â
+      //ìš”ì²­ Headerê°’ ì–»ê¸°
 
       Enumeration<String> enu = request.getHeaderNames();
       while(enu.hasMoreElements()){
@@ -1498,7 +1498,7 @@ https://www.thymeleaf.org/doc/tutorials/3.1/usingthymeleaf.html
 
       String value = request.getHeader("user-agent");
 
-  2) Spring Ã³¸®
+  2) Spring ì²˜ë¦¬
 
       @GetMapping("/main2")
     public String  main2(@RequestHeader(name = "user-agent") String userAgent,
@@ -1510,17 +1510,17 @@ https://www.thymeleaf.org/doc/tutorials/3.1/usingthymeleaf.html
     }
 
 
-3. Cookie °ª ¾ò±â
+3. Cookie ê°’ ì–»ê¸°
 
-  1) ¼­ºí¸´
+  1) ì„œë¸”ë¦¿
    
-       # ÄíÅ° »ı¼º
+       # ì¿ í‚¤ ìƒì„±
        Cookie c = new Cookie("xxx", String value);
-       #ÄíÅ° time-out ÁöÁ¤
-	c.setMaxAge(ÃÊ´ÜÀ§);
+       #ì¿ í‚¤ time-out ì§€ì •
+	c.setMaxAge(ì´ˆë‹¨ìœ„);
        response.addCookie(c);
 
-       #ÄíÅ° ÂüÁ¶
+       #ì¿ í‚¤ ì°¸ì¡°
         Cookie [] cookies = request.getCookies();
 
 	   for(Cookic c : cookies){
@@ -1533,7 +1533,7 @@ https://www.thymeleaf.org/doc/tutorials/3.1/usingthymeleaf.html
 
   2) Spring
 
-     // Spring ÄíÅ° ÂüÁ¶
+     // Spring ì¿ í‚¤ ì°¸ì¡°
     @GetMapping("/get2")
     public String  main3(@CookieValue("userid") String userid){
 
@@ -1541,24 +1541,24 @@ https://www.thymeleaf.org/doc/tutorials/3.1/usingthymeleaf.html
         return "main";
     }
 
-4. ¸ÖÆ¼°ª ¿äÃ»Ã³¸®
+4. ë©€í‹°ê°’ ìš”ì²­ì²˜ë¦¬
    
-   1) ÀÌÀü ¼­ºí¸´
+   1) ì´ì „ ì„œë¸”ë¦¿
      
-         <h1>3. reqeust.getParameterValues ¸Ş¼­µåÀÌ¿ë(GET)</h1>
+         <h1>3. reqeust.getParameterValues ë©”ì„œë“œì´ìš©(GET)</h1>
 	   <form action="MemberServlet3" method="GET">
-	      ÀÌ¸§<input type="text" name="username">
-	      ³ªÀÌ<input type="text" name="age">
+	      ì´ë¦„<input type="text" name="username">
+	      ë‚˜ì´<input type="text" name="age">
 	      
-	      Ãë¹Ì:
-	      ¾ß±¸<input type="checkbox" name="hobby" value="¾ß±¸"><br>    
-	      Ãà±¸<input type="checkbox" name="hobby" value="Ãà±¸"><br>    
-	      ³ó±¸<input type="checkbox" name="hobby" value="³ó±¸"><br>    
+	      ì·¨ë¯¸:
+	      ì•¼êµ¬<input type="checkbox" name="hobby" value="ì•¼êµ¬"><br>    
+	      ì¶•êµ¬<input type="checkbox" name="hobby" value="ì¶•êµ¬"><br>    
+	      ë†êµ¬<input type="checkbox" name="hobby" value="ë†êµ¬"><br>    
 		  
-	      ÀÌ¸ŞÀÏ1:<input type="text" name="email">
-	      ÀÌ¸ŞÀÏ2:<input type="text" name="email">
+	      ì´ë©”ì¼1:<input type="text" name="email">
+	      ì´ë©”ì¼2:<input type="text" name="email">
 	      
-	   <input type="submit" value="Àü¼Û">
+	   <input type="submit" value="ì „ì†¡">
 	 </form>
 
 
@@ -1603,14 +1603,14 @@ https://www.thymeleaf.org/doc/tutorials/3.1/usingthymeleaf.html
     }
 
 /////////////////////////////////////////
-5. Controller ¿¡¼­ ¸ğµ¨(Model, Thymeleaf¿¡¼­ º¸¿©ÁÙ µ¥ÀÌÅÍ)»ı¼ºÇÏ±â
+5. Controller ì—ì„œ ëª¨ë¸(Model, Thymeleafì—ì„œ ë³´ì—¬ì¤„ ë°ì´í„°)ìƒì„±í•˜ê¸°
 
-  1) ÀÌÀü ¼­ºí¸´
+  1) ì´ì „ ì„œë¸”ë¦¿
 
           doGet(HttpServeltRequest request, HttpServletResponse response){
 
 	     
-	      //scope¿¡¼­ ÀúÀå
+	      //scopeì—ì„œ ì €ì¥
 
 	      //request scope
 	      request.setAttribute(key,"");
@@ -1625,16 +1625,16 @@ https://www.thymeleaf.org/doc/tutorials/3.1/usingthymeleaf.html
 	      ServletContext application = getServletContext();
               application.setAttribute(key,value);
 
-	    //jsp ¼±ÅÃ
+	    //jsp ì„ íƒ
 	     -forward
 	     -redirect
 
 
   2) Spring
 
-      - ±âº» scope´Â request ÀÓ. ( ¿äÃ» ~ ÀÀ´ä )
+      - ê¸°ë³¸ scopeëŠ” request ì„. ( ìš”ì²­ ~ ì‘ë‹µ )
      
-     °¡. request scope¿¡ ÀúÀåµÈ ¹®¹ıÀº ´ÙÀ½°ú °°´Ù.
+     ê°€. request scopeì— ì €ì¥ëœ ë¬¸ë²•ì€ ë‹¤ìŒê³¼ ê°™ë‹¤.
 	   @GetMapping("/m")
 	    public String  main(HttpServletRequest request){
 
@@ -1661,18 +1661,18 @@ https://www.thymeleaf.org/doc/tutorials/3.1/usingthymeleaf.html
 	    }
 
 	    @GetMapping("/m4")
-	    public String  main4( @ModelAttribute("xxx") LoginDTO dto){ // ¸ğµ¨ÀÌ µÊ. Áï html¿¡¼­ º¸¿©ÁÙ ¼ö ÀÖÀ½.
-						// ÀÚµ¿À¸·Î ("loginDTO", dto)
-						// ¸í½ÃÀûÀ¸·Î key ÁöÁ¤ °¡´É. @ModelAttribute("key")
-						// ÀÌÁ¦´Â ("key", dto);
+	    public String  main4( @ModelAttribute("xxx") LoginDTO dto){ // ëª¨ë¸ì´ ë¨. ì¦‰ htmlì—ì„œ ë³´ì—¬ì¤„ ìˆ˜ ìˆìŒ.
+						// ìë™ìœ¼ë¡œ ("loginDTO", dto)
+						// ëª…ì‹œì ìœ¼ë¡œ key ì§€ì • ê°€ëŠ¥. @ModelAttribute("key")
+						// ì´ì œëŠ” ("key", dto);
 		dto.setUserid("inky4832");
 		dto.setPassword("1234");
 		return "main4";
 	    }
 	    @GetMapping("/m5")
 	    public String  main5(  @ModelAttribute("yyy") 
-				       ArrayList<String> nameList){ // ÀÚµ¿À¸·Î ¸ğµ¨·Î ÀúÀåµÊ.
-								   // @ModelAttribute("yyy") ÁöÁ¤Çß±â ¶§¹®¿¡
+				       ArrayList<String> nameList){ // ìë™ìœ¼ë¡œ ëª¨ë¸ë¡œ ì €ì¥ë¨.
+								   // @ModelAttribute("yyy") ì§€ì •í–ˆê¸° ë•Œë¬¸ì—
 								    //  ("yyy", nameList
 
 		 nameList.add("inky4832");
@@ -1687,9 +1687,9 @@ https://www.thymeleaf.org/doc/tutorials/3.1/usingthymeleaf.html
 		//ModelAndView
 		ModelAndView mv = new ModelAndView();
 
-		mv.setViewName("main6"); // view ÁöÁ¤  main6.html
+		mv.setViewName("main6"); // view ì§€ì •  main6.html
 
-		// ´ÙÀ½ÄÚµå´Â ¸ğµ¨ ¼³Á¤
+		// ë‹¤ìŒì½”ë“œëŠ” ëª¨ë¸ ì„¤ì •
 		mv.addObject("userid","inky4832");
 		mv.addObject("dto",new LoginDTO("inky4932","123456"));
 		mv.addObject("list", Arrays.asList("Lee","park","Kim"));
@@ -1701,27 +1701,27 @@ https://www.thymeleaf.org/doc/tutorials/3.1/usingthymeleaf.html
 		return mv;
 	    }
 
-     ³ª. session scope¿¡ ÀúÀåÇÏ´Â ¹æ¹ı
+     ë‚˜. session scopeì— ì €ì¥í•˜ëŠ” ë°©ë²•
  
-          - ÀÌÀü ¼­ºí¸´
+          - ì´ì „ ì„œë¸”ë¦¿
 	    
 	       HttpSession session = request.getSession();
-	       session.setAttribute("aaa","È«±æµ¿");
+	       session.setAttribute("aaa","í™ê¸¸ë™");
 
           - Spring
 	   
 	        @Controller
-		// ¼¼¼Ç¿¡ ÀúÀåÇÏ°íÀÚÇÏ´Â key ¼³Á¤
+		// ì„¸ì…˜ì— ì €ì¥í•˜ê³ ìí•˜ëŠ” key ì„¤ì •
 	@SessionAttributes(names = {"bbb","ccc"})
 		public class MainController2 {
 
 		    @GetMapping("/k")
 		    public String  main(Model model){
 
-			// request scope¿¡ ÀúÀå
+			// request scopeì— ì €ì¥
 			model.addAttribute("aaa","hong1");
 
-			// session scope¿¡ ÀúÀå
+			// session scopeì— ì €ì¥
 			model.addAttribute("bbb","hong2");
 			model.addAttribute("ccc","hong3");
 
@@ -1729,9 +1729,9 @@ https://www.thymeleaf.org/doc/tutorials/3.1/usingthymeleaf.html
 		    }
 
 
-     ´Ù. application scope¿¡ ÀúÀåÇÏ´Â ¹æ¹ı
+     ë‹¤. application scopeì— ì €ì¥í•˜ëŠ” ë°©ë²•
 	
-	 - ÀÌÀü ¼­ºí¸´
+	 - ì´ì „ ì„œë¸”ë¦¿
 	   
 	       // application scope	
 	      ServletContext application = getServletContext();
@@ -1744,11 +1744,11 @@ https://www.thymeleaf.org/doc/tutorials/3.1/usingthymeleaf.html
                   ServletContext x;
 
 
-		   // application scope¿¡ ÀúÀå
+		   // application scopeì— ì €ì¥
                    x.setAttribute("ddd","hong4");
 
 
-  * theymeleaf Ãâ·Â¹æ¹ı
+  * theymeleaf ì¶œë ¥ë°©ë²•
 
 	  <h1>target</h1>
 	request:<p th:text="${aaa}"></p>
@@ -1757,46 +1757,46 @@ https://www.thymeleaf.org/doc/tutorials/3.1/usingthymeleaf.html
 	application:<span th:text="${application.ddd}"></span><br>
 
 //////////////////////////////////////////////////////////////////////
-6ÀÏÂ÷ 2026-05-18
+6ì¼ì°¨ 2026-05-18
 
-1. ControllerÀÇ ¸®ÅÏÅ¸ÀÔ Á¾·ù
+1. Controllerì˜ ë¦¬í„´íƒ€ì… ì¢…ë¥˜
 
- 1) °³¿ä
+ 1) ê°œìš”
    
-   ControllerÀÇ ¸®ÅÏÅ¸ÀÔÀº ¸Ş¼­µåÀÇ ÆÄ¶ó¹ÌÅÍ°¡ ´Ù¾çÇÏ°Ô ¼³Á¤ÇÒ ¼ö ÀÖ´Â°ÍÃ³·³
-   µ¿ÀÏÇÏ°Ô ´Ù¾çÇÑ Å¸ÀÔÀ» »ç¿äÇÒ ¼ö ÀÖ´Ù.
+   Controllerì˜ ë¦¬í„´íƒ€ì…ì€ ë©”ì„œë“œì˜ íŒŒë¼ë¯¸í„°ê°€ ë‹¤ì–‘í•˜ê²Œ ì„¤ì •í•  ìˆ˜ ìˆëŠ”ê²ƒì²˜ëŸ¼
+   ë™ì¼í•˜ê²Œ ë‹¤ì–‘í•œ íƒ€ì…ì„ ì‚¬ìš”í•  ìˆ˜ ìˆë‹¤.
 
- 2)String Å¸ÀÔ
-   - ºä Á¤º¸¸¦ ÀÇ¹Ì.
-   - ¸ğµ¨Àº ÆÄ¶ó¹ÌÅÍ·Î ¼³Á¤.
+ 2)String íƒ€ì…
+   - ë·° ì •ë³´ë¥¼ ì˜ë¯¸.
+   - ëª¨ë¸ì€ íŒŒë¼ë¯¸í„°ë¡œ ì„¤ì •.
 
 
- 3)ModelAndViewÅ¸ÀÔ
-    - ºäÁ¤º¸¿Í ¸ğµ¨Á¤º¸¸¦ ModelAndView¿¡ ÇÑ¹ø¿¡ ¼³Á¤
+ 3)ModelAndViewíƒ€ì…
+    - ë·°ì •ë³´ì™€ ëª¨ë¸ì •ë³´ë¥¼ ModelAndViewì— í•œë²ˆì— ì„¤ì •
 
-  //1. String Å¸ÀÔ
-    // ºäÁ¤º¸¸¸ ÀÖ°í ¸ğµ¨Á¤º¸´Â ¾øÀ½
+  //1. String íƒ€ì…
+    // ë·°ì •ë³´ë§Œ ìˆê³  ëª¨ë¸ì •ë³´ëŠ” ì—†ìŒ
     @GetMapping("/m")
     public String  main(){
         
         return "main";
     }
 
-    //2. ModelAndView Å¸ÀÔ
+    //2. ModelAndView íƒ€ì…
     @GetMapping("/m2")
-    // ºäÁ¤º¸ ÀÖ°í ¸ğµ¨Á¤º¸ ÀÖÀ½
+    // ë·°ì •ë³´ ìˆê³  ëª¨ë¸ì •ë³´ ìˆìŒ
     public ModelAndView  main2(){
 
         ModelAndView mav = new ModelAndView();
-        mav.setViewName("main2"); // view ¼³Á¤
+        mav.setViewName("main2"); // view ì„¤ì •
         mav.addObject("userid","inky");
 
         return mav;
     }
 
-    //3. LoginDTO Å¸ÀÔ
-    // ¸ğµ¨Á¤º¸(LoginDTO) ÀÖ°í ºäÁ¤º¸°¡ ¾øÀ½.
-    // µû¶ó¼­ ºäÁ¤º¸´Â ¿ì¸®°¡ À¯ÃßÇØ¾ß µÊ. ¿äÃ»¸ÅÇÎ°ªÀ¸·Î ºä Á¤º¸¸¦ À¯ÃßÇÔ.  m3.html
+    //3. LoginDTO íƒ€ì…
+    // ëª¨ë¸ì •ë³´(LoginDTO) ìˆê³  ë·°ì •ë³´ê°€ ì—†ìŒ.
+    // ë”°ë¼ì„œ ë·°ì •ë³´ëŠ” ìš°ë¦¬ê°€ ìœ ì¶”í•´ì•¼ ë¨. ìš”ì²­ë§¤í•‘ê°’ìœ¼ë¡œ ë·° ì •ë³´ë¥¼ ìœ ì¶”í•¨.  m3.html
     @GetMapping("/m3")
     public @ModelAttribute("xxx") LoginDTO  main3(){
 
@@ -1804,9 +1804,9 @@ https://www.thymeleaf.org/doc/tutorials/3.1/usingthymeleaf.html
         return dto;
     }
 
-    //4. ArrayList Å¸ÀÔ
-    // ¸ğµ¨Á¤º¸(ArrayList) ÀÖ°í ºäÁ¤º¸°¡ ¾øÀ½.
-    // µû¶ó¼­ ºäÁ¤º¸´Â ¿ì¸®°¡ À¯ÃßÇØ¾ß µÊ. ¿äÃ»¸ÅÇÎ°ªÀ¸·Î ºä Á¤º¸¸¦ À¯ÃßÇÔ.  m4.html
+    //4. ArrayList íƒ€ì…
+    // ëª¨ë¸ì •ë³´(ArrayList) ìˆê³  ë·°ì •ë³´ê°€ ì—†ìŒ.
+    // ë”°ë¼ì„œ ë·°ì •ë³´ëŠ” ìš°ë¦¬ê°€ ìœ ì¶”í•´ì•¼ ë¨. ìš”ì²­ë§¤í•‘ê°’ìœ¼ë¡œ ë·° ì •ë³´ë¥¼ ìœ ì¶”í•¨.  m4.html
     @GetMapping("/m4")
     public @ModelAttribute("yyy")  ArrayList<String>  main4(){
 
@@ -1817,27 +1817,27 @@ https://www.thymeleaf.org/doc/tutorials/3.1/usingthymeleaf.html
         return nameList;
     }
 
-    //5. void Å¸ÀÔ
-    // ºäÁ¤º¸ ¾ø°í ¸ğµ¨Á¤º¸´Â ¾øÀ½
-    // µû¶ó¼­ ºäÁ¤º¸´Â ¿ì¸®°¡ À¯ÃßÇØ¾ß µÊ. ¿äÃ»¸ÅÇÎ°ªÀ¸·Î ºä Á¤º¸¸¦ À¯ÃßÇÔ.  m5.html
+    //5. void íƒ€ì…
+    // ë·°ì •ë³´ ì—†ê³  ëª¨ë¸ì •ë³´ëŠ” ì—†ìŒ
+    // ë”°ë¼ì„œ ë·°ì •ë³´ëŠ” ìš°ë¦¬ê°€ ìœ ì¶”í•´ì•¼ ë¨. ìš”ì²­ë§¤í•‘ê°’ìœ¼ë¡œ ë·° ì •ë³´ë¥¼ ìœ ì¶”í•¨.  m5.html
     @GetMapping("/m5")
     public void  main5(){
 
     }
    
 
-2.  JSON Åë½Å
+2.  JSON í†µì‹ 
 
-   1)ÀÌÀü ¹æ½Ä
+   1)ì´ì „ ë°©ì‹
 
-               ¿äÃ»
+               ìš”ì²­
 	       ex. http://localhost:8080/app/login?userid=inky&passwd=1234
-      À¥ºê¶ó¿ìÀú -----------------> ¼­¹ö
+      ì›¹ë¸Œë¼ìš°ì € -----------------> ì„œë²„
            
 	     <----------------
-	       ÀÀ´ä: html
+	       ì‘ë‹µ: html
 
-   2) JSONÅë½Å
+   2) JSONí†µì‹ 
 
                   JSON
 		  {
@@ -1845,45 +1845,45 @@ https://www.thymeleaf.org/doc/tutorials/3.1/usingthymeleaf.html
 		   "passwd":1234
 		  }
 		 @RequestBody + POST(*****************) + Content-Type:application/json (******)
-     Å¬¶óÀÌ¾ğÆ®  -----------------> ¼­¹ö
-    (À¥ºê¶ó¿ìÀú,..)       
+     í´ë¼ì´ì–¸íŠ¸  -----------------> ì„œë²„
+    (ì›¹ë¸Œë¼ìš°ì €,..)       
 	     <----------------
-	          JSON(xml.html,ÀÏ¹İÅØ½ºÆ®)
+	          JSON(xml.html,ì¼ë°˜í…ìŠ¤íŠ¸)
 		 @ResponseBody
     
-    Å¬¶óÀÌ¾ğÆ® ¿ªÇÒÀÇ µµ±¸: curl (cmd ±â¹İ ¿äÃ»),
-                   postman (GUI ±â¹İ )
-		   Talend API Tester( Å©·Ò ºê¶ó¿ìÀú ÇÃ·¯±×ÀÎ )
+    í´ë¼ì´ì–¸íŠ¸ ì—­í• ì˜ ë„êµ¬: curl (cmd ê¸°ë°˜ ìš”ì²­),
+                   postman (GUI ê¸°ë°˜ )
+		   Talend API Tester( í¬ë¡¬ ë¸Œë¼ìš°ì € í”ŒëŸ¬ê·¸ì¸ )
 
       
  ------------------------------------------------------------
 
- 3.  redirect¿Í forward ¹× flash scope ( flash attribute )
+ 3.  redirectì™€ forward ë° flash scope ( flash attribute )
 
 
-   1) ÀÌÀü ¼­ºí¸´
+   1) ì´ì „ ì„œë¸”ë¦¿
     
-       °¡. Æ÷¿öµå
-	 - ¹®¹ı:
+       ê°€. í¬ì›Œë“œ
+	 - ë¬¸ë²•:
            request.getRequestDispatcher("list.html").forward(request, response);
-         - Æ¯Â¡:
-	   ³»ºÎÀûÀ¸·Î list.html¿¡ ¿äÃ»ÀÌ µÇ±â ¶§¹®¿¡ URLÀÌ º¯°æ¾ÈµÊ.
-	   request scope¿¡ ÀúÀåµÈ µ¥ÀÌÅÍ¸¦ list.html¿¡¼­ ÂüÁ¶ °¡´É.
+         - íŠ¹ì§•:
+	   ë‚´ë¶€ì ìœ¼ë¡œ list.htmlì— ìš”ì²­ì´ ë˜ê¸° ë•Œë¬¸ì— URLì´ ë³€ê²½ì•ˆë¨.
+	   request scopeì— ì €ì¥ëœ ë°ì´í„°ë¥¼ list.htmlì—ì„œ ì°¸ì¡° ê°€ëŠ¥.
 
 
-       ³ª. ¸®´ÙÀÌ·ºÆ®
-	  - ¹®¹ı:
+       ë‚˜. ë¦¬ë‹¤ì´ë ‰íŠ¸
+	  - ë¬¸ë²•:
            response.sendRediredt("list.html");
 
-         - Æ¯Â¡:
-	   ³»ºÎÀûÀ¸·Î À¥ºê¶ó¿ìÀú·Î ÀÀ´äÇß´Ù°¡, À¥ºê¶ó¿ìÀú¿¡¼­ »õ·Ó°Ô list.html¿¡ ¿äÃ»ÀÌ µÇ±â ¶§¹®¿¡ URLÀÌ º¯°æµÊ.
-	   request scope¿¡ ÀúÀåµÈ µ¥ÀÌÅÍ¸¦ list.html¿¡¼­ ÂüÁ¶ ºÒ°¡´É.
+         - íŠ¹ì§•:
+	   ë‚´ë¶€ì ìœ¼ë¡œ ì›¹ë¸Œë¼ìš°ì €ë¡œ ì‘ë‹µí–ˆë‹¤ê°€, ì›¹ë¸Œë¼ìš°ì €ì—ì„œ ìƒˆë¡­ê²Œ list.htmlì— ìš”ì²­ì´ ë˜ê¸° ë•Œë¬¸ì— URLì´ ë³€ê²½ë¨.
+	   request scopeì— ì €ì¥ëœ ë°ì´í„°ë¥¼ list.htmlì—ì„œ ì°¸ì¡° ë¶ˆê°€ëŠ¥.
 
 
   2) spring 
 
-     °¡. Æ÷¿öµå
-	- ¹®¹ı:
+     ê°€. í¬ì›Œë“œ
+	- ë¬¸ë²•:
 	  
             @GetMapping("/list")
 	    public String  aaa(){
@@ -1896,10 +1896,10 @@ https://www.thymeleaf.org/doc/tutorials/3.1/usingthymeleaf.html
 	    }
 	
 
-     ³ª. ¸®´ÙÀÌ·ºÆ®
+     ë‚˜. ë¦¬ë‹¤ì´ë ‰íŠ¸
 
 
-          - ¹®¹ı:
+          - ë¬¸ë²•:
 	  
             @GetMapping("/list")
 	    public String  aaa(){
@@ -1911,7 +1911,7 @@ https://www.thymeleaf.org/doc/tutorials/3.1/usingthymeleaf.html
 		return "redirect:list";
 	    }
 
-    3) rediect + request scope¿¡ ÀúÀåµÈ µ¥ÀÌÅÍ¸¦ ÂüÁ¶ °¡´É. ( flash scope¶ó°í ºÎ¸§ )
+    3) rediect + request scopeì— ì €ì¥ëœ ë°ì´í„°ë¥¼ ì°¸ì¡° ê°€ëŠ¥. ( flash scopeë¼ê³  ë¶€ë¦„ )
      https://docs.spring.io/spring-framework/reference/web/webmvc/mvc-controller/ann-methods/redirecting-passing-data.html
          request scope
          
@@ -1931,34 +1931,34 @@ https://www.thymeleaf.org/doc/tutorials/3.1/usingthymeleaf.html
 	    }
 
 
-4. PRG ÆĞÅÏ ( Post-Redirect-GET ÆĞÅÏ )
+4. PRG íŒ¨í„´ ( Post-Redirect-GET íŒ¨í„´ )
 
-   1) °³³ä
-     POST ¿äÃ»¿¡ ´ëÇØ¼­ Get ¿äÃ»À¸·Î ´Ù½Ã redirect Ã³¸®ÇÏ´Â ÆĞÅÏ.
-     Áï post ·Î ½ÃÀÛÇØ¼­ get À¸·Î ³¡³ª°Ô ÇÏ´Â ¹æ½Ä.
+   1) ê°œë…
+     POST ìš”ì²­ì— ëŒ€í•´ì„œ Get ìš”ì²­ìœ¼ë¡œ ë‹¤ì‹œ redirect ì²˜ë¦¬í•˜ëŠ” íŒ¨í„´.
+     ì¦‰ post ë¡œ ì‹œì‘í•´ì„œ get ìœ¼ë¡œ ëë‚˜ê²Œ í•˜ëŠ” ë°©ì‹.
      
-     ¸èµî¼º: ¿©·¯¹ø ½ÇÇàÇØµµ °á°ú°¡ µ¿ÀÏÇÔÀ» ÀÇ¹ÌÇÔ.
+     ë©±ë“±ì„±: ì—¬ëŸ¬ë²ˆ ì‹¤í–‰í•´ë„ ê²°ê³¼ê°€ ë™ì¼í•¨ì„ ì˜ë¯¸í•¨.
 
-              ¿äÃ»½Ã method:GET
-      ºê¶ó¿ìÀú ---------------------->
+              ìš”ì²­ì‹œ method:GET
+      ë¸Œë¼ìš°ì € ---------------------->
 	 
-	      - Á¶È¸ÇÒ ¶§ (select ÀÛ¾÷ )
-	      - ¸èµî¼ºÀ» °¡Áü.
-	      - »õ·Î°íÄ§À» ¿©·¯¹ø ÇØµµ ¼­¹ö¿¡ ¿µÇâÀÌ ¾øÀ½.
+	      - ì¡°íšŒí•  ë•Œ (select ì‘ì—… )
+	      - ë©±ë“±ì„±ì„ ê°€ì§.
+	      - ìƒˆë¡œê³ ì¹¨ì„ ì—¬ëŸ¬ë²ˆ í•´ë„ ì„œë²„ì— ì˜í–¥ì´ ì—†ìŒ.
 
      
-              ¿äÃ»½Ã method:POST
-      ºê¶ó¿ìÀú ---------------------->
+              ìš”ì²­ì‹œ method:POST
+      ë¸Œë¼ìš°ì € ---------------------->
 
-              - »ı¼º/¼öÁ¤/»èÁ¦ ¶§ ( insert/update/delete ÀÛ¾÷ )
-	      - ¸èµî¼º ¾øÀ½.
-	      - »õ·Î°íÄ§À» ¿©·¯¹ø ÇÏ¸é ¼­¹ö¿¡ ¿µÇâÀÌ ÀÖ±â ¶§¹®¿¡ Ç×»ó °æ°íÃ¢À¸·Î Àç¿äÃ»ÀÌ ¸Â´ÂÁö È®ÀÎÇÊ¿ä.
+              - ìƒì„±/ìˆ˜ì •/ì‚­ì œ ë•Œ ( insert/update/delete ì‘ì—… )
+	      - ë©±ë“±ì„± ì—†ìŒ.
+	      - ìƒˆë¡œê³ ì¹¨ì„ ì—¬ëŸ¬ë²ˆ í•˜ë©´ ì„œë²„ì— ì˜í–¥ì´ ìˆê¸° ë•Œë¬¸ì— í•­ìƒ ê²½ê³ ì°½ìœ¼ë¡œ ì¬ìš”ì²­ì´ ë§ëŠ”ì§€ í™•ì¸í•„ìš”.
 
 
-   2) POST·Î ÃÖÁ¾ Á¾·áµÇ¾úÀ» ¶§ÀÇ ¹®Á¦Á¡
+   2) POSTë¡œ ìµœì¢… ì¢…ë£Œë˜ì—ˆì„ ë•Œì˜ ë¬¸ì œì 
      
-      -»õ·Î°íÄ§ÇÏ¸é µ¿ÀÏÇÑ ¿äÃ»ÀÌ ¿¬¼ÓÀûÀ» º¸³»Áö´Â ¸èµî¼º ÀÌ½´ ¹ß»ı
-      -URL º¹»çÇØ¼­ ´Ù¸¥ ºê¶ó¿ìÀú¿¡¼­ ¿äÃ»ÇÏ¸é ¿¬°áÀÌ ¾ÈµÇ´ÂÀÌ½´ ¹ß»ı
+      -ìƒˆë¡œê³ ì¹¨í•˜ë©´ ë™ì¼í•œ ìš”ì²­ì´ ì—°ì†ì ì„ ë³´ë‚´ì§€ëŠ” ë©±ë“±ì„± ì´ìŠˆ ë°œìƒ
+      -URL ë³µì‚¬í•´ì„œ ë‹¤ë¥¸ ë¸Œë¼ìš°ì €ì—ì„œ ìš”ì²­í•˜ë©´ ì—°ê²°ì´ ì•ˆë˜ëŠ”ì´ìŠˆ ë°œìƒ
 
        
         @GetMapping("/main")
@@ -1966,14 +1966,14 @@ https://www.thymeleaf.org/doc/tutorials/3.1/usingthymeleaf.html
         return "main";
        }
 
-// ±×³É post·Î ³¡³­ °æ¿ì
+// ê·¸ëƒ¥ postë¡œ ëë‚œ ê²½ìš°
        @PostMapping("/write")
        public String  write(){
         return "write";
        }
 
  
-// PRG ÆĞÅÏ
+// PRG íŒ¨í„´
        @PostMapping("/write")
        public String  write(){
         return "redirect:success";
@@ -1987,27 +1987,27 @@ https://www.thymeleaf.org/doc/tutorials/3.1/usingthymeleaf.html
  
 5. Filter
 
-  1) ÀÌÀü ¼­ºí¸´
+  1) ì´ì „ ì„œë¸”ë¦¿
      - implments Filter
-       doFilter(ServletRequest request, ServletResponse response, FilterChain chain) ¸Ş¼­µå ÀçÁ¤ÀÇ
-     - web.xml¿¡ ÇÊÅÍ µî·Ï
+       doFilter(ServletRequest request, ServletResponse response, FilterChain chain) ë©”ì„œë“œ ì¬ì •ì˜
+     - web.xmlì— í•„í„° ë“±ë¡
 
   2) Spring
      - implments Filter
-       doFilter(ServletRequest request, ServletResponse response, FilterChain chain) ¸Ş¼­µå ÀçÁ¤ÀÇ
-     - web.xml ´ë½Å¿¡ @Configuration + @Bean µî·Ï
+       doFilter(ServletRequest request, ServletResponse response, FilterChain chain) ë©”ì„œë“œ ì¬ì •ì˜
+     - web.xml ëŒ€ì‹ ì— @Configuration + @Bean ë“±ë¡
 
 
-     ½Ç½À:
+     ì‹¤ìŠµ:
      
        public class MyFilter implements Filter {
 
 	    @Override
 	    public void doFilter(ServletRequest servletRequest, ServletResponse servletResponse,
 				 FilterChain filterChain) throws IOException, ServletException {
-	       System.out.println("¿äÃ» filter");
+	       System.out.println("ìš”ì²­ filter");
 		filterChain.doFilter(servletRequest,servletResponse);
-	       System.out.println("ÀÀ´ä filter");
+	       System.out.println("ì‘ë‹µ filter");
 	    }
 	}
 
@@ -2025,14 +2025,14 @@ https://www.thymeleaf.org/doc/tutorials/3.1/usingthymeleaf.html
 	}
 
 
-6. Interceptor (¿äÃ»À» 3±ºµ¥¿¡¼­ °¡·ÎÃ¤±â°¡ °¡´É )
+6. Interceptor (ìš”ì²­ì„ 3êµ°ë°ì—ì„œ ê°€ë¡œì±„ê¸°ê°€ ê°€ëŠ¥ )
 
  
-  1) ¾ÆÅ°ÅØÃÄ
+  1) ì•„í‚¤í…ì³
 
 				    preHandle()
-				     return true ÁöÁ¤ÇØ¾ß controller·Î ³Ñ¾î°¨
-    À¥ºê¶ó¿ìÀú ---------->¼­ºí¸´--------------------------> Controller----->Service ---->DAO
+				     return true ì§€ì •í•´ì•¼ controllerë¡œ ë„˜ì–´ê°
+    ì›¹ë¸Œë¼ìš°ì € ---------->ì„œë¸”ë¦¿--------------------------> Controller----->Service ---->DAO
                      (Dispatcher<------------------            <----         <----
 		     Servlet)         postHandler()
 
@@ -2044,7 +2044,7 @@ https://www.thymeleaf.org/doc/tutorials/3.1/usingthymeleaf.html
 	 afterCompletion()
 
 	
- 2) ±¸Çö
+ 2) êµ¬í˜„
    
      @Component
 	public class MyInterceptor implements HandlerInterceptor{
@@ -2058,8 +2058,8 @@ https://www.thymeleaf.org/doc/tutorials/3.1/usingthymeleaf.html
 	    public void postHandle(HttpServletRequest request, HttpServletResponse response, Object handler,
 				   ModelAndView modelAndView) throws Exception {
 		System.out.println("postHandle");
-		// ºä Á¤º¸¸¦ º¯°æ°¡´É
-		//Á¶°ÇÃ¼Å©
+		// ë·° ì •ë³´ë¥¼ ë³€ê²½ê°€ëŠ¥
+		//ì¡°ê±´ì²´í¬
 		boolean result = true;
 		if(result) {
 		    modelAndView.addObject("userid","inky");
@@ -2070,7 +2070,7 @@ https://www.thymeleaf.org/doc/tutorials/3.1/usingthymeleaf.html
 	    @Override
 	    public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
 		System.out.println("preHandle");
-		//Á¶°ÇÃ¼Å©
+		//ì¡°ê±´ì²´í¬
 		boolean result = true;
 		if(result){
 		   return true;
@@ -2087,7 +2087,7 @@ https://www.thymeleaf.org/doc/tutorials/3.1/usingthymeleaf.html
 	public class InterceptorWebConfig 
 		implements WebMvcConfigurer {
 	    
-	    //Interceptor¸¦ µî·ÏÇÏ´Â ¸Ş¼­µå°¡ Á¦°øµÊ
+	    //Interceptorë¥¼ ë“±ë¡í•˜ëŠ” ë©”ì„œë“œê°€ ì œê³µë¨
 	     @Autowired
 	     MyInterceptor myInterceptor;
 
@@ -2100,19 +2100,19 @@ https://www.thymeleaf.org/doc/tutorials/3.1/usingthymeleaf.html
 
 ///////////////////////////////////////////////////////////////////////////
 
-7. ¿¹¿ÜÃ³¸®
+7. ì˜ˆì™¸ì²˜ë¦¬
 
-   1) °³³ä
-     - ½ºÇÁ¸µ¿¡¼­ ¹ß»ıµÇ´Â ¿¹¿Ü´Â Ç×»ó RuntimeException °è¿­ÀÓ. (***********)
-       ±×·¡¼­ try~catch  ¹× throws ¾ÈÇÔ.
-     - RuntimeException °è¿­ÀÇ ¿¹¿Ü°¡ ¹ß»ıµÇ¸é Ç×»ó È£ÃâÇÑ°÷À¸·Î ¿¹¿Ü°¡ Àü´ŞµÊ.
-      µû¶ó¼­ DAO¿¡¼­ ¹ß»ıµÇ°Å³ª Service¿¡¼­ ¹ß»ıµÇ°Å³ª Ç×»ó ¿¹¿Ü´Â Controller·Î ¸ğÀÓ.
-      °á±¹ Controller¿¡¼­ ¿¹¿ÜÃ³¸®¸¦ ÇÏ¸é µÊ.(***************************)
+   1) ê°œë…
+     - ìŠ¤í”„ë§ì—ì„œ ë°œìƒë˜ëŠ” ì˜ˆì™¸ëŠ” í•­ìƒ RuntimeException ê³„ì—´ì„. (***********)
+       ê·¸ë˜ì„œ try~catch  ë° throws ì•ˆí•¨.
+     - RuntimeException ê³„ì—´ì˜ ì˜ˆì™¸ê°€ ë°œìƒë˜ë©´ í•­ìƒ í˜¸ì¶œí•œê³³ìœ¼ë¡œ ì˜ˆì™¸ê°€ ì „ë‹¬ë¨.
+      ë”°ë¼ì„œ DAOì—ì„œ ë°œìƒë˜ê±°ë‚˜ Serviceì—ì„œ ë°œìƒë˜ê±°ë‚˜ í•­ìƒ ì˜ˆì™¸ëŠ” Controllerë¡œ ëª¨ì„.
+      ê²°êµ­ Controllerì—ì„œ ì˜ˆì™¸ì²˜ë¦¬ë¥¼ í•˜ë©´ ë¨.(***************************)
 
-     - Controller¿¡¼­´Â try~cacth °¡ ¾Æ´Ñ ¾î³ëÅ×ÀÌ¼Ç ÀÌ¿ë(¼±¾ğÀû ¿¹¿ÜÃ³¸®)
-       ( @ExceptionHandler ÀÌ¿ë)
+     - Controllerì—ì„œëŠ” try~cacth ê°€ ì•„ë‹Œ ì–´ë…¸í…Œì´ì…˜ ì´ìš©(ì„ ì–¸ì  ì˜ˆì™¸ì²˜ë¦¬)
+       ( @ExceptionHandler ì´ìš©)
  			  
-    À¥ºê¶ó¿ìÀú ---------->¼­ºí¸´--------------------------> Controller----->Service ---->DAO
+    ì›¹ë¸Œë¼ìš°ì € ---------->ì„œë¸”ë¦¿--------------------------> Controller----->Service ---->DAO
                      (Dispatcher<------------------            <----         <----
 		     Servlet)         
 
@@ -2122,13 +2122,13 @@ https://www.thymeleaf.org/doc/tutorials/3.1/usingthymeleaf.html
 	<--------   main.html
 	  
 	
-   2) ¿¹¿ÜÃ³¸® Á¾·ù 2°¡Áö
+   2) ì˜ˆì™¸ì²˜ë¦¬ ì¢…ë¥˜ 2ê°€ì§€
 
 
-    °¡. ·ÎÄÃ
-       - Æ¯Á¤ Controller³»¿¡¼­ ¹ß»ıµÈ ¿¹¿Ü¸¸ Ã³¸®°¡´É.
+    ê°€. ë¡œì»¬
+       - íŠ¹ì • Controllerë‚´ì—ì„œ ë°œìƒëœ ì˜ˆì™¸ë§Œ ì²˜ë¦¬ê°€ëŠ¥.
 
-       ±¸Çö:
+       êµ¬í˜„:
           
            @Controller
 		public class MainController {
@@ -2137,8 +2137,8 @@ https://www.thymeleaf.org/doc/tutorials/3.1/usingthymeleaf.html
 		    public String  main(){
 			System.out.println("main");
 			
-			//¿¹¿Ü¹ß»ı
-			if(true) throw new IllegalArgumentException("IllegalArgumentException ¿¹¿Ü¹ß»ı");
+			//ì˜ˆì™¸ë°œìƒ
+			if(true) throw new IllegalArgumentException("IllegalArgumentException ì˜ˆì™¸ë°œìƒ");
 
 			return "main";
 		    }
@@ -2147,15 +2147,15 @@ https://www.thymeleaf.org/doc/tutorials/3.1/usingthymeleaf.html
 		    public String  main2(){
 			System.out.println("main2");
 
-			//¿¹¿Ü¹ß»ı
-			if(true) throw new NullPointerException("NullPointerException ¿¹¿Ü¹ß»ı");
+			//ì˜ˆì™¸ë°œìƒ
+			if(true) throw new NullPointerException("NullPointerException ì˜ˆì™¸ë°œìƒ");
 
 			return "main";
 		    }
 
-		    //·ÎÄÃ
-		    //Æ¯Á¤ Controller³»¿¡¼­ Ã³¸®
-		    //2°¡Áö ±â´É: View+Model
+		    //ë¡œì»¬
+		    //íŠ¹ì • Controllerë‚´ì—ì„œ ì²˜ë¦¬
+		    //2ê°€ì§€ ê¸°ëŠ¥: View+Model
 		    // @ExceptionHandler
 		    // @ExceptionHandler(value=IllegalArgumentException.class)
 		    @ExceptionHandler(value={IllegalArgumentException.class, NullPointerException.class})
@@ -2167,7 +2167,7 @@ https://www.thymeleaf.org/doc/tutorials/3.1/usingthymeleaf.html
 		    }
  
 
-    ³ª. Àü¿ª
+    ë‚˜. ì „ì—­
    
          
 	@ControllerAdvice
@@ -2188,33 +2188,33 @@ https://www.thymeleaf.org/doc/tutorials/3.1/usingthymeleaf.html
 
 ///////////////////////////////////////////////////////////////////////////
 
-8. »ç¿ëÀÚ ÀÔ·Â µ¥ÀÌÅÍ À¯È¿¼º °ËÁõ 1: @Valid +  BindingResult <== ÀÌ¹æ¹ıÀº È­¸éÀÌ ÀÖ´Â °æ¿ì¿¡ »ç¿ë.
+8. ì‚¬ìš©ì ì…ë ¥ ë°ì´í„° ìœ íš¨ì„± ê²€ì¦ 1: @Valid +  BindingResult <== ì´ë°©ë²•ì€ í™”ë©´ì´ ìˆëŠ” ê²½ìš°ì— ì‚¬ìš©.
 
-  1) °³³ä
-    - »ç¿ëÀÚ ÀÔ·ÂÅÂ±×ÀÇ °ªÀ» °ËÁõÇÏ´Â ÀÛ¾÷
-      ex. ±ÛÀÚ±æÀÌ, ÇÊ¼ö»çÇ×, ÀÌ¸ŞÀÏ, °ªÀÇ¹üÀ§ (1~10) µî
+  1) ê°œë…
+    - ì‚¬ìš©ì ì…ë ¥íƒœê·¸ì˜ ê°’ì„ ê²€ì¦í•˜ëŠ” ì‘ì—…
+      ex. ê¸€ìê¸¸ì´, í•„ìˆ˜ì‚¬í•­, ì´ë©”ì¼, ê°’ì˜ë²”ìœ„ (1~10) ë“±
 
-  2) °ËÁõÀÛ¾÷1
+  2) ê²€ì¦ì‘ì—…1
     
-     -Å¬¶óÀÌ¾ğÆ®
-        a. HTML5¿¡¼­ Á¦°øÇØÁÖ´Â ¼Ó¼ºÀÌ¿ë
+     -í´ë¼ì´ì–¸íŠ¸
+        a. HTML5ì—ì„œ ì œê³µí•´ì£¼ëŠ” ì†ì„±ì´ìš©
             <form action="login" method="get">
-	    ¾ÆÀÌµğ:<input type="text" name="userid" required><br>
-	    ºñ¹Ğ¹ø:<input type="text" name="password" required><br>
+	    ì•„ì´ë””:<input type="text" name="userid" required><br>
+	    ë¹„ë°€ë²ˆ:<input type="text" name="password" required><br>
 	    email:<input type="email" name="email"><br>
-	    ³ªÀÌ:<input type="number" name="age" max="10"><br>
-	    <input type="submit" value="·Î±×ÀÎ">
+	    ë‚˜ì´:<input type="number" name="age" max="10"><br>
+	    <input type="submit" value="ë¡œê·¸ì¸">
 	    </form>
 
-	b. Javascript ÀÌ¿ë
+	b. Javascript ì´ìš©
 
-   2)°ËÁõÀÛ¾÷2
+   2)ê²€ì¦ì‘ì—…2
      
-     °¡. ÀÇÁ¸¼º ¼³Á¤
+     ê°€. ì˜ì¡´ì„± ì„¤ì •
        	implementation 'org.springframework.boot:spring-boot-starter-validation'
 
 
-	==> °ËÁõÇÒ ¶§ »ç¿ëÇÒ ¼ö ÀÖ´Â ¾î³ëÅ×ÀÌ¼Ç »ç¿ë °¡´É
+	==> ê²€ì¦í•  ë•Œ ì‚¬ìš©í•  ìˆ˜ ìˆëŠ” ì–´ë…¸í…Œì´ì…˜ ì‚¬ìš© ê°€ëŠ¥
 	    @NotNull
             @NotBlank
 	    @Size
@@ -2226,71 +2226,71 @@ https://www.thymeleaf.org/doc/tutorials/3.1/usingthymeleaf.html
 	    ..
 
 
-     ³ª. DTO ÀÛ¼º ex. TodoDTO.java
+     ë‚˜. DTO ì‘ì„± ex. TodoDTO.java
 
            public class TodoDTO {
 
-	    @NotBlank(message = "Àû¾îµµ ÇÑ±ÛÀÚ ÀÌ»ó ÀÔ·ÂÇÏ¼¼¿ä")
+	    @NotBlank(message = "ì ì–´ë„ í•œê¸€ì ì´ìƒ ì…ë ¥í•˜ì„¸ìš”")
 	    String userid;
-	    @Size(min = 5, message = "ÃÖ¼Ò 5±ÛÀÚ ÀÌ»ó ÀÔ·ÂÇÏ½Ã¿ä")
+	    @Size(min = 5, message = "ìµœì†Œ 5ê¸€ì ì´ìƒ ì…ë ¥í•˜ì‹œìš”")
 	    String description;
 	    
 	    @NotNull
-	    @FutureOrPresent(message = "ÇöÀç ³¯Â¥ ¶Ç´Â ¹Ì·¡ ³¯Â¥ ÀÔ·ÂÇÏ½Ã¿À")        
+	    @FutureOrPresent(message = "í˜„ì¬ ë‚ ì§œ ë˜ëŠ” ë¯¸ë˜ ë‚ ì§œ ì…ë ¥í•˜ì‹œì˜¤")        
 	    LocalDate targetDate;
 
-     ´Ù. Controller ÀÛ¼º.  ex. TodoController.java
+     ë‹¤. Controller ì‘ì„±.  ex. TodoController.java
 
-         - Áß¿äÇÑ ÇÙ½ÉÀº ¹İµå½Ã »ç¿ëÀÚ ÀÔ·Â È­¸éÀ» º¸¿©ÁÖ´Â @GetMapping, »ç¿ëÀÚ ÀÔ·ÂÀ» Ã³¸®ÇÏ´Â @PostMapping ÇÊ¿äÇÔ.
-         - ¶ÇÇÑ @GetMapping °ú @PostMapping¿¡¼­ TodoDTO ¸ğµ¨À» °øÀ¯ÇØ¾ßµÊ.
+         - ì¤‘ìš”í•œ í•µì‹¬ì€ ë°˜ë“œì‹œ ì‚¬ìš©ì ì…ë ¥ í™”ë©´ì„ ë³´ì—¬ì£¼ëŠ” @GetMapping, ì‚¬ìš©ì ì…ë ¥ì„ ì²˜ë¦¬í•˜ëŠ” @PostMapping í•„ìš”í•¨.
+         - ë˜í•œ @GetMapping ê³¼ @PostMappingì—ì„œ TodoDTO ëª¨ë¸ì„ ê³µìœ í•´ì•¼ë¨.
  
-                 //»ç¿ëÀÚ ÀÔ·Â È­¸é º¸±â
+                 //ì‚¬ìš©ì ì…ë ¥ í™”ë©´ ë³´ê¸°
 		    @GetMapping("/add-todo")
 		    public String showTodoPage(Model model) {
 
-			// @PostMappingÀÇ @ModelAttribute("xxx") °ª°ú ¹İµå½Ã ÀÏÄ¡ÇØ¾ßµÊ.
+			// @PostMappingì˜ @ModelAttribute("xxx") ê°’ê³¼ ë°˜ë“œì‹œ ì¼ì¹˜í•´ì•¼ë¨.
 			model.addAttribute("xxx", new TodoDTO());
 			return "write";  // write.html
 		    }
 
-		    //»ç¿ëÀÚ ÀÔ·Â Ã³¸® ÇÏ±â
+		    //ì‚¬ìš©ì ì…ë ¥ ì²˜ë¦¬ í•˜ê¸°
 		    @PostMapping("/add-todo")
 		    public String addTodo(@Valid @ModelAttribute("xxx")  TodoDTO todoDTO,
 					  BindingResult bindingResult, Model model) {
-			//°ËÁõ½ÇÆĞ
+			//ê²€ì¦ì‹¤íŒ¨
 			if(bindingResult.hasErrors()){
 			    return "write";
 			}
-			//°ËÁõ¼º°ø
-			return "redirect:main";  //PRG ÆĞÅÏ
+			//ê²€ì¦ì„±ê³µ
+			return "redirect:main";  //PRG íŒ¨í„´
 		    }
 
-    ¶ó. write.html
+    ë¼. write.html
           <form th:object="${xxx}" th:action="@{/add-todo}" method="post">
-	    ¾ÆÀÌµğ:<input type="text" th:field="*{userid}" ><br>
+	    ì•„ì´ë””:<input type="text" th:field="*{userid}" ><br>
 	      <p th:if="${#fields.hasErrors('userid')}" th:errors="*{userid}"></p>
-	    ÇÒÀÏ:<input type="text" th:field="*{description}"><br>
+	    í• ì¼:<input type="text" th:field="*{description}"><br>
 	    <p th:if="${#fields.hasErrors('description')}" th:errors="*{description}"></p>
-	    ¸ñÇ¥³¯Â¥:<input type="date" th:field="*{targetDate}"><br>
+	    ëª©í‘œë‚ ì§œ:<input type="date" th:field="*{targetDate}"><br>
 	    <p th:if="${#fields.hasErrors('targetDate')}" th:errors="*{targetDate}"></p>
-	   <input type="submit" value="ÇÒÀÏ ÀúÀå">
+	   <input type="submit" value="í• ì¼ ì €ì¥">
 	</form>
        
-       # ´ÙÀ½°ú °°ÀÌ ÀÚµ¿À¸·Î º¯°æµÊ. 
+       # ë‹¤ìŒê³¼ ê°™ì´ ìë™ìœ¼ë¡œ ë³€ê²½ë¨. 
        <form th:object="${xxx}">
          <input type="text" th:field="*{userid}" >
 	 ==> <input type="text" name="userid" id="userid" value="" >
 
 --------------------------------------------------------------------------------------
 
-8. »ç¿ëÀÚ ÀÔ·Â µ¥ÀÌÅÍ À¯È¿¼º °ËÁõ 2: @Validated + @ControllerAdvice
+8. ì‚¬ìš©ì ì…ë ¥ ë°ì´í„° ìœ íš¨ì„± ê²€ì¦ 2: @Validated + @ControllerAdvice
 
 
-   °¡. ÀÇÁ¸¼º ¼³Á¤
+   ê°€. ì˜ì¡´ì„± ì„¤ì •
        	implementation 'org.springframework.boot:spring-boot-starter-validation'
 
 
-   ³ª. DTO ÀÛ¼º ex. TodoDTO.java
+   ë‚˜. DTO ì‘ì„± ex. TodoDTO.java
 
            public class TodoDTO {
 
@@ -2298,44 +2298,44 @@ https://www.thymeleaf.org/doc/tutorials/3.1/usingthymeleaf.html
 	    String description;
 	    LocalDate targetDate;
 
-    == >@Validated´Â @Valid¿Í ´Ù¸£°Ô °ËÁõ ¾î³ëÅ×ÀÌ¼Ç (@NotNull)À» 
-        DTO°¡ ¾Æ´Ñ ControllerÀÇ ¸Ş¼­µå ÆÄ¶ó¹ÌÅÍ¿¡ »ç¿ëÀÌ °¡´ÉÇÔ.
+    == >@ValidatedëŠ” @Validì™€ ë‹¤ë¥´ê²Œ ê²€ì¦ ì–´ë…¸í…Œì´ì…˜ (@NotNull)ì„ 
+        DTOê°€ ì•„ë‹Œ Controllerì˜ ë©”ì„œë“œ íŒŒë¼ë¯¸í„°ì— ì‚¬ìš©ì´ ê°€ëŠ¥í•¨.
 
-   ´Ù. Controller ÀÛ¼º. @Valiated + @NotNull 
+   ë‹¤. Controller ì‘ì„±. @Valiated + @NotNull 
 
        @Controller
 	@Validated
 	public class TodoController {
 
-	   //»ç¿ëÀÚ ÀÔ·Â È­¸é º¸±â
+	   //ì‚¬ìš©ì ì…ë ¥ í™”ë©´ ë³´ê¸°
 	    @GetMapping("/add-todo")
 	    public String showTodoPage() {
 		return "write";  // write.html
 	    }
 
-	    //»ç¿ëÀÚ ÀÔ·Â Ã³¸® ÇÏ±â
+	    //ì‚¬ìš©ì ì…ë ¥ ì²˜ë¦¬ í•˜ê¸°
 	    @PostMapping("/add-todo")
-	    public String addTodo(@NotBlank(message = "Àû¾îµµ ÇÑ±ÛÀÚ ÀÌ»ó ÀÔ·ÂÇÏ¼¼¿ä")
+	    public String addTodo(@NotBlank(message = "ì ì–´ë„ í•œê¸€ì ì´ìƒ ì…ë ¥í•˜ì„¸ìš”")
 				      String userid,
-				  @Size(min = 5, message = "ÃÖ¼Ò 5±ÛÀÚ ÀÌ»ó ÀÔ·ÂÇÏ½Ã¿ä")
+				  @Size(min = 5, message = "ìµœì†Œ 5ê¸€ì ì´ìƒ ì…ë ¥í•˜ì‹œìš”")
 				  String description,
-				  @NotNull @FutureOrPresent(message = "ÇöÀç ³¯Â¥ ¶Ç´Â ¹Ì·¡ ³¯Â¥ ÀÔ·ÂÇÏ½Ã¿À") LocalDate targetDate
+				  @NotNull @FutureOrPresent(message = "í˜„ì¬ ë‚ ì§œ ë˜ëŠ” ë¯¸ë˜ ë‚ ì§œ ì…ë ¥í•˜ì‹œì˜¤") LocalDate targetDate
 				   ) {
-		//°ËÁõ½ÇÆĞ: ¿¹¿Ü°¡ ¹ß»ı (ConstraintViolationException ¹ß»ıµÊ )=============> @ControllerAdvice
-		//°ËÁõ¼º°ø
+		//ê²€ì¦ì‹¤íŒ¨: ì˜ˆì™¸ê°€ ë°œìƒ (ConstraintViolationException ë°œìƒë¨ )=============> @ControllerAdvice
+		//ê²€ì¦ì„±ê³µ
 		System.out.println(userid);
 		System.out.println(description);
 		System.out.println(targetDate);
-		return "redirect:main";  //PRG ÆĞÅÏ
+		return "redirect:main";  //PRG íŒ¨í„´
 	    }
-	    // ¼º°ø½Ã º¸¿©ÁÙ È®¸é
+	    // ì„±ê³µì‹œ ë³´ì—¬ì¤„ í™•ë©´
 	    @GetMapping("/main")
 	    public String main() {
 		return "main";  // main.html
 	    }
 	}
 
-    ´Ù. Àü¿ª ¿¹¿ÜÃ³¸® : @ControllerAdvice
+    ë‹¤. ì „ì—­ ì˜ˆì™¸ì²˜ë¦¬ : @ControllerAdvice
 
        @ControllerAdvice
 	public class GlobalExceptionHandler {
@@ -2344,13 +2344,13 @@ https://www.thymeleaf.org/doc/tutorials/3.1/usingthymeleaf.html
 	  //  public ModelAndView handleException(Exception ex, RedirectAttributes redirectAttributes){}
 	//    public String handleException(Exception ex, Model model){
 	    public String handleException(Exception ex, RedirectAttributes redirectAttributes){
-		    redirectAttributes.addFlashAttribute("errorMessage","À¯È¿¼º °ËÁõ ½ÇÆĞ");
-		return "redirect:add-todo"; //PRG ÆĞÅÏ
+		    redirectAttributes.addFlashAttribute("errorMessage","ìœ íš¨ì„± ê²€ì¦ ì‹¤íŒ¨");
+		return "redirect:add-todo"; //PRG íŒ¨í„´
 	    }
 
 	}
 
-   ¶ó. write.html
+   ë¼. write.html
     
        <!DOCTYPE html>
 	<html xmlns:th="http://www.thymeleaf.org" lang="en">
@@ -2362,27 +2362,27 @@ https://www.thymeleaf.org/doc/tutorials/3.1/usingthymeleaf.html
 	<h1>write</h1>
 	<p th:if="${errorMessage}" th:text="${errorMessage}"></p>
 	<form  th:action="@{/add-todo}" method="post">
-	    ¾ÆÀÌµğ:<input type="text"  name="userid" ><br>
-	    ÇÒÀÏ:<input type="text" name="description"> <br>
-	    ¸ñÇ¥³¯Â¥:<input type="date" name="targetDate"><br>
-	   <input type="submit" value="ÇÒÀÏ ÀúÀå">
+	    ì•„ì´ë””:<input type="text"  name="userid" ><br>
+	    í• ì¼:<input type="text" name="description"> <br>
+	    ëª©í‘œë‚ ì§œ:<input type="date" name="targetDate"><br>
+	   <input type="submit" value="í• ì¼ ì €ì¥">
 	</form>
 	</body>
 	</html>
 
 ///////////////////////////////////////////////////////////////////////
-9. Thymeleaf Á¤¸®
+9. Thymeleaf ì •ë¦¬
 
  https://www.thymeleaf.org/doc/tutorials/3.1/usingthymeleaf.html
 
- 1) ÀÇÁ¸¼º
+ 1) ì˜ì¡´ì„±
 
     implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
 
 
- 2) ±âº» html ¼³Á¤
+ 2) ê¸°ë³¸ html ì„¤ì •
   
-    - ¹İµå½Ã xmlns:th="http://www.thymeleaf.org" ÇÊ¿ä
+    - ë°˜ë“œì‹œ xmlns:th="http://www.thymeleaf.org" í•„ìš”
 
         <!DOCTYPE html>
 	<html xmlns:th="http://www.thymeleaf.org" lang="en">
@@ -2395,9 +2395,9 @@ https://www.thymeleaf.org/doc/tutorials/3.1/usingthymeleaf.html
 	</body>
 	</html>
 
-  3) ±¸Çö
+  3) êµ¬í˜„
 
-  °¡. 1. scope¿¡ ÀúÀåÇÏ°í html¿¡ º¸¿©ÁÖ±â
+  ê°€. 1. scopeì— ì €ì¥í•˜ê³  htmlì— ë³´ì—¬ì£¼ê¸°
   <!DOCTYPE html>
 	<html xmlns:th="http://www.thymeleaf.org" lang="en">
 	<head>
@@ -2405,9 +2405,9 @@ https://www.thymeleaf.org/doc/tutorials/3.1/usingthymeleaf.html
 	    <title>Title</title>
 	</head>
 	<body>
-	<h1>1. scope¿¡ ÀúÀåÇÏ°í html¿¡ º¸¿©ÁÖ±â</h1>
-	¸®ÅÍ·² : <p th:text="123+1"></p>
-	¸®ÅÍ·² : <p th:text="'hello'"></p>
+	<h1>1. scopeì— ì €ì¥í•˜ê³  htmlì— ë³´ì—¬ì£¼ê¸°</h1>
+	ë¦¬í„°ëŸ´ : <p th:text="123+1"></p>
+	ë¦¬í„°ëŸ´ : <p th:text="'hello'"></p>
 	request : <p th:text="${request}"></p>
 	request2 : <p th:utext="${request2}"></p>
 	session : <p th:text="${session.session2}"></p>
@@ -2417,7 +2417,7 @@ https://www.thymeleaf.org/doc/tutorials/3.1/usingthymeleaf.html
 	</html>
 
 
- ³ª. scope¿¡ °´Ã¼ ÀúÀåÇÏ°í html¿¡ º¸¿©ÁÖ±â
+ ë‚˜. scopeì— ê°ì²´ ì €ì¥í•˜ê³  htmlì— ë³´ì—¬ì£¼ê¸°
 
     <!DOCTYPE html>
 	<html xmlns:th="http://www.thymeleaf.org" lang="en">
@@ -2426,21 +2426,21 @@ https://www.thymeleaf.org/doc/tutorials/3.1/usingthymeleaf.html
 	    <title>Title</title>
 	</head>
 	<body>
-	<h1>2. scope¿¡ °´Ã¼ ÀúÀåÇÏ°í html¿¡ º¸¿©ÁÖ±â</h1>
-	<h2>°¡. ÁßÃ¸ÇüÅÂ·Î Á¢±Ù</h2>
-	login°´Ã¼:<p th:text="${login}"></p>
-	login°´Ã¼:<p th:text="${login.toString()}"></p>
+	<h1>2. scopeì— ê°ì²´ ì €ì¥í•˜ê³  htmlì— ë³´ì—¬ì£¼ê¸°</h1>
+	<h2>ê°€. ì¤‘ì²©í˜•íƒœë¡œ ì ‘ê·¼</h2>
+	loginê°ì²´:<p th:text="${login}"></p>
+	loginê°ì²´:<p th:text="${login.toString()}"></p>
 	userid:<p th:text="${login.userid}"></p>
 	password:<p th:text="${login.password}"></p>
-	<h2>³ª. °´Ã¼ ¼Ó¼ºÇüÅÂ·Î Á¢±Ù</h2>
+	<h2>ë‚˜. ê°ì²´ ì†ì„±í˜•íƒœë¡œ ì ‘ê·¼</h2>
 	<div th:object="${login}">
-	    ¾ÆÀÌµğ:<p th:text="*{userid}"></p>
-	    ºñ¹ø:<p th:text="*{password}"></p>
+	    ì•„ì´ë””:<p th:text="*{userid}"></p>
+	    ë¹„ë²ˆ:<p th:text="*{password}"></p>
 	</div>
 	</body>
 	</html>
 
-  ´Ù. .Á¦¾î¹® Ã³¸®: if, swtich, 3Ç×¿¬»êÀÚ, ¹İº¹¹®
+  ë‹¤. .ì œì–´ë¬¸ ì²˜ë¦¬: if, swtich, 3í•­ì—°ì‚°ì, ë°˜ë³µë¬¸
 
      <!DOCTYPE html>
 	<html xmlns:th="http://www.thymeleaf.org" lang="en">
@@ -2457,30 +2457,30 @@ https://www.thymeleaf.org/doc/tutorials/3.1/usingthymeleaf.html
 	    </style>
 	</head>
 	<body>
-	<h1>3.Á¦¾î¹® Ã³¸®: if, swtich, 3Ç×¿¬»êÀÚ, ¹İº¹¹®</h1>
-	<h2>°¡. Á¶°Ç¹®(´ÜÀÏ if)</h2>
+	<h1>3.ì œì–´ë¬¸ ì²˜ë¦¬: if, swtich, 3í•­ì—°ì‚°ì, ë°˜ë³µë¬¸</h1>
+	<h2>ê°€. ì¡°ê±´ë¬¸(ë‹¨ì¼ if)</h2>
 	<p th:if="${login.userid == 'inky4832'}">
-	    Âü1
+	    ì°¸1
 	</p>
 	<p th:if="${login2.userid == null }">
-	    Âü2
+	    ì°¸2
 	</p>
-	<h2>³ª. 3Ç× ¿¬»êÀÚ</h2>
-	<p th:text="${login.userid == 'inky4832'}?'Âü3':'°ÅÁş'"></p>
-	<p th:class="${login.userid == 'inky4832'}?'xxx':'yyy'">css Àû¿ëµÈ ÅØ½ºÆ®</p>
+	<h2>ë‚˜. 3í•­ ì—°ì‚°ì</h2>
+	<p th:text="${login.userid == 'inky4832'}?'ì°¸3':'ê±°ì§“'"></p>
+	<p th:class="${login.userid == 'inky4832'}?'xxx':'yyy'">css ì ìš©ëœ í…ìŠ¤íŠ¸</p>
 
-	<h2>´Ù. switch </h2>
+	<h2>ë‹¤. switch </h2>
 	 <div th:switch="${login.userid}">
-	   <p th:case="inky4832">inky4832ÀÔ´Ï´Ù.</p>
-	   <p th:case="inky4833">inky4833ÀÔ´Ï´Ù.</p>
-	   <p th:case="*">default ÀÔ´Ï´Ù.</p>
+	   <p th:case="inky4832">inky4832ì…ë‹ˆë‹¤.</p>
+	   <p th:case="inky4833">inky4833ì…ë‹ˆë‹¤.</p>
+	   <p th:case="*">default ì…ë‹ˆë‹¤.</p>
 	   <p></p>
 	 </div>
-	<h2>¶ó. ¹İº¹¹® </h2>
+	<h2>ë¼. ë°˜ë³µë¬¸ </h2>
 	<ul th:each="dto: ${myList}">
 	    <li th:text="${dto.userid} + '  ' + ${dto.password}"></li>
 	</ul>
-	<h2>¶ó. ¹İº¹¹®2 - index, count, first,  last </h2>
+	<h2>ë¼. ë°˜ë³µë¬¸2 - index, count, first,  last </h2>
 	<ul th:each="dto, yyy: ${myList}">
 	    <li th:text="${dto.userid} + '  ' + ${dto.password} + ' ' +${yyy.index} + '  ' + ${yyy.first} "></li>
 	</ul>
@@ -2488,7 +2488,7 @@ https://www.thymeleaf.org/doc/tutorials/3.1/usingthymeleaf.html
 	</body>
 	</html>
 
-   ¶ó. °æ·Î(¸µÅ©)
+   ë¼. ê²½ë¡œ(ë§í¬)
 
       <!DOCTYPE html>
 	<html xmlns:th="http://www.thymeleaf.org" lang="en">
@@ -2498,26 +2498,26 @@ https://www.thymeleaf.org/doc/tutorials/3.1/usingthymeleaf.html
 	<link rel="stylesheet" type="text/css" th:href="@{css/test.css}">
 	</head>
 	<body>
-	<h1>4. °æ·Î(¸µÅ©)</h1>
+	<h1>4. ê²½ë¡œ(ë§í¬)</h1>
 	<p>Hello</p>
 	<img th:src="@{images/my.gif}" width="100" height="100" ><br>
-	<a th:href="@{http://google.com}">±¸±Û</a><br>
-	<a th:href="@{m4-1}">m4-1(»ó´ë)</a><br>
-	<a th:href="@{/m4-1(id='aaa',pw='1234')}">m4-1(Àı´ë)-ÄÁÅØ½ºÆ®¸íµÚÀÇ/ÀÌ´Ù.</a><br>
-	<a th:href="@{/m4-1(id=${userid},pw='1234')}">m4-1(Àı´ë)-ÄÁÅØ½ºÆ®¸íµÚÀÇ/ÀÌ´Ù.</a><br>
+	<a th:href="@{http://google.com}">êµ¬ê¸€</a><br>
+	<a th:href="@{m4-1}">m4-1(ìƒëŒ€)</a><br>
+	<a th:href="@{/m4-1(id='aaa',pw='1234')}">m4-1(ì ˆëŒ€)-ì»¨í…ìŠ¤íŠ¸ëª…ë’¤ì˜/ì´ë‹¤.</a><br>
+	<a th:href="@{/m4-1(id=${userid},pw='1234')}">m4-1(ì ˆëŒ€)-ì»¨í…ìŠ¤íŠ¸ëª…ë’¤ì˜/ì´ë‹¤.</a><br>
 
 
 	<form th:action="@{m4-2}" method="get">
-	    ¾ÆÀÌµğ:<input type="text" name="userid" required><br>
-	    ºñ¹Ğ¹ø:<input type="text" name="password" required><br>
-	    <input type="submit" value="·Î±×ÀÎ">
+	    ì•„ì´ë””:<input type="text" name="userid" required><br>
+	    ë¹„ë°€ë²ˆ:<input type="text" name="password" required><br>
+	    <input type="submit" value="ë¡œê·¸ì¸">
 	</form>
 
 
 	</body>
 	</html>
 
-    ¸¶. À¯Æ¿¸®Æ¼
+    ë§ˆ. ìœ í‹¸ë¦¬í‹°
       <!DOCTYPE html>
 	<html xmlns:th="http://www.thymeleaf.org" lang="en">
 	<head>
@@ -2526,30 +2526,30 @@ https://www.thymeleaf.org/doc/tutorials/3.1/usingthymeleaf.html
 	<link rel="stylesheet" type="text/css" th:href="@{css/test.css}">
 	</head>
 	<body>
-	<h1>5. À¯Æ¿¸®Æ¼</h1>
-	<h2>°¡. ³¯Â¥ À¯Æ¿Æ¼¸®</h2>
+	<h1>5. ìœ í‹¸ë¦¬í‹°</h1>
+	<h2>ê°€. ë‚ ì§œ ìœ í‹¸í‹°ë¦¬</h2>
 	today:<p th:text="${#temporals.format(today, 'dd/MM/yyyy')}"></p>
-	<h2>³ª. ¹®ÀÚ¿­ À¯Æ¿Æ¼¸®</h2>
+	<h2>ë‚˜. ë¬¸ìì—´ ìœ í‹¸í‹°ë¦¬</h2>
 	<p th:text="${#strings.toUpperCase(username)}"></p>
 	<p th:text="${#strings.length(username)}"></p>
 	<p th:text="${#strings.substring(username,0,4)}"></p>
 
-	<h2>´Ù. ¼ıÀÚ À¯Æ¿Æ¼¸®</h2>
+	<h2>ë‹¤. ìˆ«ì ìœ í‹¸í‹°ë¦¬</h2>
 	<p th:text="${#numbers.formatInteger(price,3,'POINT')}"></p>
 	<p th:text="${#numbers.formatInteger(price,3,'COMMA')}"></p>
 	<p th:text="${#numbers.formatCurrency(price)}"></p>
 
-	<h2>¶ó. ¸®½ºÆ® À¯Æ¿Æ¼¸®</h2>
+	<h2>ë¼. ë¦¬ìŠ¤íŠ¸ ìœ í‹¸í‹°ë¦¬</h2>
 	size:<p th:text="${#lists.size(myList)}"></p>
-	°ªÀÌ ¾ø³Ä?<p th:text="${#lists.isEmpty(myList)}"></p>
-	°ªÀÌ Æ÷ÇÔµÇ³Ä?<p th:text="${#lists.contains(myList, 'A')}"></p>
+	ê°’ì´ ì—†ëƒ?<p th:text="${#lists.isEmpty(myList)}"></p>
+	ê°’ì´ í¬í•¨ë˜ëƒ?<p th:text="${#lists.contains(myList, 'A')}"></p>
 
 
 
 	</body>
 	</html>
 
-    »ç. È­¸éÀç»ç¿ë
+    ì‚¬. í™”ë©´ì¬ì‚¬ìš©
 
 	# include/top.html
 	     <!DOCTYPE html>
@@ -2563,7 +2563,7 @@ https://www.thymeleaf.org/doc/tutorials/3.1/usingthymeleaf.html
 		    &copy; 2011 The Good Thymes Virtual Grocery
 		  </div>
 		  <div th:fragment="header">
-		      ·Î±×ÀÎ/È¸¿ø°¡ÀÔ
+		      ë¡œê·¸ì¸/íšŒì›ê°€ì…
 		  </div>
 		</body>
 		</html>
@@ -2578,11 +2578,291 @@ https://www.thymeleaf.org/doc/tutorials/3.1/usingthymeleaf.html
 	<link rel="stylesheet" type="text/css" th:href="@{css/test.css}">
 	</head>
 	<body>
-	<h1>6. È­¸éÀç»ç¿ë</h1>
+	<h1>6. í™”ë©´ì¬ì‚¬ìš©</h1>
 	<div th:replace="~{ include/top :: header}"></div>
-	<p>¾È³çÇÏ¼¼¿ä</p>
+	<p>ì•ˆë…•í•˜ì„¸ìš”</p>
 	<hr>
 	<div th:replace="~{ include/top :: copy}"></div>
 
 	</body>
 	</html>
+
+///////////////////////////////////////////
+1. Todo ì›¹ ì–´í”Œë¦¬ì¼€ì´ì…˜ êµ¬ì¶•í•˜ê¸°
+    1. ì˜ì¡´ì„± ì„¤ì •
+        
+        ```sql
+            implementation 'org.springframework.boot:spring-boot-starter-web'
+            implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
+            implementation 'org.springframework.boot:spring-boot-starter-validation'
+            runtimeOnly 'com.mysql:mysql-connector-j:8.3.0'
+            implementation("org.mybatis.spring.boot:mybatis-spring-boot-starter:3.0.5")
+        ```
+        
+    2. schema.sql ê³¼ data.sql
+        
+         # schema.sql
+        
+        ```sql
+        create table todo
+        ( id int auto_increment,
+        	userid varchar(255) not null,
+        	description varchar(255) not null,
+        	target_date date not null,
+        	done boolean,
+        	primary key(id)
+        );
+        ```
+        
+        ìë°”ëŠ”
+        
+        ```sql
+        create table member
+        ( userid varchar(255),
+        	password varchar(255) not null,
+        	username date not null,
+        	roll varchar(255) default 'USER' not null,
+        	primary key(userid)
+        );
+        ```
+        
+        # data.sql
+        
+        ```sql
+        insert into todo (id, userid, description, target_date, done)
+        values (1000, 'hong4832', 'Learn Java', DATE_ADD ( NOW(), Interval 1 YEAR), false);
+        
+        insert into todo (id, userid, description, target_date, done)
+        values (1001, 'kim4832', 'Learn SQL', DATE_ADD ( NOW(), Interval 1 MONTH), false);
+        insert into todo (id, userid, description, target_date, done)
+        values (1002, 'kim4832', 'Learn Springboot', DATE_ADD ( NOW(), Interval 10 DAY), false);
+        
+        insert into member (userid, password, username, role)
+        values('hong4832','1234','í™ê¸¸ë™','ADMIN');
+        insert into member ( userid, password, username, role)
+        values('kim4832', '1234','ê¹€ìœ ì‹ ','USER');
+        ```
+        
+
+1. application.yml ì„¤ì •
+    - mysql ì •ë³´ ì„¤ì •
+    - mybatis ( mapper/alias )
+    
+    ```sql
+    #spring.application.name=demo
+    
+    spring:
+      application:
+        name: demo
+    
+          datasource:
+            url: jdbc:mysql://localhost:3306/testdb
+            driver-class-name: com.mysql.cj.jdbc.Driver
+            username: root
+            password: 1234
+    
+          #schema.sql ê³¼ data.sql ê´€ë¦¬ ê°€ëŠ¥ ( always|never )
+          sql:
+            init:
+              mode: always
+    
+          mvc:
+            pathmatch:
+              matching-strategy: ant_path_matcher:
+    
+        # TodoMapper.xml ê³¼  DTO ë³„ì¹­ ì„¤ì •
+        mybatis:
+          mapper-locations: com/exam/config/TodoMapper.xml
+          type-aliases-package: com.exam.dto
+          configuration:
+            map-underscore-to-camel-case: true
+    
+        # ê°œë°œë‹¨ê³„ì—ì„œ SQL í™•ì¸
+        logging:
+          level:
+            mapperíŒ¨í‚¤ì§€ëª…:
+    ```
+    
+1. DTO ì‘ì„±
+    
+    ê°€. 
+com.exam.dto.TodoDTO.java
+
+    
+    ```sql
+    @Alias("TodoDTO")
+    public class TodoDTO{
+    
+    int id;
+    String userid;
+    String description;
+    LocalDate targetDate; //ì‹¤ì œ ì»¬ëŸ¼ëª…ì€ target_date
+    boolean done;
+    
+    //ìƒì„±ì
+    //getter,setter
+    //toString
+    }
+    ```
+    
+    ë‚˜. 
+com.exam.dto.MemberDTO.java
+
+    
+    ```sql
+    public class MembaerDTO{
+    
+    String userid;
+    String password;
+    String username;
+    String role;
+    
+    //ìƒì„±ì
+    //getter,setter
+    //toString
+    }
+    ```
+    
+2. src/main/resources/com/exam/mapper/MemberMapper.xml
+    
+    ```sql
+    <?xml version="1.0" encoding="UTF-8" ?>
+    <!DOCTYPE mapper
+            PUBLIC "-
+//mybatis.org//DTD
+ Mapper 3.0//EN"
+            "
+https://mybatis.org/dtd/mybatis-3-mapper.dtd
+">
+    <mapper namespace="com.exam.config.MemberMapper">
+    
+        <insert id="signup" parameterType="MemberDTO">
+            insert into member(userid,password,username)
+            values(#{userid},#{password},#{username})
+        </insert>
+    
+        <select id="authenticate" parameterType="" resultType="MemberDTO">
+            select userid,password.username,role
+            from member
+            where userid = #{userid} and password=#{password}
+        </select>
+    </mapper>
+    ```
+    
+    src/main/resources/com/exam/DTO/MemberMapper.java
+    
+    ```sql
+    @Mapper
+    public interface MemberMapper {
+        int signup(MemberDTO dto);
+        MemberDTO authenticate(Map<String,String> map);
+    }
+    ```
+    
+3. src/main/resources/com/exam/mapper/TodoMapper.xml
+    
+    ```sql
+    <?xml version="1.0" encoding="UTF-8" ?>
+    <!DOCTYPE mapper
+            PUBLIC "-
+//mybatis.org//DTD
+ Mapper 3.0//EN"
+            "
+https://mybatis.org/dtd/mybatis-3-mapper.dtd
+">
+    <mapper namespace="com.exam.config.TodoMapper">
+    
+        <select id="findAll" resultType="TodoDTO">
+                select id, userid, description, target_date, done
+                from todo
+                where userid=#{userid}
+        </select>
+        <select id="findById" resultType="TodoDTO" parameterType="int">
+            select id, userid, description, target_date, done
+            from todo
+            where id=#{id}
+        </select>
+        <insert id="save" parameterType="TodoDTO">
+            insert into todo ( id, userid, description, target_date, done )
+            values (#{userid}, #{description}, #{target_date}, false )
+        </insert>
+        <update id="updateById" parameterType="TodoDTO">
+            update todo
+            set description = #{description}, target_date = #{target_date}, done=#{done}
+            where id=#{id}
+        </update>
+        <delete id="deleteById" parameterType="int">
+            delete from todo
+            where id=#{id}
+        </delete>
+    </mapper>
+    
+    ```
+    
+    src/main/resources/com/exam/DTO/TodoMapper.java
+    
+    ```sql
+    @Mapper
+    public interface TodoMapper {
+        List<TodoDTO> findAll(String userid);
+        TodoDTO findById(int id);
+    
+        int save(TodoDTO dto);
+        int updateById(TodoDTO dto);
+        int deleteById(int dto);
+       }
+    ```
+    
+4. Service ì‘ì„±
+    1. ë¡œê·¸ì¸ ì„œë¹„ìŠ¤
+           com.exam.service.AuthenticationService
+        	 com.exam.service.AuthenticationServiceImpl
+        
+        
+    2. íšŒì›ê°€ì…ì„œë¹„ìŠ¤
+        
+         com.exam.service.MemberService
+          com.exam.service.MemberServiceImpl
+        
+        
+    3. Todoì„œë¹„ìŠ¤ 
+
+     com.exam.service.TodoService
+      com.exam.service.TodoServiceImple
+
+5. Controller ì‘ì„±
+
+   1) com.exam.controller.HomeController.java
+	
+	- ë©”ì¸ í™ˆí˜ì´ì§€ ë³´ê¸°
+
+  
+   2) com.exam.controller.MemberController.java
+   
+       -íšŒì›ê°€ì…ì‹œ ìœ íš¨ì„± ê²€ì¦
+
+       ê°€. ì˜ì¡´ì„±
+        implementation 'org.springframework.boot:spring-boot-starter-validation'
+
+       ë‚˜. DTOì— ì˜ì¡´ì„± ì–´ë…¸í…Œì´ì…˜ ì„¤ì •
+           @Alias("MemberDTO")
+	public class MemberDTO{
+
+	    @NotBlank(message = "ì ì–´ë„ í•œê¸€ì ì´ìƒ ì…ë ¥í•˜ì„¸ìš”")
+	    String userid;
+	    @NotBlank(message = "ì ì–´ë„ í•œê¸€ì ì´ìƒ ì…ë ¥í•˜ì„¸ìš”")
+	    String password;
+	    @NotBlank(message = "ì ì–´ë„ í•œê¸€ì ì´ìƒ ì…ë ¥í•˜ì„¸ìš”")
+	    String username;
+	    String role;
+
+      ë‹¤. Controllerì—ì„œ @GetMappingê³¼ @PostMapping êµ¬í˜„ ( MemberDTOë¥¼ ëª¨ë¸ë¡œ ê³µìœ í•´ì•¼ ë¨ (************))
+         - ì¶”ê°€ë¡œ memberForm.htmlì˜ <form>ê³¼ ê³µìœ í•´ì•¼ë¨.
+     
+       
+   3) com.exam.controller.LoginController.java
+
+         - ì¶”ê°€ë¡œ ë¡œê·¸ì¸ ê²€ì¦ í•˜ì.
+
+
+   4) com.exam.controller.TodoController.java
