@@ -2917,3 +2917,300 @@ https://mybatis.org/dtd/mybatis-3-mapper.dtd
 	  사용자명은 user로 통일됨.
           Using generated security password: 19d90a6c-f632-4b55-a157-71d2a88d6c37
 
+         재시작하면 비밀번호는 항상 변경됨.
+
+   나. SecurityFilterChain 커스터마이징
+
+      # com.exam.security.SecurityConfig.java
+
+        package com.exam.security;
+
+	import org.springframework.context.annotation.Bean;
+	import org.springframework.context.annotation.Configuration;
+
+	import org.springframework.security.config.annotation.web.builders.HttpSecurity;
+	import org.springframework.security.config.annotation.web.configurers.AbstractHttpConfigurer;
+	import org.springframework.security.web.SecurityFilterChain;
+
+	@Configuration
+	public class SecurityConfig {
+
+
+	    @Bean
+	    public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
+		// csrf 비활성화 ( 실무에서는 활성화 권장 )
+		//http.csrf(csrf -> csrf.disable());
+		http.csrf(AbstractHttpConfigurer::disable);
+
+		//어떤 요청을 인증/비인증해야 되는지 설정
+		http.authorizeHttpRequests(authorize ->
+				authorize
+					.requestMatchers("/","/home","/signup","/login").permitAll()
+				.anyRequest().authenticated()
+			);
+
+		// 인증하기 위한 로그인 화면 구성하기
+		http.formLogin(form ->
+			form
+				// login화면을 보여주는 url 명시
+				// @GetMapping("/login")
+				.loginPage("/login")
+				// loginForm.html에서 사용하는 action값, name값 설정
+				/*
+				    <form  th:action="@{/auth}" method="post">
+					아이디:<input type="text" name="userid"><br>
+					비밀번호:<input type="text" name="password"><br>
+				      <input type="submit" value="로그인">
+				    </form>
+				 */
+				.loginProcessingUrl("/auth")
+				.usernameParameter("userid")
+				.passwordParameter("password")
+				//.successForwardUrl("/home")  // forward 요청
+				// true로 지정하면 이전에 가고자하는 경로가 아닌 /home으로 무조건 감.
+				.defaultSuccessUrl("/home", true) //redirect
+			       //failureForwardUrl()  // forward 요청
+				// error=true 파라미터는 LoginForm.html에서 사용됨
+				.failureUrl("/login?error=true")
+				.permitAll());
+			      // 거의 대부분의 요청을 redirect로 처리함( PRG 패턴 )
+
+		  // 로그아웃 설정
+		  http.logout(logout ->
+			  logout
+				  // logout를 처리할 떄 사용하는 url경로지정
+				  .logoutUrl("/logout")
+				  .logoutSuccessUrl("/home")
+				  .invalidateHttpSession(true) // session.invalidate() 동ㅇㄹ
+				  .deleteCookies("JSESSIONID")  // 클라이언트에 남아있는 쿠키삭제
+				  .permitAll());
+
+
+		return http.build();
+	    }
+
+	      // 암호화할 때 사용하는 빈
+		    @Bean
+		    public PasswordEncoder passwordEncoder() {
+			return new BCryptPasswordEncoder();
+		    }
+	}
+
+
+     다. com.exam.security.CustomUserDetailsService.java
+        ==> 사용자가 입력한 userid와 password 비교처리
+
+	   package com.exam.security;
+
+import com.exam.dto.MemberDTO;
+import com.exam.service.MemberService;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
+import org.springframework.stereotype.Service;
+
+import java.util.List;
+
+@Service
+public class CustomUserDetailsService implements UserDetailsService {
+
+    MemberService memberService;
+    public CustomUserDetailsService(MemberService memberService) {
+        this.memberService = memberService;
+    }
+
+    // 사용자가 loginForm에서 로그인 버튼을 클릭했을 때 자동호출
+    @Override
+    public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
+        // 실제로 사용되는 식별자는 userid임.
+        // DB에서 해당되는 username(정확히는 userid)가 존재하는지 체크
+        // 비번는 내부적으로 체크함. ( SpringSecurity 6버전부터 지원)
+        MemberDTO dto = memberService.findById(username);
+        if(dto == null){
+            throw new UsernameNotFoundException(username+" 에 해당하는 사용자는 없습니다.");
+        }
+        // 세션(SecurityContextHolder)에 저장할 객체 생성
+//        return new CustomUserDetails(dto, List.of(new SimpleGrantedAuthority("ROLE_USER")));
+        return new CustomUserDetails(dto, List.of(new SimpleGrantedAuthority("ROLE_USER")));
+    }
+}
+	
+     라. com.exam.security.CustomUserDetails.java
+
+         package com.exam.security;
+
+import com.exam.dto.MemberDTO;
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.userdetails.UserDetails;
+
+import java.util.Collection;
+import java.util.List;
+
+public class CustomUserDetails implements UserDetails {
+
+    MemberDTO dto;
+    Collection<? extends GrantedAuthority>  authorities; // ROLE 정보
+
+    public CustomUserDetails(MemberDTO dto, Collection<? extends GrantedAuthority> authorities) {
+        this.dto = dto;
+        this.authorities = authorities;
+    }
+    @Override
+    public Collection<? extends GrantedAuthority> getAuthorities() {
+        return authorities;
+    }
+
+    @Override
+    public String getPassword() {
+        return dto.getPassword();
+    }
+
+    @Override
+    public String getUsername() {
+        return dto.getUserid();
+    }
+
+//    @Override
+//    public boolean isAccountNonExpired() {
+//        return true;
+//    }
+//
+//    @Override
+//    public boolean isAccountNonLocked() {
+//        return true;
+//    }
+//
+//    @Override
+//    public boolean isCredentialsNonExpired() {
+//        return true;
+//    }
+//
+//    @Override
+//    public boolean isEnabled() {
+//        return true;
+//    }
+}
+
+    마. MemberContoller.java 
+     
+      => 비번암호화 작업
+	      MemberService memberService;
+	    
+	    //암호화
+	    PasswordEncoder passwordEncoder;
+	    
+	    public MemberController(MemberService memberService, PasswordEncoder passwordEncoder) {
+		this.memberService = memberService;
+		this.passwordEncoder = passwordEncoder;
+	    }
+
+              @PostMapping("/signup")
+    public String  signup(@Valid @ModelAttribute("xxx") MemberDTO memberDTO,
+                          BindingResult bindingResult){
+        //검증실패
+        if(bindingResult.hasErrors()){
+            return "memberForm";
+        }
+
+        //비번 암호화
+        String originalPassword = memberDTO.getPassword();
+        String password =  passwordEncoder.encode(originalPassword);
+        memberDTO.setPassword(password); // 암호화된 비번이 저장
+        
+        
+        //서비스 연동
+        //추가로 예외처리 하기(로컬 또는 전역)
+       int n = memberService.signup(memberDTO);
+
+        //검증성공
+        return "redirect:home";  //PRG 패턴
+    }
+
+
+    바.  header.html 수정
+        
+	- 의존성
+	implementation 'org.thymeleaf.extras:thymeleaf-extras-springsecurity6'
+         https://github.com/thymeleaf/thymeleaf-extras-springsecurity
+	 xmlns:sec="http://www.thymeleaf.org/extras/spring-security"
+   
+ 
+
+        <!DOCTYPE html>
+	<html xmlns:th="http://www.thymeleaf.org"
+	      xmlns:sec="http://www.thymeleaf.org/extras/spring-security"
+	      lang="en">
+	<head>
+	    <meta charset="UTF-8">
+	    <title>Title</title>
+	</head>
+	<body>
+	  <div th:fragment="header">
+	<!-- 인증 안된 경우 -->
+	   <span sec:authorize="isAnonymous()">
+	    <a th:href="@{/login}">로그인</a>
+	    <a th:href="@{/signup}">회원가입</a>
+	   </span>
+	<!-- 인증 된 경우 -->
+	      <span sec:authorize="isAuthenticated()">
+	      <a th:href="@{/logout}">로그아웃</a>
+	      <a th:href="@{/todo-list}">Todo</a>
+	      </span>
+	  </div>
+
+	</body>
+	</html>
+
+    사. TodoContoller.java 수정
+
+       ==> 로그인된 세션정보에서 userid 얻기
+
+         package com.exam.controller;
+
+		import com.exam.dto.TodoDTO;
+		import com.exam.mapper.TodoMapper;
+		import com.exam.security.CustomUserDetails;
+		import com.exam.service.TodoService;
+		import org.springframework.security.core.annotation.AuthenticationPrincipal;
+		import org.springframework.stereotype.Controller;
+		import org.springframework.ui.Model;
+		import org.springframework.web.bind.annotation.GetMapping;
+		import org.springframework.web.bind.annotation.PostMapping;
+		import org.springframework.web.bind.annotation.SessionAttributes;
+
+		import java.util.List;
+
+		@Controller
+
+		public class TodoController {
+		   TodoService todoService;
+		   public TodoController(TodoService todoService) {
+		     this.todoService = todoService;
+		   }
+		    @GetMapping("/todo-list")
+		    public String  todoList (@AuthenticationPrincipal CustomUserDetails userDetails, Model model) {
+		      // 로그인 계정 얻기
+		//        String userid = (String)model.getAttribute("my_login");
+			String userid = userDetails.getUsername();
+			List<TodoDTO> todoList = todoService.findAll(userid);;
+			//모델에 저장
+			model.addAttribute("todoListFindAll",todoList);
+			return "todoList"; // todoList.html
+		    }
+		    //화면 필요
+		    @GetMapping("/todo-add")
+		    public String  todoAddForm() {
+			return "todoAddForm";
+		    }
+		    @PostMapping("/todo-add")
+		    public String  todoAdd(@AuthenticationPrincipal CustomUserDetails userDetails,TodoDTO dto, Model model) {
+			//로그인된 userid 얻기
+		//        String userid = (String)model.getAttribute("my_login");
+			String userid = userDetails.getUsername();
+			dto.setUserid(userid);
+			int n = todoService.save(dto);
+			System.out.println(dto);
+			return "redirect:todo-list";
+		    }
+		}
