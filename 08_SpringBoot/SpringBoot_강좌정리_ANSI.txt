@@ -2896,5 +2896,24 @@ https://mybatis.org/dtd/mybatis-3-mapper.dtd
      - Filter기반으로 인증과 인가를 처리함.
        개발자가 커스터마이징이 가능(******************)
 
+   4) 작업순서
 
+    가. 의존성 설정
+
+       implementation 'org.springframework.boot:spring-boot-starter-security'
+
+    
+      위 처럼 의존성 추가했을 때 실행결과는 다음과 같다.
+
+       - 모든 요청은 반드시 인증처리를 거쳐야 됨.(***************)	
+         즉 자동으로 인증처리 하도록 /login으로 리다이렉트됨.
+	 그리고 인증이 성공하면 원래 요청했던 URL경로로 보여짐.
+
+       - login/logout 자동으로 지원해줌.
+         http://localhost:8080/login  # 로그인 화면으로
+         http://localhost:8080/logout  # 로그아웃 화면으로 
+
+       - 콘솔에 암호화된 비밀번호를 제공함.
+	  사용자명은 user로 통일됨.
+          Using generated security password: 19d90a6c-f632-4b55-a157-71d2a88d6c37
 
