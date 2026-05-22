@@ -3390,4 +3390,331 @@ public class CustomUserDetails implements UserDetails {
 			
 		    return "hello";  // JSON 응답
 		  }
-	
+
+////////////////////////////////////
+ lombok 라이브러리
+ - 용도: DTO 생성하면 생성자,getter/setter, toString 를 항상 만들었음.
+       그런데 생성자,getter/setter, toString를 자동으로 생성해서 지원함.
+
+ - 의존성
+         compileOnly 'org.projectlombok:lombok:1.18.34'
+         annotationProcessor 'org.projectlombok:lombok:1.18.34'
+
+ - intellij에서 설정추가
+
+    settings > Build, Execution, Deploy > Compiler >  Annotation Processors > Enable Annotaion processing 체크하자.
+
+ - 어노테이션 종류
+        @AllArgsConstructor <== 모든 변수를 포함한 생성자
+	@NoArgsConstructor  <== 기본 생성자
+	@Getter             <== getter 메서드  
+	@Setter             <== setter 메서드
+	@ToString           <== toString 메서드
+	@ToString(exclude = "변수명")  <== 지정된 변수명은 제외시키고 toString 메서드 생성됨
+
+////////////////////////////////////
+ DTO 생성하고 값을 초기화하는 방법
+ 1. 생성자이용
+   ex.
+     TodoDTO dto = new TodoDTO(4,"홍길동","Learn SQL");
+
+     문제점: 설정된 값의 의미가 불명확함.
+           어떤 변수에 저장되는지 불명확함.
+
+
+ 2. 메서드이용
+  ex.
+     TodoDTO dto = new TodoDTO()
+     dto.setId(4);
+     dto.setName("홍길동");
+     dto.setJob("Learn SQL");
+ 
+     문제점:  메서드명을 내마음대로 지정하기 때문에 의미가 불명확함
+            set메서드 사용안할 수도 있음. 즉 값설정을 누락될 수 있음.
+
+
+  3.빌더패턴
+     - 원래는 직접 구현해야됨.
+       하지만 lombok를 사용하면 빌더패턴 구현해서 제공함. (***********************)
+     
+     - @Builder  이용
+
+     ex.
+             TodoDTO dto3 = TodoDTO.builder()
+                .id(4)
+                .name("홍길동")
+                .job("Learn SQL")
+                .build();
+
+////////////////////////////////////
+
+
+2. ApiResponse 이용한 응답처리 개선
+
+  - lombok + @Builder 이용해서 생성
+  - 사용자에게 더 많은 정보를 제공하자.
+   
+   ex.
+       {
+	  success:"성공",
+	  message:"요청이 성공했습니다",
+	  data:
+               {
+		"id": 1,
+		"name": "홍길동",
+		"job": "Learn Spring"
+		}
+
+       }
+
+       {
+	  success:"성공",
+	  message:"요청이 성공했습니다",
+	  data:
+               [
+		{
+		"id": 1,
+		"name": "홍길동",
+		"job": "Learn Spring"
+		},
+		{
+		"id": 2,
+		"name": "홍길동",
+		"job": "Learn Vuejs"
+		}
+		]
+       }
+//////////////////////////////////////////////////////////////
+    # ApiResponse.java
+      package com.exam.api;
+
+	import lombok.*;
+
+/*
+{
+	  success: true|false,
+	  message:"요청이 성공했습니다",
+	  data:
+               {
+		"id": 1,
+		"name": "홍길동",
+		"job": "Learn Spring"
+		}
+
+   }
+
+ */
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@ToString
+@Builder
+public class ApiResponse<T> {
+
+    boolean success;
+    String message;
+    T data;
+
+    public static <T> ApiResponse<T> ok(String message, T data) {
+        return ApiResponse.<T>builder()
+                .data(data)
+                .success(true)
+                .message(message)
+                .build();
+    }
+    public static <T> ApiResponse<T> fail(String message, T data) {
+        return ApiResponse.<T>builder()
+                .data(data)
+                .success(false)
+                .message(message)
+                .build();
+    }
+}
+
+ # TodoController.java
+
+      package com.exam.controller;
+
+import com.exam.api.ApiResponse;
+import com.exam.dto.TodoDTO;
+import com.exam.service.TodoMyBatisService;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
+
+@RestController  // @Controller + @ResponseBody
+public class TodoController {
+
+    TodoMyBatisService service;
+    public TodoController(TodoMyBatisService service) {
+        this.service = service;
+    }
+
+    @GetMapping("/welcome")
+    public String welcome(){
+        return "welcome";
+    }
+
+
+    //1. todo 목록보기 ( select )
+    @GetMapping("/todos")
+    public ApiResponse<List<TodoDTO>> todos(){
+        return ApiResponse.ok("Todo 목록조회 성공", service.findAll());
+    }
+   //2. 특정 todo 보기 ( select )
+@GetMapping("/todos/{xxx}")
+public ApiResponse<TodoDTO> todoById(@PathVariable int xxx){
+    TodoDTO dto = service.findById(xxx);
+    if(dto != null){
+        return ApiResponse.ok(xxx + " 특정 id 조회 성공", dto);
+    }else{
+        return ApiResponse.fail(xxx+ " 특정 id 조회 실패", dto);
+    }
+}
+
+    //3. todo 저장
+    @PostMapping("/todos")
+    public ApiResponse<TodoDTO> createTodo(@RequestBody TodoDTO todoDTO){
+        int n = service.save(todoDTO);
+        return ApiResponse.ok("저장 성공", todoDTO);
+    }
+
+    //4. todo 수정 ( 전체수정 )
+@PutMapping("/todos/{id}")
+public ApiResponse<TodoDTO> updateTodo(@PathVariable int id, @RequestBody TodoDTO todoDTO){
+    todoDTO.setId(id);
+    service.updateById(todoDTO);
+    return ApiResponse.ok("수정 성공", todoDTO);
+}
+
+    //4. todo 삭제
+    // delete  http://locahost:8080/todos/4
+    @DeleteMapping("/todos/{id}")
+    public ApiResponse<Void> deleteTodo(@PathVariable int id){
+        int n  = service.deleteById(id);
+        return ApiResponse.ok("삭제 성공",null);
+    }
+}
+
+/////////////////////////////////////////////////////
+3. ResponseEntity + ApiResponse 이용한 응답처리 개선
+package com.exam.controller;
+
+import com.exam.api.ApiResponse;
+import com.exam.dto.TodoDTO;
+import com.exam.service.TodoMyBatisService;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
+
+import java.net.URI;
+import java.util.List;
+
+@RestController  // @Controller + @ResponseBody
+public class TodoController {
+
+    TodoMyBatisService service;
+    public TodoController(TodoMyBatisService service) {
+        this.service = service;
+    }
+
+    @GetMapping("/welcome")
+    public String welcome(){
+        return "welcome";
+    }
+
+
+    //1. todo 목록보기 ( select )
+//    @GetMapping("/todos")
+//    public ApiResponse<List<TodoDTO>> todos(){
+//        return ApiResponse.ok("Todo 목록조회 성공", service.findAll());
+//    }
+    @GetMapping("/todos")
+    /*
+         ok(T) ==> ResponseEntity<T>
+     */
+    public ResponseEntity<ApiResponse<List<TodoDTO>>> getAllTodos(){
+        ApiResponse<List<TodoDTO>> result = ApiResponse.ok("Todo 목록조회 성공", service.findAll());
+        return ResponseEntity.ok(result);
+//        return ResponseEntity.noContent().build();
+    }
+
+
+   //2. 특정 todo 보기 ( select )
+//@GetMapping("/todos/{xxx}")
+//public ApiResponse<TodoDTO> todoById(@PathVariable int xxx){
+//    TodoDTO dto = service.findById(xxx);
+//    if(dto != null){
+//        return ApiResponse.ok(xxx + " 특정 id 조회 성공", dto);
+//    }else{
+//        return ApiResponse.fail(xxx+ " 특정 id 조회 실패", dto);
+//    }
+//}
+
+    @GetMapping("/todos/{xxx}")
+    public ResponseEntity<ApiResponse<TodoDTO>> todoById(@PathVariable int xxx){
+        TodoDTO dto = service.findById(xxx);
+        if(dto == null){
+//                return ResponseEntity.notFound().build();
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(ApiResponse.fail(xxx+ " 특정 id 조회 실패", dto));
+        }else{
+              return  ResponseEntity.ok(ApiResponse.ok(xxx + " 특정 id 조회 성공", dto));
+        }
+    }
+
+
+
+    //3. todo 저장
+//    @PostMapping("/todos")
+//    public ApiResponse<TodoDTO> createTodo(@RequestBody TodoDTO todoDTO){
+//        int n = service.save(todoDTO);
+//        return ApiResponse.ok("저장 성공", todoDTO);
+//    }
+    @PostMapping("/todos")
+    public ResponseEntity<ApiResponse<TodoDTO>> addTodo(@RequestBody TodoDTO todoDTO){
+        int n = service.save(todoDTO);
+        ApiResponse<TodoDTO> result = ApiResponse.ok("저장 성공", todoDTO);
+
+        // 역할: 현재 새로 생성된 Todo를 볼수 있는 링크 자동 생생.
+        URI location =  ServletUriComponentsBuilder
+                        .fromCurrentRequest()
+                .path("/{id}")
+                .buildAndExpand(todoDTO.getId()) // 위 {id}에 설정
+                .toUri();
+
+        return ResponseEntity.created(location).body(result);
+    }
+
+    
+    //4. todo 수정 ( 전체수정 )
+//@PutMapping("/todos/{id}")
+//public ApiResponse<TodoDTO> updateTodo(@PathVariable int id, @RequestBody TodoDTO todoDTO){
+//    todoDTO.setId(id);
+//    service.updateById(todoDTO);
+//    return ApiResponse.ok("수정 성공", todoDTO);
+//}
+    @PutMapping("/todos/{id}")
+    public ResponseEntity<ApiResponse<TodoDTO>>updateTodo(@PathVariable int id, @RequestBody TodoDTO todoDTO){
+        todoDTO.setId(id);
+        service.updateById(todoDTO);
+        ApiResponse<TodoDTO> result = ApiResponse.ok("수정 성공", todoDTO);
+        return ResponseEntity.ok(result);
+    }
+    //4. todo 삭제
+    // delete  http://locahost:8080/todos/4
+ /*   @DeleteMapping("/todos/{id}")
+    public ApiResponse<Void> deleteTodo(@PathVariable int id){
+        int n  = service.deleteById(id);
+        return ApiResponse.ok("삭제 성공",null);
+    }*/
+    @DeleteMapping("/todos/{id}")
+    public ResponseEntity<ApiResponse<Void>> deleteTodo(@PathVariable int id){
+        int n  = service.deleteById(id);
+//        return ResponseEntity.ok(ApiResponse.ok("삭제 성공",null));
+        return ResponseEntity.noContent()
+                .header("X-request-result","delete")
+                .build();
+    }
+}
