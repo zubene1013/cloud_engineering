@@ -3276,6 +3276,7 @@ public class CustomUserDetails implements UserDetails {
 
 		-POST: INSERT ( 멱등성 존재안함)
 		       @PostMapping
+		       Content-Type: application/json  (매우 중요함)
 
 		-DELETE :  DELETE (명등성 존재)
 			@DeleteMapping
@@ -3283,10 +3284,12 @@ public class CustomUserDetails implements UserDetails {
 		-PUT    : UPDATE (명등성 존재)
 			  전체데이터 모두 수정.
 			@PutMapping
+			Content-Type: application/json  (매우 중요함)
 
 		-PATCH  : UPDATE (명등성 존재)
 		          데이터 일부분만 수정
 			@PatchMapping
+			Content-Type: application/json  (매우 중요함)
   
              ==> 위와 같이 요청할 수 있는 도구가 필요함. ex. curl, postman, Talend API Tester(크롬 플러그인)
 
