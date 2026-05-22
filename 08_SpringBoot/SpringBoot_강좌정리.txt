@@ -3315,7 +3315,7 @@ public class CustomUserDetails implements UserDetails {
 	  나. REST 방식
 
 	   // @Controller
-	     @RestController  // 
+	     @RestController  // @Controller  + @ResponseBody
 	      public class TestController{
 	      
 	         @GetMapping("/welCome")
@@ -3331,3 +3331,60 @@ public class CustomUserDetails implements UserDetails {
 			
 		    return new LoginDTO("inky","1234"); // JSON 응답
 		  }
+
+
+   (4) 클라이언트에서 서버로 전달하는 파라미터 차이점
+
+        
+	  가. SOAP 방식
+	     - 일반적으로 queryString 방식으로 데이터를 전달함.
+	       
+	       ex.  문법: http://localhost:8080/요청매핍값?key=value&key=value
+	        
+	            http://localhost:8080/todo?id=1000
+	            http://localhost:8080/todo?id=1000&description=xxx
+
+
+	     - @RequestParam 이용	
+
+	     - queryString은 요청 URL에 포함이 안됨.
+	       즉 http://localhost:8080/todo 까지임.
+	       
+
+	  나. REST 방식
+
+	    - 일반적으로 queryString 방식 대신에 URL에 데이터를 포함하여 전달함.
+
+	      ex. 문법: http://localhost:8080/요청매핍값/값1/값2
+	      
+	          http://localhost:8080/todo/1000
+		  http://localhost:8080/todo/2000
+	          http://localhost:8080/todo/1000/xxx
+
+	   - @PathVariable 이용
+
+	   - 전달값은 요청 URL에 포함이 은.
+	       즉 http://localhost:8080/todo/값 값지임.
+
+		
+		예>
+		  http://localhost:8080/todo/1000
+		  http://localhost:8080/todo/2000
+
+                  @GetMapping("/todo/{id}")
+		  public String showPage(@PathVariable("id") int id  ){
+			
+		    return "hello";  // JSON 응답
+		  }
+		
+		 http://localhost:8080/todo/1000/xxx
+		 http://localhost:8080/todo/1000/yyy
+
+		 @GetMapping("/todo/{id}/{description}")
+		  public String showPage(@PathVariable("id") int id,
+					 @PathVariable("description") String description
+		                         ){
+			
+		    return "hello";  // JSON 응답
+		  }
+	
