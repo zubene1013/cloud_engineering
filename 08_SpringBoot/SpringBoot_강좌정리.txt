@@ -3718,3 +3718,65 @@ public class TodoController {
                 .build();
     }
 }
+
+/////////////////////////////////////////////////////
+4. 예외처리 ( 전역예외처리 이용 )
+
+  1) 사용자 예외클래스 생성
+
+     - extends RuntimeException (***********, extends Exception 이 아님 )
+
+     ex. RecordNotFoundException.java
+     
+        package com.exam.exception;
+
+	public class RecordNotFoundException extends RuntimeException{
+	    public RecordNotFoundException(String message) {
+		super(message);
+	    }
+	}
+
+ 2) 전역 예외처리 생성 ( @RestControllerAdvice 사용 )
+   
+     package com.exam.exception;
+
+import com.exam.api.ApiResponse;
+import com.exam.dto.TodoDTO;
+import com.exam.service.TodoMyBatisService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.ExceptionHandler;
+import org.springframework.web.bind.annotation.RestControllerAdvice;
+
+@RestControllerAdvice
+public class RestGlobalExceptionHandler {
+
+    //필요한 빈 주입 가능.
+    @Autowired
+    TodoMyBatisService service;
+
+    @ExceptionHandler(RecordNotFoundException.class)
+    public ResponseEntity<ApiResponse<TodoDTO>> handleException(Exception e) {
+        System.out.println("RestGlobalExceptionHandler>>>>>>>>>>>>>>>>>");
+        return ResponseEntity.status(HttpStatus.NOT_FOUND).
+                body(ApiResponse.fail(e.getMessage(), null));
+    }
+}
+
+ 3) Controller에서 명시적 예외 발생
+
+         //2. 특정 todo 보기 ( select )
+    @GetMapping("/todos/{xxx}")
+    public ResponseEntity<ApiResponse<TodoDTO>> todoById(@PathVariable int xxx){
+        TodoDTO dto = service.findById(xxx);
+        if(dto == null){
+//                return ResponseEntity.notFound().build();
+//            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(ApiResponse.fail(xxx+ " 특정 id 조회 실패", dto));
+             throw new RecordNotFoundException(xxx+ " 특정 id 조회 실패");
+        }else{
+              return  ResponseEntity.ok(ApiResponse.ok(xxx + " 특정 id 조회 성공", dto));
+        }
+    }
+
+   /////////////////////////////////////////////////////////////////////
